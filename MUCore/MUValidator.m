@@ -1,0 +1,292 @@
+//
+//  MUValidator.m
+//  ROM
+//
+//  Created by Malaar on 7/12/11.
+//  Copyright 2011 __MyCompanyName__. All rights reserved.
+//
+
+#import "MUValidator.h"
+
+
+//==============================================================================
+//==============================================================================
+//==============================================================================
+@implementation MUValidator
+
+@synthesize validatableObject;
+
+//==============================================================================
+- (BOOL) validate
+{
+    return NO;
+}
+
+@end
+
+//==============================================================================
+//==============================================================================
+//==============================================================================
+@implementation MUValidatorAny
+
+//==============================================================================
+- (BOOL) validate
+{
+    return YES;
+}
+
+@end
+
+//==============================================================================
+//==============================================================================
+//==============================================================================
+@implementation MUValidatorNumber
+
+//==============================================================================
+- (BOOL) validate
+{
+    NSRegularExpression* regExp = [[NSRegularExpression alloc]initWithPattern:@"^[0-9]+$" options:NSRegularExpressionCaseInsensitive error:nil];
+    NSUInteger count = 0;
+    if(validatableObject && validatableObject.validatableText)
+        count = [regExp numberOfMatchesInString:validatableObject.validatableText options:0 range:NSMakeRange(0, [validatableObject.validatableText length])];
+    [regExp release];
+    return count == 1;
+}
+
+@end
+
+//==============================================================================
+//==============================================================================
+//==============================================================================
+@implementation MUValidatorLetters
+
+//==============================================================================
+- (BOOL) validate
+{
+    NSRegularExpression* regExp = [[NSRegularExpression alloc]initWithPattern:@"^[A-Za-z]+$" options:NSRegularExpressionCaseInsensitive error:nil];
+    NSUInteger count = 0;
+    if(validatableObject && validatableObject.validatableText)
+        count = [regExp numberOfMatchesInString:validatableObject.validatableText options:0 range:NSMakeRange(0, [validatableObject.validatableText length])];
+    [regExp release];
+    return count == 1;
+}
+
+@end
+
+//==============================================================================
+//==============================================================================
+//==============================================================================
+@implementation MUValidatorWords
+
+//==============================================================================
+- (BOOL) validate
+{
+    NSRegularExpression* regExp = [[NSRegularExpression alloc]initWithPattern:@"^([A-Za-z]| )+$" options:NSRegularExpressionCaseInsensitive error:nil];
+    NSUInteger count = 0;
+    if(validatableObject && validatableObject.validatableText)
+        count = [regExp numberOfMatchesInString:validatableObject.validatableText options:0 range:NSMakeRange(0, [validatableObject.validatableText length])];
+    [regExp release];
+    return count == 1;
+}
+
+@end
+
+//==============================================================================
+//==============================================================================
+//==============================================================================
+@implementation MUValidatorEmail
+
+//==============================================================================
+- (BOOL) validate
+{
+    static NSString* mailRegExp = @"^[A-Z0-9._%+-]+@(?:[A-Z0-9-]+\\.)+(?:[A-Z]{2}|com|org|net|edu|gov|mil|biz|info|mobi|name|aero|asia|jobs|museum)$";
+    NSRegularExpression* regExp = [[NSRegularExpression alloc]initWithPattern:mailRegExp options:NSRegularExpressionCaseInsensitive error:nil];
+    NSUInteger count = 0;
+    if(validatableObject && validatableObject.validatableText)
+        count = [regExp numberOfMatchesInString:validatableObject.validatableText options:0 range:NSMakeRange(0, [validatableObject.validatableText length])];
+    [regExp release];
+    return count == 1;
+}
+
+@end
+
+//==============================================================================
+//==============================================================================
+//==============================================================================
+@implementation MUValidatorEqual
+
+//==============================================================================
+- (id) initWithTestedField:(id<MUValidationProtocol>)aTestedObject
+{
+    if( (self = [super init]) )
+    {
+        testedObject = [aTestedObject retain];
+    }
+    
+    return self;
+}
+
+//==============================================================================
+- (void) dealloc
+{
+    [testedObject release];
+    
+    [super dealloc];
+}
+
+//==============================================================================
+- (BOOL) validate
+{
+    return [validatableObject.validatableText isEqualToString:testedObject.validatableText];
+}
+
+@end
+
+//==============================================================================
+//==============================================================================
+//==============================================================================
+@implementation MUValidatorNotEmpty
+
+//==============================================================================
+- (BOOL) validate
+{
+    validatableObject.validatableText = [validatableObject.validatableText stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    return [validatableObject.validatableText length] > 0;
+}
+
+@end
+
+//==============================================================================
+//==============================================================================
+//==============================================================================
+@implementation MUValidatorUSAZipCode
+
+//==============================================================================
+- (BOOL) validate
+{
+    NSRegularExpression* regExp = [[NSRegularExpression alloc]initWithPattern:@"^[0-9]+$" options:NSRegularExpressionCaseInsensitive error:nil];
+    NSUInteger count = 0;
+    if(validatableObject && validatableObject.validatableText && [validatableObject.validatableText length] == 5)
+    {
+        count = [regExp numberOfMatchesInString:validatableObject.validatableText options:0 range:NSMakeRange(0, [validatableObject.validatableText length])];
+    }
+    [regExp release];
+    return count == 1;
+}
+
+@end
+
+//==============================================================================
+//==============================================================================
+//==============================================================================
+@implementation MUValidatorFullName
+
+//==============================================================================
+- (BOOL) validate
+{
+    NSRegularExpression* regExp = [[NSRegularExpression alloc]initWithPattern:@"^([A-Za-z])+ ([A-Za-z])+$" options:NSRegularExpressionCaseInsensitive error:nil];
+    NSUInteger count = 0;
+    if(validatableObject && validatableObject.validatableText)
+        count = [regExp numberOfMatchesInString:validatableObject.validatableText options:0 range:NSMakeRange(0, [validatableObject.validatableText length])];
+    [regExp release];
+    return count == 1;
+}
+
+@end
+
+//==============================================================================
+//==============================================================================
+//==============================================================================
+@implementation MUValidatorURL
+
+//==============================================================================
+- (BOOL) validate
+{
+    validatableObject.validatableText = [validatableObject.validatableText stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    
+    NSRegularExpression* regExp = [[NSRegularExpression alloc]initWithPattern:@"^http(s)?://[a-z0-9-]+(.[a-z0-9-]+)+(:[0-9]+)?(/.*)?$" options:NSRegularExpressionCaseInsensitive error:nil];
+    NSUInteger count = 0;
+    if(validatableObject && validatableObject.validatableText)
+        count = [regExp numberOfMatchesInString:validatableObject.validatableText options:0 range:NSMakeRange(0, [validatableObject.validatableText length])];
+    [regExp release];
+    
+    return count == 1;
+}
+
+@end
+
+//==============================================================================
+//==============================================================================
+//==============================================================================
+@implementation MUValidatorIntWithRange
+
+//==============================================================================
+- (id)initWithRange:(NSRange)aRange
+{
+    self = [super init];
+    if (self)
+    {
+        range = aRange;
+    }
+    return self;
+}
+
+//==============================================================================
+- (BOOL) validate
+{
+    validatableObject.validatableText = [validatableObject.validatableText stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    NSString *pattern = [NSString stringWithFormat:@"^[0-9]{%d,%d}$", range.location, range.location + range.length];
+    NSRegularExpression* regExp = [[NSRegularExpression alloc]initWithPattern:pattern options:NSRegularExpressionCaseInsensitive error:nil];
+    NSUInteger count = 0;
+    if(validatableObject && validatableObject.validatableText)
+        count = [regExp numberOfMatchesInString:validatableObject.validatableText options:0 range:NSMakeRange(0, [validatableObject.validatableText length])];
+    [regExp release];
+    
+    return count == 1;
+}
+
+@end
+
+//==============================================================================
+//==============================================================================
+//==============================================================================
+@implementation MUValidatorMoney
+
+- (BOOL) validate
+{
+    validatableObject.validatableText = [validatableObject.validatableText stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    
+//    NSRegularExpression* regExp = [[NSRegularExpression alloc]initWithPattern:@"(^[1-9]+([0])?(\\.[0-9]{1,2})?$)|(^[0](\\.([1-9][0-9]?)|([0-9][1-9]))$)" options:NSRegularExpressionCaseInsensitive error:nil];
+//    NSUInteger count = 0;
+    
+    NSUInteger count = 0;
+    
+    if(validatableObject && validatableObject.validatableText)
+    {    
+        NSRegularExpression* regExp = [[NSRegularExpression alloc]initWithPattern:@"^[1-9]+([0])?(\\.[0-9]{1,2})?$" options:NSRegularExpressionCaseInsensitive error:nil];
+        count = [regExp numberOfMatchesInString:validatableObject.validatableText options:0 range:NSMakeRange(0, [validatableObject.validatableText length])];
+        [regExp release];
+
+        if (count == 0) 
+        {
+            regExp = [[NSRegularExpression alloc]initWithPattern:@"^[0]\\.[1-9]([0-9])?$" options:NSRegularExpressionCaseInsensitive error:nil];
+            count = [regExp numberOfMatchesInString:validatableObject.validatableText options:0 range:NSMakeRange(0, [validatableObject.validatableText length])];
+            [regExp release];
+        }
+        
+        if (count == 0)
+        {
+            regExp = [[NSRegularExpression alloc]initWithPattern:@"^[0]\\.[0-9][1-9]$" options:NSRegularExpressionCaseInsensitive error:nil];
+            count = [regExp numberOfMatchesInString:validatableObject.validatableText options:0 range:NSMakeRange(0, [validatableObject.validatableText length])];
+            [regExp release];
+        }
+    }
+    
+    return count == 1;
+}
+
+@end
+
+//==============================================================================
+//==============================================================================
+//==============================================================================

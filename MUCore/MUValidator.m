@@ -15,11 +15,19 @@
 @implementation MUValidator
 
 @synthesize validatableObject;
+@synthesize errorMessage;
 
 //==============================================================================
 - (BOOL) validate
 {
     return NO;
+}
+
+//==============================================================================
+- (void) dealloc
+{
+    [errorMessage release];
+    [super dealloc];
 }
 
 @end
@@ -45,6 +53,7 @@
 //==============================================================================
 - (BOOL) validate
 {
+    validatableObject.validatableText = [validatableObject.validatableText stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
     NSRegularExpression* regExp = [[NSRegularExpression alloc]initWithPattern:@"^[0-9]+$" options:NSRegularExpressionCaseInsensitive error:nil];
     NSUInteger count = 0;
     if(validatableObject && validatableObject.validatableText)
@@ -63,6 +72,7 @@
 //==============================================================================
 - (BOOL) validate
 {
+    validatableObject.validatableText = [validatableObject.validatableText stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
     NSRegularExpression* regExp = [[NSRegularExpression alloc]initWithPattern:@"^[A-Za-z]+$" options:NSRegularExpressionCaseInsensitive error:nil];
     NSUInteger count = 0;
     if(validatableObject && validatableObject.validatableText)
@@ -81,6 +91,7 @@
 //==============================================================================
 - (BOOL) validate
 {
+    validatableObject.validatableText = [validatableObject.validatableText stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
     NSRegularExpression* regExp = [[NSRegularExpression alloc]initWithPattern:@"^([A-Za-z]| )+$" options:NSRegularExpressionCaseInsensitive error:nil];
     NSUInteger count = 0;
     if(validatableObject && validatableObject.validatableText)
@@ -99,6 +110,7 @@
 //==============================================================================
 - (BOOL) validate
 {
+    validatableObject.validatableText = [validatableObject.validatableText stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
     static NSString* mailRegExp = @"^[A-Z0-9._%+-]+@(?:[A-Z0-9-]+\\.)+(?:[A-Z]{2}|com|org|net|edu|gov|mil|biz|info|mobi|name|aero|asia|jobs|museum)$";
     NSRegularExpression* regExp = [[NSRegularExpression alloc]initWithPattern:mailRegExp options:NSRegularExpressionCaseInsensitive error:nil];
     NSUInteger count = 0;
@@ -137,6 +149,7 @@
 //==============================================================================
 - (BOOL) validate
 {
+    validatableObject.validatableText = [validatableObject.validatableText stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
     return [validatableObject.validatableText isEqualToString:testedObject.validatableText];
 }
 
@@ -164,6 +177,7 @@
 //==============================================================================
 - (BOOL) validate
 {
+    validatableObject.validatableText = [validatableObject.validatableText stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
     NSRegularExpression* regExp = [[NSRegularExpression alloc]initWithPattern:@"^[0-9]+$" options:NSRegularExpressionCaseInsensitive error:nil];
     NSUInteger count = 0;
     if(validatableObject && validatableObject.validatableText && [validatableObject.validatableText length] == 5)
@@ -184,6 +198,7 @@
 //==============================================================================
 - (BOOL) validate
 {
+    validatableObject.validatableText = [validatableObject.validatableText stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
     NSRegularExpression* regExp = [[NSRegularExpression alloc]initWithPattern:@"^([A-Za-z])+ ([A-Za-z])+$" options:NSRegularExpressionCaseInsensitive error:nil];
     NSUInteger count = 0;
     if(validatableObject && validatableObject.validatableText)
@@ -203,7 +218,6 @@
 - (BOOL) validate
 {
     validatableObject.validatableText = [validatableObject.validatableText stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-    
     NSRegularExpression* regExp = [[NSRegularExpression alloc]initWithPattern:@"^http(s)?://[a-z0-9-]+(.[a-z0-9-]+)+(:[0-9]+)?(/.*)?$" options:NSRegularExpressionCaseInsensitive error:nil];
     NSUInteger count = 0;
     if(validatableObject && validatableObject.validatableText)
@@ -254,13 +268,8 @@
 
 - (BOOL) validate
 {
-    validatableObject.validatableText = [validatableObject.validatableText stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-    
-//    NSRegularExpression* regExp = [[NSRegularExpression alloc]initWithPattern:@"(^[1-9]+([0])?(\\.[0-9]{1,2})?$)|(^[0](\\.([1-9][0-9]?)|([0-9][1-9]))$)" options:NSRegularExpressionCaseInsensitive error:nil];
-//    NSUInteger count = 0;
-    
-    NSUInteger count = 0;
-    
+    validatableObject.validatableText = [validatableObject.validatableText stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];    
+    NSUInteger count = 0;    
     if(validatableObject && validatableObject.validatableText)
     {    
         NSRegularExpression* regExp = [[NSRegularExpression alloc]initWithPattern:@"^[1-9]+([0])?(\\.[0-9]{1,2})?$" options:NSRegularExpressionCaseInsensitive error:nil];

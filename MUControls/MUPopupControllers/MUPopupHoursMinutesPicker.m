@@ -7,7 +7,6 @@
 //
 
 #import "MUPopupHoursMinutesPicker.h"
-#import "MUConvertor.h"
 #import "NSDate-Utilities.h"
 
 @implementation MUPopupHoursMinutesPicker
@@ -53,13 +52,11 @@
 //==============================================================================
 - (NSObject*) selectedItem
 {
-    NSDate* result = nil;
+    NSDateComponents* dc = [[[NSDateComponents alloc] init] autorelease];
+    dc.hour = [self.popupedPicker selectedRowInComponent:0];
+    dc.minute = [self.popupedPicker selectedRowInComponent:1];
 
-    int hours = [self.popupedPicker selectedRowInComponent:0];
-    int minutes = [self.popupedPicker selectedRowInComponent:1];
-    result = [[MUConvertor sharedConvertor] dateFromTimeHours:hours minutes:minutes seconds:0];
-
-    return result;
+    return [[NSCalendar currentCalendar] dateFromComponents:dc];
 }
 
 //==============================================================================

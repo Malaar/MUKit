@@ -9,7 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "MUValidationGroup.h"
 #import "MUValidator.h"
-#import "MUTextField.h"
 
 //==============================================================================
 //==============================================================================
@@ -26,6 +25,7 @@
 @implementation MUValidationGroup
 
 @synthesize invalidIndicatorImage;
+@synthesize delegate;
 
 #pragma mark - init/dealloc
 //==============================================================================
@@ -59,22 +59,43 @@
 //==============================================================================
 - (NSArray*) validateFields
 {
-    NSMutableArray* result = [NSMutableArray array];
-    
     [self hideInvalidIndicators];
+    NSMutableArray* result = [NSMutableArray array];    
+    NSMutableArray* validationResults = [NSMutableArray array];
     
-    // ...
     for(id<MUValidationProtocol> object in textFields)
     {
         if( [object conformsToProtocol:@protocol(MUValidationProtocol)] )
         {
-            if( ![object validate] )
+            [validationResults addObject: [NSNumber numberWithBool:[object validate]]];
+        }
+    }
+    
+    // to castom proccess any links between validatable vields
+    if(delegate)
+    {
+        [delegate proccessValidationResults:validationResults];
+    }    
+    
+    if ([textFields count] == [validationResults count]) 
+    {
+        id<MUValidationProtocol> object = nil;
+        for(int i = 0; i < [validationResults count]; ++i)
+        {
+            if( ![[validationResults objectAtIndex:i] boolValue] )
             {
+                object = [textFields objectAtIndex:i];
                 [result addObject:object];
-                if ([object isKindOfClass:[MUTextField class]])
-                    [self showInvalidViewForField:(MUTextField*)object];
+                if ([object isKindOfClass:[UITextField class]])
+                {
+                    [self showInvalidViewForField:(UITextField*)object];
+                }
             }
         }
+    }
+    else
+    {
+        NSAssert(nil, @"MUKit(MUValidationGroup): [textFields count] != [validationResults count]");
     }
     
     return result;
@@ -92,8 +113,8 @@
 {
     for(id<MUValidationProtocol> object in textFields)
     {
-        if( [object isKindOfClass:[MUTextField class]] )
-            [(MUTextField*)object setRightView:nil];
+        if( [object isKindOfClass:[UITextField class]] )
+            [(UITextField*)object setRightView:nil];
     }
 }
 

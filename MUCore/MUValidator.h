@@ -30,9 +30,11 @@
 @interface MUValidator : NSObject
 {
     id<MUValidationProtocol> validatableObject;
+    NSString *errorMessage;
 }
 
 @property (nonatomic, assign) id<MUValidationProtocol> validatableObject;
+@property (nonatomic, retain) NSString *errorMessage;
 
 - (BOOL) validate;
 

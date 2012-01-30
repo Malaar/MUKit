@@ -44,7 +44,7 @@
 //==============================================================================
 - (id) copyWithZone:(NSZone *)zone
 {
-    return [[MUTitledID allocWithZone:zone] initWithID:ID title:title];
+    return [[[self class] allocWithZone:zone] initWithID:ID title:title];
 }
 
 //==============================================================================

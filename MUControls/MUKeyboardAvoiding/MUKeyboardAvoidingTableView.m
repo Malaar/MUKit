@@ -36,36 +36,24 @@
 
 #pragma mark - Init/Dealloc
 //==============================================================================
--(id)initWithFrame:(CGRect)frame 
+-(id)initWithFrame:(CGRect)frame  
 {
-    if ( !(self = [super initWithFrame:frame]) ) 
-        return nil;
-    
-    if ( [[[UIDevice currentDevice] systemVersion] floatValue] >= 4.3 ) 
+    self = [super initWithFrame:frame];
+    if (self)
     {
-        // Not required above iOS 4.3! Just return an ordinary table view
-        [self release];
-        return (self = (MUKeyboardAvoidingTableView*)[[UITableView alloc] initWithFrame:frame]);
+        [self setup];
     }
-    
-    [self setup];
     return self;
 }
 
 //==============================================================================
 -(id)initWithCoder:(NSCoder *)aDecoder 
 {
-    if ( !(self = [super initWithCoder:aDecoder]) ) 
-        return nil;
-    
-    if ( [[[UIDevice currentDevice] systemVersion] floatValue] >= 4.3 ) 
+    self = [super initWithCoder:aDecoder];
+    if (self)
     {
-        // Not required above iOS 4.3! Just return an ordinary table view
-        [self release];
-        return (self = (MUKeyboardAvoidingTableView*)[[UITableView alloc] initWithCoder:aDecoder]);
+        [self setup];
     }
-    
-    [self setup];
     return self;
 }
 

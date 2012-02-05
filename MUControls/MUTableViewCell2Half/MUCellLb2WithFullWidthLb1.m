@@ -17,8 +17,10 @@
 }
 
 //==============================================================================
-- (float) heightCell
+- (float) heightCellForCellWidth:(float)aCellWidth
 {
+    cellWidth = aCellWidth;
+    
     float height = 0;
     float leftHeight = 0;
     float rightHeight = 0;
@@ -32,7 +34,7 @@
     }
     if (leftText2) 
     {
-        textSize = [self sizeLabelWithText: leftText2 font:leftTextFont2 maxWidht:[self widhtCellByOrientation] - paddingLeftHalf.leftPadding - paddingRightHalf.rightPadding];
+        textSize = [self sizeLabelWithText: leftText2 font:leftTextFont2 maxWidht:cellWidth - paddingLeftHalf.leftPadding - paddingRightHalf.rightPadding];
         leftHeight += distanceBetweenSubView + textSize.height;
     }
     leftHeight += paddingLeftHalf.topPadding + paddingLeftHalf.bottomPadding;

@@ -21,8 +21,10 @@
 }
 
 //==============================================================================
-- (float) heightCell
+- (float) heightCellForCellWidth:(float)aCellWidth
 {    
+    cellWidth = aCellWidth;
+    
     float height = 0.0f;
     float leftHeight = 0.0f;
     float rightHeight = 0.0f;

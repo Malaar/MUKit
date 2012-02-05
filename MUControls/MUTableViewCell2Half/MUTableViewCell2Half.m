@@ -60,6 +60,7 @@
         paddingRightHalf = MUHalfCellPaddingMake(5, 5, 5, 5);
         offsetRightView = 0.5f;
         distanceBetweenSubView = 5;
+        cellWidth = 320;
     }
     return self;
 }
@@ -70,6 +71,7 @@
     self = [super init];
     if (self) 
     {
+        cellWidth = 320;
         cellClass = [self getCellClass];
         [self setupParameters];
 		leftHalfUserInteractionEnabled = YES;
@@ -98,7 +100,7 @@
  * Переопределять в каждой наследнике, если нужна другая высота
  * Default height 44 px. 
  */
-- (float) heightCell
+- (float) heightCellForCellWidth:(float)aCellWidth
 {
     return default_cell_heidht;
 }
@@ -109,14 +111,7 @@
  */
 - (float) widhtCellByOrientation
 {
-    float width;
-    
-    if( UIInterfaceOrientationIsPortrait([UIApplication sharedApplication].statusBarOrientation) )
-        width = (useAnimation) ? (480) : (320);
-    else
-        width = (useAnimation) ? (320) : (480);
-    
-    return width;
+    return cellWidth;
 }
 
 //==============================================================================
@@ -128,9 +123,9 @@
     float maxWidht;
     
     if (aHalfType == halfCellTypeLeft)
-        maxWidht = [self widhtCellByOrientation] * offsetRightView - paddingLeftHalf.leftPadding - paddingLeftHalf.rightPadding;
+        maxWidht = cellWidth * offsetRightView - paddingLeftHalf.leftPadding - paddingLeftHalf.rightPadding;
     else
-        maxWidht = [self widhtCellByOrientation] * (1 - offsetRightView) - paddingRightHalf.leftPadding - paddingRightHalf.rightPadding;
+        maxWidht = cellWidth * (1 - offsetRightView) - paddingRightHalf.leftPadding - paddingRightHalf.rightPadding;
     return maxWidht;
 }
 
@@ -254,7 +249,7 @@
     if (cellData == nil)
         return;
     
-    float heigth = [cellData heightCell];
+    float heigth = [cellData heightCellForCellWidth:currentWidth];
     CGSize cellSize = CGSizeMake(currentWidth, heigth);
     
     // left half view
@@ -291,7 +286,7 @@
  */
 - (void) resizeHalfView
 {
-    float heigth = [cellData heightCell];
+    float heigth = [cellData heightCellForCellWidth:currentWidth];
     CGSize cellSize = CGSizeMake(currentWidth, heigth);
 
     leftHalfVIew.frame = CGRectMake(0, 
@@ -305,7 +300,7 @@
 }
 
 //==============================================================================
-- (void) updateCellData:(id)aCellData fotWidth:(float)aWidth animationTime:(float)animationTime
+- (void) updateCellData:(id)aCellData forWidth:(float)aWidth animationTime:(float)animationTime
 {
     if ([self isValidCellData:aCellData])
     {

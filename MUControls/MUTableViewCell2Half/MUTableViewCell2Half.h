@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "MUHalfCellView.h"
-//#import "Defines.h"
+#import "Defines.h"
 
 
 #define FONT_DEFAULT [UIFont systemFontOfSize:15.f]
@@ -23,6 +23,7 @@
     MUHalfCellPadding paddingRightHalf;                                         ///< внутрение отступы для правой вьюшки
     float offsetRightView;                                                      ///< отступ для правой вьюшки (в процентах от всей ширины ячейки)
     float distanceBetweenSubView;                                               ///< расстояние между вьюшками - контентом одной половинки 
+    float cellWidth;
     
     Class cellClass;                                                            ///< имя класса ячейки, который инитится этим классом
 
@@ -52,7 +53,7 @@
            offsetRightView:(float)aOffsetRightView 
     distanceBetweenSubView:(float)aDistanceBetweenSubView;
 
-- (float) heightCell;                                                           ///< возвращает высоту ячйеки
+- (float) heightCellForCellWidth:(float)aCellWidth;                                      ///< возвращает высоту ячйеки
 - (float) widhtCellByOrientation;                                               ///< возвращает ширину ячейки в зависимости от ориентации девайса
 - (float) maxWidhtContentForHalfType:(MUHalfCellType)aHalfType;                 ///< возвращает максимальную ширину для контена конкретной половинки ячейки с учетом отступов
 
@@ -112,7 +113,7 @@
 
 // Использовать только в классе MUVeraetyCellsTableControllerReadonly
 - (void) updateCellData:(id)aCellData fotWidth:(float)aWidth;                   ///< использовать в cellForRowAtIndexPath
-- (void) updateCellData:(id)aCellData fotWidth:(float)aWidth 
+- (void) updateCellData:(id)aCellData forWidth:(float)aWidth 
           animationTime:(float)animationTime;                                   ///< использовать в cellForRowAtIndexPath
 
 // Использовать только в классе MUVeraetyCellsTableControllerWritable

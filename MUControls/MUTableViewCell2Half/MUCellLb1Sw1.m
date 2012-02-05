@@ -29,8 +29,10 @@
 }
 
 //==============================================================================
-- (float) heightCell
+- (float) heightCellForCellWidth:(float)aCellWidth
 {
+    cellWidth = aCellWidth;
+    
     float height = 0;
     
     CGSize sizeLabelText = [self sizeLabelWithText:leftText1 font:leftTextFont1 maxWidht:[self maxWidhtContentForHalfType:halfCellTypeLeft]];

@@ -15,6 +15,11 @@
 
 - (id)init;
 
+- (BOOL)phoneFormatForTextField:(UITextField *)textField
+  shouldChangeCharactersInRange:(NSRange)range 
+              replacementString:(NSString *)string
+                     withLocale:(NSString *)locale;
+
 /* 
  Attemps to format the phone number to the specified locale. 
  */

@@ -48,6 +48,29 @@
 }
 
 //==============================================================================
+- (BOOL)phoneFormatForTextField:(UITextField *)textField
+  shouldChangeCharactersInRange:(NSRange)range 
+              replacementString:(NSString *)string 
+                     withLocale:(NSString *)locale
+{
+    BOOL result = YES;
+    if ([string length] > 0)
+    {
+        result = NO;
+        if ([string rangeOfCharacterFromSet:[NSCharacterSet decimalDigitCharacterSet]].location != NSNotFound)
+        {
+            NSString *text = [textField.text stringByReplacingCharactersInRange:range withString:string];
+            textField.text = [self format:text withLocale:locale];
+        }
+    }
+    else
+    {
+        textField.text = [self format:textField.text withLocale:locale];
+    }
+    return result;
+}
+
+//==============================================================================
 - (NSString *)format:(NSString *)phoneNumber withLocale:(NSString *)locale 
 {    
     NSArray *localeFormats = [predefinedFormats objectForKey:locale];    

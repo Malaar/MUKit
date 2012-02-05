@@ -1,6 +1,6 @@
 //
 //  MUTextView.h
-//  VoterBuzz-iphone
+//  MUKit
 //
 //  Created by Yuriy Bosov on 9/6/11.
 //  Copyright 2011 __MyCompanyName__. All rights reserved.

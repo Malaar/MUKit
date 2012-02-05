@@ -1,6 +1,6 @@
 //
 //  MUCellLb1Tf1.m
-//  TimeLink
+//  MUKit
 //
 //  Created by Yuriy Bosov on 8/12/11.
 //  Copyright 2011 __MyCompanyName__. All rights reserved.

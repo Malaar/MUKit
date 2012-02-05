@@ -1,6 +1,6 @@
 //
 //  MUPopupPicker.h
-//  TimeLink
+//  MUKit
 //
 //  Created by Malaar on 8/11/11.
 //  Copyright 2011 __MyCompanyName__. All rights reserved.

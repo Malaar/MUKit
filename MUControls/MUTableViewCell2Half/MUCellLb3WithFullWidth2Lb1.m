@@ -1,6 +1,6 @@
 //
 //  MUCellLb3WithFullWidth2Lb1.m
-//  TimeLink
+//  MUKit
 //
 //  Created by Malaar on 10/6/11.
 //  Copyright 2011 __MyCompanyName__. All rights reserved.

@@ -1,6 +1,6 @@
 //
 //  MUTLBaseScrollerController.m
-//  TimeLink
+//  MUKit
 //
 //  Created by Yuriy Bosov on 8/25/11.
 //  Copyright 2011 __MyCompanyName__. All rights reserved.

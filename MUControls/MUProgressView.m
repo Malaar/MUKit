@@ -1,6 +1,6 @@
 //
 //  MUProgressView.m
-//  MUFtpReqest
+//  MUKit
 //
 //  Created by Yuriy Bosov on 11/25/11.
 //  Copyright (c) 2011 __MyCompanyName__. All rights reserved.

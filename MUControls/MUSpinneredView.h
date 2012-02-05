@@ -1,6 +1,6 @@
 //
 //  MYSpinnered.h
-//  LastDay
+//  MUKit
 //
 //  Created by yuriy on 29.03.11.
 //  Copyright 2011 __MyCompanyName__. All rights reserved.

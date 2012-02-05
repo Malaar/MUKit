@@ -1,6 +1,6 @@
 //
 //  MUTabBar.m
-//  ROM
+//  MUKit
 //
 //  Created by Malaar on 7/25/11.
 //  Copyright 2011 __MyCompanyName__. All rights reserved.

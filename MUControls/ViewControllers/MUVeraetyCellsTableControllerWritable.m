@@ -1,6 +1,6 @@
 //
 //  MUVeraetyCellsTableControllerWritable.m
-//  TimeLink
+//  MUKit
 //
 //  Created by Yuriy Bosov on 8/22/11.
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
@@ -38,21 +38,6 @@
     [super dealloc];
 }
 
-//==============================================================================
-- (void) willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
-{
-    float newWidth = UIDeviceOrientationIsPortrait(toInterfaceOrientation) ? 320 : 480;
-    
-    for (MUTableViewCell2Half *cell in cells)
-        [cell updateSizeFotWidth:newWidth animationTime:duration];
-}
-
-//==============================================================================
-- (void) didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation
-{
-
-}
-
 #pragma mark - View lifecycle
 //==============================================================================
 - (void)loadView
@@ -70,6 +55,9 @@
 //==============================================================================
 - (void)viewDidUnload
 {
+    cells = [[NSMutableArray alloc] init];
+    cells = nil;
+    
     [super viewDidUnload];
 }
 
@@ -77,8 +65,6 @@
 //==============================================================================
 - (void) createCells
 {
-    if (cells)
-        [cells release];
     cells = [[NSMutableArray alloc] init];
     
     id cell = nil;
@@ -116,7 +102,15 @@
     MUTableViewCell2Half* cell = nil;
     if ([cells count])
         cell = [cells objectAtIndex:indexPath.row];
-    [cell updateSizeFotWidth:tableView.frame.size.width];
+    
+    if (resizedWithAnimation)
+    {
+        [cell updateSizeFotWidth:tableView.frame.size.width animationTime:animationTime];
+    }
+    else
+    {
+        [cell updateSizeFotWidth:tableView.frame.size.width];
+    }
     return cell;
 }
 

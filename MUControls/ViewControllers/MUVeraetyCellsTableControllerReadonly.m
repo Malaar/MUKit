@@ -1,6 +1,6 @@
 //
 //  MUVeraetyCellsTableController.m
-//  TimeLink
+//  MUKit
 //
 //  Created by Malaar on 8/10/11.
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
@@ -89,9 +89,9 @@
 }
 
 //==============================================================================
-- (float) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+- (float) tableView:(UITableView *)aTableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return [[cellDataSource objectAtIndex:indexPath.row] heightCell];
+    return [[cellDataSource objectAtIndex:indexPath.row] heightCellForCellWidth:aTableView.frame.size.width];
 }
 
 //==============================================================================
@@ -114,7 +114,7 @@
     }
     else if (resizedWithAnimation)  // resize cell on rotation
     {
-        [cell updateCellData:[cellDataSource objectAtIndex:indexPath.row] fotWidth:tableView.frame.size.width animationTime:animationTime];
+        [cell updateCellData:[cellDataSource objectAtIndex:indexPath.row] forWidth:tableView.frame.size.width animationTime:animationTime];
     }
     else                            // update cell data
     {

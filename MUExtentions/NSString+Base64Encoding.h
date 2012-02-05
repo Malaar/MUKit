@@ -1,9 +1,9 @@
 //
 //  NSString+Base64Encoding.h
-//  Privatext
+//  MUKit
 //
-//  Created by Maxim Letushov on 5/24/11.
-//  Copyright 2011 Dimalex. All rights reserved.
+//  Created by Malaar on 7/11/11.
+//  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>

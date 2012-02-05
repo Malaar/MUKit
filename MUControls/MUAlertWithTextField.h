@@ -1,6 +1,6 @@
 //
 //  MUAlertWithTextField.h
-//  ROM
+//  MUKit
 //
 //  Created by Yuriy Bosov on 7/19/11.
 //  Copyright 2011 __MyCompanyName__. All rights reserved.

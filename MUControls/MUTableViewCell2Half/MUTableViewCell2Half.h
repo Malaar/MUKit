@@ -1,6 +1,6 @@
 //
 //  MUTableViewCell2Half.h
-//  TimeLink
+//  MUKit
 //
 //  Created by Yuriy Bosov on 8/12/11.
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "MUHalfCellView.h"
-#import "Defines.h"
+#import "MUKitDefines.h"
 
 
 #define FONT_DEFAULT [UIFont systemFontOfSize:15.f]

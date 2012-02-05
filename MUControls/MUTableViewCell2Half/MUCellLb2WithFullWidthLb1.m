@@ -1,6 +1,6 @@
 //
 //  MUCellLb2WithFullWidthLb1.m
-//  VoterBuzz-iphone
+//  MUKit
 //
 //  Created by Yuriy Bosov on 9/12/11.
 //  Copyright 2011 DIMALEX LLC. All rights reserved.

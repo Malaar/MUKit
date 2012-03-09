@@ -8,6 +8,25 @@
 
 #import "MUValidator.h"
 
+BOOL canBeInputByPhonePad(char c);
+
+NSString* getOnlyNumbers(NSString *phoneNumber)
+{
+    NSMutableString *res = [[[NSMutableString alloc] init] autorelease];    
+    for(int i = 0; i < [phoneNumber length]; i++) 
+    {        
+        char next = [phoneNumber characterAtIndex:i];        
+        if(canBeInputByPhonePad(next))            
+            [res appendFormat:@"%c", next];        
+    }    
+    return res;    
+}
+
+BOOL canBeInputByPhonePad(char c)
+{
+    if(c >= '0' && c <= '9') return YES;    
+    return NO;    
+}
 
 //==============================================================================
 //==============================================================================
@@ -257,6 +276,68 @@
     [regExp release];
     
     return count == 1;
+}
+
+@end
+
+//==============================================================================
+//==============================================================================
+//==============================================================================
+@implementation MUValidatorStringWithRange
+
+//==============================================================================
+- (id)initWithRange:(NSRange)aRange
+{
+    self = [super init];
+    if (self)
+    {
+        range = aRange;
+    }
+    return self;
+}
+
+//==============================================================================
+- (BOOL) validate
+{
+    BOOL result = NO;
+    validatableObject.validatableText = [validatableObject.validatableText stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    if(validatableObject && validatableObject.validatableText && 
+       [validatableObject.validatableText length] >= range.location &&
+       [validatableObject.validatableText length] <= range.location + range.length)
+        result = YES;
+    return result;
+}
+
+@end
+
+//==============================================================================
+//==============================================================================
+//==============================================================================
+@implementation MUValidatorCountNumberInTextWithRange
+
+//==============================================================================
+- (id)initWithRange:(NSRange)aRange
+{
+    self = [super init];
+    if (self)
+    {
+        range = aRange;
+    }
+    return self;
+}
+
+//==============================================================================
+- (BOOL) validate
+{
+    BOOL result = NO;
+    validatableObject.validatableText = [validatableObject.validatableText stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    if(validatableObject && validatableObject.validatableText)
+    {
+        NSString *onlyNumber = getOnlyNumbers(validatableObject.validatableText);
+        if (onlyNumber && [onlyNumber length] >= range.location && [onlyNumber length] <= range.location + range.length)
+            result = YES;
+    }
+    return result;
 }
 
 @end

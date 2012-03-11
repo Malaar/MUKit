@@ -7,5 +7,7 @@
 //
 
 
-#define NULL_PROTECT(value) ( ((NSNull*)value == [NSNull null]) ? (nil) : (value) )
-#define NILL_PROTECT(value) ( (nil == value) ? ((NSObject*)[NSNull null]) : ((NSObject*)value) )
+#define MU_NULL_PROTECT(value) ( ((NSNull*)value == [NSNull null]) ? (nil) : (value) )
+#define MU_NILL_PROTECT(value) ( (nil == value) ? ((NSObject*)[NSNull null]) : ((NSObject*)value) )
+
+#define MU_IS_IPAD [[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad

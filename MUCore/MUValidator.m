@@ -267,15 +267,11 @@ BOOL canBeInputByPhonePad(char c)
 //==============================================================================
 - (BOOL) validate
 {
+    BOOL result = NO;
     validatableObject.validatableText = [validatableObject.validatableText stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-    NSString *pattern = [NSString stringWithFormat:@"^[0-9]{%d,%d}$", range.location, range.location + range.length];
-    NSRegularExpression* regExp = [[NSRegularExpression alloc]initWithPattern:pattern options:NSRegularExpressionCaseInsensitive error:nil];
-    NSUInteger count = 0;
-    if(validatableObject && validatableObject.validatableText)
-        count = [regExp numberOfMatchesInString:validatableObject.validatableText options:0 range:NSMakeRange(0, [validatableObject.validatableText length])];
-    [regExp release];
-    
-    return count == 1;
+    int intValue = [validatableObject.validatableText intValue];
+    result = intValue >= range.location && intValue <= range.location + range.length;
+    return result;
 }
 
 @end

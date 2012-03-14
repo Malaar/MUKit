@@ -69,6 +69,8 @@
 //==============================================================================
 - (void) logMessageWithType:(MULogMessageType)aLogMessageType format:(NSString*)aFormattedText, ...
 {
+    NSLog(@"%@ : %@", [aMessage typeDescription], [aMessage text]);
+
     va_list args;
     va_start(args, aFormattedText);
 

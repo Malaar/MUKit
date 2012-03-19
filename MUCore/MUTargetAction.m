@@ -31,20 +31,20 @@
 }
 
 //==============================================================================
-- (void) dealloc
-{
-    if([target isKindOfClass:[MUWeakRef class]])
-        [target release];
-    
-    [super dealloc];
-}
+//- (void) dealloc
+//{
+////    if([target isKindOfClass:[MUWeakRef class]])
+////        [target release];
+//    
+//    [super dealloc];
+//}
 
 //==============================================================================
 - (void) setTarget:(id)aTarget action:(SEL)anAction
 {
-    if([aTarget isKindOfClass:[MUWeakRef class]])
-        target = [aTarget retain];
-    else
+//    if([aTarget isKindOfClass:[MUWeakRef class]])
+//        target = [aTarget retain];
+//    else
         target = aTarget;
 
     action = anAction;
@@ -55,9 +55,9 @@
 {
     id receiver = nil;
     
-    if([target isKindOfClass:[MUWeakRef class]])
-        receiver = ((MUWeakRef*)target).object;
-    else
+//    if([target isKindOfClass:[MUWeakRef class]])
+//        receiver = ((MUWeakRef*)target).object;
+//    else
         receiver = target;
     
     if(receiver && [receiver respondsToSelector:action])

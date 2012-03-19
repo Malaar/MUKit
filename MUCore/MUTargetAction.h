@@ -7,7 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "MUWeakRef.h"
 
 
 @interface MUTargetAction : NSObject

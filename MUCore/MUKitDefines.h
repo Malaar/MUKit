@@ -13,3 +13,5 @@
 #define MU_IS_IPAD [[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad
 
 #define MUShowSimpleAlert(aTitle, aMessage) [[[[UIAlertView alloc] initWithTitle:NSLocalizedString(aTitle, nil) message:NSLocalizedString(aMessage, nil) delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] autorelease] show]
+
+#define MU_CHECK_INDEX(index, min, max) {NSAssert( index >= min && index < max, @"Wrong index!");}

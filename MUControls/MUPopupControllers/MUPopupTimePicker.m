@@ -16,7 +16,7 @@
 - (UIView*) createPicker
 {
 //    UIDatePicker* pv = [[[UIDatePicker alloc] initWithFrame:CGRectZero] autorelease];
-    int width = (IS_IPAD) ? (260) : (320);
+    int width = (MU_IS_IPAD) ? (260) : (320);
     UIDatePicker* pv = [[[UIDatePicker alloc] initWithFrame:CGRectMake(0, 0, width, 216)] autorelease];
     pv.datePickerMode = UIDatePickerModeTime;
     

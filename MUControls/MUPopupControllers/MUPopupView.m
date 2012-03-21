@@ -8,6 +8,8 @@
 
 #import "MUPopupView.h"
 #import "MUPopoverViewController.h"
+#import "MUKitDefines.h"
+
 
 @implementation MUPopupView
 
@@ -57,7 +59,7 @@
 - (void) prepareToShow
 {
     NSLog(@"retainCount: %i", self.retainCount);
-    if(!IS_IPAD)
+    if(!MU_IS_IPAD)
     {
         MUPopupViewController* popupController = [[MUPopupViewController alloc] init];
         popupController.popupedView = self;
@@ -109,7 +111,7 @@
 //==============================================================================
 - (void) hideWithAnimation:(BOOL)animation
 {
-    if(!IS_IPAD)
+    if(!MU_IS_IPAD)
     {
         [(MUPopupViewController*)showStrategy hideWithAnimation:animation];
     }
@@ -122,7 +124,7 @@
 //==============================================================================
 - (void) showWithAnimation:(BOOL)animation inView:(UIView*)aView
 {
-    if(!IS_IPAD)
+    if(!MU_IS_IPAD)
     {
         [(MUPopupViewController*)showStrategy showWithAnimation:animation inView:aView];
     }
@@ -131,7 +133,7 @@
 //==============================================================================
 - (void)showFromRect:(CGRect)rect inView:(UIView *)view permittedArrowDirections:(UIPopoverArrowDirection)arrowDirections animated:(BOOL)animated
 {
-    if(IS_IPAD)
+    if(MU_IS_IPAD)
     {
         [(UIPopoverController*)showStrategy presentPopoverFromRect:rect inView:view permittedArrowDirections:arrowDirections animated:animated];
     }

@@ -119,9 +119,12 @@
 //==============================================================================
 - (void) rightNavButtonPressed:(id)aSender
 {
-    // apply changes at selectedIndex
-    checkableData.selectedIndex = selectedIndex;
-    [delegate checkableTableController:self completeSelectionWithCheckableData:checkableData];
+    if(selectedIndex != -1)
+    {
+        // apply changes at selectedIndex
+        checkableData.selectedIndex = selectedIndex;
+        [delegate checkableTableController:self completeSelectionWithCheckableData:checkableData];
+    }
 }
 
 #pragma mark - Table

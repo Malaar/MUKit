@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "MUTLBaseTableController.h"
+#import "MUBaseTableController.h"
 
 //==============================================================================
 //==============================================================================
@@ -28,7 +28,7 @@
 //==============================================================================
 //==============================================================================
 //==============================================================================
-@interface MUCheckableTableController : MUTLBaseTableController
+@interface MUCheckableTableController : MUBaseTableController
 {
     UITableViewCell* prevSelectedCell;
     NSInteger selectedIndex;

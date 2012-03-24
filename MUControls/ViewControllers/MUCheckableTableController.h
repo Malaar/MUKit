@@ -24,6 +24,17 @@
 
 @end
 
+@class MUCheckableTableController;
+//==============================================================================
+//==============================================================================
+//==============================================================================
+@protocol MUCheckableTableControllerDelegate
+
+- (void) checkableTableController:(MUCheckableTableController *)aCheckableTableController completeSelectionWithCheckableData:(MUCheckableData*)aCheckableData;
+- (BOOL) shouldCancelCheckableTableController:(MUCheckableTableController *)aCheckableTableController;
+- (void) canceledCheckableTableController:(MUCheckableTableController *)aCheckableTableController;
+
+@end
 
 //==============================================================================
 //==============================================================================
@@ -34,21 +45,14 @@
     NSInteger selectedIndex;
     
     MUCheckableData* checkableData;
-    NSObject* delegate;
+    NSObject<MUCheckableTableControllerDelegate>* delegate;
+    
+    BOOL multipleSelection;
 }
 
-@property (nonatomic, assign) NSObject* delegate;
+@property (nonatomic, assign) NSObject<MUCheckableTableControllerDelegate>* delegate;
+@property (nonatomic, assign) BOOL closeWhenSelected;
 
 - (id) initWithCheckableData:(MUCheckableData*) aCheckableData title:(NSString*)aTitle;
 
 @end
-
-//==============================================================================
-//==============================================================================
-//==============================================================================
-@interface NSObject (MUCheckableTableController)
-
-- (void) checkableTableController:(MUCheckableTableController*)aCheckableTableController checkableData:(MUCheckableData*)aCheckableData;
-
-@end
-

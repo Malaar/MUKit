@@ -10,14 +10,12 @@
 #import "MUTitledID.h"
 
 
-//==============================================================================
-//==============================================================================
-//==============================================================================
 @implementation MUCheckableData
 
 @synthesize dataSource;
 @synthesize selectedIndex;
 
+#pragma mark - Init/Dealloc
 //==============================================================================
 + (id) checkableDataWithDataSource:(NSArray*)aDataSource selectedIndex:(NSInteger)aSelectedIndex
 {
@@ -73,6 +71,7 @@
 @implementation MUCheckableTableController
 
 @synthesize delegate;
+@synthesize closeWhenSelected;
 
 #pragma mark - Init/Dealloc
 //==============================================================================
@@ -98,19 +97,23 @@
     [super dealloc];
 }
 
-
-#pragma mark - Customization for navigation bar
 //==============================================================================
-// create custom left button for navigation bar
-- (UIButton*) createLeftNavButton
+- (UIBarButtonItem*) createLeftNavButton
 {
-    return [MUAutoresizeButton buttonForNavBackByTitleName:@"Back" imageName:@"nav_bar_button_back.png"];
+    return [[UIBarButtonItem alloc] initWithBarButtonSystemItem:(UIBarButtonSystemItemCancel) target:nil action:nil];
 }
 
 //==============================================================================
-- (UIButton*) createRightNavButton
+- (UIBarButtonItem*) createRightNavButton
 {
-    return [MUAutoresizeButton buttonByTitleName:@"Done" imageName:@"nav_bar_right_button.png"];
+    return [[UIBarButtonItem alloc] initWithBarButtonSystemItem:(UIBarButtonSystemItemDone) target:nil action:nil];
+}
+
+//==============================================================================
+- (void) leftNavButtonPressed:(id)aSender
+{
+    if([delegate shouldCancelCheckableTableController:self])
+        [delegate canceledCheckableTableController:self];
 }
 
 //==============================================================================
@@ -118,11 +121,7 @@
 {
     // apply changes at selectedIndex
     checkableData.selectedIndex = selectedIndex;
-    
-    if( delegate && [delegate respondsToSelector:@selector(checkableTableController:checkableData:)] )
-        [delegate checkableTableController:self checkableData:checkableData];
-    
-    [self.navigationController popViewControllerAnimated:YES];
+    [delegate checkableTableController:self completeSelectionWithCheckableData:checkableData];
 }
 
 #pragma mark - Table
@@ -181,6 +180,12 @@
 
         prevSelectedCell.accessoryType = UITableViewCellAccessoryNone;
         prevSelectedCell = cell;
+    }
+    
+    if(!multipleSelection && closeWhenSelected)
+    {
+        checkableData.selectedIndex = selectedIndex;
+        [delegate checkableTableController:self completeSelectionWithCheckableData:checkableData];
     }
 
 }

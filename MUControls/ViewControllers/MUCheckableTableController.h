@@ -13,13 +13,17 @@
 //==============================================================================
 //==============================================================================
 @interface MUCheckableData : NSObject
+{
+    NSString* titleKey;
+}
 
 @property (nonatomic, retain) NSArray* dataSource;
 @property (nonatomic, assign) NSInteger selectedIndex;
 
-+ (id) checkableDataWithDataSource:(NSArray*)aDataSource selectedIndex:(NSInteger)aSelectedIndex;
-- (id) initWithDataSource:(NSArray*)aDataSource selectedIndex:(NSInteger)aSelectedIndex;
++ (id) checkableDataWithDataSource:(NSArray*)aDataSource selectedIndex:(NSInteger)aSelectedIndex titleKey:(NSString*)aTitleKey;
+- (id) initWithDataSource:(NSArray*)aDataSource selectedIndex:(NSInteger)aSelectedIndex titleKey:(NSString*)aTitleKey;;
 
+- (NSString*) titleAtIndex:(NSInteger)anIndex;
 - (NSObject*) selectedObject;
 
 @end

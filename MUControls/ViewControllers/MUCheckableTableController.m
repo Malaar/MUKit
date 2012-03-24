@@ -7,7 +7,7 @@
 //
 
 #import "MUCheckableTableController.h"
-#import "MUTitledID.h"
+#import "MUKitDefines.h"
 
 
 @implementation MUCheckableData
@@ -17,16 +17,17 @@
 
 #pragma mark - Init/Dealloc
 //==============================================================================
-+ (id) checkableDataWithDataSource:(NSArray*)aDataSource selectedIndex:(NSInteger)aSelectedIndex
++ (id) checkableDataWithDataSource:(NSArray*)aDataSource selectedIndex:(NSInteger)aSelectedIndex titleKey:(NSString*)aTitleKey
 {
-    return [[[MUCheckableData alloc] initWithDataSource:aDataSource selectedIndex:aSelectedIndex] autorelease];
+    return [[[MUCheckableData alloc] initWithDataSource:aDataSource selectedIndex:aSelectedIndex titleKey:aTitleKey] autorelease];
 }
 
 //==============================================================================
-- (id) initWithDataSource:(NSArray*)aDataSource selectedIndex:(NSInteger)aSelectedIndex
+- (id) initWithDataSource:(NSArray*)aDataSource selectedIndex:(NSInteger)aSelectedIndex titleKey:(NSString*)aTitleKey
 {
     if( (self = [super init]) )
     {
+        titleKey = [aTitleKey retain];
         selectedIndex = aSelectedIndex;
         self.dataSource = aDataSource;
     }
@@ -46,10 +47,17 @@
 //==============================================================================
 - (void) dealloc
 {
-    self.dataSource = nil;
-//    [dataSource release];
+    [titleKey release];
+    [dataSource release];
     
     [super dealloc];
+}
+
+//==============================================================================
+- (NSString*) titleAtIndex:(NSInteger)anIndex
+{
+    MU_CHECK_INDEX(anIndex, 0, [dataSource count]);
+    return [[dataSource objectAtIndex:anIndex] valueForKeyPath:titleKey];
 }
 
 //==============================================================================
@@ -157,15 +165,7 @@
         cell.accessoryType = UITableViewCellAccessoryNone;
     
     // title
-    NSObject* object = [dataSource objectAtIndex:[indexPath row]];
-    if([object isKindOfClass:[MUTitledID class]])
-        cell.textLabel.text = ((MUTitledID*)object).title;
-    else if([object isKindOfClass:[NSString class]])
-        cell.textLabel.text = (NSString*)object;
-    else
-    {
-        NSAssert(NO, @"Wrong type of object !!!");
-    }
+    cell.textLabel.text = [checkableData titleAtIndex:indexPath.row];
     
     return cell;
 }

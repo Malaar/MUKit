@@ -76,6 +76,16 @@
 //==============================================================================
 //==============================================================================
 //==============================================================================
+@interface MUCheckableTableController ()
+
+- (void) selectionCompleted;
+
+@end
+
+
+//==============================================================================
+//==============================================================================
+//==============================================================================
 @implementation MUCheckableTableController
 
 @synthesize delegate;
@@ -120,8 +130,14 @@
 //==============================================================================
 - (void) leftNavButtonPressed:(id)aSender
 {
-    if([delegate shouldCancelCheckableTableController:self])
-        [delegate canceledCheckableTableController:self];
+    BOOL canCancel = ([delegate respondsToSelector:@selector(shouldCancelCheckableTableController:)]) ? ([delegate shouldCancelCheckableTableController:self]) : (YES);
+
+    if(canCancel)
+    {
+        [self dismissModalViewControllerAnimated:YES];
+        if([delegate respondsToSelector:@selector(didCanceledCheckableTableController:)])
+            [delegate didCanceledCheckableTableController:self];
+    }
 }
 
 //==============================================================================
@@ -130,8 +146,7 @@
     if(selectedIndex != -1)
     {
         // apply changes at selectedIndex
-        checkableData.selectedIndex = selectedIndex;
-        [delegate checkableTableController:self completeSelectionWithCheckableData:checkableData];
+        [self selectionCompleted];
     }
 }
 
@@ -187,10 +202,17 @@
     
     if(!multipleSelection && closeWhenSelected)
     {
-        checkableData.selectedIndex = selectedIndex;
-        [delegate checkableTableController:self completeSelectionWithCheckableData:checkableData];
+        [self selectionCompleted];
     }
 
+}
+
+//==============================================================================
+- (void) selectionCompleted
+{
+    checkableData.selectedIndex = selectedIndex;
+    [self dismissModalViewControllerAnimated:YES];
+    [delegate checkableTableController:self completeSelectionWithCheckableData:checkableData];
 }
 
 //==============================================================================

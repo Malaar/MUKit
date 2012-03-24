@@ -35,8 +35,10 @@
 @protocol MUCheckableTableControllerDelegate
 
 - (void) checkableTableController:(MUCheckableTableController *)aCheckableTableController completeSelectionWithCheckableData:(MUCheckableData*)aCheckableData;
+
+@optional
 - (BOOL) shouldCancelCheckableTableController:(MUCheckableTableController *)aCheckableTableController;
-- (void) canceledCheckableTableController:(MUCheckableTableController *)aCheckableTableController;
+- (void) didCanceledCheckableTableController:(MUCheckableTableController *)aCheckableTableController;
 
 @end
 

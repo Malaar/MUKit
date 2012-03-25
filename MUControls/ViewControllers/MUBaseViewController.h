@@ -19,6 +19,8 @@
     BOOL isVisible;
 }
 
+@property (nonatomic, readonly) BOOL isVisible;
+
 - (void) showSpinneredView;                     ///< show spinnered view above
 - (void) hideSpinneredView;                     ///< hide spinnered view
 

@@ -11,6 +11,8 @@
 
 @implementation MUBaseViewController
 
+@synthesize isVisible;
+
 #pragma mark - init/dealoc
 //==============================================================================
 - (void)dealloc

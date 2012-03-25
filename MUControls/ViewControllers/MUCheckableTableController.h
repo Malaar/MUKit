@@ -37,7 +37,6 @@
 - (void) checkableTableController:(MUCheckableTableController *)aCheckableTableController completeSelectionWithCheckableData:(MUCheckableData*)aCheckableData;
 
 @optional
-- (BOOL) shouldCancelCheckableTableController:(MUCheckableTableController *)aCheckableTableController;
 - (void) didCanceledCheckableTableController:(MUCheckableTableController *)aCheckableTableController;
 
 @end
@@ -58,6 +57,7 @@
 
 @property (nonatomic, assign) NSObject<MUCheckableTableControllerDelegate>* delegate;
 @property (nonatomic, assign) BOOL closeWhenSelected;
+@property (nonatomic, assign) BOOL showCancelButton;
 
 - (id) initWithCheckableData:(MUCheckableData*) aCheckableData title:(NSString*)aTitle;
 

@@ -90,6 +90,7 @@
 
 @synthesize delegate;
 @synthesize closeWhenSelected;
+@synthesize showCancelButton;
 
 #pragma mark - Init/Dealloc
 //==============================================================================
@@ -118,7 +119,10 @@
 //==============================================================================
 - (UIBarButtonItem*) createLeftNavButton
 {
-    return [[UIBarButtonItem alloc] initWithBarButtonSystemItem:(UIBarButtonSystemItemCancel) target:nil action:nil];
+    UIBarButtonItem *bbi = nil; 
+    if (self.showCancelButton)
+        bbi = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:(UIBarButtonSystemItemCancel) target:nil action:nil];
+    return bbi;
 }
 
 //==============================================================================
@@ -130,14 +134,9 @@
 //==============================================================================
 - (void) leftNavButtonPressed:(id)aSender
 {
-    BOOL canCancel = ([delegate respondsToSelector:@selector(shouldCancelCheckableTableController:)]) ? ([delegate shouldCancelCheckableTableController:self]) : (YES);
-
-    if(canCancel)
-    {
-        [self dismissModalViewControllerAnimated:YES];
-        if([delegate respondsToSelector:@selector(didCanceledCheckableTableController:)])
-            [delegate didCanceledCheckableTableController:self];
-    }
+    [self dismissModalViewControllerAnimated:YES];
+    if([delegate respondsToSelector:@selector(didCanceledCheckableTableController:)])
+        [delegate didCanceledCheckableTableController:self];
 }
 
 //==============================================================================
@@ -199,12 +198,15 @@
         prevSelectedCell.accessoryType = UITableViewCellAccessoryNone;
         prevSelectedCell = cell;
     }
-    
+}
+
+//==============================================================================
+- (void) tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
+{
     if(!multipleSelection && closeWhenSelected)
     {
         [self selectionCompleted];
     }
-
 }
 
 //==============================================================================

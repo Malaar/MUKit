@@ -10,4 +10,17 @@
 
 @interface MUCellData : NSObject
 
+@property (nonatomic, assign) Class controllerClass;
+
+@property (nonatomic, assign) Class cellClass;
+@property (nonatomic, readonly) NSString *cellIdentifier;
+@property (nonatomic, assign) UITableViewCellSelectionStyle cellSelectionStyle;
+@property (nonatomic, assign) UITableViewCellStyle cellStyle;
+@property (nonatomic, assign) BOOL autoDeselect;
+@property (nonatomic, assign) BOOL visible;
+@property (nonatomic, assign) BOOL enebleEdit;
+
+- (id) init;
+- (CGFloat) cellHeightForWidth:(CGFloat) aWidth; 
+
 @end

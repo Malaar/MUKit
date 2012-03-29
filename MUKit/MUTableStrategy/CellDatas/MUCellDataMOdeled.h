@@ -6,8 +6,12 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import "MUCellData.h"
 
-@interface MUCellDataMOdeled : NSObject
+@interface MUCellDataMOdeled : MUCellData
+
+@property (nonatomic, readonly) id model;
+
+- (id) initWithModel:(id)aModel;
 
 @end

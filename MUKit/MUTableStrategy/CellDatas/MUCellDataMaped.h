@@ -6,8 +6,19 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import "MUCellData.h"
 
-@interface MUCellDataMaped : NSObject
+@interface MUCellDataMaped : MUCellData
+{
+    NSString *key;
+    NSObject *object;
+}
+
+@property (nonatomic, readonly) NSString *key;
+@property (nonatomic, readonly) NSObject *object;
+
+- (id) initWithObject:(NSObject *)aObject key:(NSString *)aKey;
+- (void) mapFromObject;
+- (void) mapToObject;
 
 @end

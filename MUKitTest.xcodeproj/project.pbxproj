@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		028F8D141524C43F00C7907F /* MUSectionReadonly.m in Sources */ = {isa = PBXBuildFile; fileRef = 028F8D131524C43F00C7907F /* MUSectionReadonly.m */; };
+		028F8D181524CD1900C7907F /* MUSectionWritable.m in Sources */ = {isa = PBXBuildFile; fileRef = 028F8D171524CD1900C7907F /* MUSectionWritable.m */; };
 		E64AA45F152306F70087B49E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E64AA45E152306F70087B49E /* UIKit.framework */; };
 		E64AA461152306F70087B49E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E64AA460152306F70087B49E /* Foundation.framework */; };
 		E64AA463152306F70087B49E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E64AA462152306F70087B49E /* CoreGraphics.framework */; };
@@ -104,6 +106,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		028F8D121524C43F00C7907F /* MUSectionReadonly.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUSectionReadonly.h; sourceTree = "<group>"; };
+		028F8D131524C43F00C7907F /* MUSectionReadonly.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUSectionReadonly.m; sourceTree = "<group>"; };
+		028F8D161524CD1900C7907F /* MUSectionWritable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUSectionWritable.h; sourceTree = "<group>"; };
+		028F8D171524CD1900C7907F /* MUSectionWritable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUSectionWritable.m; sourceTree = "<group>"; };
 		99521E5F94A64C81B0626F2D /* Pods.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 		DB4464FCC8654B77A686DF9C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		E64AA45A152306F70087B49E /* MUKitTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MUKitTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -761,6 +767,10 @@
 		E66AEBBF1524C2F5005F95D1 /* Sections */ = {
 			isa = PBXGroup;
 			children = (
+				028F8D121524C43F00C7907F /* MUSectionReadonly.h */,
+				028F8D131524C43F00C7907F /* MUSectionReadonly.m */,
+				028F8D161524CD1900C7907F /* MUSectionWritable.h */,
+				028F8D171524CD1900C7907F /* MUSectionWritable.m */,
 			);
 			path = Sections;
 			sourceTree = "<group>";
@@ -939,6 +949,8 @@
 				E66AEBC41524C34F005F95D1 /* MUCellData.m in Sources */,
 				E66AEBC81524C390005F95D1 /* MUCellDataMOdeled.m in Sources */,
 				E66AEBCB1524C3B2005F95D1 /* MUCellDataMaped.m in Sources */,
+				028F8D141524C43F00C7907F /* MUSectionReadonly.m in Sources */,
+				028F8D181524CD1900C7907F /* MUSectionWritable.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

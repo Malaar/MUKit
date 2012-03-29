@@ -35,6 +35,8 @@
 - (NSUInteger) indexByCellData:(MUCellData*)aCellData;
 - (NSUInteger) indexByVisibleCellData:(MUCellData*)aCellData;
 
+- (void) updateCellDataVisibility;
+
 - (UITableViewCell<MUCellProtocol>*) cellForIndex:(NSUInteger)anIndex inTable:(UITableView*)aTableView;
 
 @end

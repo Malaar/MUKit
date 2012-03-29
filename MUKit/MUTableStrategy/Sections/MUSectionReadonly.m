@@ -103,6 +103,17 @@
 }
 
 //==============================================================================
+- (void) updateCellDataVisibility
+{
+    [visibleCellDataSource removeAllObjects];
+    for(MUCellData* cellData in cellDataSource)
+    {
+        if(cellData.visible)
+            [visibleCellDataSource addObject:cellData];
+    }
+}
+
+//==============================================================================
 - (UITableViewCell<MUCellProtocol>*) cellForIndex:(NSUInteger)anIndex inTable:(UITableView*)aTableView
 {
     UITableViewCell<MUCellProtocol>* cell = nil;

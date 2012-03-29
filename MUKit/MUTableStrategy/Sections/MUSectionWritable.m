@@ -7,6 +7,7 @@
 //
 
 #import "MUSectionWritable.h"
+#import "MUCellDataMaped.h"
 
 @implementation MUSectionWritable
 
@@ -35,6 +36,15 @@
 //==============================================================================
 - (void) hideCellByIndex:(NSUInteger)anIndex
 {
+    MUCellData* cellData = [self cellDataAtIndex:anIndex];
+    if(!cellData.visible)
+        return;
+    
+    NSUInteger index = [self indexByVisibleCellData:cellData];
+    
+    [visibleCellDataSource removeObjectAtIndex:index];
+    [cells removeObjectAtIndex:index];
+    cellData.visible = NO;
 }
 
 //==============================================================================
@@ -45,11 +55,19 @@
 //==============================================================================
 - (void) mapFromObject
 {
+    for (MUCellData* cellData in cellDataSource)
+    {
+        [(MUCellDataMaped*)cellData mapFromObject];
+    }
 }
 
 //==============================================================================
 - (void) mapToObject
 {
+    for (MUCellData* cellData in cellDataSource)
+    {
+        [(MUCellDataMaped*)cellData mapToObject];
+    }
 }
 
 @end

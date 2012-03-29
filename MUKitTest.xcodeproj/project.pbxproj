@@ -100,8 +100,8 @@
 		E6562A28152308DD00CEC66C /* readme.md in Resources */ = {isa = PBXBuildFile; fileRef = E65629DF152308DC00CEC66C /* readme.md */; };
 		E6562A2A1523092B00CEC66C /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6562A291523092B00CEC66C /* QuartzCore.framework */; };
 		E66AEBC41524C34F005F95D1 /* MUCellData.m in Sources */ = {isa = PBXBuildFile; fileRef = E66AEBC31524C34F005F95D1 /* MUCellData.m */; };
-		E66AEBC81524C390005F95D1 /* MUCellDataMOdeled.m in Sources */ = {isa = PBXBuildFile; fileRef = E66AEBC71524C390005F95D1 /* MUCellDataMOdeled.m */; };
 		E66AEBCB1524C3B2005F95D1 /* MUCellDataMaped.m in Sources */ = {isa = PBXBuildFile; fileRef = E66AEBCA1524C3B2005F95D1 /* MUCellDataMaped.m */; };
+		E6A994B51524D211006B1D70 /* MUCellDataModeled.m in Sources */ = {isa = PBXBuildFile; fileRef = E6A994B41524D211006B1D70 /* MUCellDataModeled.m */; };
 		E9E49188B2194DC3A24C7D69 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DB4464FCC8654B77A686DF9C /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -288,10 +288,10 @@
 		E66AEBC21524C34F005F95D1 /* MUCellData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUCellData.h; sourceTree = "<group>"; };
 		E66AEBC31524C34F005F95D1 /* MUCellData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUCellData.m; sourceTree = "<group>"; };
 		E66AEBC51524C36D005F95D1 /* MUCellProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUCellProtocol.h; sourceTree = "<group>"; };
-		E66AEBC61524C38F005F95D1 /* MUCellDataMOdeled.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUCellDataMOdeled.h; sourceTree = "<group>"; };
-		E66AEBC71524C390005F95D1 /* MUCellDataMOdeled.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUCellDataMOdeled.m; sourceTree = "<group>"; };
 		E66AEBC91524C3B2005F95D1 /* MUCellDataMaped.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUCellDataMaped.h; sourceTree = "<group>"; };
 		E66AEBCA1524C3B2005F95D1 /* MUCellDataMaped.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUCellDataMaped.m; sourceTree = "<group>"; };
+		E6A994B31524D211006B1D70 /* MUCellDataModeled.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUCellDataModeled.h; sourceTree = "<group>"; };
+		E6A994B41524D211006B1D70 /* MUCellDataModeled.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUCellDataModeled.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -747,12 +747,12 @@
 			isa = PBXGroup;
 			children = (
 				E66AEBC51524C36D005F95D1 /* MUCellProtocol.h */,
-				E66AEBC91524C3B2005F95D1 /* MUCellDataMaped.h */,
-				E66AEBCA1524C3B2005F95D1 /* MUCellDataMaped.m */,
 				E66AEBC21524C34F005F95D1 /* MUCellData.h */,
 				E66AEBC31524C34F005F95D1 /* MUCellData.m */,
-				E66AEBC61524C38F005F95D1 /* MUCellDataMOdeled.h */,
-				E66AEBC71524C390005F95D1 /* MUCellDataMOdeled.m */,
+				E66AEBC91524C3B2005F95D1 /* MUCellDataMaped.h */,
+				E66AEBCA1524C3B2005F95D1 /* MUCellDataMaped.m */,
+				E6A994B31524D211006B1D70 /* MUCellDataModeled.h */,
+				E6A994B41524D211006B1D70 /* MUCellDataModeled.m */,
 			);
 			path = CellDatas;
 			sourceTree = "<group>";
@@ -947,10 +947,10 @@
 				E6562A25152308DD00CEC66C /* DCRoundSwitchOutlineLayer.m in Sources */,
 				E6562A26152308DD00CEC66C /* DCRoundSwitchToggleLayer.m in Sources */,
 				E66AEBC41524C34F005F95D1 /* MUCellData.m in Sources */,
-				E66AEBC81524C390005F95D1 /* MUCellDataMOdeled.m in Sources */,
 				E66AEBCB1524C3B2005F95D1 /* MUCellDataMaped.m in Sources */,
 				028F8D141524C43F00C7907F /* MUSectionReadonly.m in Sources */,
 				028F8D181524CD1900C7907F /* MUSectionWritable.m in Sources */,
+				E6A994B51524D211006B1D70 /* MUCellDataModeled.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

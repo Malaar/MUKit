@@ -1,14 +1,14 @@
 //
-//  MUCellDataMOdeled.m
+//  MUCellDataModeled.m
 //  MUKitTest
 //
 //  Created by Yuriy Bosov on 3/29/12.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "MUCellDataMOdeled.h"
+#import "MUCellDataModeled.h"
 
-@implementation MUCellDataMOdeled
+@implementation MUCellDataModeled
 
 //==============================================================================
 @synthesize model;

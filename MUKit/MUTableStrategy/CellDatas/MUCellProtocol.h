@@ -13,9 +13,9 @@
 
 @protocol MUCellProtocol <NSObject>
 
-@property (MUCellData *) cellData;
+@property (nonatomic, readonly) MUCellData *cellData;
 
-- (void) setupCellData:(MUCellData *) aCellData
+- (void) setupCellData:(MUCellData *) aCellData;
 
 @end
 

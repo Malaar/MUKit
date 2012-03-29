@@ -1,5 +1,5 @@
 //
-//  MUCellDataMOdeled.h
+//  MUCellDataModeled.h
 //  MUKitTest
 //
 //  Created by Yuriy Bosov on 3/29/12.
@@ -8,7 +8,7 @@
 
 #import "MUCellData.h"
 
-@interface MUCellDataMOdeled : MUCellData
+@interface MUCellDataModeled : MUCellData
 
 @property (nonatomic, readonly) id model;
 

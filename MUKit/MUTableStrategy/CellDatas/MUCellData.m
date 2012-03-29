@@ -30,6 +30,9 @@
         autoDeselect = YES;
         cellSelectionStyle = UITableViewCellSelectionStyleBlue;
         cellStyle = UITableViewCellStyleDefault;
+        
+        cellSelectedHandler = [NSMutableArray new];
+        cellDeselectedHandler = [NSMutableArray new];
     }
     return self;
 }
@@ -44,6 +47,20 @@
 - (NSString *) cellIdentifier
 {
     return NSStringFromClass(self.cellClass);
+}
+
+//==============================================================================
+- (void) addCellSelectedHandler:(MUCellSelectedHandler)aHandler
+{
+    NSAssert(aHandler, nil);
+    [cellSelectedHandler addObject:aHandler];
+}
+
+//==============================================================================
+- (void) addCellDeselectedHandler:(MUCellDeselectedHandler)aHandler
+{
+    NSAssert(aHandler, nil);
+    [cellDeselectedHandler addObject:aHandler];
 }
 
 @end

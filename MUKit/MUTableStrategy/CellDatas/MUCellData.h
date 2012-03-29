@@ -8,7 +8,17 @@
 
 #import <Foundation/Foundation.h>
 
+
+typedef void (^MUCellSelectedHandler)(id response);
+typedef void (^MUCellDeselectedHandler)(id response);
+
+
 @interface MUCellData : NSObject
+{
+    @private
+    NSMutableArray *cellSelectedHandler;
+    NSMutableArray *cellDeselectedHandler;
+}
 
 @property (nonatomic, assign) Class controllerClass;
 
@@ -22,5 +32,8 @@
 
 - (id) init;
 - (CGFloat) cellHeightForWidth:(CGFloat) aWidth; 
+
+- (void) addCellSelectedHandler:(MUCellSelectedHandler) aHandler;
+- (void) addCellDeselectedHandler:(MUCellDeselectedHandler) aHandler;
 
 @end

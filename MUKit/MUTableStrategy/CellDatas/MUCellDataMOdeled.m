@@ -10,4 +10,25 @@
 
 @implementation MUCellDataMOdeled
 
+//==============================================================================
+@synthesize model;
+
+//==============================================================================
+- (id) initWithModel:(id)aModel
+{
+    self = [super init];
+    if (self)
+    {
+        model = [aModel retain];
+    }
+    return self;
+}
+
+//==============================================================================
+- (void) dealloc
+{
+    [model release];    
+    [super dealloc];
+}
+
 @end

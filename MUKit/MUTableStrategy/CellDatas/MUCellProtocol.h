@@ -9,6 +9,14 @@
 #ifndef MUKitTest_MUCellProtocol_h
 #define MUKitTest_MUCellProtocol_h
 
+#import "MUCellData.h"
 
+@protocol MUCellProtocol <NSObject>
+
+@property (MUCellData *) cellData;
+
+- (void) setupCellData:(MUCellData *) aCellData
+
+@end
 
 #endif

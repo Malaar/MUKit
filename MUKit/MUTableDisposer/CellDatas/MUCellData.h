@@ -27,6 +27,7 @@ typedef void (^MUCellDeselectedHandler)(MUCellData* aCellData);
 @property (nonatomic, readonly) NSString *cellIdentifier;
 @property (nonatomic, assign) UITableViewCellSelectionStyle cellSelectionStyle;
 @property (nonatomic, assign) UITableViewCellStyle cellStyle;
+@property (nonatomic, assign) UITableViewCellAccessoryType cellAccessoryType;
 @property (nonatomic, assign) BOOL autoDeselect;
 @property (nonatomic, assign) BOOL visible;
 @property (nonatomic, assign) BOOL enebleEdit;

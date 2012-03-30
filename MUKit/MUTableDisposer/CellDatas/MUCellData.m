@@ -16,6 +16,7 @@
 @synthesize controllerClass;
 @synthesize cellSelectionStyle;
 @synthesize cellStyle;
+@synthesize cellAccessoryType;
 @synthesize autoDeselect;
 @synthesize visible;
 @synthesize enebleEdit;
@@ -30,6 +31,7 @@
         autoDeselect = YES;
         cellSelectionStyle = UITableViewCellSelectionStyleBlue;
         cellStyle = UITableViewCellStyleDefault;
+        cellAccessoryType = UITableViewCellAccessoryNone;
         
         cellSelectedHandler = [NSMutableArray new];
         cellDeselectedHandler = [NSMutableArray new];

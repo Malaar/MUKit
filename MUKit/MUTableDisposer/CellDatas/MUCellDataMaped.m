@@ -15,6 +15,13 @@
 @synthesize object;
 
 //==============================================================================
+- (id) init
+{
+    NSAssert(nil, @"You mast used initWithObject:key: method!");
+    return nil;
+}
+
+//==============================================================================
 - (id) initWithObject:(NSObject *)aObject key:(NSString *)aKey
 {
     self = [super init];
@@ -22,8 +29,16 @@
     {
         key = [aKey retain];
         object = aObject;
+        
+        [self setup];
     }
     return self;
+}
+
+//==============================================================================
+- (void) setup
+{
+    [self mapFromObject];
 }
 
 //==============================================================================

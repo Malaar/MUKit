@@ -6,8 +6,8 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "MUCellData.h"
+#import "MUCellDataMaped.h"
 
-@interface MUEntryCellData : MUCellData
+@interface MUEntryCellData : MUCellDataMaped
 
 @end

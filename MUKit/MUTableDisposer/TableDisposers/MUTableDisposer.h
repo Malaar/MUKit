@@ -15,6 +15,7 @@
 
 @interface MUTableDisposer : NSObject <UITableViewDataSource>
 {
+@protected
     UITableView* tableView;
     NSMutableArray* sections;
     id<MUTableDisposerDelegate> delegate;
@@ -26,8 +27,8 @@
 @property (nonatomic, assign) id<MUTableDisposerDelegate> delegate;
 
 - (void) addSection:(MUSectionReadonly*)aSection;
-- (void) removeSectionAtIndex:(NSUInteger)anIndex;
-- (void) removeSection:(MUSectionReadonly*)aSection;
+- (void) removeSectionAtIndex:(NSUInteger)anIndex needUpdateTable:(BOOL)aNeedUpdateTable;
+- (void) removeSection:(MUSectionReadonly*)aSection needUpdateTable:(BOOL)aNeedUpdateTable;
 - (void) removeAllSections;
 - (MUSectionReadonly*) sectionByIndex:(NSUInteger)anIndex;
 - (NSUInteger) indexBySection:(MUSectionReadonly*)aSection;

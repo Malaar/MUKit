@@ -8,9 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
+@class MUCellData;
 
-typedef void (^MUCellSelectedHandler)(id response);
-typedef void (^MUCellDeselectedHandler)(id response);
+typedef void (^MUCellSelectedHandler)(MUCellData* aCellData);
+typedef void (^MUCellDeselectedHandler)(MUCellData* aCellData);
 
 
 @interface MUCellData : NSObject
@@ -36,5 +37,8 @@ typedef void (^MUCellDeselectedHandler)(id response);
 
 - (void) addCellSelectedHandler:(MUCellSelectedHandler) aHandler;
 - (void) addCellDeselectedHandler:(MUCellDeselectedHandler) aHandler;
+
+- (void) performSelectedHandlers;
+- (void) performDeselectedHandlers;
 
 @end

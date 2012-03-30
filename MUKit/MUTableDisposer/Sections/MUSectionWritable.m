@@ -10,6 +10,7 @@
 #import "MUCellDataMaped.h"
 #import "MUCellData.h"
 #import "MUCellProtocol.h"
+#import "MUTableDisposer.h"
 
 
 //==============================================================================
@@ -63,7 +64,7 @@
 }
 
 //==============================================================================
-- (UITableViewCell<MUCellProtocol>*) cellForIndex:(NSUInteger)anIndex inTable:(UITableView*)aTableView
+- (UITableViewCell<MUCellProtocol>*) cellForIndex:(NSUInteger)anIndex
 {
     UITableViewCell<MUCellProtocol>* cell = [cells objectAtIndex:anIndex];
     // ...
@@ -72,7 +73,7 @@
 
 #pragma mark - Show/Hide cels
 //==============================================================================
-- (void) hideCellByIndex:(NSUInteger)anIndex
+- (void) hideCellByIndex:(NSUInteger)anIndex needUpdateTable:(BOOL)aNeedUpdateTable
 {
     MUCellData* cellData = [self cellDataAtIndex:anIndex];
     if(!cellData.visible)
@@ -83,10 +84,16 @@
     [visibleCellDataSource removeObjectAtIndex:index];
     [cells removeObjectAtIndex:index];
     cellData.visible = NO;
+    
+    if(aNeedUpdateTable)
+    {
+        NSIndexPath* indexPath = [NSIndexPath indexPathForRow:index inSection:[disposer indexBySection:self]];
+        [disposer.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationMiddle];
+    }
 }
 
 //==============================================================================
-- (void) showCellByIndex:(NSUInteger)anIndex
+- (void) showCellByIndex:(NSUInteger)anIndex needUpdateTable:(BOOL)aNeedUpdateTable
 {
     MUCellData* cellData = [self cellDataAtIndex:anIndex];
     if(cellData.visible)
@@ -98,6 +105,12 @@
     NSUInteger index = [self indexByVisibleCellData:cellData];
     MUCell* cell = [self createCellAtIndex:index];
     [cells insertObject:cell atIndex:index];
+
+    if(aNeedUpdateTable)
+    {
+        NSIndexPath* indexPath = [NSIndexPath indexPathForRow:index inSection:[disposer indexBySection:self]];
+        [disposer.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationMiddle];
+    }
 }
 
 #pragma mark - Maping

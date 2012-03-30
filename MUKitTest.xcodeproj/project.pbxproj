@@ -13,6 +13,7 @@
 		028F8D3915259B3600C7907F /* MUSectionReadonly.m in Sources */ = {isa = PBXBuildFile; fileRef = 028F8D3215259B3600C7907F /* MUSectionReadonly.m */; };
 		028F8D3A15259B3600C7907F /* MUSectionWritable.m in Sources */ = {isa = PBXBuildFile; fileRef = 028F8D3415259B3600C7907F /* MUSectionWritable.m */; };
 		028F8D4B1525A1EB00C7907F /* MUCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 028F8D4A1525A1EB00C7907F /* MUCell.m */; };
+		02BDB7E31525FA4F00764326 /* MUTableDisposer.m in Sources */ = {isa = PBXBuildFile; fileRef = 02BDB7E21525FA4F00764326 /* MUTableDisposer.m */; };
 		E606F59B1525BBBF00D2DA01 /* MUBooleanCellData.m in Sources */ = {isa = PBXBuildFile; fileRef = E606F59A1525BBBF00D2DA01 /* MUBooleanCellData.m */; };
 		E606F59E1525BBCE00D2DA01 /* MUButtonCellData.m in Sources */ = {isa = PBXBuildFile; fileRef = E606F59D1525BBCD00D2DA01 /* MUButtonCellData.m */; };
 		E606F5A11525BBDB00D2DA01 /* MULabelCellData.m in Sources */ = {isa = PBXBuildFile; fileRef = E606F5A01525BBDB00D2DA01 /* MULabelCellData.m */; };
@@ -130,6 +131,8 @@
 		028F8D3415259B3600C7907F /* MUSectionWritable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUSectionWritable.m; sourceTree = "<group>"; };
 		028F8D491525A1EB00C7907F /* MUCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUCell.h; sourceTree = "<group>"; };
 		028F8D4A1525A1EB00C7907F /* MUCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUCell.m; sourceTree = "<group>"; };
+		02BDB7E11525FA4F00764326 /* MUTableDisposer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUTableDisposer.h; sourceTree = "<group>"; };
+		02BDB7E21525FA4F00764326 /* MUTableDisposer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUTableDisposer.m; sourceTree = "<group>"; };
 		99521E5F94A64C81B0626F2D /* Pods.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 		DB4464FCC8654B77A686DF9C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		E606F5991525BBBF00D2DA01 /* MUBooleanCellData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUBooleanCellData.h; sourceTree = "<group>"; };
@@ -349,6 +352,7 @@
 				028F8D2615259B3600C7907F /* CellDatas */,
 				028F8D2E15259B3600C7907F /* Cells */,
 				028F8D3015259B3600C7907F /* Sections */,
+				02BDB7E01525FA4F00764326 /* TableDisposers */,
 			);
 			path = MUTableDisposer;
 			sourceTree = "<group>";
@@ -387,6 +391,15 @@
 				028F8D3415259B3600C7907F /* MUSectionWritable.m */,
 			);
 			path = Sections;
+			sourceTree = "<group>";
+		};
+		02BDB7E01525FA4F00764326 /* TableDisposers */ = {
+			isa = PBXGroup;
+			children = (
+				02BDB7E11525FA4F00764326 /* MUTableDisposer.h */,
+				02BDB7E21525FA4F00764326 /* MUTableDisposer.m */,
+			);
+			path = TableDisposers;
 			sourceTree = "<group>";
 		};
 		E606F5961525BABA00D2DA01 /* DataForSimpleCells */ = {
@@ -1025,6 +1038,7 @@
 				E606F5B01525BC3F00D2DA01 /* MULabelCell.m in Sources */,
 				E606F5B31525BC5000D2DA01 /* MUEntryCell.m in Sources */,
 				E606F5B61525BC5E00D2DA01 /* MUTextCell.m in Sources */,
+				02BDB7E31525FA4F00764326 /* MUTableDisposer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

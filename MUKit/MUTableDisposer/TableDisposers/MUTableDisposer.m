@@ -56,15 +56,19 @@
 }
 
 //==============================================================================
-- (void) removeSectionAtIndex:(NSUInteger)anIndex
+- (void) removeSectionAtIndex:(NSUInteger)anIndex needUpdateTable:(BOOL)aNeedUpdateTable
 {
+    if(aNeedUpdateTable)
+        [tableView deleteSections:[NSIndexSet indexSetWithIndex:anIndex] withRowAnimation:UITableViewRowAnimationMiddle];
+
     [sections removeObjectAtIndex:anIndex];
 }
 
 //==============================================================================
-- (void) removeSection:(MUSectionReadonly*)aSection
+- (void) removeSection:(MUSectionReadonly*)aSection needUpdateTable:(BOOL)aNeedUpdateTable
 {
-    [sections removeObject:aSection];
+    NSUInteger index = [self indexBySection:aSection];
+    [self removeSectionAtIndex:index needUpdateTable:aNeedUpdateTable];
 }
 
 //==============================================================================

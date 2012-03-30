@@ -15,6 +15,7 @@
 
 @interface MUTableDisposer : NSObject <UITableViewDataSource>
 {
+@protected
     UITableView* tableView;
     NSMutableArray* sections;
     id<MUTableDisposerDelegate> delegate;

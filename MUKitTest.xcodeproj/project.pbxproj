@@ -15,6 +15,8 @@
 		028F8D4B1525A1EB00C7907F /* MUCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 028F8D4A1525A1EB00C7907F /* MUCell.m */; };
 		02BDB7E31525FA4F00764326 /* MUTableDisposer.m in Sources */ = {isa = PBXBuildFile; fileRef = 02BDB7E21525FA4F00764326 /* MUTableDisposer.m */; };
 		02BDB7ED1525FF3500764326 /* MUTableDisposerModeled.m in Sources */ = {isa = PBXBuildFile; fileRef = 02BDB7EC1525FF3500764326 /* MUTableDisposerModeled.m */; };
+		02BDB7F11526043300764326 /* MUTableDisposerMaped.m in Sources */ = {isa = PBXBuildFile; fileRef = 02BDB7F01526043300764326 /* MUTableDisposerMaped.m */; };
+		02BDB7F4152604EF00764326 /* MUTableDisposerRequested.m in Sources */ = {isa = PBXBuildFile; fileRef = 02BDB7F3152604EF00764326 /* MUTableDisposerRequested.m */; };
 		E606F59B1525BBBF00D2DA01 /* MUBooleanCellData.m in Sources */ = {isa = PBXBuildFile; fileRef = E606F59A1525BBBF00D2DA01 /* MUBooleanCellData.m */; };
 		E606F59E1525BBCE00D2DA01 /* MUButtonCellData.m in Sources */ = {isa = PBXBuildFile; fileRef = E606F59D1525BBCD00D2DA01 /* MUButtonCellData.m */; };
 		E606F5A11525BBDB00D2DA01 /* MULabelCellData.m in Sources */ = {isa = PBXBuildFile; fileRef = E606F5A01525BBDB00D2DA01 /* MULabelCellData.m */; };
@@ -136,6 +138,10 @@
 		02BDB7E21525FA4F00764326 /* MUTableDisposer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUTableDisposer.m; sourceTree = "<group>"; };
 		02BDB7EB1525FF3500764326 /* MUTableDisposerModeled.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUTableDisposerModeled.h; sourceTree = "<group>"; };
 		02BDB7EC1525FF3500764326 /* MUTableDisposerModeled.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUTableDisposerModeled.m; sourceTree = "<group>"; };
+		02BDB7EF1526043300764326 /* MUTableDisposerMaped.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUTableDisposerMaped.h; sourceTree = "<group>"; };
+		02BDB7F01526043300764326 /* MUTableDisposerMaped.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUTableDisposerMaped.m; sourceTree = "<group>"; };
+		02BDB7F2152604EF00764326 /* MUTableDisposerRequested.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUTableDisposerRequested.h; sourceTree = "<group>"; };
+		02BDB7F3152604EF00764326 /* MUTableDisposerRequested.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUTableDisposerRequested.m; sourceTree = "<group>"; };
 		99521E5F94A64C81B0626F2D /* Pods.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 		DB4464FCC8654B77A686DF9C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		E606F5991525BBBF00D2DA01 /* MUBooleanCellData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUBooleanCellData.h; sourceTree = "<group>"; };
@@ -403,6 +409,10 @@
 				02BDB7E21525FA4F00764326 /* MUTableDisposer.m */,
 				02BDB7EB1525FF3500764326 /* MUTableDisposerModeled.h */,
 				02BDB7EC1525FF3500764326 /* MUTableDisposerModeled.m */,
+				02BDB7EF1526043300764326 /* MUTableDisposerMaped.h */,
+				02BDB7F01526043300764326 /* MUTableDisposerMaped.m */,
+				02BDB7F2152604EF00764326 /* MUTableDisposerRequested.h */,
+				02BDB7F3152604EF00764326 /* MUTableDisposerRequested.m */,
 			);
 			path = TableDisposers;
 			sourceTree = "<group>";
@@ -1045,6 +1055,8 @@
 				E606F5B61525BC5E00D2DA01 /* MUTextCell.m in Sources */,
 				02BDB7E31525FA4F00764326 /* MUTableDisposer.m in Sources */,
 				02BDB7ED1525FF3500764326 /* MUTableDisposerModeled.m in Sources */,
+				02BDB7F11526043300764326 /* MUTableDisposerMaped.m in Sources */,
+				02BDB7F4152604EF00764326 /* MUTableDisposerRequested.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

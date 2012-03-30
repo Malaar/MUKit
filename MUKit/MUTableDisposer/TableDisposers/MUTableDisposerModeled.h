@@ -7,7 +7,16 @@
 //
 
 #import "MUTableDisposer.h"
+#import "MUCellDataModeled.h"
+
 
 @interface MUTableDisposerModeled : MUTableDisposer
+{
+    NSMutableDictionary* registeredClasses;
+}
+
+- (void) registerCellData:(Class)aCellDataClass forModel:(Class)aModelClass;
+- (void) setupModels:(NSArray*)aModels forSectionAtIndex:(NSUInteger)aSectionIndex;
+- (void) setupModels:(NSArray*)aModels forSection:(MUSectionReadonly*)aSection;
 
 @end

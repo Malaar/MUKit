@@ -7,6 +7,7 @@
 //
 
 #import "MUSectionReadonly.h"
+#import "MUTableDisposer.h"
 
 
 @implementation MUSectionReadonly
@@ -45,6 +46,12 @@
     [visibleCellDataSource release];
     
     [super dealloc];
+}
+
+//==============================================================================
+- (void) setTableDisposer:(MUTableDisposer*)aTableDisposer
+{
+    disposer = aTableDisposer;
 }
 
 #pragma mark - CellDatas
@@ -103,6 +110,18 @@
 }
 
 //==============================================================================
+- (NSUInteger) cellDataCount
+{
+    return [cellDataSource count];
+}
+
+//==============================================================================
+- (NSUInteger) visibleCellDataCount
+{
+    return [visibleCellDataSource count];
+}
+
+//==============================================================================
 - (void) updateCellDataVisibility
 {
     [visibleCellDataSource removeAllObjects];
@@ -115,13 +134,13 @@
 
 #pragma mark - Cells
 //==============================================================================
-- (MUCell*) cellForIndex:(NSUInteger)anIndex inTable:(UITableView*)aTableView
+- (MUCell*) cellForIndex:(NSUInteger)anIndex
 {
     MUCell* cell = nil;
     
     MUCellData* cellData = [self visibleCellDataAtIndex:anIndex];
     
-    cell = [aTableView dequeueReusableCellWithIdentifier:cellData.cellIdentifier];
+    cell = [disposer.tableView dequeueReusableCellWithIdentifier:cellData.cellIdentifier];
     
     if(!cell)
     {

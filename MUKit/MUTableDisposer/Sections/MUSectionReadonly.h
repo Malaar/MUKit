@@ -10,11 +10,13 @@
 #import "MUCell.h"
 #import "MUCellData.h"
 
+@class MUTableDisposer;
 
 @interface MUSectionReadonly : NSObject
 {
     NSMutableArray* cellDataSource;
     NSMutableArray* visibleCellDataSource;
+    MUTableDisposer* disposer;
 }
 
 @property (nonatomic, retain) NSString* headerTitle;
@@ -24,11 +26,15 @@
 
 + (MUSectionReadonly*) section;
 
+- (void) setTableDisposer:(MUTableDisposer*)aTableDisposer;
+
 - (void) addCellData:(MUCellData*)aCellData;
 - (void) addCellDataFromArray:(NSArray*)aCellDataArray;
 - (void) insertCellData:(MUCellData*)aCellData atIndex:(NSUInteger)anIndex;
 - (void) removeCellDataAtIndex:(NSUInteger)anIndex;
 - (void) removeAllCellData;
+- (NSUInteger) cellDataCount;
+- (NSUInteger) visibleCellDataCount;
 
 - (MUCellData*) cellDataAtIndex:(NSUInteger)anIndex;
 - (MUCellData*) visibleCellDataAtIndex:(NSUInteger)anIndex;
@@ -37,6 +43,6 @@
 
 - (void) updateCellDataVisibility;
 
-- (MUCell*) cellForIndex:(NSUInteger)anIndex inTable:(UITableView*)aTableView;
+- (MUCell*) cellForIndex:(NSUInteger)anIndex;
 
 @end

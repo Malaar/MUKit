@@ -52,15 +52,35 @@
 //==============================================================================
 - (void) addCellSelectedHandler:(MUCellSelectedHandler)aHandler
 {
-    NSAssert(aHandler, nil);
+    NSAssert(aHandler, @"Wrong handler!");
     [cellSelectedHandler addObject:aHandler];
 }
 
 //==============================================================================
 - (void) addCellDeselectedHandler:(MUCellDeselectedHandler)aHandler
 {
-    NSAssert(aHandler, nil);
+    NSAssert(aHandler, @"Wrong handler!");
     [cellDeselectedHandler addObject:aHandler];
+}
+
+//==============================================================================
+- (void) performSelectedHandlers
+{
+    for(id handler in cellSelectedHandler)
+    {
+        MUCellSelectedHandler block = handler;
+        block(self);
+    }
+}
+
+//==============================================================================
+- (void) performDeselectedHandlers
+{
+    for(id handler in cellDeselectedHandler)
+    {
+        MUCellDeselectedHandler block = handler;
+        block(self);
+    }
 }
 
 @end

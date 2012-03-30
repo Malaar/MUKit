@@ -8,7 +8,7 @@
 
 #import "MUSectionReadonly.h"
 #import "MUCellData.h"
-#import "MUCellProtocol.h"
+
 
 @implementation MUSectionReadonly
 
@@ -114,11 +114,11 @@
 }
 
 //==============================================================================
-- (UITableViewCell<MUCellProtocol>*) cellForIndex:(NSUInteger)anIndex inTable:(UITableView*)aTableView
+- (MUCell*) cellForIndex:(NSUInteger)anIndex inTable:(UITableView*)aTableView
 {
-    UITableViewCell<MUCellProtocol>* cell = nil;
+    MUCell* cell = nil;
     
-    MUCellData* cellData = [self cellDataAtIndex:anIndex];
+    MUCellData* cellData = [self visibleCellDataAtIndex:anIndex];
     
     cell = [aTableView dequeueReusableCellWithIdentifier:cellData.cellIdentifier];
     

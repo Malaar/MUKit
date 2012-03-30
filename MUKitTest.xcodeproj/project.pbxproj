@@ -10,9 +10,9 @@
 		028F8D3515259B3600C7907F /* MUCellData.m in Sources */ = {isa = PBXBuildFile; fileRef = 028F8D2815259B3600C7907F /* MUCellData.m */; };
 		028F8D3615259B3600C7907F /* MUCellDataMaped.m in Sources */ = {isa = PBXBuildFile; fileRef = 028F8D2A15259B3600C7907F /* MUCellDataMaped.m */; };
 		028F8D3715259B3600C7907F /* MUCellDataModeled.m in Sources */ = {isa = PBXBuildFile; fileRef = 028F8D2C15259B3600C7907F /* MUCellDataModeled.m */; };
-		028F8D3815259B3600C7907F /* warning_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 028F8D2F15259B3600C7907F /* warning_icon.png */; };
 		028F8D3915259B3600C7907F /* MUSectionReadonly.m in Sources */ = {isa = PBXBuildFile; fileRef = 028F8D3215259B3600C7907F /* MUSectionReadonly.m */; };
 		028F8D3A15259B3600C7907F /* MUSectionWritable.m in Sources */ = {isa = PBXBuildFile; fileRef = 028F8D3415259B3600C7907F /* MUSectionWritable.m */; };
+		028F8D4B1525A1EB00C7907F /* MUCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 028F8D4A1525A1EB00C7907F /* MUCell.m */; };
 		E64AA45F152306F70087B49E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E64AA45E152306F70087B49E /* UIKit.framework */; };
 		E64AA461152306F70087B49E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E64AA460152306F70087B49E /* Foundation.framework */; };
 		E64AA463152306F70087B49E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E64AA462152306F70087B49E /* CoreGraphics.framework */; };
@@ -114,11 +114,12 @@
 		028F8D2B15259B3600C7907F /* MUCellDataModeled.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUCellDataModeled.h; sourceTree = "<group>"; };
 		028F8D2C15259B3600C7907F /* MUCellDataModeled.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUCellDataModeled.m; sourceTree = "<group>"; };
 		028F8D2D15259B3600C7907F /* MUCellProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUCellProtocol.h; sourceTree = "<group>"; };
-		028F8D2F15259B3600C7907F /* warning_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = warning_icon.png; sourceTree = "<group>"; };
 		028F8D3115259B3600C7907F /* MUSectionReadonly.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUSectionReadonly.h; sourceTree = "<group>"; };
 		028F8D3215259B3600C7907F /* MUSectionReadonly.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUSectionReadonly.m; sourceTree = "<group>"; };
 		028F8D3315259B3600C7907F /* MUSectionWritable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUSectionWritable.h; sourceTree = "<group>"; };
 		028F8D3415259B3600C7907F /* MUSectionWritable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUSectionWritable.m; sourceTree = "<group>"; };
+		028F8D491525A1EB00C7907F /* MUCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUCell.h; sourceTree = "<group>"; };
+		028F8D4A1525A1EB00C7907F /* MUCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUCell.m; sourceTree = "<group>"; };
 		99521E5F94A64C81B0626F2D /* Pods.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 		DB4464FCC8654B77A686DF9C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		E64AA45A152306F70087B49E /* MUKitTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MUKitTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -339,7 +340,8 @@
 		028F8D2E15259B3600C7907F /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				028F8D2F15259B3600C7907F /* warning_icon.png */,
+				028F8D491525A1EB00C7907F /* MUCell.h */,
+				028F8D4A1525A1EB00C7907F /* MUCell.m */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -836,7 +838,6 @@
 				E6562939152308CF00CEC66C /* MURootControllerIPhone.xib in Resources */,
 				E6562A27152308DD00CEC66C /* license.txt in Resources */,
 				E6562A28152308DD00CEC66C /* readme.md in Resources */,
-				028F8D3815259B3600C7907F /* warning_icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -947,6 +948,7 @@
 				028F8D3715259B3600C7907F /* MUCellDataModeled.m in Sources */,
 				028F8D3915259B3600C7907F /* MUSectionReadonly.m in Sources */,
 				028F8D3A15259B3600C7907F /* MUSectionWritable.m in Sources */,
+				028F8D4B1525A1EB00C7907F /* MUCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

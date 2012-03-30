@@ -7,9 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "MUCell.h"
 
 @class MUCellData;
-@protocol MUCellProtocol;
 
 @interface MUSectionReadonly : NSObject
 {
@@ -37,6 +37,6 @@
 
 - (void) updateCellDataVisibility;
 
-- (UITableViewCell<MUCellProtocol>*) cellForIndex:(NSUInteger)anIndex inTable:(UITableView*)aTableView;
+- (MUCell*) cellForIndex:(NSUInteger)anIndex inTable:(UITableView*)aTableView;
 
 @end

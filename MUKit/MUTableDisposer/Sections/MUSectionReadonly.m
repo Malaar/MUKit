@@ -1,13 +1,12 @@
 //
 //  MUSectionReadonly.m
-//  MUKitTest
+//  MUKit
 //
 //  Created by Malaar on 29.03.12.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
 #import "MUSectionReadonly.h"
-#import "MUCellData.h"
 
 
 @implementation MUSectionReadonly
@@ -17,7 +16,7 @@
 @synthesize headerView;
 @synthesize footerView;
 
-
+#pragma mark - Init/Dealloc
 //==============================================================================
 + (MUSectionReadonly*) section
 {
@@ -48,6 +47,7 @@
     [super dealloc];
 }
 
+#pragma mark - CellDatas
 //==============================================================================
 - (void) addCellData:(MUCellData*)aCellData
 {
@@ -113,6 +113,7 @@
     }
 }
 
+#pragma mark - Cells
 //==============================================================================
 - (MUCell*) cellForIndex:(NSUInteger)anIndex inTable:(UITableView*)aTableView
 {

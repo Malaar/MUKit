@@ -1,6 +1,6 @@
 //
 //  MUSectionWritable.h
-//  MUKitTest
+//  MUKit
 //
 //  Created by Malaar on 29.03.12.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
@@ -14,6 +14,7 @@
 }
 
 - (void) createCells;
+
 - (void) hideCellByIndex:(NSUInteger)anIndex;
 - (void) showCellByIndex:(NSUInteger)anIndex;
 

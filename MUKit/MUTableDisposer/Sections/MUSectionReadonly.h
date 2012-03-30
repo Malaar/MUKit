@@ -1,6 +1,6 @@
 //
 //  MUSectionReadonly.h
-//  MUKitTest
+//  MUKit
 //
 //  Created by Malaar on 29.03.12.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
@@ -8,8 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import "MUCell.h"
+#import "MUCellData.h"
 
-@class MUCellData;
 
 @interface MUSectionReadonly : NSObject
 {

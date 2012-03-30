@@ -1,6 +1,6 @@
 //
 //  MUSectionWritable.m
-//  MUKitTest
+//  MUKit
 //
 //  Created by Malaar on 29.03.12.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
@@ -27,11 +27,13 @@
 //==============================================================================
 @implementation MUSectionWritable
 
+#pragma mark - Init/Dealloc
 //==============================================================================
 - (id) init
 {
     if( (self = [super init]) )
     {
+        cells = [NSMutableArray new];
     }
     return self;
 }
@@ -44,10 +46,12 @@
     [super dealloc];
 }
 
+#pragma mark - Cells
 //==============================================================================
 - (void) createCells
 {
     [self updateCellDataVisibility];
+    [cells removeAllObjects];
     
     NSUInteger index = 0;
     MUCell* cell;
@@ -66,6 +70,7 @@
     return cell;
 }
 
+#pragma mark - Show/Hide cels
 //==============================================================================
 - (void) hideCellByIndex:(NSUInteger)anIndex
 {
@@ -95,6 +100,7 @@
     [cells insertObject:cell atIndex:index];
 }
 
+#pragma mark - Maping
 //==============================================================================
 - (void) mapFromObject
 {
@@ -113,6 +119,7 @@
     }
 }
 
+#pragma mark - Private
 //==============================================================================
 - (MUCell*) createCellAtIndex:(NSUInteger)anIndex
 {

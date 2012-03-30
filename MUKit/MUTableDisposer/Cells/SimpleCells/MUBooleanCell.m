@@ -7,7 +7,23 @@
 //
 
 #import "MUBooleanCell.h"
+#import "MUBooleanCellData.h"
 
 @implementation MUBooleanCell
+
+- (void) setupCellData:(MUCellData *)aCellData
+{
+    [super setupCellData:aCellData];
+    MUBooleanCellData *booleanCellData = (MUBooleanCellData *)self.cellData;
+    
+    UISwitch *swither = [[[UISwitch alloc] init] autorelease];
+    
+    [swither addTarget:booleanCellData.switchTarget action:booleanCellData.switchAction forControlEvents:UIControlEventValueChanged];
+    swither.on = booleanCellData.boolValue;
+    swither.enabled = booleanCellData.enebleEdit;
+    
+    [self.accessoryView addSubview:swither];
+    [swither sizeToFit];
+}
 
 @end

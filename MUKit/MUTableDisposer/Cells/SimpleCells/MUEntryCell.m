@@ -7,7 +7,18 @@
 //
 
 #import "MUEntryCell.h"
+#import "MUEntryCellData.h"
 
 @implementation MUEntryCell
+
+@synthesize textField;
+
+- (void) setupCellData:(MUCellData *)aCellData
+{
+    [super setupCellData:aCellData];
+    
+//    MUEntryCellData *entryCellData = (MUEntryCellData *)self.cellData;
+    
+}
 
 @end

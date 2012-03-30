@@ -7,7 +7,13 @@
 //
 
 #import "MUCell.h"
+#import "MUTextField.h"
 
 @interface MUEntryCell : MUCell
+{
+    MUTextField *textField;
+}
+
+@property (nonatomic, readonly ) MUTextField *textField;
 
 @end

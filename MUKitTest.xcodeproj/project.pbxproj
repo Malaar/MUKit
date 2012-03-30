@@ -13,6 +13,16 @@
 		028F8D3915259B3600C7907F /* MUSectionReadonly.m in Sources */ = {isa = PBXBuildFile; fileRef = 028F8D3215259B3600C7907F /* MUSectionReadonly.m */; };
 		028F8D3A15259B3600C7907F /* MUSectionWritable.m in Sources */ = {isa = PBXBuildFile; fileRef = 028F8D3415259B3600C7907F /* MUSectionWritable.m */; };
 		028F8D4B1525A1EB00C7907F /* MUCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 028F8D4A1525A1EB00C7907F /* MUCell.m */; };
+		E606F59B1525BBBF00D2DA01 /* MUBooleanCellData.m in Sources */ = {isa = PBXBuildFile; fileRef = E606F59A1525BBBF00D2DA01 /* MUBooleanCellData.m */; };
+		E606F59E1525BBCE00D2DA01 /* MUButtonCellData.m in Sources */ = {isa = PBXBuildFile; fileRef = E606F59D1525BBCD00D2DA01 /* MUButtonCellData.m */; };
+		E606F5A11525BBDB00D2DA01 /* MULabelCellData.m in Sources */ = {isa = PBXBuildFile; fileRef = E606F5A01525BBDB00D2DA01 /* MULabelCellData.m */; };
+		E606F5A41525BBE800D2DA01 /* MUEntryCellData.m in Sources */ = {isa = PBXBuildFile; fileRef = E606F5A31525BBE700D2DA01 /* MUEntryCellData.m */; };
+		E606F5A71525BC0600D2DA01 /* MUTextCellData.m in Sources */ = {isa = PBXBuildFile; fileRef = E606F5A61525BC0500D2DA01 /* MUTextCellData.m */; };
+		E606F5AA1525BC1E00D2DA01 /* MUBooleanCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E606F5A91525BC1E00D2DA01 /* MUBooleanCell.m */; };
+		E606F5AD1525BC2C00D2DA01 /* MUButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E606F5AC1525BC2B00D2DA01 /* MUButtonCell.m */; };
+		E606F5B01525BC3F00D2DA01 /* MULabelCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E606F5AF1525BC3F00D2DA01 /* MULabelCell.m */; };
+		E606F5B31525BC5000D2DA01 /* MUEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E606F5B21525BC4F00D2DA01 /* MUEntryCell.m */; };
+		E606F5B61525BC5E00D2DA01 /* MUTextCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E606F5B51525BC5D00D2DA01 /* MUTextCell.m */; };
 		E64AA45F152306F70087B49E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E64AA45E152306F70087B49E /* UIKit.framework */; };
 		E64AA461152306F70087B49E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E64AA460152306F70087B49E /* Foundation.framework */; };
 		E64AA463152306F70087B49E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E64AA462152306F70087B49E /* CoreGraphics.framework */; };
@@ -122,6 +132,26 @@
 		028F8D4A1525A1EB00C7907F /* MUCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUCell.m; sourceTree = "<group>"; };
 		99521E5F94A64C81B0626F2D /* Pods.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 		DB4464FCC8654B77A686DF9C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		E606F5991525BBBF00D2DA01 /* MUBooleanCellData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUBooleanCellData.h; sourceTree = "<group>"; };
+		E606F59A1525BBBF00D2DA01 /* MUBooleanCellData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUBooleanCellData.m; sourceTree = "<group>"; };
+		E606F59C1525BBCD00D2DA01 /* MUButtonCellData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUButtonCellData.h; sourceTree = "<group>"; };
+		E606F59D1525BBCD00D2DA01 /* MUButtonCellData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUButtonCellData.m; sourceTree = "<group>"; };
+		E606F59F1525BBDB00D2DA01 /* MULabelCellData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MULabelCellData.h; sourceTree = "<group>"; };
+		E606F5A01525BBDB00D2DA01 /* MULabelCellData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MULabelCellData.m; sourceTree = "<group>"; };
+		E606F5A21525BBE700D2DA01 /* MUEntryCellData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUEntryCellData.h; sourceTree = "<group>"; };
+		E606F5A31525BBE700D2DA01 /* MUEntryCellData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUEntryCellData.m; sourceTree = "<group>"; };
+		E606F5A51525BC0500D2DA01 /* MUTextCellData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUTextCellData.h; sourceTree = "<group>"; };
+		E606F5A61525BC0500D2DA01 /* MUTextCellData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUTextCellData.m; sourceTree = "<group>"; };
+		E606F5A81525BC1E00D2DA01 /* MUBooleanCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUBooleanCell.h; sourceTree = "<group>"; };
+		E606F5A91525BC1E00D2DA01 /* MUBooleanCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUBooleanCell.m; sourceTree = "<group>"; };
+		E606F5AB1525BC2B00D2DA01 /* MUButtonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUButtonCell.h; sourceTree = "<group>"; };
+		E606F5AC1525BC2B00D2DA01 /* MUButtonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUButtonCell.m; sourceTree = "<group>"; };
+		E606F5AE1525BC3F00D2DA01 /* MULabelCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MULabelCell.h; sourceTree = "<group>"; };
+		E606F5AF1525BC3F00D2DA01 /* MULabelCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MULabelCell.m; sourceTree = "<group>"; };
+		E606F5B11525BC4F00D2DA01 /* MUEntryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUEntryCell.h; sourceTree = "<group>"; };
+		E606F5B21525BC4F00D2DA01 /* MUEntryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUEntryCell.m; sourceTree = "<group>"; };
+		E606F5B41525BC5D00D2DA01 /* MUTextCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUTextCell.h; sourceTree = "<group>"; };
+		E606F5B51525BC5D00D2DA01 /* MUTextCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUTextCell.m; sourceTree = "<group>"; };
 		E64AA45A152306F70087B49E /* MUKitTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MUKitTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E64AA45E152306F70087B49E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		E64AA460152306F70087B49E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -333,6 +363,7 @@
 				028F8D2B15259B3600C7907F /* MUCellDataModeled.h */,
 				028F8D2C15259B3600C7907F /* MUCellDataModeled.m */,
 				028F8D2D15259B3600C7907F /* MUCellProtocol.h */,
+				E606F5961525BABA00D2DA01 /* DataForSimpleCells */,
 			);
 			path = CellDatas;
 			sourceTree = "<group>";
@@ -342,6 +373,7 @@
 			children = (
 				028F8D491525A1EB00C7907F /* MUCell.h */,
 				028F8D4A1525A1EB00C7907F /* MUCell.m */,
+				E606F5981525BAC500D2DA01 /* SimpleCells */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -355,6 +387,40 @@
 				028F8D3415259B3600C7907F /* MUSectionWritable.m */,
 			);
 			path = Sections;
+			sourceTree = "<group>";
+		};
+		E606F5961525BABA00D2DA01 /* DataForSimpleCells */ = {
+			isa = PBXGroup;
+			children = (
+				E606F59F1525BBDB00D2DA01 /* MULabelCellData.h */,
+				E606F5A01525BBDB00D2DA01 /* MULabelCellData.m */,
+				E606F5991525BBBF00D2DA01 /* MUBooleanCellData.h */,
+				E606F59A1525BBBF00D2DA01 /* MUBooleanCellData.m */,
+				E606F59C1525BBCD00D2DA01 /* MUButtonCellData.h */,
+				E606F59D1525BBCD00D2DA01 /* MUButtonCellData.m */,
+				E606F5A21525BBE700D2DA01 /* MUEntryCellData.h */,
+				E606F5A31525BBE700D2DA01 /* MUEntryCellData.m */,
+				E606F5A51525BC0500D2DA01 /* MUTextCellData.h */,
+				E606F5A61525BC0500D2DA01 /* MUTextCellData.m */,
+			);
+			path = DataForSimpleCells;
+			sourceTree = "<group>";
+		};
+		E606F5981525BAC500D2DA01 /* SimpleCells */ = {
+			isa = PBXGroup;
+			children = (
+				E606F5AE1525BC3F00D2DA01 /* MULabelCell.h */,
+				E606F5AF1525BC3F00D2DA01 /* MULabelCell.m */,
+				E606F5A81525BC1E00D2DA01 /* MUBooleanCell.h */,
+				E606F5A91525BC1E00D2DA01 /* MUBooleanCell.m */,
+				E606F5AB1525BC2B00D2DA01 /* MUButtonCell.h */,
+				E606F5AC1525BC2B00D2DA01 /* MUButtonCell.m */,
+				E606F5B11525BC4F00D2DA01 /* MUEntryCell.h */,
+				E606F5B21525BC4F00D2DA01 /* MUEntryCell.m */,
+				E606F5B41525BC5D00D2DA01 /* MUTextCell.h */,
+				E606F5B51525BC5D00D2DA01 /* MUTextCell.m */,
+			);
+			path = SimpleCells;
 			sourceTree = "<group>";
 		};
 		E64AA44F152306F70087B49E = {
@@ -949,6 +1015,16 @@
 				028F8D3915259B3600C7907F /* MUSectionReadonly.m in Sources */,
 				028F8D3A15259B3600C7907F /* MUSectionWritable.m in Sources */,
 				028F8D4B1525A1EB00C7907F /* MUCell.m in Sources */,
+				E606F59B1525BBBF00D2DA01 /* MUBooleanCellData.m in Sources */,
+				E606F59E1525BBCE00D2DA01 /* MUButtonCellData.m in Sources */,
+				E606F5A11525BBDB00D2DA01 /* MULabelCellData.m in Sources */,
+				E606F5A41525BBE800D2DA01 /* MUEntryCellData.m in Sources */,
+				E606F5A71525BC0600D2DA01 /* MUTextCellData.m in Sources */,
+				E606F5AA1525BC1E00D2DA01 /* MUBooleanCell.m in Sources */,
+				E606F5AD1525BC2C00D2DA01 /* MUButtonCell.m in Sources */,
+				E606F5B01525BC3F00D2DA01 /* MULabelCell.m in Sources */,
+				E606F5B31525BC5000D2DA01 /* MUEntryCell.m in Sources */,
+				E606F5B61525BC5E00D2DA01 /* MUTextCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -36,13 +36,13 @@
 //==============================================================================
 - (void) mapFromObject
 {
-
+    NSAssert(nil, @"Override this method in subclasses!");
 }
 
 //==============================================================================
 - (void) mapToObject
 {
-
+    NSAssert(nil, @"Override this method in subclasses!");
 }
 
 @end

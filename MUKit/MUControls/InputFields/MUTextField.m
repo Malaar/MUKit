@@ -11,6 +11,19 @@
 #import "MUKeyboardAvoidingProtocol.h"
 
 
+//==========================================================================================
+//==========================================================================================
+//==========================================================================================
+@interface MUTextField_Holder : NSObject <UITextFieldDelegate>
+
+@property (nonatomic, assign) MUTextField* holded;
+
+@end
+
+
+//==========================================================================================
+//==========================================================================================
+//==========================================================================================
 @implementation MUTextField
 
 @synthesize validatableText;
@@ -25,7 +38,9 @@
     if (self)
     {
         self.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
-        super.delegate = self;
+        delegateHolder = [MUTextField_Holder new];
+        delegateHolder.holded = self;
+        super.delegate = delegateHolder;
     }
     return self;
 }
@@ -37,9 +52,18 @@
     if (self)
     {
         self.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
-        self.delegate = self;
+        delegateHolder = [MUTextField_Holder new];
+        delegateHolder.holded = self;
+        super.delegate = delegateHolder;
     }
     return self;
+}
+
+//==========================================================================================
+- (void) dealloc
+{
+    [delegateHolder release];
+    [super dealloc];
 }
 
 #pragma mark - MUValidationProtocol
@@ -50,7 +74,7 @@
     {
         [validator release];
         validator = [aValidator retain];
-//        validator.validatableObject = self;
+        validator.validatableObject = self;
     }
 }
 
@@ -78,12 +102,6 @@
     return (validator) ? ([validator validate]) : (YES);
 }
 
-//==========================================================================================
-- (void) dealloc
-{
-    [super dealloc];
-}
-
 #pragma mark - UITextFieldDelegate
 //==========================================================================================
 - (void) setDelegate:(id<UITextFieldDelegate>)delegate
@@ -98,13 +116,23 @@
     return nil;
 }
 
+@end
+
+
+//==========================================================================================
+//==========================================================================================
+//==========================================================================================
+@implementation MUTextField_Holder
+
+@synthesize holded;
+
 //==========================================================================================
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
 {
     BOOL result = YES;
     
-    if([mudelegate respondsToSelector:@selector(textFieldShouldBeginEditing:)])
-        result = [mudelegate textFieldShouldBeginEditing:textField];
+    if([holded.mudelegate respondsToSelector:@selector(textFieldShouldBeginEditing:)])
+        result = [holded.mudelegate textFieldShouldBeginEditing:textField];
     
     return result;
 }
@@ -112,10 +140,10 @@
 //==========================================================================================
 - (void)textFieldDidBeginEditing:(UITextField *)textField
 {
-    [keyboardAvoiding adjustOffset];
+    [holded.keyboardAvoiding adjustOffset];
     
-    if([mudelegate respondsToSelector:@selector(textFieldDidBeginEditing:)])
-        [mudelegate textFieldDidBeginEditing:textField];
+    if([holded.mudelegate respondsToSelector:@selector(textFieldDidBeginEditing:)])
+        [holded.mudelegate textFieldDidBeginEditing:textField];
 }
 
 //==========================================================================================
@@ -123,8 +151,8 @@
 {
     BOOL result = YES;
     
-    if([mudelegate respondsToSelector:@selector(textFieldShouldEndEditing:)])
-        result = [mudelegate textFieldShouldEndEditing:textField];
+    if([holded.mudelegate respondsToSelector:@selector(textFieldShouldEndEditing:)])
+        result = [holded.mudelegate textFieldShouldEndEditing:textField];
     
     return result;
 }
@@ -132,8 +160,8 @@
 //==========================================================================================
 - (void)textFieldDidEndEditing:(UITextField *)textField
 {
-    if([mudelegate respondsToSelector:@selector(textFieldDidEndEditing:)])
-        [mudelegate textFieldDidEndEditing:textField];
+    if([holded.mudelegate respondsToSelector:@selector(textFieldDidEndEditing:)])
+        [holded.mudelegate textFieldDidEndEditing:textField];
 }
 
 //==========================================================================================
@@ -141,8 +169,8 @@
 {
     BOOL result = YES;
     
-    if([mudelegate respondsToSelector:@selector(textField:shouldChangeCharactersInRange:replacementString:)])
-        result = [mudelegate textField:textField shouldChangeCharactersInRange:range replacementString:string];
+    if([holded.mudelegate respondsToSelector:@selector(textField:shouldChangeCharactersInRange:replacementString:)])
+        result = [holded.mudelegate textField:textField shouldChangeCharactersInRange:range replacementString:string];
     
     return result;
 }
@@ -152,8 +180,8 @@
 {
     BOOL result = YES;
     
-    if([mudelegate respondsToSelector:@selector(textFieldShouldClear:)])
-        result = [mudelegate textFieldShouldClear:textField];
+    if([holded.mudelegate respondsToSelector:@selector(textFieldShouldClear:)])
+        result = [holded.mudelegate textFieldShouldClear:textField];
     
     return result;
 }
@@ -163,14 +191,12 @@
 {
     BOOL result = YES;
     
-    [keyboardAvoiding responderShouldReturn:textField];
-
-    if([mudelegate respondsToSelector:@selector(textFieldShouldReturn:)])
-        result = [mudelegate textFieldShouldReturn:textField];
+    [holded.keyboardAvoiding responderShouldReturn:textField];
+    
+    if([holded.mudelegate respondsToSelector:@selector(textFieldShouldReturn:)])
+        result = [holded.mudelegate textFieldShouldReturn:textField];
     
     return result;
 }
 
-//==========================================================================================
-//==========================================================================================
 @end

@@ -10,9 +10,12 @@
 #import "MUValidator.h"
 #import "MUKeyboardAvoiderProtocol.h"
 
+@class MUTextField_Holder;
+
 @interface MUTextField : UITextField <MUValidationProtocol, UITextFieldDelegate, MUKeyboardAvoiderProtocol>
 {
     MUValidator* validator;
+    MUTextField_Holder* delegateHolder;
 }
 
 @property (nonatomic, assign) id<UITextFieldDelegate> mudelegate;

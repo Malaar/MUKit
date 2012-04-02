@@ -37,7 +37,7 @@
     if (self)
     {
         self.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
-        super.delegate = self;
+        self.delegate = self;
     }
     return self;
 }
@@ -50,7 +50,7 @@
     {
         [validator release];
         validator = [aValidator retain];
-        validator.validatableObject = self;
+//        validator.validatableObject = self;
     }
 }
 
@@ -101,7 +101,7 @@
 //==========================================================================================
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
 {
-    BOOL result = NO;
+    BOOL result = YES;
     
     if([mudelegate respondsToSelector:@selector(textFieldShouldBeginEditing:)])
         result = [mudelegate textFieldShouldBeginEditing:textField];
@@ -163,6 +163,8 @@
 {
     BOOL result = YES;
     
+    [keyboardAvoiding responderShouldReturn:textField];
+
     if([mudelegate respondsToSelector:@selector(textFieldShouldReturn:)])
         result = [mudelegate textFieldShouldReturn:textField];
     

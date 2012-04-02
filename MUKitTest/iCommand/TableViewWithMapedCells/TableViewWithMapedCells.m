@@ -13,6 +13,7 @@
 #import "MUCellDataTextField.h"
 #import "MUCellDataLabel.h"
 #import "MUCellDataStandart.h"
+#import "MUKeyboardAvoidingTableView.h"
 
 @implementation TableViewWithMapedCells
 
@@ -25,6 +26,7 @@
         self.title = @"TEST";
         tableDisposer = [[MUTableDisposerMaped alloc] init];
         tableDisposer.tableStyle = UITableViewStyleGrouped;
+        tableDisposer.tableClass = [MUKeyboardAvoidingTableView class];
         tableDisposer.delegate = self;
     }
     return self;

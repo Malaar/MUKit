@@ -8,8 +8,9 @@
 //  Taken as a basis for an example of "TPKeyboardAvoidingScrollView"(Created by Michael Tyson)
 
 #import <UIKit/UIKit.h>
+#import "MUKeyboardAvoidingProtocol.h"
 
-@interface MUKeyboardAvoidingScrollView : UIScrollView
+@interface MUKeyboardAvoidingScrollView : UIScrollView <MUKeyboardAvoidingProtocol>
 {
     UIEdgeInsets    _priorInset;
     BOOL            _keyboardVisible;
@@ -17,11 +18,5 @@
     CGSize          _originalContentSize;
     NSMutableArray *_objectsInKeyboard;
 }
-
-- (void)adjustOffset;
-- (void)hideKeyBoard;
-- (void)addObjectForKeyboard:(id<UITextInputTraits>)objectForKeyboard;
-- (void)addObjectsForKeyboard:(NSArray *)objectsForKeyboard;
-- (void)responderShouldReturn:(UIResponder*)aResponder;
 
 @end

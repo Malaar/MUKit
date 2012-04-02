@@ -8,19 +8,14 @@
 //  Taken as a basis for an example of "TPKeyboardAvoidingTableView"(Created by Michael Tyson)
 
 #import <UIKit/UIKit.h>
+#import "MUKeyboardAvoidingProtocol.h"
 
-@interface MUKeyboardAvoidingTableView : UITableView
+@interface MUKeyboardAvoidingTableView : UITableView <MUKeyboardAvoidingProtocol>
 {
     UIEdgeInsets    _priorInset;
     BOOL            _keyboardVisible;
     CGRect          _keyboardRect;
     NSMutableArray *_objectsInKeyboard;
 }
-
-- (void)adjustOffset;
-- (void)hideKeyBoard;
-- (void)addObjectForKeyboard:(id<UITextInputTraits>)objectForKeyboard;
-- (void)addObjectsForKeyboard:(NSArray *)objectsForKeyboard;
-- (void)responderShouldReturn:(UIResponder*)aResponder;
 
 @end

@@ -8,10 +8,13 @@
 
 #import <Foundation/Foundation.h>
 #import "MUValidator.h"
+#import "MUKeyboardAvoiderProtocol.h"
 
-@interface MUTextField : UITextField <MUValidationProtocol>
+@interface MUTextField : UITextField <MUValidationProtocol, UITextFieldDelegate, MUKeyboardAvoiderProtocol>
 {
     MUValidator* validator;
 }
+
+@property (nonatomic, assign) id<UITextFieldDelegate> mudelegate;
 
 @end

@@ -7,6 +7,8 @@
 //
 
 #import "MUKeyboardAvoidingTableView.h"
+#import "MUKeyboardAvoiderProtocol.h"
+
 
 #define _UIKeyboardFrameEndUserInfoKey (&UIKeyboardFrameEndUserInfoKey != NULL ? UIKeyboardFrameEndUserInfoKey : @"UIKeyboardBoundsUserInfoKey")
 
@@ -248,7 +250,7 @@
 }
 
 //==============================================================================
-- (void)addObjectForKeyboard:(id<UITextInputTraits>)objectForKeyboard
+- (void)addObjectForKeyboard:(id<UITextInputTraits, MUKeyboardAvoiderProtocol>)objectForKeyboard
 {
     if ([_objectsInKeyboard count] > 0) 
     {
@@ -257,6 +259,8 @@
     
     [objectForKeyboard setReturnKeyType:UIReturnKeyDone];
     [_objectsInKeyboard addObject:objectForKeyboard];
+    
+    objectForKeyboard.keyboardAvoiding = self;
 }
 
 //==============================================================================

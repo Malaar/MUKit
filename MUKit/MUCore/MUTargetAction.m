@@ -9,6 +9,9 @@
 #import "MUTargetAction.h"
 
 
+//==============================================================================
+//==============================================================================
+//==============================================================================
 @implementation MUTargetAction
 
 @synthesize target;
@@ -31,38 +34,58 @@
 }
 
 //==============================================================================
-//- (void) dealloc
-//{
-////    if([target isKindOfClass:[MUWeakRef class]])
-////        [target release];
-//    
-//    [super dealloc];
-//}
-
-//==============================================================================
 - (void) setTarget:(id)aTarget action:(SEL)anAction
 {
-//    if([aTarget isKindOfClass:[MUWeakRef class]])
-//        target = [aTarget retain];
-//    else
-        target = aTarget;
-
+    target = aTarget;
     action = anAction;
 }
 
 //==============================================================================
 - (void) sendActionFrom:(NSObject*)aSender
 {
-    id receiver = nil;
-    
-//    if([target isKindOfClass:[MUWeakRef class]])
-//        receiver = ((MUWeakRef*)target).object;
-//    else
-        receiver = target;
-    
-    if(receiver && [receiver respondsToSelector:action])
+    if(target && [target respondsToSelector:action])
     {
-        [receiver performSelector:action withObject:aSender];
+        [target performSelector:action withObject:aSender];
+    }
+}
+
+@end
+
+
+//==============================================================================
+//==============================================================================
+//==============================================================================
+@implementation MUTargetActionList
+
+//==============================================================================
+- (id) init
+{
+    if( (self = [super init]) )
+    {
+        taList = [NSMutableArray new];
+    }
+    return self;
+}
+
+//==============================================================================
+- (void)dealloc
+{
+    [taList release];
+    [super dealloc];
+}
+
+//==============================================================================
+- (void) addTarget:(id)aTarget action:(SEL)anAction
+{
+    [taList addObject:[MUTargetAction targetActionWithTarget:aTarget action:anAction]];
+}
+
+//==============================================================================
+- (void) sendActionsFrom:(NSObject*)aSender
+{
+    for(MUTargetAction* ta in taList)
+    {
+        [ta sendActionFrom:aSender];
     }
 }
 

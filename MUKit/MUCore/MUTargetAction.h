@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 
+//==============================================================================
 @interface MUTargetAction : NSObject
 
 @property (nonatomic, readonly) id target;
@@ -18,7 +19,28 @@
 - (id) initWithTarget:(id)aTarget action:(SEL)anAction;
 
 - (void) setTarget:(id)aTarget action:(SEL)anAction;
-
 - (void) sendActionFrom:(NSObject*)aSender;
+
+@end
+
+
+//==============================================================================
+@interface MUTargetActionList : NSObject
+{
+    NSMutableArray* taList;
+}
+
+- (void) addTarget:(id)aTarget action:(SEL)anAction;
+- (void) sendActionsFrom:(NSObject*)aSender;
+
+@end
+
+
+//==============================================================================
+@protocol MUTargetActionListProtocol <NSObject>
+
+@property (nonatomic, readonly) MUTargetActionList* taList;
+
+- (void) addTarget:(id)aTarget action:(SEL)anAction;
 
 @end

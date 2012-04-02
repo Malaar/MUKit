@@ -9,9 +9,11 @@
 #import <Foundation/Foundation.h>
 #import "MUValidator.h"
 
-@interface MUTextField : UITextField <MUValidationProtocol>
+@interface MUTextField : UITextField <MUValidationProtocol, UITextFieldDelegate>
 {
     MUValidator* validator;
 }
+
+@property (nonatomic, assign) id<UITextFieldDelegate> mudelegate;
 
 @end

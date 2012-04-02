@@ -18,7 +18,6 @@
 @property (nonatomic, readonly) NSObject *object;
 
 - (id) initWithObject:(NSObject *)aObject key:(NSString *)aKey;
-- (void) setup;
 
 - (void) mapFromObject;
 - (void) mapToObject;

@@ -6,51 +6,45 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "MULabelCellData.h"
+#import "MUCellDataStandart.h"
 
-@implementation MULabelCellData
+@implementation MUCellDataStandart
 
-@synthesize value;
+@synthesize subtitle;
 @synthesize image;
 @synthesize title;
 @synthesize titleFont;
-@synthesize valueFont;
+@synthesize subtitleFont;
 @synthesize titleColor;
-@synthesize valueColor;
+@synthesize subtitleColor;
 @synthesize titleTextAlignment;
 
 #pragma mark - Init/Dealloc
 //==============================================================================
-- (id) initWithObject:(NSObject *)aObject key:(NSString *)aKey title:(NSString *)aTitle
+- (id) initWithObject:(NSObject *)aObject key:(NSString *)aKey
 {
     self = [super initWithObject:aObject key:aKey];
     if (self)
     {
-        self.title = aTitle;
+        titleTextAlignment = UITextAlignmentLeft;
+        titleFont = [UIFont systemFontOfSize:18];
+        subtitleFont = [UIFont systemFontOfSize:16];
+        titleColor = [UIColor blackColor];
+        subtitleColor = [UIColor grayColor];
     }
     return self;
 }
 
 //==============================================================================
-- (void) setup
-{
-    [super setup];
-    
-    titleTextAlignment = UITextAlignmentLeft;
-    titleFont = [UIFont systemFontOfSize:18];
-    valueFont = [UIFont systemFontOfSize:16];
-    titleColor = [UIColor blackColor];
-    valueColor = [UIColor grayColor];
-}
-
-//==============================================================================
 - (void) dealloc
 {
-    [value release];
+    [subtitle release];
     [image release];
     [title release];
     [titleColor release];
     [titleFont release];
+    [subtitleColor release];
+    [subtitleFont release];
     
     [super dealloc];
 }
@@ -59,13 +53,13 @@
 //==============================================================================
 - (void) mapFromObject
 {
-    value = [object valueForKey:key];
+    subtitle = [object valueForKey:key];
 }
 
 //==============================================================================
 - (void) mapToObject
 {
-    [object setValue:value forKey:key];
+    [object setValue:subtitle forKey:key];
 }
 
 @end

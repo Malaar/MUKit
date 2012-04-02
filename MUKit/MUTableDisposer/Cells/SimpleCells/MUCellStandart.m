@@ -6,27 +6,24 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "MULabelCell.h"
-#import "MULabelCellData.h"
+#import "MUCellStandart.h"
+#import "MUCellDataStandart.h"
 
-@implementation MULabelCell
+@implementation MUCellStandart
 
 - (void) setupCellData:(MUCellData *)aCellData
 {
     [super setupCellData:aCellData];
-    MULabelCellData *labelCellData = (MULabelCellData *)self.cellData;
+    MUCellDataStandart *labelCellData = (MUCellDataStandart*)self.cellData;
     
     self.textLabel.text = labelCellData.title;
     self.textLabel.font = labelCellData.titleFont;
     self.textLabel.textColor = labelCellData.titleColor;
     self.textLabel.textAlignment = labelCellData.titleTextAlignment;
     
-    self.detailTextLabel.textColor = labelCellData.valueColor;
-    self.detailTextLabel.font = labelCellData.valueFont;
-    if (labelCellData.value)
-    {
-        self.detailTextLabel.text = [labelCellData.value description];
-    }
+    self.detailTextLabel.textColor = labelCellData.subtitleColor;
+    self.detailTextLabel.font = labelCellData.subtitleFont;
+    self.detailTextLabel.text = labelCellData.subtitle;
 }
 
 @end

@@ -6,9 +6,9 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "MULabelCellData.h"
+#import "MUCellDataStandart.h"
 
-@interface MUEntryCellData : MULabelCellData
+@interface MUEntryCellData : MUCellDataStandart
 {
     NSString *placeholder;
     NSString *textValue;

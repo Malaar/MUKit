@@ -8,6 +8,6 @@
 
 #import "MUCell.h"
 
-@interface MUBooleanCell : MUCell
+@interface MUCellSwitch : MUCell
 
 @end

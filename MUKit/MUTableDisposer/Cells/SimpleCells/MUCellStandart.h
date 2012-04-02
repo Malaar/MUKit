@@ -8,6 +8,6 @@
 
 #import "MUCell.h"
 
-@interface MULabelCell : MUCell
+@interface MUCellStandart : MUCell
 
 @end

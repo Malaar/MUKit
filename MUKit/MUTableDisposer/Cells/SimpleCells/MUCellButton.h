@@ -8,6 +8,6 @@
 
 #import "MUCell.h"
 
-@interface MUButtonCell : MUCell
+@interface MUCellButton : MUCell
 
 @end

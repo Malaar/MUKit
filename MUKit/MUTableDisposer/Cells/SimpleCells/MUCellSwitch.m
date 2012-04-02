@@ -6,15 +6,15 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "MUBooleanCell.h"
-#import "MUBooleanCellData.h"
+#import "MUCellSwitch.h"
+#import "MUCellDataSwitch.h"
 
-@implementation MUBooleanCell
+@implementation MUCellSwitch
 
 - (void) setupCellData:(MUCellData *)aCellData
 {
     [super setupCellData:aCellData];
-    MUBooleanCellData *booleanCellData = (MUBooleanCellData *)self.cellData;
+    MUCellDataSwitch *booleanCellData = (MUCellDataSwitch*)self.cellData;
     
     UISwitch *swither = [[[UISwitch alloc] init] autorelease];
     
@@ -22,7 +22,7 @@
     swither.on = booleanCellData.boolValue;
     swither.enabled = booleanCellData.enableEdit;
     
-    [self.accessoryView addSubview:swither];
+    self.accessoryView = swither;
     [swither sizeToFit];
 }
 

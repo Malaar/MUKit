@@ -17,14 +17,14 @@
 		02BDB7ED1525FF3500764326 /* MUTableDisposerModeled.m in Sources */ = {isa = PBXBuildFile; fileRef = 02BDB7EC1525FF3500764326 /* MUTableDisposerModeled.m */; };
 		02BDB7F11526043300764326 /* MUTableDisposerMaped.m in Sources */ = {isa = PBXBuildFile; fileRef = 02BDB7F01526043300764326 /* MUTableDisposerMaped.m */; };
 		02BDB7F4152604EF00764326 /* MUTableDisposerRequested.m in Sources */ = {isa = PBXBuildFile; fileRef = 02BDB7F3152604EF00764326 /* MUTableDisposerRequested.m */; };
-		E606F59B1525BBBF00D2DA01 /* MUBooleanCellData.m in Sources */ = {isa = PBXBuildFile; fileRef = E606F59A1525BBBF00D2DA01 /* MUBooleanCellData.m */; };
-		E606F59E1525BBCE00D2DA01 /* MUButtonCellData.m in Sources */ = {isa = PBXBuildFile; fileRef = E606F59D1525BBCD00D2DA01 /* MUButtonCellData.m */; };
-		E606F5A11525BBDB00D2DA01 /* MULabelCellData.m in Sources */ = {isa = PBXBuildFile; fileRef = E606F5A01525BBDB00D2DA01 /* MULabelCellData.m */; };
+		E606F59B1525BBBF00D2DA01 /* MUCellDataSwitch.m in Sources */ = {isa = PBXBuildFile; fileRef = E606F59A1525BBBF00D2DA01 /* MUCellDataSwitch.m */; };
+		E606F59E1525BBCE00D2DA01 /* MUCellDataButton.m in Sources */ = {isa = PBXBuildFile; fileRef = E606F59D1525BBCD00D2DA01 /* MUCellDataButton.m */; };
+		E606F5A11525BBDB00D2DA01 /* MUCellDataStandart.m in Sources */ = {isa = PBXBuildFile; fileRef = E606F5A01525BBDB00D2DA01 /* MUCellDataStandart.m */; };
 		E606F5A41525BBE800D2DA01 /* MUEntryCellData.m in Sources */ = {isa = PBXBuildFile; fileRef = E606F5A31525BBE700D2DA01 /* MUEntryCellData.m */; };
 		E606F5A71525BC0600D2DA01 /* MUTextCellData.m in Sources */ = {isa = PBXBuildFile; fileRef = E606F5A61525BC0500D2DA01 /* MUTextCellData.m */; };
-		E606F5AA1525BC1E00D2DA01 /* MUBooleanCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E606F5A91525BC1E00D2DA01 /* MUBooleanCell.m */; };
-		E606F5AD1525BC2C00D2DA01 /* MUButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E606F5AC1525BC2B00D2DA01 /* MUButtonCell.m */; };
-		E606F5B01525BC3F00D2DA01 /* MULabelCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E606F5AF1525BC3F00D2DA01 /* MULabelCell.m */; };
+		E606F5AA1525BC1E00D2DA01 /* MUCellSwitch.m in Sources */ = {isa = PBXBuildFile; fileRef = E606F5A91525BC1E00D2DA01 /* MUCellSwitch.m */; };
+		E606F5AD1525BC2C00D2DA01 /* MUCellButton.m in Sources */ = {isa = PBXBuildFile; fileRef = E606F5AC1525BC2B00D2DA01 /* MUCellButton.m */; };
+		E606F5B01525BC3F00D2DA01 /* MUCellStandart.m in Sources */ = {isa = PBXBuildFile; fileRef = E606F5AF1525BC3F00D2DA01 /* MUCellStandart.m */; };
 		E606F5B31525BC5000D2DA01 /* MUEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E606F5B21525BC4F00D2DA01 /* MUEntryCell.m */; };
 		E606F5B61525BC5E00D2DA01 /* MUTextCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E606F5B51525BC5D00D2DA01 /* MUTextCell.m */; };
 		E64AA45F152306F70087B49E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E64AA45E152306F70087B49E /* UIKit.framework */; };
@@ -144,22 +144,22 @@
 		02BDB7F3152604EF00764326 /* MUTableDisposerRequested.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUTableDisposerRequested.m; sourceTree = "<group>"; };
 		99521E5F94A64C81B0626F2D /* Pods.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 		DB4464FCC8654B77A686DF9C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		E606F5991525BBBF00D2DA01 /* MUBooleanCellData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUBooleanCellData.h; sourceTree = "<group>"; };
-		E606F59A1525BBBF00D2DA01 /* MUBooleanCellData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUBooleanCellData.m; sourceTree = "<group>"; };
-		E606F59C1525BBCD00D2DA01 /* MUButtonCellData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUButtonCellData.h; sourceTree = "<group>"; };
-		E606F59D1525BBCD00D2DA01 /* MUButtonCellData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUButtonCellData.m; sourceTree = "<group>"; };
-		E606F59F1525BBDB00D2DA01 /* MULabelCellData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MULabelCellData.h; sourceTree = "<group>"; };
-		E606F5A01525BBDB00D2DA01 /* MULabelCellData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MULabelCellData.m; sourceTree = "<group>"; };
+		E606F5991525BBBF00D2DA01 /* MUCellDataSwitch.h */ = {isa = PBXFileReference; fileEncoding = 4; path = MUCellDataSwitch.h; sourceTree = "<group>"; };
+		E606F59A1525BBBF00D2DA01 /* MUCellDataSwitch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUCellDataSwitch.m; sourceTree = "<group>"; };
+		E606F59C1525BBCD00D2DA01 /* MUCellDataButton.h */ = {isa = PBXFileReference; fileEncoding = 4; path = MUCellDataButton.h; sourceTree = "<group>"; };
+		E606F59D1525BBCD00D2DA01 /* MUCellDataButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUCellDataButton.m; sourceTree = "<group>"; };
+		E606F59F1525BBDB00D2DA01 /* MUCellDataStandart.h */ = {isa = PBXFileReference; fileEncoding = 4; path = MUCellDataStandart.h; sourceTree = "<group>"; };
+		E606F5A01525BBDB00D2DA01 /* MUCellDataStandart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUCellDataStandart.m; sourceTree = "<group>"; };
 		E606F5A21525BBE700D2DA01 /* MUEntryCellData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUEntryCellData.h; sourceTree = "<group>"; };
 		E606F5A31525BBE700D2DA01 /* MUEntryCellData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUEntryCellData.m; sourceTree = "<group>"; };
 		E606F5A51525BC0500D2DA01 /* MUTextCellData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUTextCellData.h; sourceTree = "<group>"; };
 		E606F5A61525BC0500D2DA01 /* MUTextCellData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUTextCellData.m; sourceTree = "<group>"; };
-		E606F5A81525BC1E00D2DA01 /* MUBooleanCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUBooleanCell.h; sourceTree = "<group>"; };
-		E606F5A91525BC1E00D2DA01 /* MUBooleanCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUBooleanCell.m; sourceTree = "<group>"; };
-		E606F5AB1525BC2B00D2DA01 /* MUButtonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUButtonCell.h; sourceTree = "<group>"; };
-		E606F5AC1525BC2B00D2DA01 /* MUButtonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUButtonCell.m; sourceTree = "<group>"; };
-		E606F5AE1525BC3F00D2DA01 /* MULabelCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MULabelCell.h; sourceTree = "<group>"; };
-		E606F5AF1525BC3F00D2DA01 /* MULabelCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MULabelCell.m; sourceTree = "<group>"; };
+		E606F5A81525BC1E00D2DA01 /* MUCellSwitch.h */ = {isa = PBXFileReference; fileEncoding = 4; path = MUCellSwitch.h; sourceTree = "<group>"; };
+		E606F5A91525BC1E00D2DA01 /* MUCellSwitch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUCellSwitch.m; sourceTree = "<group>"; };
+		E606F5AB1525BC2B00D2DA01 /* MUCellButton.h */ = {isa = PBXFileReference; fileEncoding = 4; path = MUCellButton.h; sourceTree = "<group>"; };
+		E606F5AC1525BC2B00D2DA01 /* MUCellButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUCellButton.m; sourceTree = "<group>"; };
+		E606F5AE1525BC3F00D2DA01 /* MUCellStandart.h */ = {isa = PBXFileReference; fileEncoding = 4; path = MUCellStandart.h; sourceTree = "<group>"; };
+		E606F5AF1525BC3F00D2DA01 /* MUCellStandart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUCellStandart.m; sourceTree = "<group>"; };
 		E606F5B11525BC4F00D2DA01 /* MUEntryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUEntryCell.h; sourceTree = "<group>"; };
 		E606F5B21525BC4F00D2DA01 /* MUEntryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUEntryCell.m; sourceTree = "<group>"; };
 		E606F5B41525BC5D00D2DA01 /* MUTextCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUTextCell.h; sourceTree = "<group>"; };
@@ -420,12 +420,12 @@
 		E606F5961525BABA00D2DA01 /* DataForSimpleCells */ = {
 			isa = PBXGroup;
 			children = (
-				E606F59F1525BBDB00D2DA01 /* MULabelCellData.h */,
-				E606F5A01525BBDB00D2DA01 /* MULabelCellData.m */,
-				E606F5991525BBBF00D2DA01 /* MUBooleanCellData.h */,
-				E606F59A1525BBBF00D2DA01 /* MUBooleanCellData.m */,
-				E606F59C1525BBCD00D2DA01 /* MUButtonCellData.h */,
-				E606F59D1525BBCD00D2DA01 /* MUButtonCellData.m */,
+				E606F59F1525BBDB00D2DA01 /* MUCellDataStandart.h */,
+				E606F5A01525BBDB00D2DA01 /* MUCellDataStandart.m */,
+				E606F5991525BBBF00D2DA01 /* MUCellDataSwitch.h */,
+				E606F59A1525BBBF00D2DA01 /* MUCellDataSwitch.m */,
+				E606F59C1525BBCD00D2DA01 /* MUCellDataButton.h */,
+				E606F59D1525BBCD00D2DA01 /* MUCellDataButton.m */,
 				E606F5A21525BBE700D2DA01 /* MUEntryCellData.h */,
 				E606F5A31525BBE700D2DA01 /* MUEntryCellData.m */,
 				E606F5A51525BC0500D2DA01 /* MUTextCellData.h */,
@@ -437,12 +437,12 @@
 		E606F5981525BAC500D2DA01 /* SimpleCells */ = {
 			isa = PBXGroup;
 			children = (
-				E606F5AE1525BC3F00D2DA01 /* MULabelCell.h */,
-				E606F5AF1525BC3F00D2DA01 /* MULabelCell.m */,
-				E606F5A81525BC1E00D2DA01 /* MUBooleanCell.h */,
-				E606F5A91525BC1E00D2DA01 /* MUBooleanCell.m */,
-				E606F5AB1525BC2B00D2DA01 /* MUButtonCell.h */,
-				E606F5AC1525BC2B00D2DA01 /* MUButtonCell.m */,
+				E606F5AE1525BC3F00D2DA01 /* MUCellStandart.h */,
+				E606F5AF1525BC3F00D2DA01 /* MUCellStandart.m */,
+				E606F5A81525BC1E00D2DA01 /* MUCellSwitch.h */,
+				E606F5A91525BC1E00D2DA01 /* MUCellSwitch.m */,
+				E606F5AB1525BC2B00D2DA01 /* MUCellButton.h */,
+				E606F5AC1525BC2B00D2DA01 /* MUCellButton.m */,
 				E606F5B11525BC4F00D2DA01 /* MUEntryCell.h */,
 				E606F5B21525BC4F00D2DA01 /* MUEntryCell.m */,
 				E606F5B41525BC5D00D2DA01 /* MUTextCell.h */,
@@ -1043,14 +1043,14 @@
 				028F8D3915259B3600C7907F /* MUSectionReadonly.m in Sources */,
 				028F8D3A15259B3600C7907F /* MUSectionWritable.m in Sources */,
 				028F8D4B1525A1EB00C7907F /* MUCell.m in Sources */,
-				E606F59B1525BBBF00D2DA01 /* MUBooleanCellData.m in Sources */,
-				E606F59E1525BBCE00D2DA01 /* MUButtonCellData.m in Sources */,
-				E606F5A11525BBDB00D2DA01 /* MULabelCellData.m in Sources */,
+				E606F59B1525BBBF00D2DA01 /* MUCellDataSwitch.m in Sources */,
+				E606F59E1525BBCE00D2DA01 /* MUCellDataButton.m in Sources */,
+				E606F5A11525BBDB00D2DA01 /* MUCellDataStandart.m in Sources */,
 				E606F5A41525BBE800D2DA01 /* MUEntryCellData.m in Sources */,
 				E606F5A71525BC0600D2DA01 /* MUTextCellData.m in Sources */,
-				E606F5AA1525BC1E00D2DA01 /* MUBooleanCell.m in Sources */,
-				E606F5AD1525BC2C00D2DA01 /* MUButtonCell.m in Sources */,
-				E606F5B01525BC3F00D2DA01 /* MULabelCell.m in Sources */,
+				E606F5AA1525BC1E00D2DA01 /* MUCellSwitch.m in Sources */,
+				E606F5AD1525BC2C00D2DA01 /* MUCellButton.m in Sources */,
+				E606F5B01525BC3F00D2DA01 /* MUCellStandart.m in Sources */,
 				E606F5B31525BC5000D2DA01 /* MUEntryCell.m in Sources */,
 				E606F5B61525BC5E00D2DA01 /* MUTextCell.m in Sources */,
 				02BDB7E31525FA4F00764326 /* MUTableDisposer.m in Sources */,

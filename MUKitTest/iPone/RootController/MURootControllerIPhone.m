@@ -11,6 +11,7 @@
 #import "MUKeyboardAvoidingTableController.h"
 #import "HalfCellTestController.h"
 #import "MUKitDefines.h"
+#import "TableViewWithMapedCells.h"
 
 
 @implementation MURootControllerIPhone
@@ -84,6 +85,13 @@
 - (IBAction)showHalfCellTestController:(id)sender 
 {
     HalfCellTestController *vc = [[HalfCellTestController new] autorelease];
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+//==============================================================================
+- (IBAction)showTableDisposerController:(id)sender
+{
+    TableViewWithMapedCells *vc = [[TableViewWithMapedCells new] autorelease];
     [self.navigationController pushViewController:vc animated:YES];
 }
 

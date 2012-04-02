@@ -7,26 +7,28 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		028F8D3515259B3600C7907F /* MUCellData.m in Sources */ = {isa = PBXBuildFile; fileRef = 028F8D2815259B3600C7907F /* MUCellData.m */; };
-		028F8D3615259B3600C7907F /* MUCellDataMaped.m in Sources */ = {isa = PBXBuildFile; fileRef = 028F8D2A15259B3600C7907F /* MUCellDataMaped.m */; };
-		028F8D3715259B3600C7907F /* MUCellDataModeled.m in Sources */ = {isa = PBXBuildFile; fileRef = 028F8D2C15259B3600C7907F /* MUCellDataModeled.m */; };
+		0208F27E1529CBF5003382F9 /* MUCellDataModeledDynamic.m in Sources */ = {isa = PBXBuildFile; fileRef = 0208F25A1529CBF5003382F9 /* MUCellDataModeledDynamic.m */; };
+		0208F27F1529CBF5003382F9 /* MUCellDataButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 0208F25D1529CBF5003382F9 /* MUCellDataButton.m */; };
+		0208F2801529CBF5003382F9 /* MUCellDataLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0208F25F1529CBF5003382F9 /* MUCellDataLabel.m */; };
+		0208F2811529CBF5003382F9 /* MUCellDataStandart.m in Sources */ = {isa = PBXBuildFile; fileRef = 0208F2611529CBF5003382F9 /* MUCellDataStandart.m */; };
+		0208F2821529CBF5003382F9 /* MUCellDataSwitch.m in Sources */ = {isa = PBXBuildFile; fileRef = 0208F2631529CBF5003382F9 /* MUCellDataSwitch.m */; };
+		0208F2831529CBF5003382F9 /* MUCellDataTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 0208F2651529CBF5003382F9 /* MUCellDataTextField.m */; };
+		0208F2841529CBF5003382F9 /* MUCellData.m in Sources */ = {isa = PBXBuildFile; fileRef = 0208F2671529CBF5003382F9 /* MUCellData.m */; };
+		0208F2851529CBF5003382F9 /* MUCellDataMaped.m in Sources */ = {isa = PBXBuildFile; fileRef = 0208F2691529CBF5003382F9 /* MUCellDataMaped.m */; };
+		0208F2861529CBF5003382F9 /* MUCellDataModeled.m in Sources */ = {isa = PBXBuildFile; fileRef = 0208F26B1529CBF5003382F9 /* MUCellDataModeled.m */; };
+		0208F2871529CBF5003382F9 /* MUCellDynamic.m in Sources */ = {isa = PBXBuildFile; fileRef = 0208F2701529CBF5003382F9 /* MUCellDynamic.m */; };
+		0208F2881529CBF5003382F9 /* MUCellButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 0208F2731529CBF5003382F9 /* MUCellButton.m */; };
+		0208F2891529CBF5003382F9 /* MUCellLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0208F2751529CBF5003382F9 /* MUCellLabel.m */; };
+		0208F28A1529CBF5003382F9 /* MUCellStandart.m in Sources */ = {isa = PBXBuildFile; fileRef = 0208F2771529CBF5003382F9 /* MUCellStandart.m */; };
+		0208F28B1529CBF5003382F9 /* MUCellSwitch.m in Sources */ = {isa = PBXBuildFile; fileRef = 0208F2791529CBF5003382F9 /* MUCellSwitch.m */; };
+		0208F28C1529CBF5003382F9 /* MUCellTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 0208F27B1529CBF5003382F9 /* MUCellTextField.m */; };
+		0208F28D1529CBF5003382F9 /* MUCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0208F27D1529CBF5003382F9 /* MUCell.m */; };
 		028F8D3915259B3600C7907F /* MUSectionReadonly.m in Sources */ = {isa = PBXBuildFile; fileRef = 028F8D3215259B3600C7907F /* MUSectionReadonly.m */; };
 		028F8D3A15259B3600C7907F /* MUSectionWritable.m in Sources */ = {isa = PBXBuildFile; fileRef = 028F8D3415259B3600C7907F /* MUSectionWritable.m */; };
-		028F8D4B1525A1EB00C7907F /* MUCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 028F8D4A1525A1EB00C7907F /* MUCell.m */; };
 		02BDB7E31525FA4F00764326 /* MUTableDisposer.m in Sources */ = {isa = PBXBuildFile; fileRef = 02BDB7E21525FA4F00764326 /* MUTableDisposer.m */; };
 		02BDB7ED1525FF3500764326 /* MUTableDisposerModeled.m in Sources */ = {isa = PBXBuildFile; fileRef = 02BDB7EC1525FF3500764326 /* MUTableDisposerModeled.m */; };
 		02BDB7F11526043300764326 /* MUTableDisposerMaped.m in Sources */ = {isa = PBXBuildFile; fileRef = 02BDB7F01526043300764326 /* MUTableDisposerMaped.m */; };
 		02BDB7F4152604EF00764326 /* MUTableDisposerRequested.m in Sources */ = {isa = PBXBuildFile; fileRef = 02BDB7F3152604EF00764326 /* MUTableDisposerRequested.m */; };
-		E606F59B1525BBBF00D2DA01 /* MUCellDataSwitch.m in Sources */ = {isa = PBXBuildFile; fileRef = E606F59A1525BBBF00D2DA01 /* MUCellDataSwitch.m */; };
-		E606F59E1525BBCE00D2DA01 /* MUCellDataButton.m in Sources */ = {isa = PBXBuildFile; fileRef = E606F59D1525BBCD00D2DA01 /* MUCellDataButton.m */; };
-		E606F5A11525BBDB00D2DA01 /* MUCellDataStandart.m in Sources */ = {isa = PBXBuildFile; fileRef = E606F5A01525BBDB00D2DA01 /* MUCellDataStandart.m */; };
-		E606F5A41525BBE800D2DA01 /* MUCellDataTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = E606F5A31525BBE700D2DA01 /* MUCellDataTextField.m */; };
-		E606F5A71525BC0600D2DA01 /* MUCellDataLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = E606F5A61525BC0500D2DA01 /* MUCellDataLabel.m */; };
-		E606F5AA1525BC1E00D2DA01 /* MUCellSwitch.m in Sources */ = {isa = PBXBuildFile; fileRef = E606F5A91525BC1E00D2DA01 /* MUCellSwitch.m */; };
-		E606F5AD1525BC2C00D2DA01 /* MUCellButton.m in Sources */ = {isa = PBXBuildFile; fileRef = E606F5AC1525BC2B00D2DA01 /* MUCellButton.m */; };
-		E606F5B01525BC3F00D2DA01 /* MUCellStandart.m in Sources */ = {isa = PBXBuildFile; fileRef = E606F5AF1525BC3F00D2DA01 /* MUCellStandart.m */; };
-		E606F5B31525BC5000D2DA01 /* MUCellTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = E606F5B21525BC4F00D2DA01 /* MUCellTextField.m */; };
-		E606F5B61525BC5E00D2DA01 /* MUCellLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = E606F5B51525BC5D00D2DA01 /* MUCellLabel.m */; };
 		E64AA45F152306F70087B49E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E64AA45E152306F70087B49E /* UIKit.framework */; };
 		E64AA461152306F70087B49E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E64AA460152306F70087B49E /* Foundation.framework */; };
 		E64AA463152306F70087B49E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E64AA462152306F70087B49E /* CoreGraphics.framework */; };
@@ -121,19 +123,43 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		028F8D2715259B3600C7907F /* MUCellData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUCellData.h; sourceTree = "<group>"; };
-		028F8D2815259B3600C7907F /* MUCellData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUCellData.m; sourceTree = "<group>"; };
-		028F8D2915259B3600C7907F /* MUCellDataMaped.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUCellDataMaped.h; sourceTree = "<group>"; };
-		028F8D2A15259B3600C7907F /* MUCellDataMaped.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUCellDataMaped.m; sourceTree = "<group>"; };
-		028F8D2B15259B3600C7907F /* MUCellDataModeled.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUCellDataModeled.h; sourceTree = "<group>"; };
-		028F8D2C15259B3600C7907F /* MUCellDataModeled.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUCellDataModeled.m; sourceTree = "<group>"; };
-		028F8D2D15259B3600C7907F /* MUCellProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUCellProtocol.h; sourceTree = "<group>"; };
+		0208F2591529CBF5003382F9 /* MUCellDataModeledDynamic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUCellDataModeledDynamic.h; sourceTree = "<group>"; };
+		0208F25A1529CBF5003382F9 /* MUCellDataModeledDynamic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUCellDataModeledDynamic.m; sourceTree = "<group>"; };
+		0208F25C1529CBF5003382F9 /* MUCellDataButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUCellDataButton.h; sourceTree = "<group>"; };
+		0208F25D1529CBF5003382F9 /* MUCellDataButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUCellDataButton.m; sourceTree = "<group>"; };
+		0208F25E1529CBF5003382F9 /* MUCellDataLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUCellDataLabel.h; sourceTree = "<group>"; };
+		0208F25F1529CBF5003382F9 /* MUCellDataLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUCellDataLabel.m; sourceTree = "<group>"; };
+		0208F2601529CBF5003382F9 /* MUCellDataStandart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUCellDataStandart.h; sourceTree = "<group>"; };
+		0208F2611529CBF5003382F9 /* MUCellDataStandart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUCellDataStandart.m; sourceTree = "<group>"; };
+		0208F2621529CBF5003382F9 /* MUCellDataSwitch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUCellDataSwitch.h; sourceTree = "<group>"; };
+		0208F2631529CBF5003382F9 /* MUCellDataSwitch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUCellDataSwitch.m; sourceTree = "<group>"; };
+		0208F2641529CBF5003382F9 /* MUCellDataTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUCellDataTextField.h; sourceTree = "<group>"; };
+		0208F2651529CBF5003382F9 /* MUCellDataTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUCellDataTextField.m; sourceTree = "<group>"; };
+		0208F2661529CBF5003382F9 /* MUCellData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUCellData.h; sourceTree = "<group>"; };
+		0208F2671529CBF5003382F9 /* MUCellData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUCellData.m; sourceTree = "<group>"; };
+		0208F2681529CBF5003382F9 /* MUCellDataMaped.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUCellDataMaped.h; sourceTree = "<group>"; };
+		0208F2691529CBF5003382F9 /* MUCellDataMaped.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUCellDataMaped.m; sourceTree = "<group>"; };
+		0208F26A1529CBF5003382F9 /* MUCellDataModeled.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUCellDataModeled.h; sourceTree = "<group>"; };
+		0208F26B1529CBF5003382F9 /* MUCellDataModeled.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUCellDataModeled.m; sourceTree = "<group>"; };
+		0208F26C1529CBF5003382F9 /* MUCellProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUCellProtocol.h; sourceTree = "<group>"; };
+		0208F26F1529CBF5003382F9 /* MUCellDynamic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUCellDynamic.h; sourceTree = "<group>"; };
+		0208F2701529CBF5003382F9 /* MUCellDynamic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUCellDynamic.m; sourceTree = "<group>"; };
+		0208F2721529CBF5003382F9 /* MUCellButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUCellButton.h; sourceTree = "<group>"; };
+		0208F2731529CBF5003382F9 /* MUCellButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUCellButton.m; sourceTree = "<group>"; };
+		0208F2741529CBF5003382F9 /* MUCellLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUCellLabel.h; sourceTree = "<group>"; };
+		0208F2751529CBF5003382F9 /* MUCellLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUCellLabel.m; sourceTree = "<group>"; };
+		0208F2761529CBF5003382F9 /* MUCellStandart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUCellStandart.h; sourceTree = "<group>"; };
+		0208F2771529CBF5003382F9 /* MUCellStandart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUCellStandart.m; sourceTree = "<group>"; };
+		0208F2781529CBF5003382F9 /* MUCellSwitch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUCellSwitch.h; sourceTree = "<group>"; };
+		0208F2791529CBF5003382F9 /* MUCellSwitch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUCellSwitch.m; sourceTree = "<group>"; };
+		0208F27A1529CBF5003382F9 /* MUCellTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUCellTextField.h; sourceTree = "<group>"; };
+		0208F27B1529CBF5003382F9 /* MUCellTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUCellTextField.m; sourceTree = "<group>"; };
+		0208F27C1529CBF5003382F9 /* MUCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUCell.h; sourceTree = "<group>"; };
+		0208F27D1529CBF5003382F9 /* MUCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUCell.m; sourceTree = "<group>"; };
 		028F8D3115259B3600C7907F /* MUSectionReadonly.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUSectionReadonly.h; sourceTree = "<group>"; };
 		028F8D3215259B3600C7907F /* MUSectionReadonly.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUSectionReadonly.m; sourceTree = "<group>"; };
 		028F8D3315259B3600C7907F /* MUSectionWritable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUSectionWritable.h; sourceTree = "<group>"; };
 		028F8D3415259B3600C7907F /* MUSectionWritable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUSectionWritable.m; sourceTree = "<group>"; };
-		028F8D491525A1EB00C7907F /* MUCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUCell.h; sourceTree = "<group>"; };
-		028F8D4A1525A1EB00C7907F /* MUCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUCell.m; sourceTree = "<group>"; };
 		02BDB7E11525FA4F00764326 /* MUTableDisposer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUTableDisposer.h; sourceTree = "<group>"; };
 		02BDB7E21525FA4F00764326 /* MUTableDisposer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUTableDisposer.m; sourceTree = "<group>"; };
 		02BDB7EB1525FF3500764326 /* MUTableDisposerModeled.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUTableDisposerModeled.h; sourceTree = "<group>"; };
@@ -144,26 +170,6 @@
 		02BDB7F3152604EF00764326 /* MUTableDisposerRequested.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUTableDisposerRequested.m; sourceTree = "<group>"; };
 		99521E5F94A64C81B0626F2D /* Pods.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 		DB4464FCC8654B77A686DF9C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		E606F5991525BBBF00D2DA01 /* MUCellDataSwitch.h */ = {isa = PBXFileReference; fileEncoding = 4; path = MUCellDataSwitch.h; sourceTree = "<group>"; };
-		E606F59A1525BBBF00D2DA01 /* MUCellDataSwitch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUCellDataSwitch.m; sourceTree = "<group>"; };
-		E606F59C1525BBCD00D2DA01 /* MUCellDataButton.h */ = {isa = PBXFileReference; fileEncoding = 4; path = MUCellDataButton.h; sourceTree = "<group>"; };
-		E606F59D1525BBCD00D2DA01 /* MUCellDataButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUCellDataButton.m; sourceTree = "<group>"; };
-		E606F59F1525BBDB00D2DA01 /* MUCellDataStandart.h */ = {isa = PBXFileReference; fileEncoding = 4; path = MUCellDataStandart.h; sourceTree = "<group>"; };
-		E606F5A01525BBDB00D2DA01 /* MUCellDataStandart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUCellDataStandart.m; sourceTree = "<group>"; };
-		E606F5A21525BBE700D2DA01 /* MUCellDataTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; path = MUCellDataTextField.h; sourceTree = "<group>"; };
-		E606F5A31525BBE700D2DA01 /* MUCellDataTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUCellDataTextField.m; sourceTree = "<group>"; };
-		E606F5A51525BC0500D2DA01 /* MUCellDataLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; path = MUCellDataLabel.h; sourceTree = "<group>"; };
-		E606F5A61525BC0500D2DA01 /* MUCellDataLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUCellDataLabel.m; sourceTree = "<group>"; };
-		E606F5A81525BC1E00D2DA01 /* MUCellSwitch.h */ = {isa = PBXFileReference; fileEncoding = 4; path = MUCellSwitch.h; sourceTree = "<group>"; };
-		E606F5A91525BC1E00D2DA01 /* MUCellSwitch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUCellSwitch.m; sourceTree = "<group>"; };
-		E606F5AB1525BC2B00D2DA01 /* MUCellButton.h */ = {isa = PBXFileReference; fileEncoding = 4; path = MUCellButton.h; sourceTree = "<group>"; };
-		E606F5AC1525BC2B00D2DA01 /* MUCellButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUCellButton.m; sourceTree = "<group>"; };
-		E606F5AE1525BC3F00D2DA01 /* MUCellStandart.h */ = {isa = PBXFileReference; fileEncoding = 4; path = MUCellStandart.h; sourceTree = "<group>"; };
-		E606F5AF1525BC3F00D2DA01 /* MUCellStandart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUCellStandart.m; sourceTree = "<group>"; };
-		E606F5B11525BC4F00D2DA01 /* MUCellTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; path = MUCellTextField.h; sourceTree = "<group>"; };
-		E606F5B21525BC4F00D2DA01 /* MUCellTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUCellTextField.m; sourceTree = "<group>"; };
-		E606F5B41525BC5D00D2DA01 /* MUCellLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; path = MUCellLabel.h; sourceTree = "<group>"; };
-		E606F5B51525BC5D00D2DA01 /* MUCellLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUCellLabel.m; sourceTree = "<group>"; };
 		E64AA45A152306F70087B49E /* MUKitTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MUKitTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E64AA45E152306F70087B49E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		E64AA460152306F70087B49E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -355,40 +361,94 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		028F8D2515259B3600C7907F /* MUTableDisposer */ = {
+		0208F2571529CBF4003382F9 /* CellDatas */ = {
 			isa = PBXGroup;
 			children = (
-				028F8D2615259B3600C7907F /* CellDatas */,
-				028F8D2E15259B3600C7907F /* Cells */,
-				028F8D3015259B3600C7907F /* Sections */,
-				02BDB7E01525FA4F00764326 /* TableDisposers */,
-			);
-			path = MUTableDisposer;
-			sourceTree = "<group>";
-		};
-		028F8D2615259B3600C7907F /* CellDatas */ = {
-			isa = PBXGroup;
-			children = (
-				028F8D2715259B3600C7907F /* MUCellData.h */,
-				028F8D2815259B3600C7907F /* MUCellData.m */,
-				028F8D2915259B3600C7907F /* MUCellDataMaped.h */,
-				028F8D2A15259B3600C7907F /* MUCellDataMaped.m */,
-				028F8D2B15259B3600C7907F /* MUCellDataModeled.h */,
-				028F8D2C15259B3600C7907F /* MUCellDataModeled.m */,
-				028F8D2D15259B3600C7907F /* MUCellProtocol.h */,
-				E606F5961525BABA00D2DA01 /* DataForSimpleCells */,
+				0208F2581529CBF5003382F9 /* CellDataDynamic */,
+				0208F25B1529CBF5003382F9 /* CellDataSimple */,
+				0208F2661529CBF5003382F9 /* MUCellData.h */,
+				0208F2671529CBF5003382F9 /* MUCellData.m */,
+				0208F2681529CBF5003382F9 /* MUCellDataMaped.h */,
+				0208F2691529CBF5003382F9 /* MUCellDataMaped.m */,
+				0208F26A1529CBF5003382F9 /* MUCellDataModeled.h */,
+				0208F26B1529CBF5003382F9 /* MUCellDataModeled.m */,
+				0208F26C1529CBF5003382F9 /* MUCellProtocol.h */,
 			);
 			path = CellDatas;
 			sourceTree = "<group>";
 		};
-		028F8D2E15259B3600C7907F /* Cells */ = {
+		0208F2581529CBF5003382F9 /* CellDataDynamic */ = {
 			isa = PBXGroup;
 			children = (
-				028F8D491525A1EB00C7907F /* MUCell.h */,
-				028F8D4A1525A1EB00C7907F /* MUCell.m */,
-				E606F5981525BAC500D2DA01 /* SimpleCells */,
+				0208F2591529CBF5003382F9 /* MUCellDataModeledDynamic.h */,
+				0208F25A1529CBF5003382F9 /* MUCellDataModeledDynamic.m */,
+			);
+			path = CellDataDynamic;
+			sourceTree = "<group>";
+		};
+		0208F25B1529CBF5003382F9 /* CellDataSimple */ = {
+			isa = PBXGroup;
+			children = (
+				0208F25C1529CBF5003382F9 /* MUCellDataButton.h */,
+				0208F25D1529CBF5003382F9 /* MUCellDataButton.m */,
+				0208F25E1529CBF5003382F9 /* MUCellDataLabel.h */,
+				0208F25F1529CBF5003382F9 /* MUCellDataLabel.m */,
+				0208F2601529CBF5003382F9 /* MUCellDataStandart.h */,
+				0208F2611529CBF5003382F9 /* MUCellDataStandart.m */,
+				0208F2621529CBF5003382F9 /* MUCellDataSwitch.h */,
+				0208F2631529CBF5003382F9 /* MUCellDataSwitch.m */,
+				0208F2641529CBF5003382F9 /* MUCellDataTextField.h */,
+				0208F2651529CBF5003382F9 /* MUCellDataTextField.m */,
+			);
+			path = CellDataSimple;
+			sourceTree = "<group>";
+		};
+		0208F26D1529CBF5003382F9 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				0208F26E1529CBF5003382F9 /* CellDynamic */,
+				0208F2711529CBF5003382F9 /* CellSimple */,
+				0208F27C1529CBF5003382F9 /* MUCell.h */,
+				0208F27D1529CBF5003382F9 /* MUCell.m */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		0208F26E1529CBF5003382F9 /* CellDynamic */ = {
+			isa = PBXGroup;
+			children = (
+				0208F26F1529CBF5003382F9 /* MUCellDynamic.h */,
+				0208F2701529CBF5003382F9 /* MUCellDynamic.m */,
+			);
+			path = CellDynamic;
+			sourceTree = "<group>";
+		};
+		0208F2711529CBF5003382F9 /* CellSimple */ = {
+			isa = PBXGroup;
+			children = (
+				0208F2721529CBF5003382F9 /* MUCellButton.h */,
+				0208F2731529CBF5003382F9 /* MUCellButton.m */,
+				0208F2741529CBF5003382F9 /* MUCellLabel.h */,
+				0208F2751529CBF5003382F9 /* MUCellLabel.m */,
+				0208F2761529CBF5003382F9 /* MUCellStandart.h */,
+				0208F2771529CBF5003382F9 /* MUCellStandart.m */,
+				0208F2781529CBF5003382F9 /* MUCellSwitch.h */,
+				0208F2791529CBF5003382F9 /* MUCellSwitch.m */,
+				0208F27A1529CBF5003382F9 /* MUCellTextField.h */,
+				0208F27B1529CBF5003382F9 /* MUCellTextField.m */,
+			);
+			path = CellSimple;
+			sourceTree = "<group>";
+		};
+		028F8D2515259B3600C7907F /* MUTableDisposer */ = {
+			isa = PBXGroup;
+			children = (
+				0208F2571529CBF4003382F9 /* CellDatas */,
+				0208F26D1529CBF5003382F9 /* Cells */,
+				028F8D3015259B3600C7907F /* Sections */,
+				02BDB7E01525FA4F00764326 /* TableDisposers */,
+			);
+			path = MUTableDisposer;
 			sourceTree = "<group>";
 		};
 		028F8D3015259B3600C7907F /* Sections */ = {
@@ -415,40 +475,6 @@
 				02BDB7F3152604EF00764326 /* MUTableDisposerRequested.m */,
 			);
 			path = TableDisposers;
-			sourceTree = "<group>";
-		};
-		E606F5961525BABA00D2DA01 /* DataForSimpleCells */ = {
-			isa = PBXGroup;
-			children = (
-				E606F59F1525BBDB00D2DA01 /* MUCellDataStandart.h */,
-				E606F5A01525BBDB00D2DA01 /* MUCellDataStandart.m */,
-				E606F5991525BBBF00D2DA01 /* MUCellDataSwitch.h */,
-				E606F59A1525BBBF00D2DA01 /* MUCellDataSwitch.m */,
-				E606F59C1525BBCD00D2DA01 /* MUCellDataButton.h */,
-				E606F59D1525BBCD00D2DA01 /* MUCellDataButton.m */,
-				E606F5A21525BBE700D2DA01 /* MUCellDataTextField.h */,
-				E606F5A31525BBE700D2DA01 /* MUCellDataTextField.m */,
-				E606F5A51525BC0500D2DA01 /* MUCellDataLabel.h */,
-				E606F5A61525BC0500D2DA01 /* MUCellDataLabel.m */,
-			);
-			path = DataForSimpleCells;
-			sourceTree = "<group>";
-		};
-		E606F5981525BAC500D2DA01 /* SimpleCells */ = {
-			isa = PBXGroup;
-			children = (
-				E606F5AE1525BC3F00D2DA01 /* MUCellStandart.h */,
-				E606F5AF1525BC3F00D2DA01 /* MUCellStandart.m */,
-				E606F5A81525BC1E00D2DA01 /* MUCellSwitch.h */,
-				E606F5A91525BC1E00D2DA01 /* MUCellSwitch.m */,
-				E606F5AB1525BC2B00D2DA01 /* MUCellButton.h */,
-				E606F5AC1525BC2B00D2DA01 /* MUCellButton.m */,
-				E606F5B11525BC4F00D2DA01 /* MUCellTextField.h */,
-				E606F5B21525BC4F00D2DA01 /* MUCellTextField.m */,
-				E606F5B41525BC5D00D2DA01 /* MUCellLabel.h */,
-				E606F5B51525BC5D00D2DA01 /* MUCellLabel.m */,
-			);
-			path = SimpleCells;
 			sourceTree = "<group>";
 		};
 		E64AA44F152306F70087B49E = {
@@ -1037,26 +1063,28 @@
 				E6562A24152308DD00CEC66C /* DCRoundSwitchKnobLayer.m in Sources */,
 				E6562A25152308DD00CEC66C /* DCRoundSwitchOutlineLayer.m in Sources */,
 				E6562A26152308DD00CEC66C /* DCRoundSwitchToggleLayer.m in Sources */,
-				028F8D3515259B3600C7907F /* MUCellData.m in Sources */,
-				028F8D3615259B3600C7907F /* MUCellDataMaped.m in Sources */,
-				028F8D3715259B3600C7907F /* MUCellDataModeled.m in Sources */,
 				028F8D3915259B3600C7907F /* MUSectionReadonly.m in Sources */,
 				028F8D3A15259B3600C7907F /* MUSectionWritable.m in Sources */,
-				028F8D4B1525A1EB00C7907F /* MUCell.m in Sources */,
-				E606F59B1525BBBF00D2DA01 /* MUCellDataSwitch.m in Sources */,
-				E606F59E1525BBCE00D2DA01 /* MUCellDataButton.m in Sources */,
-				E606F5A11525BBDB00D2DA01 /* MUCellDataStandart.m in Sources */,
-				E606F5A41525BBE800D2DA01 /* MUCellDataTextField.m in Sources */,
-				E606F5A71525BC0600D2DA01 /* MUCellDataLabel.m in Sources */,
-				E606F5AA1525BC1E00D2DA01 /* MUCellSwitch.m in Sources */,
-				E606F5AD1525BC2C00D2DA01 /* MUCellButton.m in Sources */,
-				E606F5B01525BC3F00D2DA01 /* MUCellStandart.m in Sources */,
-				E606F5B31525BC5000D2DA01 /* MUCellTextField.m in Sources */,
-				E606F5B61525BC5E00D2DA01 /* MUCellLabel.m in Sources */,
 				02BDB7E31525FA4F00764326 /* MUTableDisposer.m in Sources */,
 				02BDB7ED1525FF3500764326 /* MUTableDisposerModeled.m in Sources */,
 				02BDB7F11526043300764326 /* MUTableDisposerMaped.m in Sources */,
 				02BDB7F4152604EF00764326 /* MUTableDisposerRequested.m in Sources */,
+				0208F27E1529CBF5003382F9 /* MUCellDataModeledDynamic.m in Sources */,
+				0208F27F1529CBF5003382F9 /* MUCellDataButton.m in Sources */,
+				0208F2801529CBF5003382F9 /* MUCellDataLabel.m in Sources */,
+				0208F2811529CBF5003382F9 /* MUCellDataStandart.m in Sources */,
+				0208F2821529CBF5003382F9 /* MUCellDataSwitch.m in Sources */,
+				0208F2831529CBF5003382F9 /* MUCellDataTextField.m in Sources */,
+				0208F2841529CBF5003382F9 /* MUCellData.m in Sources */,
+				0208F2851529CBF5003382F9 /* MUCellDataMaped.m in Sources */,
+				0208F2861529CBF5003382F9 /* MUCellDataModeled.m in Sources */,
+				0208F2871529CBF5003382F9 /* MUCellDynamic.m in Sources */,
+				0208F2881529CBF5003382F9 /* MUCellButton.m in Sources */,
+				0208F2891529CBF5003382F9 /* MUCellLabel.m in Sources */,
+				0208F28A1529CBF5003382F9 /* MUCellStandart.m in Sources */,
+				0208F28B1529CBF5003382F9 /* MUCellSwitch.m in Sources */,
+				0208F28C1529CBF5003382F9 /* MUCellTextField.m in Sources */,
+				0208F28D1529CBF5003382F9 /* MUCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

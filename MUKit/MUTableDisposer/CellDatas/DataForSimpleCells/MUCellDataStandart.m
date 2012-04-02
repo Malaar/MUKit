@@ -7,6 +7,8 @@
 //
 
 #import "MUCellDataStandart.h"
+#import "MUCell.h"
+
 
 @implementation MUCellDataStandart
 
@@ -26,6 +28,9 @@
     self = [super initWithObject:aObject key:aKey];
     if (self)
     {
+        self.cellClass = [MUCell class];
+//        self.cellStyle =
+        
         titleTextAlignment = UITextAlignmentLeft;
         titleFont = [UIFont systemFontOfSize:18];
         subtitleFont = [UIFont systemFontOfSize:16];

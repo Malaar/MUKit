@@ -7,6 +7,8 @@
 //
 
 #import "MUCellDataButton.h"
+#import "MUCellButton.h"
+
 
 @implementation MUCellDataButton
 
@@ -24,6 +26,8 @@
     self = [super init];
     if(self)
     {
+        self.cellClass = [MUCellButton class];
+        
         titleAlignment = UITextAlignmentLeft;
         titleFont = [UIFont systemFontOfSize:18];
         titleColor = [UIColor blackColor];

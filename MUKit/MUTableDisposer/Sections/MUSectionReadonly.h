@@ -45,4 +45,6 @@
 
 - (MUCell*) cellForIndex:(NSUInteger)anIndex;
 
+- (void) reloadWithAnimation:(UITableViewRowAnimation)anAnimation;
+
 @end

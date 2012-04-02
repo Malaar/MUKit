@@ -137,9 +137,12 @@
 - (MUCell*) createCellAtIndex:(NSUInteger)anIndex
 {
     MUCellData* cellData = [self visibleCellDataAtIndex:anIndex];
-    MUCell* cell = [[[cellData.cellClass alloc] initWithStyle:cellData.cellStyle reuseIdentifier:cellData.cellIdentifier] autorelease];
-    
+    MUCell* cell = [cellData createCell];
     [cell setupCellData:cellData];
+    
+    if(disposer.delegate && [disposer.delegate respondsToSelector:@selector(tableDisposer:didCreateCell:)])
+        [disposer.delegate tableDisposer:disposer didCreateCell:cell];
+    
     
     return cell;
 }

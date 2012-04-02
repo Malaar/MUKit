@@ -23,6 +23,7 @@
     }
     
     self.selectionStyle = cellData.cellSelectionStyle;
+    self.accessoryType = cellData.cellAccessoryType;
 }
 
 //==============================================================================

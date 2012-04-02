@@ -9,11 +9,24 @@
 #import <Foundation/Foundation.h>
 #import "MUSectionWritable.h"
 
-@protocol MUTableDisposerDelegate <UITableViewDataSource, UITableViewDelegate>
+//==============================================================================
+@protocol MUTableDisposerDelegate <UITableViewDelegate>
+
+@optional
+
+- (BOOL)tableView:(UITableView *)aTableView canEditRowAtIndexPath:(NSIndexPath *)indexPath;
+- (BOOL)tableView:(UITableView *)aTableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath;
+- (NSArray *)sectionIndexTitlesForTableView:(UITableView *)aTableView;
+- (NSInteger)tableView:(UITableView *)aTableView sectionForSectionIndexTitle:(NSString *)title atIndex:(NSInteger)index;
+- (void)tableView:(UITableView *)aTableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath;
+- (void)tableView:(UITableView *)aTableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath;
+
+- (void) tableDisposer:(MUTableDisposer*)aTableDisposer didCreateCell:(MUCell*)aCell;
 
 @end
 
-@interface MUTableDisposer : NSObject <UITableViewDataSource>
+//==============================================================================
+@interface MUTableDisposer : NSObject <UITableViewDataSource, UITableViewDelegate>
 {
 @protected
     UITableView* tableView;
@@ -26,6 +39,8 @@
 @property (nonatomic, readonly) UITableView* tableView;
 @property (nonatomic, assign) id<MUTableDisposerDelegate> delegate;
 
+- (void) releaseView;
+
 - (void) addSection:(MUSectionReadonly*)aSection;
 - (void) removeSectionAtIndex:(NSUInteger)anIndex needUpdateTable:(BOOL)aNeedUpdateTable;
 - (void) removeSection:(MUSectionReadonly*)aSection needUpdateTable:(BOOL)aNeedUpdateTable;
@@ -35,6 +50,7 @@
 
 - (NSIndexPath*) indexPathByCellData:(MUCellData*)aCellData;
 - (NSIndexPath*) indexPathByVisibleCellData:(MUCellData*)aCellData;
+- (MUCellData*) cellDataByIndexPath:(NSIndexPath*)anIndexPath;
 
 - (void) hideCellByIndexPath:(NSIndexPath*)anIndexPath needUpdateTable:(BOOL)aNeedUpdateTable;
 - (void) showCellByIndexPath:(NSIndexPath*)anIndexPath needUpdateTable:(BOOL)aNeedUpdateTable;

@@ -20,7 +20,7 @@
     
     [swither addTarget:booleanCellData.switchTarget action:booleanCellData.switchAction forControlEvents:UIControlEventValueChanged];
     swither.on = booleanCellData.boolValue;
-    swither.enabled = booleanCellData.enebleEdit;
+    swither.enabled = booleanCellData.enableEdit;
     
     [self.accessoryView addSubview:swither];
     [swither sizeToFit];

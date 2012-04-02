@@ -27,6 +27,8 @@
 {
     [super loadView];
 
+    self.view.backgroundColor = [UIColor whiteColor];
+    
     // create spinnered view
     spinneredView = [[MUSpinneredView alloc] initWithParentView:self.view color:[UIColor colorWithRed:28.0f/255.0f green:28.0f/255.0f blue:28.0f/255.0f alpha:128.0f/255.0f]];
 
@@ -77,7 +79,7 @@
         self.navigationItem.rightBarButtonItem = rightNavigationButton;
     }
     
-    // custon title view for nav.item
+    // custom title view for nav.item
     UIView *titleView = [self titleViewNavItem];
     if (titleView)
     {

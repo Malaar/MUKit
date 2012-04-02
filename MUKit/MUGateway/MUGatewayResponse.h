@@ -14,5 +14,6 @@
 @property (nonatomic, retain) NSString* textMessage;
 @property (nonatomic, readonly) NSMutableDictionary* dataDictionary;
 @property (nonatomic, readonly) NSMutableArray* boArray;
+@property (nonatomic, retain) NSError *error;
 
 @end

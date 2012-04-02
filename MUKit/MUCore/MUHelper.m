@@ -11,7 +11,7 @@
 //==============================================================================
 UIViewController* MUGetPrimeViewController()
 {
-    UIViewController* result;
+    UIViewController* result = nil;
     UIView* baseView = (UIView*)[UIApplication sharedApplication].keyWindow;
     if([baseView.subviews count] > 0)
     {

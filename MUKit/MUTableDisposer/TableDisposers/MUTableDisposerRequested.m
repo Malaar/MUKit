@@ -59,8 +59,8 @@
 {
     [[self sectionByIndex:aSectionIndex] removeAllCellData];
     
-    id request = [requests objectForKey:[NSNumber numberWithInt:aSectionIndex]];
-    [request start];
+//    id request = [requests objectForKey:[NSNumber numberWithInt:aSectionIndex]];
+//    [request start];
 }
 
 //==============================================================================

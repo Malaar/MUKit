@@ -10,6 +10,8 @@
 
 @implementation MUTableDisposerModeled
 
+@synthesize modeledDelegate;
+
 //==============================================================================
 - (id) init
 {
@@ -48,15 +50,21 @@
     for(id model in aModels)
     {
         Class cellDataClass = [registeredClasses objectForKey:[model class]];
-        NSAssert(cellDataClass, @"Model doesn't have registered cellData!");
+        
+        NSAssert(cellDataClass, (NSString*)([NSString stringWithFormat:@"Model doesn't have registered cellData class %@", NSStringFromClass([model class])]));
         NSAssert([cellDataClass isSubclassOfClass:[MUCellDataModeled class]], @"CellData must be subclass of MUCellDataModeled!");
 
         MUCellDataModeled* cellData = [[[cellDataClass alloc] initWithModel:model] autorelease];
         if(cellData)
         {
+            if(modeledDelegate && [modeledDelegate respondsToSelector:@selector(tableDisposer:didCreateCellData:)])
+                [modeledDelegate tableDisposer:self didCreateCellData:cellData];
+
             [aSection addCellData:cellData];
         }
     }
+
+    [aSection reloadWithAnimation:UITableViewRowAnimationMiddle];
 }
 
 @end

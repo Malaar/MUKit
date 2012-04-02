@@ -109,6 +109,13 @@
 }
 
 //==============================================================================
+- (id) init
+{
+    [self release];
+    return nil;
+}
+
+//==============================================================================
 - (void)dealloc
 {
     [checkableData release];
@@ -121,14 +128,17 @@
 {
     UIBarButtonItem *bbi = nil; 
     if (self.showCancelButton)
-        bbi = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:(UIBarButtonSystemItemCancel) target:nil action:nil];
+        bbi = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:(UIBarButtonSystemItemCancel) target:nil action:nil] autorelease];
     return bbi;
 }
 
 //==============================================================================
 - (UIBarButtonItem*) createRightNavButton
 {
-    return [[UIBarButtonItem alloc] initWithBarButtonSystemItem:(UIBarButtonSystemItemDone) target:nil action:nil];
+    UIBarButtonItem *bbi = nil; 
+    if(multipleSelection || !closeWhenSelected)
+        bbi = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:(UIBarButtonSystemItemDone) target:nil action:nil] autorelease];
+    return bbi;
 }
 
 //==============================================================================
@@ -198,16 +208,17 @@
         prevSelectedCell.accessoryType = UITableViewCellAccessoryNone;
         prevSelectedCell = cell;
     }
-}
 
-//==============================================================================
-- (void) tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
-{
     if(!multipleSelection && closeWhenSelected)
     {
-        [self selectionCompleted];
+        [self performSelector:@selector(selectionCompleted) withObject:nil afterDelay:0.3];
     }
 }
+
+////==============================================================================
+//- (void) tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//}
 
 //==============================================================================
 - (void) selectionCompleted

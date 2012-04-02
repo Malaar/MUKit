@@ -11,7 +11,7 @@
 #import "MUHTTPClient.h"
 #import "MUGatewayResponse.h"
 
-typedef void(^MUGatewayCallback)(MUGatewayResponse* aResponse);
+typedef void(^MUGatewayCallback)(MUGatewayResponse* aResponse, BOOL aSuccess);
 
 @interface MUGateway : NSObject
 {

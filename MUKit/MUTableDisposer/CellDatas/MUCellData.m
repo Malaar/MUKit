@@ -7,10 +7,12 @@
 //
 
 #import "MUCellData.h"
+#import "MUTargetAction.h"
 
 @implementation MUCellData
 
 //==============================================================================
+@synthesize cellNibName;
 @synthesize cellClass;
 @dynamic cellIdentifier;
 @synthesize controllerClass;
@@ -19,7 +21,7 @@
 @synthesize cellAccessoryType;
 @synthesize autoDeselect;
 @synthesize visible;
-@synthesize enebleEdit;
+@synthesize enableEdit;
 
 //==============================================================================
 -(id) init
@@ -52,37 +54,46 @@
 }
 
 //==============================================================================
-- (void) addCellSelectedHandler:(MUCellSelectedHandler)aHandler
+- (void) addCellSelectedTarget:(id)aTarget action:(SEL)anAction
 {
-    NSAssert(aHandler, @"Wrong handler!");
-    [cellSelectedHandler addObject:aHandler];
+    [cellSelectedHandler addObject:[MUTargetAction targetActionWithTarget:aTarget action:anAction]];
 }
 
 //==============================================================================
-- (void) addCellDeselectedHandler:(MUCellDeselectedHandler)aHandler
+- (void) addCellDeselectedTarget:(id)aTarget action:(SEL)anAction
 {
-    NSAssert(aHandler, @"Wrong handler!");
-    [cellDeselectedHandler addObject:aHandler];
+    [cellDeselectedHandler addObject:[MUTargetAction targetActionWithTarget:aTarget action:anAction]];
 }
 
 //==============================================================================
 - (void) performSelectedHandlers
 {
-    for(id handler in cellSelectedHandler)
+    for(MUTargetAction* handler in cellSelectedHandler)
     {
-        MUCellSelectedHandler block = handler;
-        block(self);
+        [handler sendActionFrom:self];
     }
 }
 
 //==============================================================================
 - (void) performDeselectedHandlers
 {
-    for(id handler in cellDeselectedHandler)
+    for(MUTargetAction* handler in cellDeselectedHandler)
     {
-        MUCellDeselectedHandler block = handler;
-        block(self);
+        [handler sendActionFrom:self];
     }
+}
+
+//==============================================================================
+- (MUCell*) createCell
+{
+    MUCell* cell = nil;
+    
+    if(cellNibName)
+        cell = (MUCell*)[[[NSBundle mainBundle] loadNibNamed:cellNibName owner:self options:nil] lastObject];
+    else
+        cell = [[[self.cellClass alloc] initWithStyle:self.cellStyle reuseIdentifier:self.cellIdentifier] autorelease];
+    
+    return cell;
 }
 
 @end

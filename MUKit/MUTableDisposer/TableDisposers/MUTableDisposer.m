@@ -35,6 +35,8 @@
     if( (self = [super init]) )
     {
         sections = [NSMutableArray new];
+        tableClass = [UITableView class];
+        tableStyle = UITableViewStylePlain;
     }
     return self;
 }
@@ -46,6 +48,32 @@
     [sections release];
     
     [super dealloc];
+}
+
+//==============================================================================
+- (UITableView*)tableView
+{
+    if(!tableView)
+    {
+        tableView = [self createTableView];
+    }
+    return tableView;
+}
+
+//==============================================================================
+- (UITableView*) createTableView
+{
+    UITableView* tv = [[tableClass alloc] initWithFrame:CGRectZero style:tableStyle];
+    tv.dataSource = self;
+    tv.delegate = self;
+    return tv;
+}
+
+//==============================================================================
+- (void) releaseView
+{
+    [tableView release];
+    tableView = nil;
 }
 
 //==============================================================================
@@ -130,6 +158,12 @@
 }
 
 //==============================================================================
+- (MUCellData*) cellDataByIndexPath:(NSIndexPath*)anIndexPath
+{
+    return [[self sectionByIndex:anIndexPath.section] cellDataAtIndex:anIndexPath.row];
+}
+
+//==============================================================================
 - (void) hideCellByIndexPath:(NSIndexPath*)anIndexPath needUpdateTable:(BOOL)aNeedUpdateTable
 {
     MUSectionReadonly* section = [self sectionByIndex:anIndexPath.section];
@@ -147,24 +181,6 @@
     {
         [(MUSectionWritable*)section showCellByIndex:anIndexPath.row needUpdateTable:aNeedUpdateTable];
     }
-}
-
-//==============================================================================
-- (UITableView*)tableView
-{
-    if(!tableView)
-    {
-        tableView = [self createTableView];
-    }
-    return tableView;
-}
-
-//==============================================================================
-- (UITableView*) createTableView
-{
-    UITableView* tv = [[[tableClass alloc] initWithStyle:tableStyle] autorelease];
-    tv.dataSource = self;
-    return tv;
 }
 
 #pragma mark - UITableViewDataSource
@@ -339,15 +355,15 @@
 //==============================================================================
 //==============================================================================
 //==============================================================================
-- (UITableViewCellAccessoryType)tableView:(UITableView *)aTableView accessoryTypeForRowWithIndexPath:(NSIndexPath *)indexPath
-{
-    UITableViewCellAccessoryType result = UITableViewCellAccessoryNone;
-    if(delegate && [delegate respondsToSelector:@selector(tableView: accessoryTypeForRowWithIndexPath:)])
-    {
-        result = [delegate tableView:aTableView accessoryTypeForRowWithIndexPath:indexPath];
-    }
-    return result;
-}
+//- (UITableViewCellAccessoryType)tableView:(UITableView *)aTableView accessoryTypeForRowWithIndexPath:(NSIndexPath *)indexPath
+//{
+//    UITableViewCellAccessoryType result = UITableViewCellAccessoryNone;
+//    if(delegate && [delegate respondsToSelector:@selector(tableView: accessoryTypeForRowWithIndexPath:)])
+//    {
+//        result = [delegate tableView:aTableView accessoryTypeForRowWithIndexPath:indexPath];
+//    }
+//    return result;
+//}
 
 //==============================================================================
 - (void)tableView:(UITableView *)aTableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath

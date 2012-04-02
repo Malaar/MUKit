@@ -137,6 +137,7 @@
 - (MUCell*) cellForIndex:(NSUInteger)anIndex
 {
     MUCell* cell = nil;
+    BOOL isNewCell = NO;
     
     MUCellData* cellData = [self visibleCellDataAtIndex:anIndex];
     
@@ -144,12 +145,23 @@
     
     if(!cell)
     {
-        cell = [[[cellData.cellClass alloc] initWithStyle:cellData.cellStyle reuseIdentifier:cellData.cellIdentifier] autorelease];
+        isNewCell = YES;
+        cell = [cellData createCell];
     }
 
     [cell setupCellData:cellData];
-    
+
+    if(isNewCell && disposer.delegate && [disposer.delegate respondsToSelector:@selector(tableDisposer:didCreateCell:)])
+        [disposer.delegate tableDisposer:disposer didCreateCell:cell];
+
     return cell;
+}
+
+//==============================================================================
+- (void) reloadWithAnimation:(UITableViewRowAnimation)anAnimation
+{
+    [self updateCellDataVisibility];
+    [disposer.tableView reloadSections:[NSIndexSet indexSetWithIndex:[disposer indexBySection:self]] withRowAnimation:anAnimation];
 }
 
 //==============================================================================

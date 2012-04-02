@@ -10,7 +10,7 @@
 
 @implementation MUGatewayResponse
 
-@synthesize responseCode, textMessage, dataDictionary, boArray;
+@synthesize responseCode, textMessage, dataDictionary, boArray, error;
 
 //==============================================================================
 - (id)init

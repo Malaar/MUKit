@@ -8,10 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+@class MUCell;
 @class MUCellData;
-
-typedef void (^MUCellSelectedHandler)(MUCellData* aCellData);
-typedef void (^MUCellDeselectedHandler)(MUCellData* aCellData);
 
 
 @interface MUCellData : NSObject
@@ -23,22 +21,27 @@ typedef void (^MUCellDeselectedHandler)(MUCellData* aCellData);
 
 @property (nonatomic, assign) Class controllerClass;
 
+@property (nonatomic, retain) NSString* cellNibName;
+
 @property (nonatomic, assign) Class cellClass;
 @property (nonatomic, readonly) NSString *cellIdentifier;
-@property (nonatomic, assign) UITableViewCellSelectionStyle cellSelectionStyle;
 @property (nonatomic, assign) UITableViewCellStyle cellStyle;
+
+@property (nonatomic, assign) UITableViewCellSelectionStyle cellSelectionStyle;
 @property (nonatomic, assign) UITableViewCellAccessoryType cellAccessoryType;
 @property (nonatomic, assign) BOOL autoDeselect;
 @property (nonatomic, assign) BOOL visible;
-@property (nonatomic, assign) BOOL enebleEdit;
+@property (nonatomic, assign) BOOL enableEdit;
 
 - (id) init;
 - (CGFloat) cellHeightForWidth:(CGFloat) aWidth; 
 
-- (void) addCellSelectedHandler:(MUCellSelectedHandler) aHandler;
-- (void) addCellDeselectedHandler:(MUCellDeselectedHandler) aHandler;
+- (void) addCellSelectedTarget:(id)aTarget action:(SEL)anAction;
+- (void) addCellDeselectedTarget:(id)aTarget action:(SEL)anAction;
 
 - (void) performSelectedHandlers;
 - (void) performDeselectedHandlers;
+
+- (MUCell*) createCell;
 
 @end

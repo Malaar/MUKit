@@ -27,6 +27,7 @@
 {
     [httpClient release];
     httpClient = [[MUHTTPClient alloc] initWithBaseURL:aBaseURL];
+    httpClient.gatewayDelegate = self;
 }
 
 //==============================================================================

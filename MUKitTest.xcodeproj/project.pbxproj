@@ -119,6 +119,7 @@
 		E6562A27152308DD00CEC66C /* license.txt in Resources */ = {isa = PBXBuildFile; fileRef = E65629DE152308DC00CEC66C /* license.txt */; };
 		E6562A28152308DD00CEC66C /* readme.md in Resources */ = {isa = PBXBuildFile; fileRef = E65629DF152308DC00CEC66C /* readme.md */; };
 		E6562A2A1523092B00CEC66C /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6562A291523092B00CEC66C /* QuartzCore.framework */; };
+		E68FF8941529CF7E001B450B /* TableViewWithMapedCells.m in Sources */ = {isa = PBXBuildFile; fileRef = E68FF8931529CF7E001B450B /* TableViewWithMapedCells.m */; };
 		E9E49188B2194DC3A24C7D69 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DB4464FCC8654B77A686DF9C /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -343,6 +344,8 @@
 		E65629DE152308DC00CEC66C /* license.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = license.txt; sourceTree = "<group>"; };
 		E65629DF152308DC00CEC66C /* readme.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = readme.md; sourceTree = "<group>"; };
 		E6562A291523092B00CEC66C /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		E68FF8921529CF7E001B450B /* TableViewWithMapedCells.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewWithMapedCells.h; sourceTree = "<group>"; };
+		E68FF8931529CF7E001B450B /* TableViewWithMapedCells.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewWithMapedCells.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -538,6 +541,7 @@
 				E656291A152308CF00CEC66C /* HalfCellTest */,
 				E656291E152308CF00CEC66C /* KeyboardAvoidingScroll */,
 				E6562922152308CF00CEC66C /* KeyboardAvoidingTable */,
+				E68FF8901529CF6E001B450B /* TableViewWithMapedCells */,
 			);
 			path = iCommand;
 			sourceTree = "<group>";
@@ -899,6 +903,15 @@
 			path = DCRoundSwitch;
 			sourceTree = "<group>";
 		};
+		E68FF8901529CF6E001B450B /* TableViewWithMapedCells */ = {
+			isa = PBXGroup;
+			children = (
+				E68FF8921529CF7E001B450B /* TableViewWithMapedCells.h */,
+				E68FF8931529CF7E001B450B /* TableViewWithMapedCells.m */,
+			);
+			path = TableViewWithMapedCells;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1085,6 +1098,7 @@
 				0208F28B1529CBF5003382F9 /* MUCellSwitch.m in Sources */,
 				0208F28C1529CBF5003382F9 /* MUCellTextField.m in Sources */,
 				0208F28D1529CBF5003382F9 /* MUCell.m in Sources */,
+				E68FF8941529CF7E001B450B /* TableViewWithMapedCells.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

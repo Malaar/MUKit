@@ -7,6 +7,12 @@
 //
 
 #import "TableViewWithMapedCells.h"
+#import "MUSectionWritable.h"
+
+#import "MUCellDataSwitch.h"
+#import "MUCellDataTextField.h"
+#import "MUCellDataLabel.h"
+#import "MUCellDataStandart.h"
 
 @implementation TableViewWithMapedCells
 
@@ -29,9 +35,53 @@
 {
     [super viewDidLoad];
     [self.view addSubview: tableDisposer.tableView];
+    tableDisposer.tableView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     
-    // create sections
-//    MUSectionWritable
+    // new section
+    MUSectionWritable *section = [[[MUSectionWritable alloc] init] autorelease];
+    section.headerTitle = @"Section title";    
+    section.footerTitle = @"footerTitle";
+    [tableDisposer addSection:section];
+    
+    MUCellDataTextField *cellDataTextField = [[[MUCellDataTextField alloc] initWithObject:nil key:nil] autorelease];
+    cellDataTextField.text = @"MUCellDataTextField";
+    cellDataTextField.title = @"Text";
+    [section addCellData: cellDataTextField];
+    
+    cellDataTextField = [[[MUCellDataTextField alloc] initWithObject:nil key:nil] autorelease];
+    cellDataTextField.text = @"MUCellDataTextField";
+    cellDataTextField.placeholder = @"please enter text";
+    [section addCellData: cellDataTextField];
+    
+    MUCellDataSwitch *cellDataSwitch = [[MUCellDataSwitch alloc] initWithObject:nil key:nil];
+    cellDataSwitch.title = @"Switch";
+    cellDataSwitch.boolValue = YES;
+    [section addCellData:cellDataSwitch];
+    
+    cellDataSwitch = [[MUCellDataSwitch alloc] initWithObject:nil key:nil];
+    cellDataSwitch.subtitle = @"Switch";
+    cellDataSwitch.boolValue = NO;
+    [section addCellData:cellDataSwitch];
+    
+    // new section
+    section = [[[MUSectionWritable alloc] init] autorelease];
+    section.headerTitle = @"Section title";    
+    section.footerTitle = @"footerTitle";
+    [tableDisposer addSection:section];
+    
+    cellDataSwitch = [[MUCellDataSwitch alloc] initWithObject:nil key:nil];
+    cellDataSwitch.title = @"Switch";
+    cellDataSwitch.boolValue = YES;
+    [section addCellData:cellDataSwitch];
+
+    
+    // new section
+    section = [[[MUSectionWritable alloc] init] autorelease];
+    section.headerTitle = @"Section title";    
+    section.footerTitle = @"footerTitle";    
+    [tableDisposer addSection:section];
+    
+    [tableDisposer mapFromObject];
 }
 
 //==============================================================================

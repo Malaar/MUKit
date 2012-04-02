@@ -296,13 +296,13 @@
 //==============================================================================
 - (CGFloat)tableView:(UITableView *)aTableView heightForHeaderInSection:(NSInteger)section
 {
-    return [self sectionByIndex:section].headerView.bounds.size.height;
+    return [self sectionByIndex:section].headerView ? [self sectionByIndex:section].headerView.bounds.size.height : 20;
 }
 
 //==============================================================================
 - (CGFloat)tableView:(UITableView *)aTableView heightForFooterInSection:(NSInteger)section
 {
-    return [self sectionByIndex:section].footerView.bounds.size.height;
+    return [self sectionByIndex:section].footerView ? [self sectionByIndex:section].footerView.bounds.size.height : 20;
 }
 
 //==============================================================================

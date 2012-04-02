@@ -31,12 +31,19 @@
     if(self)
     {
         self.cellClass = [MUCellTextField class];
+        self.cellSelectionStyle = UITableViewCellSelectionStyleNone;
 
         autocapitalizationType = UITextAutocapitalizationTypeSentences;
         autocorrectionType = UITextAutocorrectionTypeDefault;
         keyboardType = UIKeyboardTypeDefault;
         keyboardAppearance = UIKeyboardAppearanceDefault;
         returnKeyType = UIReturnKeyDefault;
+        
+        titleFont = [UIFont systemFontOfSize:16];
+        titleColor = [UIColor blackColor];
+        
+        textFont = [UIFont systemFontOfSize:16];
+        textColor = [UIColor blackColor];
     }
     return self;
 }

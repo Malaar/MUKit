@@ -99,7 +99,7 @@
 						<string key="NSFrame">{{10, 90}, {300, 35}}</string>
 						<reference key="NSSuperview" ref="774585933"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="663805841"/>
+						<reference key="NSNextKeyView" ref="474465574"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<int key="IBUIContentHorizontalAlignment">0</int>
@@ -125,9 +125,9 @@
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 					</object>
-					<object class="IBUIButton" id="663805841">
+					<object class="IBUIButton" id="474465574">
 						<reference key="NSNextResponder" ref="774585933"/>
-						<int key="NSvFlags">292</int>
+						<int key="NSvFlags">295</int>
 						<string key="NSFrame">{{10, 133}, {300, 37}}</string>
 						<reference key="NSSuperview" ref="774585933"/>
 						<reference key="NSWindow"/>
@@ -209,7 +209,7 @@
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
 						<string key="label">showTableDisposerController:</string>
-						<reference key="source" ref="663805841"/>
+						<reference key="source" ref="474465574"/>
 						<reference key="destination" ref="372490531"/>
 						<int key="IBEventType">7</int>
 					</object>
@@ -243,7 +243,7 @@
 							<reference ref="849742732"/>
 							<reference ref="143509263"/>
 							<reference ref="683210156"/>
-							<reference ref="663805841"/>
+							<reference ref="474465574"/>
 						</array>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -269,7 +269,7 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">18</int>
-						<reference key="object" ref="663805841"/>
+						<reference key="object" ref="474465574"/>
 						<reference key="parent" ref="774585933"/>
 					</object>
 				</array>

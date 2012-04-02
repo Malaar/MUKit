@@ -18,6 +18,7 @@
         if([section isKindOfClass:[MUSectionWritable class]])
         {
             [(MUSectionWritable*)section mapFromObject];
+            [(MUSectionWritable*)section createCells];
         }
     }
 }

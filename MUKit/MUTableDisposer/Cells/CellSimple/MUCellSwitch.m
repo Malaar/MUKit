@@ -12,16 +12,15 @@
 @implementation MUCellSwitch
 
 //==============================================================================
-- (void) setupCellData:(MUCellData *)aCellData
+- (void) setupCellData:(MUCellDataSwitch *)aCellData
 {
     [super setupCellData:aCellData];
-    MUCellDataSwitch *cellDataSwitch = (MUCellDataSwitch*)self.cellData;
     
     UISwitch *swither = [[[UISwitch alloc] init] autorelease];
     
-    [swither addTarget:cellDataSwitch.targetAction.target action:cellDataSwitch.targetAction.action forControlEvents:UIControlEventValueChanged];
-    swither.on = cellDataSwitch.boolValue;
-    swither.enabled = cellDataSwitch.enableEdit;
+    [swither addTarget:aCellData.targetAction.target action:aCellData.targetAction.action forControlEvents:UIControlEventValueChanged];
+    swither.on = aCellData.boolValue;
+    swither.enabled = aCellData.enableEdit;
     
     self.accessoryView = swither;
     [swither sizeToFit];

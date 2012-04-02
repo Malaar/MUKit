@@ -34,17 +34,20 @@
     textField.font = cellDataTextField.textFont;
     textField.text = cellDataTextField.text;
     textField.textColor = cellDataTextField.textColor;
+    textField.placeholder = cellDataTextField.placeholder;
     
     if (cellDataTextField.title)
     {
-        CGSize titleLabelSize = [cellDataTextField.text sizeWithFont:cellDataTextField.textFont];
-        UILabel *titleLabel = [[[UILabel alloc] initWithFrame:CGRectMake(0, 0, titleLabelSize.width, titleLabelSize.height)] autorelease];
+        CGSize titleLabelSize = [cellDataTextField.title sizeWithFont:cellDataTextField.titleFont];
+        UILabel *titleLabel = [[[UILabel alloc] initWithFrame:CGRectMake(0, 0, titleLabelSize.width + 10, titleLabelSize.height)] autorelease];
         titleLabel.text = cellDataTextField.title;
+        titleLabel.backgroundColor = [UIColor clearColor];
         titleLabel.textColor = cellDataTextField.titleColor;
         titleLabel.font = cellDataTextField.titleFont;
         
         textField.leftViewMode = UITextFieldViewModeAlways;
         textField.leftView = titleLabel;
+        textField.textAlignment = UITextAlignmentRight;
     }
     else
     {

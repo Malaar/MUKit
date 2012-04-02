@@ -22,6 +22,7 @@
     if(self)
     {
         self.cellClass = [MUCellSwitch class];
+        self.cellSelectionStyle = UITableViewCellSelectionStyleNone;
         targetAction = [[MUTargetAction alloc] init];
     }
     return self;

@@ -31,6 +31,7 @@
     {
         visible = YES;
         autoDeselect = YES;
+        enableEdit = YES;
         cellSelectionStyle = UITableViewCellSelectionStyleBlue;
         cellStyle = UITableViewCellStyleDefault;
         cellAccessoryType = UITableViewCellAccessoryNone;

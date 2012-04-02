@@ -7,9 +7,51 @@
 //
 
 #import "MUTextView.h"
+#import "MUKeyboardAvoidingProtocol.h"
 
 
 @implementation MUTextView
+
+@synthesize mudelegate;
+@synthesize keyboardAvoiding;
+
+//==========================================================================================
+- (id) init
+{
+    if( (self = [super init]) )
+    {
+        super.delegate = self;
+    }
+    return self;
+}
+
+//==========================================================================================
+- (id) initWithCoder:(NSCoder *)aDecoder
+{
+    if( (self = [super initWithCoder:aDecoder]) )
+    {
+        super.delegate = self;
+    }
+    return self;
+}
+
+//==========================================================================================
+- (id) initWithFrame:(CGRect)frame
+{
+    if( (self = [super initWithFrame:frame]) )
+    {
+        super.delegate = self;
+    }
+    return self;
+}
+
+//==========================================================================================
+- (void) dealloc
+{
+    [validator release];
+    
+    [super dealloc];
+}
 
 #pragma mark - MUValidationProtocol
 //==========================================================================================
@@ -47,10 +89,81 @@
     return (validator) ? ([validator validate]) : (YES);
 }
 
+#pragma mark - UITextViewDelegate
 //==========================================================================================
-- (void) dealloc
+- (void) setDelegate:(id<UITextViewDelegate>)delegate
 {
-    [super dealloc];
+    NSAssert(NO, @"Must use mudelegate!");
+}
+
+//==========================================================================================
+- (id<UITextViewDelegate>) delegate
+{
+    NSAssert(NO, @"Must use mudelegate!");
+    return nil;
+}
+
+//==========================================================================================
+- (BOOL)textViewShouldBeginEditing:(UITextView *)textView
+{
+    BOOL result = NO;
+    
+    if([mudelegate respondsToSelector:@selector(textViewShouldBeginEditing:)])
+        result = [mudelegate textViewShouldBeginEditing:textView];
+    
+    return result;
+}
+
+//==========================================================================================
+- (BOOL)textViewShouldEndEditing:(UITextView *)textView
+{
+    BOOL result = NO;
+    
+    if([mudelegate respondsToSelector:@selector(textViewShouldEndEditing:)])
+        result = [mudelegate textViewShouldEndEditing:textView];
+    
+    return result;
+}
+
+//==========================================================================================
+- (void)textViewDidBeginEditing:(UITextView *)textView
+{
+    [keyboardAvoiding adjustOffset];
+    
+    if([mudelegate respondsToSelector:@selector(textViewDidBeginEditing:)])
+        [mudelegate textViewDidBeginEditing:textView];
+}
+
+//==========================================================================================
+- (void)textViewDidEndEditing:(UITextView *)textView
+{
+    if([mudelegate respondsToSelector:@selector(textViewDidEndEditing:)])
+        [mudelegate textViewDidEndEditing:textView];
+}
+
+//==========================================================================================
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
+{
+    BOOL result = NO;
+    
+    if([mudelegate respondsToSelector:@selector(textFieldShouldBeginEditing:)])
+        result = [mudelegate textView:textView shouldChangeTextInRange:range replacementText:text];
+    
+    return result;
+}
+
+//==========================================================================================
+- (void)textViewDidChange:(UITextView *)textView
+{
+    if([mudelegate respondsToSelector:@selector(textViewDidChange:)])
+        [mudelegate textViewDidChange:textView];
+}
+
+//==========================================================================================
+- (void)textViewDidChangeSelection:(UITextView *)textView
+{
+    if([mudelegate respondsToSelector:@selector(textViewDidChangeSelection:)])
+        [mudelegate textViewDidChangeSelection:textView];
 }
 
 //==========================================================================================

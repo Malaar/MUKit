@@ -8,12 +8,14 @@
 
 #import "MUTextField.h"
 #import "MUValidator.h"
+#import "MUKeyboardAvoidingProtocol.h"
 
 
 @implementation MUTextField
 
 @synthesize validatableText;
 @synthesize mudelegate;
+@synthesize keyboardAvoiding;
 
 #pragma mark - Init/Dealloc
 //==========================================================================================
@@ -110,7 +112,7 @@
 //==========================================================================================
 - (void)textFieldDidBeginEditing:(UITextField *)textField
 {
-    
+    [keyboardAvoiding adjustOffset];
     
     if([mudelegate respondsToSelector:@selector(textFieldDidBeginEditing:)])
         [mudelegate textFieldDidBeginEditing:textField];

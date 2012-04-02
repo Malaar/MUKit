@@ -8,11 +8,14 @@
 
 #import <Foundation/Foundation.h>
 #import "MUValidator.h"
+#import "MUKeyboardAvoiderProtocol.h"
 
 
-@interface MUTextView : UITextView <MUValidationProtocol>
+@interface MUTextView : UITextView <MUValidationProtocol, UITextViewDelegate, MUKeyboardAvoiderProtocol>
 {
     MUValidator* validator;
 }
+
+@property (nonatomic, assign) id<UITextViewDelegate> mudelegate;
 
 @end

@@ -7,11 +7,13 @@
 //
 
 #import "MUCellDataTextField.h"
+#import "MUCellTextField.h"
+
 
 @implementation MUCellDataTextField
 
 @synthesize title, titleFont, titleColor;
-@synthesize textValue, textFont, textColor, textValueSecured;
+@synthesize text, textFont, textColor, textSecured;
 @synthesize placeholder, placeholderColor;
 
 @synthesize autocapitalizationType;
@@ -21,11 +23,35 @@
 @synthesize returnKeyType;
 
 
+#pragma mark - Init/Dealloc
+//==============================================================================
+- (id) initWithObject:(NSObject *)aObject key:(NSString *)aKey
+{
+    self = [super initWithObject:aObject key:aKey];
+    if(self)
+    {
+        self.cellClass = [MUCellTextField class];
+
+        autocapitalizationType = UITextAutocapitalizationTypeSentences;
+        autocorrectionType = UITextAutocorrectionTypeDefault;
+        keyboardType = UIKeyboardTypeDefault;
+        keyboardAppearance = UIKeyboardAppearanceDefault;
+        returnKeyType = UIReturnKeyDefault;
+    }
+    return self;
+}
+
 //==============================================================================
 - (void) dealloc
 {
+    [title release];
+    [titleColor release];
+    [titleFont release];
+    [text release];
+    [textColor release];
+    [textFont release];
     [placeholder release];
-    [textValue release];
+    [placeholderColor release];
     
     [super dealloc];
 }
@@ -34,13 +60,13 @@
 //==============================================================================
 - (void) mapFromObject
 {
-    textValue = [object valueForKey:key];
+    text = [object valueForKey:key];
 }
 
 //==============================================================================
 - (void) mapToObject
 {
-    [object setValue:textValue forKey:key];
+    [object setValue:text forKey:key];
 }
 
 @end

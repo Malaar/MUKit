@@ -10,14 +10,14 @@
 
 @interface MUCellDataTextField : MUCellDataMaped
 
-@property (nonatomic, copy) NSString *title;
+@property (nonatomic, retain) NSString *title;
 @property (nonatomic, retain) UIColor *titleColor;
 @property (nonatomic, retain) UIFont *titleFont;
 
-@property (nonatomic, retain) NSString *textValue;
+@property (nonatomic, retain) NSString *text;
 @property (nonatomic, retain) UIColor *textColor;
 @property (nonatomic, retain) UIFont *textFont;
-@property(nonatomic, assign) BOOL textValueSecured;                                 ///< default is NO
+@property(nonatomic, assign) BOOL textSecured;                                 ///< default is NO
 
 @property (nonatomic, retain) NSString *placeholder;
 @property (nonatomic, retain) UIColor *placeholderColor;
@@ -26,6 +26,6 @@
 @property(nonatomic, assign) UITextAutocorrectionType autocorrectionType;           ///< default is UITextAutocorrectionTypeDefault
 @property(nonatomic, assign) UIKeyboardType keyboardType;                           ///< default is UIKeyboardTypeDefault
 @property(nonatomic, assign) UIKeyboardAppearance keyboardAppearance;               ///< default is UIKeyboardAppearanceDefault
-@property(nonatomic, assign) UIReturnKeyType returnKeyType;                         ///< default is UIReturnKeyDefault (See note under UIReturnKeyType enum)
+@property(nonatomic, assign) UIReturnKeyType returnKeyType;                         ///< default is UIReturnKeyDefault
 
 @end

@@ -8,6 +8,12 @@
 
 #import "MUCellData.h"
 
-@interface MUTextCellData : MUCellData
+@interface MUCellDataLabel : MUCellData
+{
+    NSString *textValue;
+}
+
+@property (nonatomic, retain) NSString *textValue;
+//@property (nonatomic, retain) 
 
 @end

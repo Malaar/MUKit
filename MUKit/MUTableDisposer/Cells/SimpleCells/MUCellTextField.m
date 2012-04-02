@@ -6,19 +6,16 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "MUEntryCell.h"
-#import "MUEntryCellData.h"
+#import "MUCellTextField.h"
+#import "MUCellDataTextField.h"
 
-@implementation MUEntryCell
+@implementation MUCellTextField
 
 @synthesize textField;
 
 - (void) setupCellData:(MUCellData *)aCellData
 {
     [super setupCellData:aCellData];
-    
-//    MUEntryCellData *entryCellData = (MUEntryCellData *)self.cellData;
-    
 }
 
 @end

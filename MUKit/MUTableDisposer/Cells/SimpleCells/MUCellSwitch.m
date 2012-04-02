@@ -18,7 +18,7 @@
     
     UISwitch *swither = [[[UISwitch alloc] init] autorelease];
     
-    [swither addTarget:booleanCellData.switchTarget action:booleanCellData.switchAction forControlEvents:UIControlEventValueChanged];
+    [swither addTarget:booleanCellData.targetAction.target action:booleanCellData.targetAction.action forControlEvents:UIControlEventValueChanged];
     swither.on = booleanCellData.boolValue;
     swither.enabled = booleanCellData.enableEdit;
     

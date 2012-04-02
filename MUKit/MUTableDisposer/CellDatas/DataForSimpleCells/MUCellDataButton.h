@@ -7,10 +7,17 @@
 //
 
 #import "MUCellData.h"
+#import "MUTargetAction.h"
 
 @interface MUCellDataButton : MUCellData
-{
-//    MUTargetAction* targetAction;
-}
+
+@property (nonatomic, retain) NSString* title;
+@property (nonatomic, retain) UIColor *titleColor;
+@property (nonatomic, retain) UIFont *titleFont;
+@property (nonatomic, assign) UITextAlignment titleAlignment;
+
+@property (nonatomic, readonly) MUTargetAction* targetAction;
+
+- (void) setTarget:(id)aTarget action:(SEL)anAction;
 
 @end

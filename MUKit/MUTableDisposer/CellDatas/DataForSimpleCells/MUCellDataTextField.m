@@ -6,9 +6,9 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "MUEntryCellData.h"
+#import "MUCellDataTextField.h"
 
-@implementation MUEntryCellData
+@implementation MUCellDataTextField
 
 @synthesize placeholder;
 @synthesize textValue;
@@ -25,12 +25,26 @@
 //    
 //}
 
+//==============================================================================
 - (void) dealloc
 {
     [placeholder release];
     [textValue release];
     
     [super dealloc];
+}
+
+#pragma mark - Maping
+//==============================================================================
+- (void) mapFromObject
+{
+    textValue = [object valueForKey:key];
+}
+
+//==============================================================================
+- (void) mapToObject
+{
+    [object setValue:textValue forKey:key];
 }
 
 @end

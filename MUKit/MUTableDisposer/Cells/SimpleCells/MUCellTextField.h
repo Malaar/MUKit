@@ -9,7 +9,7 @@
 #import "MUCell.h"
 #import "MUTextField.h"
 
-@interface MUEntryCell : MUCell
+@interface MUCellTextField : MUCell
 {
     MUTextField *textField;
 }

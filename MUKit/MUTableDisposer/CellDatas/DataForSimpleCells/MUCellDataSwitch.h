@@ -7,18 +7,14 @@
 //
 
 #import "MUCellDataStandart.h"
+#import "MUTargetAction.h"
 
-@class MUTargetAction;
 
 @interface MUCellDataSwitch : MUCellDataStandart
-{
-    MUTargetAction* targetAction;
-}
 
 @property (nonatomic, assign) BOOL boolValue;
-@property (nonatomic, readonly) SEL switchAction;
-@property (nonatomic, readonly) id switchTarget;
+@property (nonatomic, readonly) MUTargetAction* targetAction;
 
-- (void) setSwitchTarget:(id)aTarget action:(SEL)anAction;
+- (void) setTarget:(id)aTarget action:(SEL)anAction;
 
 @end

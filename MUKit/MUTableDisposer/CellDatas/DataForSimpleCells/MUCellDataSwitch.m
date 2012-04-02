@@ -7,13 +7,12 @@
 //
 
 #import "MUCellDataSwitch.h"
-#import "MUTargetAction.h"
+
 
 @implementation MUCellDataSwitch
 
 @synthesize boolValue;
-@dynamic switchAction;
-@dynamic switchTarget;
+@synthesize targetAction;
 
 #pragma mark - Init/Dealloc
 //==============================================================================
@@ -37,21 +36,9 @@
 
 #pragma mark - Target/Action
 //==============================================================================
-- (void) setSwitchTarget:(id)aTarget action:(SEL)anAction
+- (void) setTarget:(id)aTarget action:(SEL)anAction
 {
     [targetAction setTarget:aTarget action:anAction];
-}
-
-//==============================================================================
-- (id) switchTarget
-{
-    return targetAction.target;
-}
-
-//==============================================================================
-- (SEL) switchAction
-{
-    return targetAction.action;
 }
 
 #pragma mark - Maping

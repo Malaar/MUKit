@@ -14,16 +14,18 @@
 - (void) setupCellData:(MUCellData *)aCellData
 {
     [super setupCellData:aCellData];
-    MUCellDataStandart *labelCellData = (MUCellDataStandart*)self.cellData;
+    MUCellDataStandart *cellDataStandart = (MUCellDataStandart*)self.cellData;
     
-    self.textLabel.text = labelCellData.title;
-    self.textLabel.font = labelCellData.titleFont;
-    self.textLabel.textColor = labelCellData.titleColor;
-    self.textLabel.textAlignment = labelCellData.titleTextAlignment;
+    self.textLabel.text = cellDataStandart.title;
+    self.textLabel.font = cellDataStandart.titleFont;
+    self.textLabel.textColor = cellDataStandart.titleColor;
+    self.textLabel.textAlignment = cellDataStandart.titleTextAlignment;
     
-    self.detailTextLabel.textColor = labelCellData.subtitleColor;
-    self.detailTextLabel.font = labelCellData.subtitleFont;
-    self.detailTextLabel.text = labelCellData.subtitle;
+    self.detailTextLabel.textColor = cellDataStandart.subtitleColor;
+    self.detailTextLabel.font = cellDataStandart.subtitleFont;
+    self.detailTextLabel.text = cellDataStandart.subtitle;
+    
+    [self.imageView setImage:cellDataStandart.image];
 }
 
 @end

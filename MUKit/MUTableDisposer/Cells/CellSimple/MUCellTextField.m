@@ -57,4 +57,13 @@
     [self.contentView addSubview:textField];
 }
 
+//==============================================================================
+- (NSArray *) inputTraits
+{
+    return [NSArray arrayWithObject:textField];
+}
+
 @end
+
+
+

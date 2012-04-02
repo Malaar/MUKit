@@ -11,5 +11,6 @@
 
 @interface MUCell : UITableViewCell <MUCellProtocol>
 
+- (NSArray*) inputTraits;
 
 @end

@@ -11,6 +11,7 @@
 #import "MUCellData.h"
 #import "MUCellProtocol.h"
 #import "MUTableDisposer.h"
+#import "MUKeyboardAvoidingProtocol.h"
 
 
 //==============================================================================
@@ -139,6 +140,11 @@
     MUCellData* cellData = [self visibleCellDataAtIndex:anIndex];
     MUCell* cell = [cellData createCell];
     [cell setupCellData:cellData];
+    
+    if ([disposer.tableView conformsToProtocol:@protocol(MUKeyboardAvoidingProtocol)])
+    {
+        [((id<MUKeyboardAvoidingProtocol>)disposer.tableView) addObjectsForKeyboard:[cell inputTraits]];
+    }
     
     if(disposer.delegate && [disposer.delegate respondsToSelector:@selector(tableDisposer:didCreateCell:)])
         [disposer.delegate tableDisposer:disposer didCreateCell:cell];

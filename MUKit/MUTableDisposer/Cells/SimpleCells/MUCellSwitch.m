@@ -11,6 +11,7 @@
 
 @implementation MUCellSwitch
 
+//==============================================================================
 - (void) setupCellData:(MUCellData *)aCellData
 {
     [super setupCellData:aCellData];

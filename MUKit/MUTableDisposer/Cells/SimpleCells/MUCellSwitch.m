@@ -14,13 +14,13 @@
 - (void) setupCellData:(MUCellData *)aCellData
 {
     [super setupCellData:aCellData];
-    MUCellDataSwitch *booleanCellData = (MUCellDataSwitch*)self.cellData;
+    MUCellDataSwitch *cellDataSwitch = (MUCellDataSwitch*)self.cellData;
     
     UISwitch *swither = [[[UISwitch alloc] init] autorelease];
     
-    [swither addTarget:booleanCellData.targetAction.target action:booleanCellData.targetAction.action forControlEvents:UIControlEventValueChanged];
-    swither.on = booleanCellData.boolValue;
-    swither.enabled = booleanCellData.enableEdit;
+    [swither addTarget:cellDataSwitch.targetAction.target action:cellDataSwitch.targetAction.action forControlEvents:UIControlEventValueChanged];
+    swither.on = cellDataSwitch.boolValue;
+    swither.enabled = cellDataSwitch.enableEdit;
     
     self.accessoryView = swither;
     [swither sizeToFit];

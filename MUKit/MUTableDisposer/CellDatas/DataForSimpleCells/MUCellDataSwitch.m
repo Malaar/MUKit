@@ -7,7 +7,7 @@
 //
 
 #import "MUCellDataSwitch.h"
-
+#import "MUCellSwitch.h"
 
 @implementation MUCellDataSwitch
 
@@ -21,6 +21,7 @@
     self = [super initWithObject:aObject key:aKey];
     if(self)
     {
+        self.cellClass = [MUCellSwitch class];
         targetAction = [[MUTargetAction alloc] init];
     }
     return self;

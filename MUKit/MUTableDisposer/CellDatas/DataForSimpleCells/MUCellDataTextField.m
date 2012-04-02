@@ -10,20 +10,16 @@
 
 @implementation MUCellDataTextField
 
-@synthesize placeholder;
-@synthesize textValue;
+@synthesize title, titleFont, titleColor;
+@synthesize textValue, textFont, textColor, textValueSecured;
+@synthesize placeholder, placeholderColor;
 
 @synthesize autocapitalizationType;
 @synthesize autocorrectionType;
 @synthesize keyboardType;
 @synthesize keyboardAppearance;
 @synthesize returnKeyType;
-@synthesize secureTextEntry;
 
-//- (MUEntryCellData *)initWithTitle:(NSString *)string Value:(NSString *)param Placeholder:(NSString *)string
-//{
-//    
-//}
 
 //==============================================================================
 - (void) dealloc

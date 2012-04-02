@@ -10,10 +10,12 @@
 #import "MUValidator.h"
 #import "MUKeyboardAvoiderProtocol.h"
 
+@class MUTextView_Holder;
 
 @interface MUTextView : UITextView <MUValidationProtocol, UITextViewDelegate, MUKeyboardAvoiderProtocol>
 {
     MUValidator* validator;
+    MUTextView_Holder* delegateHolder;
 }
 
 @property (nonatomic, assign) id<UITextViewDelegate> mudelegate;

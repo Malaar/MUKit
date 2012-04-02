@@ -20,9 +20,15 @@
 
 @end
 
+//==========================================================================================
+//==========================================================================================
+//==========================================================================================
+@interface MUTextField ()
 
-//==========================================================================================
-//==========================================================================================
+- (void) setup;
+
+@end
+
 //==========================================================================================
 @implementation MUTextField
 
@@ -37,10 +43,7 @@
     self = [super init];
     if (self)
     {
-        self.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
-        delegateHolder = [MUTextField_Holder new];
-        delegateHolder.holded = self;
-        super.delegate = delegateHolder;
+        [self setup];
     }
     return self;
 }
@@ -51,10 +54,17 @@
     self = [super initWithFrame:frame];
     if (self)
     {
-        self.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
-        delegateHolder = [MUTextField_Holder new];
-        delegateHolder.holded = self;
-        super.delegate = delegateHolder;
+        [self setup];
+    }
+    return self;
+}
+
+//==========================================================================================
+- (id) initWithCoder:(NSCoder *)aDecoder
+{
+    if( (self = [super initWithCoder:aDecoder]) )
+    {
+        [self setup];
     }
     return self;
 }
@@ -63,7 +73,18 @@
 - (void) dealloc
 {
     [delegateHolder release];
+    [validator release];
+    
     [super dealloc];
+}
+
+//==========================================================================================
+- (void) setup
+{
+    self.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
+    delegateHolder = [MUTextField_Holder new];
+    delegateHolder.holded = self;
+    super.delegate = delegateHolder;
 }
 
 #pragma mark - MUValidationProtocol

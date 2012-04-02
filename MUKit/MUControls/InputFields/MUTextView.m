@@ -10,6 +10,25 @@
 #import "MUKeyboardAvoidingProtocol.h"
 
 
+//==========================================================================================
+//==========================================================================================
+//==========================================================================================
+@interface MUTextView_Holder : NSObject <UITextViewDelegate>
+
+@property (nonatomic, assign) MUTextView* holded;
+
+@end
+
+//==========================================================================================
+//==========================================================================================
+//==========================================================================================
+@interface MUTextView ()
+
+- (void) setup;
+
+@end
+
+//==========================================================================================
 @implementation MUTextView
 
 @synthesize mudelegate;
@@ -20,7 +39,7 @@
 {
     if( (self = [super init]) )
     {
-        super.delegate = self;
+        [self setup];
     }
     return self;
 }
@@ -30,7 +49,7 @@
 {
     if( (self = [super initWithCoder:aDecoder]) )
     {
-        super.delegate = self;
+        [self setup];
     }
     return self;
 }
@@ -40,7 +59,7 @@
 {
     if( (self = [super initWithFrame:frame]) )
     {
-        super.delegate = self;
+        [self setup];
     }
     return self;
 }
@@ -48,9 +67,18 @@
 //==========================================================================================
 - (void) dealloc
 {
+    [delegateHolder release];
     [validator release];
     
     [super dealloc];
+}
+
+//==========================================================================================
+- (void) setup
+{
+    delegateHolder = [MUTextView_Holder new];
+    delegateHolder.holded = self;
+    super.delegate = delegateHolder;
 }
 
 #pragma mark - MUValidationProtocol
@@ -104,12 +132,22 @@
 }
 
 //==========================================================================================
+//==========================================================================================
+//==========================================================================================
+@end
+
+
+@implementation MUTextView_Holder
+
+@synthesize holded;
+
+//==========================================================================================
 - (BOOL)textViewShouldBeginEditing:(UITextView *)textView
 {
     BOOL result = NO;
     
-    if([mudelegate respondsToSelector:@selector(textViewShouldBeginEditing:)])
-        result = [mudelegate textViewShouldBeginEditing:textView];
+    if([holded.mudelegate respondsToSelector:@selector(textViewShouldBeginEditing:)])
+        result = [holded.mudelegate textViewShouldBeginEditing:textView];
     
     return result;
 }
@@ -119,8 +157,8 @@
 {
     BOOL result = NO;
     
-    if([mudelegate respondsToSelector:@selector(textViewShouldEndEditing:)])
-        result = [mudelegate textViewShouldEndEditing:textView];
+    if([holded.mudelegate respondsToSelector:@selector(textViewShouldEndEditing:)])
+        result = [holded.mudelegate textViewShouldEndEditing:textView];
     
     return result;
 }
@@ -128,17 +166,17 @@
 //==========================================================================================
 - (void)textViewDidBeginEditing:(UITextView *)textView
 {
-    [keyboardAvoiding adjustOffset];
+    [holded.keyboardAvoiding adjustOffset];
     
-    if([mudelegate respondsToSelector:@selector(textViewDidBeginEditing:)])
-        [mudelegate textViewDidBeginEditing:textView];
+    if([holded.mudelegate respondsToSelector:@selector(textViewDidBeginEditing:)])
+        [holded.mudelegate textViewDidBeginEditing:textView];
 }
 
 //==========================================================================================
 - (void)textViewDidEndEditing:(UITextView *)textView
 {
-    if([mudelegate respondsToSelector:@selector(textViewDidEndEditing:)])
-        [mudelegate textViewDidEndEditing:textView];
+    if([holded.mudelegate respondsToSelector:@selector(textViewDidEndEditing:)])
+        [holded.mudelegate textViewDidEndEditing:textView];
 }
 
 //==========================================================================================
@@ -146,8 +184,8 @@
 {
     BOOL result = NO;
     
-    if([mudelegate respondsToSelector:@selector(textFieldShouldBeginEditing:)])
-        result = [mudelegate textView:textView shouldChangeTextInRange:range replacementText:text];
+    if([holded.mudelegate respondsToSelector:@selector(textFieldShouldBeginEditing:)])
+        result = [holded.mudelegate textView:textView shouldChangeTextInRange:range replacementText:text];
     
     return result;
 }
@@ -155,18 +193,16 @@
 //==========================================================================================
 - (void)textViewDidChange:(UITextView *)textView
 {
-    if([mudelegate respondsToSelector:@selector(textViewDidChange:)])
-        [mudelegate textViewDidChange:textView];
+    if([holded.mudelegate respondsToSelector:@selector(textViewDidChange:)])
+        [holded.mudelegate textViewDidChange:textView];
 }
 
 //==========================================================================================
 - (void)textViewDidChangeSelection:(UITextView *)textView
 {
-    if([mudelegate respondsToSelector:@selector(textViewDidChangeSelection:)])
-        [mudelegate textViewDidChangeSelection:textView];
+    if([holded.mudelegate respondsToSelector:@selector(textViewDidChangeSelection:)])
+        [holded.mudelegate textViewDidChangeSelection:textView];
 }
 
-//==========================================================================================
-//==========================================================================================
-//==========================================================================================
+
 @end

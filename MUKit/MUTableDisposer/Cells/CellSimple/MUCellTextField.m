@@ -30,6 +30,9 @@
     textField.keyboardType = cellDataTextField.keyboardType;
     textField.keyboardAppearance = cellDataTextField.keyboardAppearance;
     textField.returnKeyType = cellDataTextField.returnKeyType;
+    textField.secureTextEntry = cellDataTextField.textSecured;
+    
+    [textField addTarget:cellDataTextField action:@selector(didChangeValueInTextField:) forControlEvents:UIControlEventEditingDidEnd];
     
     textField.font = cellDataTextField.textFont;
     textField.text = cellDataTextField.text;

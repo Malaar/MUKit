@@ -61,6 +61,13 @@
     [super dealloc];
 }
 
+//==============================================================================
+- (void) didChangeValueInTextField:(UITextField *) aTextField
+{
+    NSLog(@"didChangeValueInTextField %@", aTextField);
+    text = aTextField.text;
+}
+
 #pragma mark - Maping
 //==============================================================================
 - (void) mapFromObject

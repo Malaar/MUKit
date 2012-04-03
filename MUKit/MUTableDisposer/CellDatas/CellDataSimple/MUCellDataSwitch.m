@@ -43,6 +43,14 @@
     [targetAction setTarget:aTarget action:anAction];
 }
 
+#pragma mark - Change Bool Value
+//==============================================================================
+- (void) didChangeBoolValueInSwitch:(UISwitch *) aSwitch
+{
+    NSLog(@"didChangeBoolValueInSwitch %@", aSwitch);
+    boolValue = aSwitch.on;
+}
+
 #pragma mark - Maping
 //==============================================================================
 - (void) mapFromObject

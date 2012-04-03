@@ -22,6 +22,8 @@
     switcher.on = aCellData.boolValue;
     switcher.enabled = aCellData.enableEdit;
     
+    [switcher addTarget:aCellData action:@selector(didChangeBoolValueInSwitch:) forControlEvents:UIControlEventValueChanged];
+    
     self.accessoryView = switcher;
     [switcher sizeToFit];
 }

@@ -66,6 +66,7 @@
     MUCellDataTextField *cellDataTextField = [[[MUCellDataTextField alloc] initWithObject:nil key:nil] autorelease];
     cellDataTextField.text = @"MUCellDataTextField";
     cellDataTextField.title = @"Text";
+    cellDataTextField.placeholder = @"please enter text";
     [section addCellData: cellDataTextField];
     
     cellDataTextField = [[[MUCellDataTextField alloc] initWithObject:nil key:nil] autorelease];

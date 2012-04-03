@@ -28,4 +28,6 @@
 @property(nonatomic, assign) UIKeyboardAppearance keyboardAppearance;               ///< default is UIKeyboardAppearanceDefault
 @property(nonatomic, assign) UIReturnKeyType returnKeyType;                         ///< default is UIReturnKeyDefault
 
+- (void) didChangeValueInTextField:(UITextField *) aTextField;
+
 @end

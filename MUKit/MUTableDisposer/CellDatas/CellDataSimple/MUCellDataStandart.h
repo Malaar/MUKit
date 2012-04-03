@@ -15,11 +15,11 @@
 @property (nonatomic, retain) NSString* subtitle;
 
 @property (nonatomic, retain) UIColor *titleColor;
-@property (nonatomic, retain) UIFont *titleFont;
+@property (nonatomic, assign) UIFont *titleFont;
 @property (nonatomic, assign) UITextAlignment titleTextAlignment;
 
 @property (nonatomic, retain) UIColor *subtitleColor;
-@property (nonatomic, retain) UIFont *subtitleFont;
+@property (nonatomic, assign) UIFont *subtitleFont;
 
 - (id) initWithObject:(NSObject *)aObject key:(NSString *)aKey;
 

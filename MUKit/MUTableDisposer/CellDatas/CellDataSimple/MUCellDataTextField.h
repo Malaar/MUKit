@@ -12,11 +12,11 @@
 
 @property (nonatomic, retain) NSString *title;
 @property (nonatomic, retain) UIColor *titleColor;
-@property (nonatomic, retain) UIFont *titleFont;
+@property (nonatomic, assign) UIFont *titleFont;
 
 @property (nonatomic, retain) NSString *text;
 @property (nonatomic, retain) UIColor *textColor;
-@property (nonatomic, retain) UIFont *textFont;
+@property (nonatomic, assign) UIFont *textFont;
 @property(nonatomic, assign) BOOL textSecured;                                 ///< default is NO
 
 @property (nonatomic, retain) NSString *placeholder;

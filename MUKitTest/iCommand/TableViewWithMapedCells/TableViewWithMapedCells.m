@@ -85,11 +85,6 @@
     cellDataSwitch.titleColor = [UIColor blueColor];
     cellDataSwitch.titleTextAlignment = UITextAlignmentCenter;
     cellDataSwitch.titleFont = [UIFont systemFontOfSize:15];
-    cellDataSwitch.titleFont = [UIFont systemFontOfSize:12];
-    cellDataSwitch.titleFont = [UIFont italicSystemFontOfSize:14];
-    cellDataSwitch.titleFont = [UIFont systemFontOfSize:15];
-    cellDataSwitch.titleFont = [UIFont systemFontOfSize:16];
-    cellDataSwitch.titleFont = [UIFont systemFontOfSize:18];
     [cellDataSwitch setTarget:self action:@selector(switcheDidChengeValue:)];
     [section addCellData:cellDataSwitch];
     

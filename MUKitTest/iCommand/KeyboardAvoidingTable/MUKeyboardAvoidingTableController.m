@@ -261,7 +261,7 @@
     MUTextField *textField = [[[MUTextField alloc] initWithFrame:CGRectMake(10, 0, 300, 40)] autorelease];
     textField.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     textField.autoresizesSubviews = YES;
-    textField.delegate = self;
+    textField.mudelegate = self;
     return textField;
 }
 

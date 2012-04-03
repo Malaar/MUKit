@@ -53,10 +53,8 @@
 {
     [title release];
     [titleColor release];
-    [titleFont release];
     [text release];
     [textColor release];
-    [textFont release];
     [placeholder release];
     [placeholderColor release];
     

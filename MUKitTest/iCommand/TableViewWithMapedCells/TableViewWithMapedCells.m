@@ -9,11 +9,21 @@
 #import "TableViewWithMapedCells.h"
 #import "MUSectionWritable.h"
 
+#import "MUKeyboardAvoidingTableView.h"
+
 #import "MUCellDataSwitch.h"
 #import "MUCellDataTextField.h"
 #import "MUCellDataLabel.h"
 #import "MUCellDataStandart.h"
-#import "MUKeyboardAvoidingTableView.h"
+#import "MUCellDataButton.h"
+
+@interface TableViewWithMapedCells ()
+
+- (void) cellButtonPressed;
+- (void) switcheDidChengeValue:(UISwitch *)sender;
+
+@end
+
 
 @implementation TableViewWithMapedCells
 
@@ -31,6 +41,14 @@
     }
     return self;
 }
+
+//==============================================================================
+- (void) dealloc
+{
+    [tableDisposer release];
+    [super dealloc];
+}
+
 #pragma mark - View lifecycle
 //==============================================================================
 - (void)viewDidLoad
@@ -55,14 +73,24 @@
     cellDataTextField.placeholder = @"please enter text";
     [section addCellData: cellDataTextField];
     
-    MUCellDataSwitch *cellDataSwitch = [[MUCellDataSwitch alloc] initWithObject:nil key:nil];
+    MUCellDataSwitch *cellDataSwitch = [[[MUCellDataSwitch alloc] initWithObject:nil key:nil] autorelease];
     cellDataSwitch.title = @"Switch";
     cellDataSwitch.boolValue = YES;
     [section addCellData:cellDataSwitch];
     
-    cellDataSwitch = [[MUCellDataSwitch alloc] initWithObject:nil key:nil];
+    cellDataSwitch = [[[MUCellDataSwitch alloc] initWithObject:nil key:nil] autorelease];
     cellDataSwitch.subtitle = @"Switch";
     cellDataSwitch.boolValue = NO;
+    cellDataSwitch.title = @"Switch";
+    cellDataSwitch.titleColor = [UIColor blueColor];
+    cellDataSwitch.titleTextAlignment = UITextAlignmentCenter;
+    cellDataSwitch.titleFont = [UIFont systemFontOfSize:15];
+    cellDataSwitch.titleFont = [UIFont systemFontOfSize:12];
+    cellDataSwitch.titleFont = [UIFont italicSystemFontOfSize:14];
+    cellDataSwitch.titleFont = [UIFont systemFontOfSize:15];
+    cellDataSwitch.titleFont = [UIFont systemFontOfSize:16];
+    cellDataSwitch.titleFont = [UIFont systemFontOfSize:18];
+    [cellDataSwitch setTarget:self action:@selector(switcheDidChengeValue:)];
     [section addCellData:cellDataSwitch];
     
     // new section
@@ -71,8 +99,10 @@
     section.footerTitle = @"footerTitle";
     [tableDisposer addSection:section];
     
-    cellDataSwitch = [[MUCellDataSwitch alloc] initWithObject:nil key:nil];
+    cellDataSwitch = [[[MUCellDataSwitch alloc] initWithObject:nil key:nil] autorelease];
     cellDataSwitch.title = @"Switch";
+    cellDataSwitch.titleColor = [UIColor grayColor];
+    cellDataSwitch.titleFont = [UIFont systemFontOfSize:16];
     cellDataSwitch.boolValue = YES;
     [section addCellData:cellDataSwitch];
 
@@ -82,6 +112,15 @@
     section.headerTitle = @"Section title";    
     section.footerTitle = @"footerTitle";    
     [tableDisposer addSection:section];
+    
+    MUCellDataButton *button = [[[MUCellDataButton alloc] init] autorelease];
+    button.title = @"Cell Button";
+    button.titleAlignment = UITextAlignmentCenter;
+    button.titleFont = [UIFont italicSystemFontOfSize:18];
+    button.cellSelectionStyle = UITableViewCellSelectionStyleGray;
+    button.cellAccessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    [button setTarget:self action:@selector(cellButtonPressed)];
+    [section addCellData:button];
     
     [tableDisposer mapFromObject];
 }
@@ -106,4 +145,25 @@
     return YES;
 }
 
+#pragma mark - Private Methods
+//==============================================================================
+- (void) cellButtonPressed
+{
+    NSLog(@"cellButtonPressed");
+}
+
+//==============================================================================
+- (void) switcheDidChengeValue:(UISwitch *)sender
+{
+    NSLog(@"switcheDidChengeValue %d", sender.on);
+}
+
 @end
+
+
+
+
+
+
+
+

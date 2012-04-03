@@ -29,7 +29,6 @@
     if (self)
     {
         self.cellClass = [MUCell class];
-//        self.cellStyle =
         
         titleTextAlignment = UITextAlignmentLeft;
         titleFont = [UIFont systemFontOfSize:18];
@@ -47,9 +46,7 @@
     [image release];
     [title release];
     [titleColor release];
-    [titleFont release];
     [subtitleColor release];
-    [subtitleFont release];
     
     [super dealloc];
 }

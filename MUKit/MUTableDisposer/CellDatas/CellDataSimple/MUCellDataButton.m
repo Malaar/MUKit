@@ -41,7 +41,6 @@
 {
     [title release];
     [titleColor release];
-    [titleFont release];
     [targetAction release];
     
     [super dealloc];
@@ -52,6 +51,7 @@
 - (void) setTarget:(id)aTarget action:(SEL)anAction
 {
     [targetAction setTarget:aTarget action:anAction];
+    [self addCellSelectedTarget:targetAction.target action:targetAction.action];
 }
 
 @end

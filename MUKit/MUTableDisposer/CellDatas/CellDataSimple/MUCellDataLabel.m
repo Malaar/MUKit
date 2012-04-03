@@ -31,10 +31,8 @@
 {
     [title release];
     [titleColor release];
-    [titleFont release];
     [text release];
     [textColor release];
-    [textFont release];
     
     [super dealloc];
 }

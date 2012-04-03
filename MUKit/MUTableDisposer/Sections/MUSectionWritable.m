@@ -120,7 +120,8 @@
 {
     for (MUCellData* cellData in cellDataSource)
     {
-        [(MUCellDataMaped*)cellData mapFromObject];
+        if ([cellData isKindOfClass:[MUCellDataMaped class]])
+            [(MUCellDataMaped*)cellData mapFromObject];
     }
 }
 
@@ -129,7 +130,8 @@
 {
     for (MUCellData* cellData in cellDataSource)
     {
-        [(MUCellDataMaped*)cellData mapToObject];
+        if ([cellData isKindOfClass:[MUCellDataMaped class]])
+            [(MUCellDataMaped*)cellData mapToObject];
     }
 }
 

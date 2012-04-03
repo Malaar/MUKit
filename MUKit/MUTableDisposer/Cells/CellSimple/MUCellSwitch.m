@@ -16,14 +16,14 @@
 {
     [super setupCellData:aCellData];
     
-    UISwitch *swither = [[[UISwitch alloc] init] autorelease];
+    UISwitch *switcher = [[[UISwitch alloc] init] autorelease];
     
-    [swither addTarget:aCellData.targetAction.target action:aCellData.targetAction.action forControlEvents:UIControlEventValueChanged];
-    swither.on = aCellData.boolValue;
-    swither.enabled = aCellData.enableEdit;
+    [switcher addTarget:aCellData.targetAction.target action:aCellData.targetAction.action forControlEvents:UIControlEventValueChanged];
+    switcher.on = aCellData.boolValue;
+    switcher.enabled = aCellData.enableEdit;
     
-    self.accessoryView = swither;
-    [swither sizeToFit];
+    self.accessoryView = switcher;
+    [switcher sizeToFit];
 }
 
 @end

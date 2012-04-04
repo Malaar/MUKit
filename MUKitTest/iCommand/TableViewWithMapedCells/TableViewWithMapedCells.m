@@ -123,8 +123,8 @@
     [section addCellData:button];
     
     [tableDisposer mapFromObject];
-//    validationGroup = [[MUValidationGroup alloc] initWithTextFields:[NSArray arrayWithObjects:validatorNotEmpty, nil]];
-//    validationGroup.invalidIndicatorImage = [UIImage imageNamed:@"warning_icon"];
+    validationGroup = [[MUValidationGroup alloc] initWithValidators:[NSArray arrayWithObjects:validatorNotEmpty, nil]];
+    validationGroup.invalidIndicatorImage = [UIImage imageNamed:@"warning_icon"];
 }
 
 //==============================================================================

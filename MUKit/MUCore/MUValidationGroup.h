@@ -17,14 +17,14 @@
 
 @interface MUValidationGroup : NSObject
 {
-	NSArray* textFields;
+	NSArray* validators;
     UIImage* invalidIndicatorImage;
 }
 
 @property (nonatomic, retain) UIImage* invalidIndicatorImage;
 @property (nonatomic, assign) NSObject<MUValidationGroupDelegate>* delegate;
 
-- (id) initWithTextFields:(NSArray*)aTextFields;
+- (id) initWithValidators:(NSArray*)aValidators;
 - (NSArray*) validateFields;
 - (void) hideInvalidIndicators;
 

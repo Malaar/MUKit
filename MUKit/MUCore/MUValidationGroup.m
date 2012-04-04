@@ -36,11 +36,11 @@
 }
 
 //==============================================================================
-- (id) initWithTextFields:(NSArray*)aTextFields
+- (id) initWithValidators:(NSArray *)aValidators
 {
 	if( (self = [super init]) )
 	{
-		textFields = [aTextFields copy];
+		validators = [aValidators copy];
     }
 	
 	return self;
@@ -49,7 +49,7 @@
 //==============================================================================
 - (void) dealloc
 {
-	[textFields release];
+	[validators release];
     [invalidIndicatorImage release];
 	
 	[super dealloc];
@@ -63,12 +63,9 @@
     NSMutableArray* result = [NSMutableArray array];    
     NSMutableArray* validationResults = [NSMutableArray array];
     
-    for(id<MUValidationProtocol> object in textFields)
+    for (MUValidator *validator in validators)
     {
-        if( [object conformsToProtocol:@protocol(MUValidationProtocol)] )
-        {
-            [validationResults addObject: [NSNumber numberWithBool:[object validate]]];
-        }
+        [validationResults addObject: [NSNumber numberWithBool:[validator validate]]];
     }
     
     // to castom proccess any links between validatable vields
@@ -77,18 +74,18 @@
         [delegate proccessValidationResults:validationResults];
     }    
     
-    if ([textFields count] == [validationResults count]) 
+    if ([validators count] == [validationResults count]) 
     {
-        id<MUValidationProtocol> object = nil;
+        MUValidator *validator = nil;
         for(int i = 0; i < [validationResults count]; ++i)
         {
+            validator = [validators objectAtIndex:i];
             if( ![[validationResults objectAtIndex:i] boolValue] )
             {
-                object = [textFields objectAtIndex:i];
-                [result addObject:object];
-                if ([object isKindOfClass:[UITextField class]])
+                [result addObject:validator.validatableObject];
+                if ([validator.validatableObject isKindOfClass:[UITextField class]])
                 {
-                    [self showInvalidViewForField:(UITextField*)object];
+                    [self showInvalidViewForField:(UITextField*)validator.validatableObject];
                 }
             }
         }
@@ -111,10 +108,10 @@
 //==============================================================================
 - (void) hideInvalidIndicators
 {
-    for(id<MUValidationProtocol> object in textFields)
+    for(MUValidator *object in validators)
     {
-        if( [object isKindOfClass:[UITextField class]] )
-            [(UITextField*)object setRightView:nil];
+        if( [object.validatableObject isKindOfClass:[UITextField class]] )
+            [(UITextField*)object.validatableObject setRightView:nil];
     }
 }
 

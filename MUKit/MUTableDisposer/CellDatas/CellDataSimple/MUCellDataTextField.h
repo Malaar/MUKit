@@ -18,7 +18,7 @@
 @property (nonatomic, retain) NSString *text;
 @property (nonatomic, retain) UIColor *textColor;
 @property (nonatomic, assign) UIFont *textFont;
-@property(nonatomic, assign) BOOL textSecured;                                 ///< default is NO
+@property(nonatomic, assign) BOOL textSecured;                                       ///< default is NO
 
 @property (nonatomic, retain) NSString *placeholder;
 @property (nonatomic, retain) UIColor *placeholderColor;
@@ -30,7 +30,5 @@
 @property (nonatomic, assign) UIReturnKeyType returnKeyType;                         ///< default is UIReturnKeyDefault
 
 @property (nonatomic, retain) MUValidator *validator;
-
-- (void) didChangeValueInTextField:(UITextField *) aTextField;
 
 @end

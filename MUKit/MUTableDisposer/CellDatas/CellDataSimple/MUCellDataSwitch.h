@@ -16,6 +16,5 @@
 @property (nonatomic, readonly) MUTargetAction* targetAction;
 
 - (void) setTarget:(id)aTarget action:(SEL)anAction;
-- (void) didChangeBoolValueInSwitch:(UISwitch *) aSwitch;
 
 @end

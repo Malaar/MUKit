@@ -9,6 +9,20 @@
 #import "MUCellTextField.h"
 #import "MUCellDataTextField.h"
 
+
+//==============================================================================
+//==============================================================================
+//==============================================================================
+@interface MUCellTextField ()
+
+- (void) didChangeValueInTextField:(UITextField *) aTextField;
+
+@end
+
+
+//==============================================================================
+//==============================================================================
+//==============================================================================
 @implementation MUCellTextField
 
 //==============================================================================
@@ -19,12 +33,10 @@
 {
     [super setupCellData:aCellData];
     
-    float cellHeight = [aCellData cellHeightForWidth:self.frame.size.width];
-    
     MUCellDataTextField *cellDataTextField = (MUCellDataTextField*)aCellData;
     
-    textField = [[[MUTextField alloc] initWithFrame:CGRectMake(10, 0, self.frame.size.width - 20, cellHeight)] autorelease];
-    textField.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+    textField = [[[MUTextField alloc] initWithFrame:CGRectMake(10, 0, self.frame.size.width - 20, self.frame.size.height)] autorelease];
+    textField.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     textField.autocapitalizationType = cellDataTextField.autocapitalizationType;
     textField.autocorrectionType = cellDataTextField.autocorrectionType;
     textField.keyboardType = cellDataTextField.keyboardType;
@@ -32,7 +44,7 @@
     textField.returnKeyType = cellDataTextField.returnKeyType;
     textField.secureTextEntry = cellDataTextField.textSecured;
     
-    [textField addTarget:cellDataTextField action:@selector(didChangeValueInTextField:) forControlEvents:UIControlEventEditingDidEnd];
+    [textField addTarget:self action:@selector(didChangeValueInTextField:) forControlEvents:UIControlEventEditingDidEnd];
     
     textField.font = cellDataTextField.textFont;
     textField.text = cellDataTextField.text;
@@ -66,6 +78,12 @@
 - (NSArray *) inputTraits
 {
     return [NSArray arrayWithObject:textField];
+}
+
+//==============================================================================
+- (void) didChangeValueInTextField:(UITextField *) aTextField
+{
+    ((MUCellDataTextField*)self.cellData).text = aTextField.text;
 }
 
 @end

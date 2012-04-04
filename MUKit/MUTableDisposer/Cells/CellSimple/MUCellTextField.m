@@ -28,6 +28,24 @@
 //==============================================================================
 @synthesize textField;
 
+- (id) initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
+{
+    if( (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) )
+    {
+        textField = [[[MUTextField alloc] initWithFrame:CGRectMake(10, 0, self.frame.size.width - 20, self.frame.size.height)] autorelease];
+        [self.contentView addSubview:textField];
+        textField.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+        [textField addTarget:self action:@selector(didChangeValueInTextField:) forControlEvents:UIControlEventEditingDidEnd];
+        
+        titleLabel = [[[UILabel alloc] initWithFrame:CGRectZero] autorelease];
+        titleLabel.backgroundColor = [UIColor clearColor];
+        textField.leftViewMode = UITextFieldViewModeAlways;
+        textField.leftView = titleLabel;
+        
+    }
+    return self;
+}
+
 //==============================================================================
 - (void) setupCellData:(MUCellData *)aCellData
 {
@@ -35,8 +53,6 @@
     
     MUCellDataTextField *cellDataTextField = (MUCellDataTextField*)aCellData;
     
-    textField = [[[MUTextField alloc] initWithFrame:CGRectMake(10, 0, self.frame.size.width - 20, self.frame.size.height)] autorelease];
-    textField.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     textField.autocapitalizationType = cellDataTextField.autocapitalizationType;
     textField.autocorrectionType = cellDataTextField.autocorrectionType;
     textField.keyboardType = cellDataTextField.keyboardType;
@@ -44,34 +60,32 @@
     textField.returnKeyType = cellDataTextField.returnKeyType;
     textField.secureTextEntry = cellDataTextField.textSecured;
     
-    [textField addTarget:self action:@selector(didChangeValueInTextField:) forControlEvents:UIControlEventEditingDidEnd];
     
     textField.font = cellDataTextField.textFont;
     textField.text = cellDataTextField.text;
     textField.textColor = cellDataTextField.textColor;
     textField.placeholder = cellDataTextField.placeholder;
+    textField.enabled = cellDataTextField.enableEdit;
     
     textField.validator = cellDataTextField.validator;
     
-    if (cellDataTextField.title)
+    if ([cellDataTextField.title length])
     {
+        textField.textAlignment = UITextAlignmentRight;
+
         CGSize titleLabelSize = [cellDataTextField.title sizeWithFont:cellDataTextField.titleFont];
-        UILabel *titleLabel = [[[UILabel alloc] initWithFrame:CGRectMake(0, 0, titleLabelSize.width + 10, titleLabelSize.height)] autorelease];
+        titleLabel.frame = CGRectMake(0, 0, titleLabelSize.width + 10, titleLabelSize.height);
         titleLabel.text = cellDataTextField.title;
-        titleLabel.backgroundColor = [UIColor clearColor];
         titleLabel.textColor = cellDataTextField.titleColor;
         titleLabel.font = cellDataTextField.titleFont;
-        
-        textField.leftViewMode = UITextFieldViewModeAlways;
-        textField.leftView = titleLabel;
-        textField.textAlignment = UITextAlignmentRight;
     }
     else
     {
-        textField.leftView = nil;
+        textField.textAlignment = UITextAlignmentLeft;
+
+        titleLabel.text = nil;
+        titleLabel.frame = CGRectZero;
     }
-    
-    [self.contentView addSubview:textField];
 }
 
 //==============================================================================

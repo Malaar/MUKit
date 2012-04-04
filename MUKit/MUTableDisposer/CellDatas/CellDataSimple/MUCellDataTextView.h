@@ -1,8 +1,8 @@
 //
-//  MUEntryCellData.h
+//  MUCellDataTextView.h
 //  MUKitTest
 //
-//  Created by Yuriy Bosov on 3/30/12.
+//  Created by Malaar on 04.04.12.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
@@ -10,12 +10,9 @@
 #import "MUValidator.h"
 
 
-@interface MUCellDataTextField : MUCellDataTextPair
+@interface MUCellDataTextView : MUCellDataTextPair
 
-@property(nonatomic, assign) BOOL textSecured;                                       ///< default is NO
-
-@property (nonatomic, retain) NSString *placeholder;
-@property (nonatomic, retain) UIColor *placeholderColor;
+@property (nonatomic, assign) UITextAlignment textAlignment;
 
 @property (nonatomic, assign) UITextAutocapitalizationType autocapitalizationType;   ///< default is UITextAutocapitalizationTypeSentences
 @property (nonatomic, assign) UITextAutocorrectionType autocorrectionType;           ///< default is UITextAutocorrectionTypeDefault

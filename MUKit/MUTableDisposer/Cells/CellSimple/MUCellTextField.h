@@ -11,7 +11,7 @@
 
 @interface MUCellTextField : MUCell
 {
-    MUTextField *textField;
+    UILabel *titleLabel;
 }
 
 @property (nonatomic, readonly ) MUTextField *textField;

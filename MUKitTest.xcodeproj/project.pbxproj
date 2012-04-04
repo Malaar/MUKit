@@ -23,6 +23,9 @@
 		0208F28B1529CBF5003382F9 /* MUCellSwitch.m in Sources */ = {isa = PBXBuildFile; fileRef = 0208F2791529CBF5003382F9 /* MUCellSwitch.m */; };
 		0208F28C1529CBF5003382F9 /* MUCellTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 0208F27B1529CBF5003382F9 /* MUCellTextField.m */; };
 		0208F28D1529CBF5003382F9 /* MUCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0208F27D1529CBF5003382F9 /* MUCell.m */; };
+		028693EA152C55C70040FD86 /* MUCellDataTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 028693E9152C55C70040FD86 /* MUCellDataTextView.m */; };
+		028693EE152C568B0040FD86 /* MUCellDataTextPair.m in Sources */ = {isa = PBXBuildFile; fileRef = 028693ED152C568B0040FD86 /* MUCellDataTextPair.m */; };
+		028693F1152C63250040FD86 /* MUCellTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 028693F0152C63250040FD86 /* MUCellTextView.m */; };
 		028F8D3915259B3600C7907F /* MUSectionReadonly.m in Sources */ = {isa = PBXBuildFile; fileRef = 028F8D3215259B3600C7907F /* MUSectionReadonly.m */; };
 		028F8D3A15259B3600C7907F /* MUSectionWritable.m in Sources */ = {isa = PBXBuildFile; fileRef = 028F8D3415259B3600C7907F /* MUSectionWritable.m */; };
 		02BDB7E31525FA4F00764326 /* MUTableDisposer.m in Sources */ = {isa = PBXBuildFile; fileRef = 02BDB7E21525FA4F00764326 /* MUTableDisposer.m */; };
@@ -161,6 +164,12 @@
 		0208F27D1529CBF5003382F9 /* MUCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUCell.m; sourceTree = "<group>"; };
 		0208F2921529D6BD003382F9 /* MUKeyboardAvoidingProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MUKeyboardAvoidingProtocol.h; sourceTree = "<group>"; };
 		0208F2941529D7CC003382F9 /* MUKeyboardAvoiderProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MUKeyboardAvoiderProtocol.h; sourceTree = "<group>"; };
+		028693E8152C55C70040FD86 /* MUCellDataTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUCellDataTextView.h; sourceTree = "<group>"; };
+		028693E9152C55C70040FD86 /* MUCellDataTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUCellDataTextView.m; sourceTree = "<group>"; };
+		028693EC152C568B0040FD86 /* MUCellDataTextPair.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUCellDataTextPair.h; sourceTree = "<group>"; };
+		028693ED152C568B0040FD86 /* MUCellDataTextPair.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUCellDataTextPair.m; sourceTree = "<group>"; };
+		028693EF152C63240040FD86 /* MUCellTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUCellTextView.h; sourceTree = "<group>"; };
+		028693F0152C63250040FD86 /* MUCellTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUCellTextView.m; sourceTree = "<group>"; };
 		028F8D3115259B3600C7907F /* MUSectionReadonly.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUSectionReadonly.h; sourceTree = "<group>"; };
 		028F8D3215259B3600C7907F /* MUSectionReadonly.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUSectionReadonly.m; sourceTree = "<group>"; };
 		028F8D3315259B3600C7907F /* MUSectionWritable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUSectionWritable.h; sourceTree = "<group>"; };
@@ -398,6 +407,8 @@
 		0208F25B1529CBF5003382F9 /* CellDataSimple */ = {
 			isa = PBXGroup;
 			children = (
+				028693EC152C568B0040FD86 /* MUCellDataTextPair.h */,
+				028693ED152C568B0040FD86 /* MUCellDataTextPair.m */,
 				0208F25C1529CBF5003382F9 /* MUCellDataButton.h */,
 				0208F25D1529CBF5003382F9 /* MUCellDataButton.m */,
 				0208F25E1529CBF5003382F9 /* MUCellDataLabel.h */,
@@ -408,6 +419,8 @@
 				0208F2631529CBF5003382F9 /* MUCellDataSwitch.m */,
 				0208F2641529CBF5003382F9 /* MUCellDataTextField.h */,
 				0208F2651529CBF5003382F9 /* MUCellDataTextField.m */,
+				028693E8152C55C70040FD86 /* MUCellDataTextView.h */,
+				028693E9152C55C70040FD86 /* MUCellDataTextView.m */,
 			);
 			path = CellDataSimple;
 			sourceTree = "<group>";
@@ -445,6 +458,8 @@
 				0208F2791529CBF5003382F9 /* MUCellSwitch.m */,
 				0208F27A1529CBF5003382F9 /* MUCellTextField.h */,
 				0208F27B1529CBF5003382F9 /* MUCellTextField.m */,
+				028693EF152C63240040FD86 /* MUCellTextView.h */,
+				028693F0152C63250040FD86 /* MUCellTextView.m */,
 			);
 			path = CellSimple;
 			sourceTree = "<group>";
@@ -1128,6 +1143,9 @@
 				0208F28C1529CBF5003382F9 /* MUCellTextField.m in Sources */,
 				0208F28D1529CBF5003382F9 /* MUCell.m in Sources */,
 				E68FF8941529CF7E001B450B /* TableViewWithMapedCells.m in Sources */,
+				028693EA152C55C70040FD86 /* MUCellDataTextView.m in Sources */,
+				028693EE152C568B0040FD86 /* MUCellDataTextPair.m in Sources */,
+				028693F1152C63250040FD86 /* MUCellTextView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

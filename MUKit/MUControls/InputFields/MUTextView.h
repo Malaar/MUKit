@@ -19,5 +19,6 @@
 }
 
 @property (nonatomic, assign) id<UITextViewDelegate> mudelegate;
+@property (nonatomic, copy) NSString* observedText;
 
 @end

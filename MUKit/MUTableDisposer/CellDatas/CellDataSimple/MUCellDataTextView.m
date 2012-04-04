@@ -1,20 +1,18 @@
 //
-//  MUEntryCellData.m
+//  MUCellDataTextView.m
 //  MUKitTest
 //
-//  Created by Yuriy Bosov on 3/30/12.
+//  Created by Malaar on 04.04.12.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "MUCellDataTextField.h"
-#import "MUCellTextField.h"
+#import "MUCellDataTextView.h"
+#import "MUCellTextView.h"
 
 
-@implementation MUCellDataTextField
+@implementation MUCellDataTextView
 
-@synthesize textSecured;
-@synthesize placeholder, placeholderColor;
-
+@synthesize textAlignment;
 @synthesize autocapitalizationType;
 @synthesize autocorrectionType;
 @synthesize keyboardType;
@@ -30,9 +28,10 @@
     self = [super initWithObject:aObject key:aKey];
     if(self)
     {
-        self.cellClass = [MUCellTextField class];
+        self.cellClass = [MUCellTextView class];
         self.cellSelectionStyle = UITableViewCellSelectionStyleNone;
-
+        
+        textAlignment = UITextAlignmentLeft;
         autocapitalizationType = UITextAutocapitalizationTypeNone;
         autocorrectionType = UITextAutocorrectionTypeNo;
         keyboardType = UIKeyboardTypeDefault;
@@ -45,11 +44,15 @@
 //==============================================================================
 - (void) dealloc
 {
-    [placeholder release];
-    [placeholderColor release];
     [validator release];
     
     [super dealloc];
+}
+
+//==============================================================================
+- (CGFloat) cellHeightForWidth:(CGFloat)aWidth
+{
+    return 90;
 }
 
 @end

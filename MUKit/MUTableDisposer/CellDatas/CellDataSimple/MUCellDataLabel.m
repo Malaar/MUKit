@@ -11,9 +11,6 @@
 
 @implementation MUCellDataLabel
 
-@synthesize title, titleFont, titleColor;
-@synthesize text, textFont, textColor;
-
 #pragma mark - Init/Dealloc
 //==============================================================================
 - (id) initWithObject:(NSObject *)aObject key:(NSString *)aKey
@@ -24,30 +21,6 @@
         self.cellClass = [MUCellLabel class];
     }
     return self;
-}
-
-//==============================================================================
-- (void) dealloc
-{
-    [title release];
-    [titleColor release];
-    [text release];
-    [textColor release];
-    
-    [super dealloc];
-}
-
-#pragma mark - Maping
-//==============================================================================
-- (void) mapFromObject
-{
-    text = [object valueForKey:key];
-}
-
-//==============================================================================
-- (void) mapToObject
-{
-    [object setValue:text forKey:key];
 }
 
 @end

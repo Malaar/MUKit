@@ -16,6 +16,26 @@
 #import "MUCellDataLabel.h"
 #import "MUCellDataStandart.h"
 #import "MUCellDataButton.h"
+#import "MUCellDataTextView.h"
+
+@interface MUTestObject : NSObject
+
+@property (nonatomic, retain) NSString* strValue;
+
+@end
+
+@implementation MUTestObject
+
+@synthesize strValue;
+
+- (void) dealloc
+{
+    [strValue release];
+    
+    [super dealloc];
+}
+
+@end
 
 @interface TableViewWithMapedCells ()
 
@@ -70,13 +90,20 @@
     cellDataTextField.placeholder = @"please enter text";
     MUValidator *validatorNotEmpty = [[MUValidatorNotEmpty new] autorelease];;
     cellDataTextField.validator = validatorNotEmpty;
-
     [section addCellData: cellDataTextField];
     
     cellDataTextField = [[[MUCellDataTextField alloc] initWithObject:nil key:nil] autorelease];
     cellDataTextField.text = @"MUCellDataTextField";
     cellDataTextField.placeholder = @"please enter text";
     [section addCellData: cellDataTextField];
+    
+    MUTestObject* testObject = [MUTestObject new];
+    testObject.strValue = @"string value";
+
+    MUCellDataTextView* cdTextView = [[MUCellDataTextView alloc] initWithObject:testObject key:@"strValue"];
+    cdTextView.title = @"Title";
+//    cdTextView.enableEdit = NO;
+    [section addCellData:cdTextView];
     
     MUCellDataSwitch *cellDataSwitch = [[[MUCellDataSwitch alloc] initWithObject:nil key:nil] autorelease];
     cellDataSwitch.title = @"Switch";

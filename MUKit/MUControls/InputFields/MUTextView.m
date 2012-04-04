@@ -33,6 +33,7 @@
 
 @synthesize mudelegate;
 @synthesize keyboardAvoiding;
+@synthesize observedText;
 
 //==========================================================================================
 - (id) init
@@ -121,14 +122,16 @@
 //==========================================================================================
 - (void) setDelegate:(id<UITextViewDelegate>)delegate
 {
-    NSAssert(NO, @"Must use mudelegate!");
+    if(delegate)
+    {
+        NSAssert(NO, @"Must use mudelegate!");
+    }
 }
 
 //==========================================================================================
 - (id<UITextViewDelegate>) delegate
 {
-    NSAssert(NO, @"Must use mudelegate!");
-    return nil;
+    return delegateHolder;
 }
 
 //==========================================================================================
@@ -144,7 +147,7 @@
 //==========================================================================================
 - (BOOL)textViewShouldBeginEditing:(UITextView *)textView
 {
-    BOOL result = NO;
+    BOOL result = YES;
     
     if([holded.mudelegate respondsToSelector:@selector(textViewShouldBeginEditing:)])
         result = [holded.mudelegate textViewShouldBeginEditing:textView];
@@ -155,7 +158,7 @@
 //==========================================================================================
 - (BOOL)textViewShouldEndEditing:(UITextView *)textView
 {
-    BOOL result = NO;
+    BOOL result = YES;
     
     if([holded.mudelegate respondsToSelector:@selector(textViewShouldEndEditing:)])
         result = [holded.mudelegate textViewShouldEndEditing:textView];
@@ -175,6 +178,8 @@
 //==========================================================================================
 - (void)textViewDidEndEditing:(UITextView *)textView
 {
+    holded.observedText = textView.text;
+    
     if([holded.mudelegate respondsToSelector:@selector(textViewDidEndEditing:)])
         [holded.mudelegate textViewDidEndEditing:textView];
 }
@@ -182,7 +187,7 @@
 //==========================================================================================
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
 {
-    BOOL result = NO;
+    BOOL result = YES;
     
     if([holded.mudelegate respondsToSelector:@selector(textFieldShouldBeginEditing:)])
         result = [holded.mudelegate textView:textView shouldChangeTextInRange:range replacementText:text];

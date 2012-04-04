@@ -43,6 +43,16 @@
 }
 
 //==============================================================================
+- (void) dealloc
+{
+    [cellNibName release];
+    [cellSelectedHandler release];
+    [cellDeselectedHandler release];
+    
+    [super dealloc];
+}
+
+//==============================================================================
 - (CGFloat) cellHeightForWidth:(CGFloat) aWidth
 {
     return 44.f;

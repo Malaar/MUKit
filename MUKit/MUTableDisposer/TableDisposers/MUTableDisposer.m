@@ -296,13 +296,35 @@
 //==============================================================================
 - (CGFloat)tableView:(UITableView *)aTableView heightForHeaderInSection:(NSInteger)section
 {
-    return [self sectionByIndex:section].headerView ? [self sectionByIndex:section].headerView.bounds.size.height : 20;
+    CGFloat result = 0;
+    if([self sectionByIndex:section].headerView)
+    {
+        result = [self sectionByIndex:section].headerView.bounds.size.height;
+    }
+    else if([[self sectionByIndex:section].headerTitle length])
+    {
+        result = 20;
+    }
+    
+//    return [self sectionByIndex:section].headerView ? [self sectionByIndex:section].headerView.bounds.size.height : 20;
+    return result;
 }
 
 //==============================================================================
 - (CGFloat)tableView:(UITableView *)aTableView heightForFooterInSection:(NSInteger)section
 {
-    return [self sectionByIndex:section].footerView ? [self sectionByIndex:section].footerView.bounds.size.height : 20;
+    CGFloat result = 0;
+    if([self sectionByIndex:section].footerView)
+    {
+        result = [self sectionByIndex:section].footerView.bounds.size.height;
+    }
+    else if([[self sectionByIndex:section].footerTitle length])
+    {
+        result = 20;
+    }
+  
+    return result;
+//    return [self sectionByIndex:section].footerView ? [self sectionByIndex:section].footerView.bounds.size.height : 20;
 }
 
 //==============================================================================

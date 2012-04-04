@@ -157,7 +157,7 @@
     NSString *alertTitle = nil;
     NSString *alertText = nil;
     
-    NSArray *errorFields = [validationGroup validateFields];
+    NSArray *errorFields = [validationGroup validate];
     if ([errorFields count] > 0) 
     {
         id<MUValidationProtocol> obj = [errorFields objectAtIndex:0];

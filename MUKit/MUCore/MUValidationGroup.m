@@ -57,7 +57,7 @@
 
 #pragma mark - validation
 //==============================================================================
-- (NSArray*) validateFields
+- (NSArray*) validate
 {
     [self hideInvalidIndicators];
     NSMutableArray* result = [NSMutableArray array];    

@@ -214,8 +214,8 @@
     tf_12.tag = tag_phone_number_text_field;
     
     [((MUKeyboardAvoidingTableView*)tableView) addObjectsForKeyboard:[NSArray arrayWithObjects:tf_01, tf_02, tf_03, tf_04, tf_05, tf_06, tf_07, tf_08, tf_09, tf_10, tf_11, tf_12, nil]];
-    validationGroup = [[MUValidationGroup alloc] initWithTextFields:[NSArray arrayWithObjects:tf_01, tf_02, tf_03, tf_04, tf_05, tf_06, tf_07, tf_08, tf_09, tf_10, tf_11, tf_12, nil]];
-    validationGroup.invalidIndicatorImage = [UIImage imageNamed:@"warning_icon"];
+//    validationGroup = [[MUValidationGroup alloc] initWithTextFields:[NSArray arrayWithObjects:tf_01, tf_02, tf_03, tf_04, tf_05, tf_06, tf_07, tf_08, tf_09, tf_10, tf_11, tf_12, nil]];
+//    validationGroup.invalidIndicatorImage = [UIImage imageNamed:@"warning_icon"];
     
     [super viewDidLoad];
 }
@@ -283,7 +283,7 @@
     NSString *alertTitle = nil;
     NSString *alertText = nil;
     
-    NSArray *errorFields = [validationGroup validateFields];
+    NSArray *errorFields = [validationGroup validate];
     if ([errorFields count] > 0) 
     {
         id<MUValidationProtocol> obj = [errorFields objectAtIndex:0];

@@ -157,7 +157,7 @@
 //==============================================================================
 - (void) rightNavButtonPressed:(id)aSender
 {
-    [validationGroup validateFields];
+    [validationGroup validate];
 }
 
 #pragma mark - Private Methods

@@ -9,4 +9,4 @@
 #import <Foundation/Foundation.h>
 #import "MUCocoaExtentions.h"
 
-UIViewController* MUGetPrimeViewController();
+inline UIViewController* MUGetPrimeViewController();

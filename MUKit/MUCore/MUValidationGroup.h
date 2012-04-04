@@ -25,7 +25,7 @@
 @property (nonatomic, assign) NSObject<MUValidationGroupDelegate>* delegate;
 
 - (id) initWithValidators:(NSArray*)aValidators;
-- (NSArray*) validateFields;
+- (NSArray*) validate;
 - (void) hideInvalidIndicators;
 
 @end

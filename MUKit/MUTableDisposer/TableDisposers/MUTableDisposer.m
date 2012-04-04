@@ -44,8 +44,8 @@
 //==============================================================================
 - (void) dealloc
 {
-    [tableView release];
     [sections release];
+    [tableView release];
     
     [super dealloc];
 }

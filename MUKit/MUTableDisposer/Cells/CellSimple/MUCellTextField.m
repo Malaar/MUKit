@@ -39,6 +39,8 @@
     textField.textColor = cellDataTextField.textColor;
     textField.placeholder = cellDataTextField.placeholder;
     
+    textField.validator = cellDataTextField.validator;
+    
     if (cellDataTextField.title)
     {
         CGSize titleLabelSize = [cellDataTextField.title sizeWithFont:cellDataTextField.titleFont];

@@ -46,6 +46,7 @@
 - (void) dealloc
 {
     [tableDisposer release];
+    [validationGroup release];
     [super dealloc];
 }
 
@@ -67,6 +68,9 @@
     cellDataTextField.text = @"MUCellDataTextField";
     cellDataTextField.title = @"Text";
     cellDataTextField.placeholder = @"please enter text";
+    MUValidator *validatorNotEmpty = [[MUValidatorNotEmpty new] autorelease];;
+    cellDataTextField.validator = validatorNotEmpty;
+
     [section addCellData: cellDataTextField];
     
     cellDataTextField = [[[MUCellDataTextField alloc] initWithObject:nil key:nil] autorelease];
@@ -119,11 +123,14 @@
     [section addCellData:button];
     
     [tableDisposer mapFromObject];
+//    validationGroup = [[MUValidationGroup alloc] initWithTextFields:[NSArray arrayWithObjects:validatorNotEmpty, nil]];
+//    validationGroup.invalidIndicatorImage = [UIImage imageNamed:@"warning_icon"];
 }
 
 //==============================================================================
 - (void)viewDidUnload
 {
+    [validationGroup release];
     [tableDisposer releaseView];
     [super viewDidUnload];
 }
@@ -139,6 +146,18 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return YES;
+}
+
+//==============================================================================
+- (UIBarButtonItem *)createRightNavButton
+{
+    return [[[UIBarButtonItem alloc] initWithTitle:@"Validate" style:UIBarButtonItemStyleDone target:nil action:nil] autorelease];
+}
+
+//==============================================================================
+- (void) rightNavButtonPressed:(id)aSender
+{
+    [validationGroup validateFields];
 }
 
 #pragma mark - Private Methods

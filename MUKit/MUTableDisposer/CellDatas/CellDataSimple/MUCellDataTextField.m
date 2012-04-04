@@ -22,6 +22,7 @@
 @synthesize keyboardAppearance;
 @synthesize returnKeyType;
 
+@synthesize validator;
 
 #pragma mark - Init/Dealloc
 //==============================================================================
@@ -33,8 +34,8 @@
         self.cellClass = [MUCellTextField class];
         self.cellSelectionStyle = UITableViewCellSelectionStyleNone;
 
-        autocapitalizationType = UITextAutocapitalizationTypeSentences;
-        autocorrectionType = UITextAutocorrectionTypeDefault;
+        autocapitalizationType = UITextAutocapitalizationTypeNone;
+        autocorrectionType = UITextAutocorrectionTypeNo;
         keyboardType = UIKeyboardTypeDefault;
         keyboardAppearance = UIKeyboardAppearanceDefault;
         returnKeyType = UIReturnKeyDefault;
@@ -57,6 +58,7 @@
     [textColor release];
     [placeholder release];
     [placeholderColor release];
+    [validator release];
     
     [super dealloc];
 }

@@ -8,10 +8,12 @@
 
 #import "MUBaseViewController.h"
 #import "MUTableDisposerMaped.h"
+#import "MUValidationGroup.h"
 
 @interface TableViewWithMapedCells : MUBaseViewController <MUTableDisposerDelegate>
 {
     MUTableDisposerMaped* tableDisposer;
+    MUValidationGroup *validationGroup;
 }
 
 @end

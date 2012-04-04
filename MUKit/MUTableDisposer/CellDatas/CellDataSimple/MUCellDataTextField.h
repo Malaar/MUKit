@@ -7,6 +7,7 @@
 //
 
 #import "MUCellDataMaped.h"
+#import "MUValidator.h"
 
 @interface MUCellDataTextField : MUCellDataMaped
 
@@ -22,11 +23,13 @@
 @property (nonatomic, retain) NSString *placeholder;
 @property (nonatomic, retain) UIColor *placeholderColor;
 
-@property(nonatomic, assign) UITextAutocapitalizationType autocapitalizationType;   ///< default is UITextAutocapitalizationTypeSentences
-@property(nonatomic, assign) UITextAutocorrectionType autocorrectionType;           ///< default is UITextAutocorrectionTypeDefault
-@property(nonatomic, assign) UIKeyboardType keyboardType;                           ///< default is UIKeyboardTypeDefault
-@property(nonatomic, assign) UIKeyboardAppearance keyboardAppearance;               ///< default is UIKeyboardAppearanceDefault
-@property(nonatomic, assign) UIReturnKeyType returnKeyType;                         ///< default is UIReturnKeyDefault
+@property (nonatomic, assign) UITextAutocapitalizationType autocapitalizationType;   ///< default is UITextAutocapitalizationTypeSentences
+@property (nonatomic, assign) UITextAutocorrectionType autocorrectionType;           ///< default is UITextAutocorrectionTypeDefault
+@property (nonatomic, assign) UIKeyboardType keyboardType;                           ///< default is UIKeyboardTypeDefault
+@property (nonatomic, assign) UIKeyboardAppearance keyboardAppearance;               ///< default is UIKeyboardAppearanceDefault
+@property (nonatomic, assign) UIReturnKeyType returnKeyType;                         ///< default is UIReturnKeyDefault
+
+@property (nonatomic, retain) MUValidator *validator;
 
 - (void) didChangeValueInTextField:(UITextField *) aTextField;
 

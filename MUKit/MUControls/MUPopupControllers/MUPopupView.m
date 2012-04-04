@@ -58,7 +58,7 @@
 //==============================================================================
 - (void) prepareToShow
 {
-    NSLog(@"retainCount: %i", self.retainCount);
+//    NSLog(@"retainCount: %i", self.retainCount);
     if(!MU_IS_IPAD)
     {
         MUPopupViewController* popupController = [[MUPopupViewController alloc] init];

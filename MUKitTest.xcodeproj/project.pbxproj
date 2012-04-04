@@ -174,6 +174,11 @@
 		028F8D3215259B3600C7907F /* MUSectionReadonly.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUSectionReadonly.m; sourceTree = "<group>"; };
 		028F8D3315259B3600C7907F /* MUSectionWritable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUSectionWritable.h; sourceTree = "<group>"; };
 		028F8D3415259B3600C7907F /* MUSectionWritable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUSectionWritable.m; sourceTree = "<group>"; };
+		02A2094E152CEA220010733B /* MUCore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MUCore.h; sourceTree = "<group>"; };
+		02A20950152CF24C0010733B /* MUExtentions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MUExtentions.h; sourceTree = "<group>"; };
+		02A20951152CF2DA0010733B /* MUControls.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MUControls.h; sourceTree = "<group>"; };
+		02A20964152D05760010733B /* MUTableDisposers.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MUTableDisposers.h; sourceTree = "<group>"; };
+		02A20965152D07030010733B /* MUKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MUKit.h; sourceTree = "<group>"; };
 		02BDB7E11525FA4F00764326 /* MUTableDisposer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUTableDisposer.h; sourceTree = "<group>"; };
 		02BDB7E21525FA4F00764326 /* MUTableDisposer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUTableDisposer.m; sourceTree = "<group>"; };
 		02BDB7EB1525FF3500764326 /* MUTableDisposerModeled.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUTableDisposerModeled.h; sourceTree = "<group>"; };
@@ -467,6 +472,7 @@
 		028F8D2515259B3600C7907F /* MUTableDisposer */ = {
 			isa = PBXGroup;
 			children = (
+				02A20964152D05760010733B /* MUTableDisposers.h */,
 				0208F2571529CBF4003382F9 /* CellDatas */,
 				0208F26D1529CBF5003382F9 /* Cells */,
 				028F8D3015259B3600C7907F /* Sections */,
@@ -655,6 +661,7 @@
 		E656293B152308DC00CEC66C /* MUKit */ = {
 			isa = PBXGroup;
 			children = (
+				02A20965152D07030010733B /* MUKit.h */,
 				028F8D2515259B3600C7907F /* MUTableDisposer */,
 				E656293C152308DC00CEC66C /* MUControls */,
 				E656299D152308DC00CEC66C /* MUCore */,
@@ -669,15 +676,18 @@
 		E656293C152308DC00CEC66C /* MUControls */ = {
 			isa = PBXGroup;
 			children = (
+				02A20951152CF2DA0010733B /* MUControls.h */,
 				E656293D152308DC00CEC66C /* InputFields */,
+				E656294C152308DC00CEC66C /* MUKeyboardAvoiding */,
+				E6562973152308DC00CEC66C /* MUTableViewCell2Half */,
+				E6562951152308DC00CEC66C /* MUPopupControllers */,
+				E6562990152308DC00CEC66C /* ViewControllers */,
 				E6562946152308DC00CEC66C /* MUAlertWithTextField.h */,
 				E6562947152308DC00CEC66C /* MUAlertWithTextField.m */,
 				E6562948152308DC00CEC66C /* MUAutoresizeButton.h */,
 				E6562949152308DC00CEC66C /* MUAutoresizeButton.m */,
 				E656294A152308DC00CEC66C /* MUImageViewTapable.h */,
 				E656294B152308DC00CEC66C /* MUImageViewTapable.m */,
-				E656294C152308DC00CEC66C /* MUKeyboardAvoiding */,
-				E6562951152308DC00CEC66C /* MUPopupControllers */,
 				E6562967152308DC00CEC66C /* MUProgressView.h */,
 				E6562968152308DC00CEC66C /* MUProgressView.m */,
 				E6562969152308DC00CEC66C /* MUSearchBar.h */,
@@ -690,10 +700,8 @@
 				E6562970152308DC00CEC66C /* MUStackedView.m */,
 				E6562971152308DC00CEC66C /* MUTabBar.h */,
 				E6562972152308DC00CEC66C /* MUTabBar.m */,
-				E6562973152308DC00CEC66C /* MUTableViewCell2Half */,
 				E656298E152308DC00CEC66C /* MUToolbar.h */,
 				E656298F152308DC00CEC66C /* MUToolbar.m */,
-				E6562990152308DC00CEC66C /* ViewControllers */,
 			);
 			path = MUControls;
 			sourceTree = "<group>";
@@ -816,6 +824,7 @@
 		E656299D152308DC00CEC66C /* MUCore */ = {
 			isa = PBXGroup;
 			children = (
+				02A2094E152CEA220010733B /* MUCore.h */,
 				E656299E152308DC00CEC66C /* MUCreditCardNumberFormatter.h */,
 				E656299F152308DC00CEC66C /* MUCreditCardNumberFormatter.m */,
 				E65629A0152308DC00CEC66C /* MUFetchable.h */,
@@ -843,6 +852,7 @@
 		E65629B2152308DC00CEC66C /* MUExtentions */ = {
 			isa = PBXGroup;
 			children = (
+				02A20950152CF24C0010733B /* MUExtentions.h */,
 				E65629B3152308DC00CEC66C /* MUCocoaExtentions.h */,
 				E65629B4152308DC00CEC66C /* MUCocoaExtentions.m */,
 				E65629B5152308DC00CEC66C /* NSString+Base64Encoding.h */,

@@ -66,7 +66,7 @@
 - (void) dealloc
 {
     [popupedView release];
-    NSLog(@"retainCount: %i", popupedView.retainCount);
+//    NSLog(@"retainCount: %i", popupedView.retainCount);
     
 //	[weakRef invalidate];
 //	[weakRef release];
@@ -135,7 +135,7 @@
 //    popupedView = [self createPopupedView];
     if(popupedView)
     {
-        NSLog(@"retainCount: %i", popupedView.retainCount);
+//        NSLog(@"retainCount: %i", popupedView.retainCount);
 
 //        popupedView.owner = self;
         [popupedViewOwner addSubview:popupedView];
@@ -144,7 +144,7 @@
         popupedView.frame = frame;
         
 //        NSLog(@"popupedView size:: %@", NSStringFromCGSize(popupedView.bounds.size));
-        NSLog(@"retainCount: %i", popupedView.retainCount);
+//        NSLog(@"retainCount: %i", popupedView.retainCount);
 
     }
 }
@@ -200,24 +200,24 @@
 //==============================================================================
 - (void) popupDidAppear:(BOOL)animated
 {
-    NSLog(@"retainCount: %i", popupedView.retainCount);
+//    NSLog(@"retainCount: %i", popupedView.retainCount);
     [popupedView popupDidAppear:animated];
 }
 
 //==============================================================================
 - (void) popupWillDisappear:(BOOL)animated
 {
-    NSLog(@"retainCount: %i", popupedView.retainCount);
+//    NSLog(@"retainCount: %i", popupedView.retainCount);
     [popupedView popupWillDisappear:animated];
 }
 
 //==============================================================================
 - (void) popupDidDisappear:(BOOL)animated
 {
-    NSLog(@"retainCount: %i", popupedView.retainCount);
+//    NSLog(@"retainCount: %i", popupedView.retainCount);
     [self.view removeFromSuperview];
     [popupedView popupDidDisappear:animated];
-    NSLog(@"retainCount: %i", popupedView.retainCount);
+//    NSLog(@"retainCount: %i", popupedView.retainCount);
 
     //kill self
     [self autorelease];

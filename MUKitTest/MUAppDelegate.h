@@ -7,12 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MUSwitchController.h"
+
 
 @interface MUAppDelegate : UIResponder <UIApplicationDelegate>
 {
-    UINavigationController *navigationController;
+    MUSwitchController* switchController;
 }
 
 @property (strong, nonatomic) UIWindow *window;
+//@property (retain, nonatomic) MUSwitchController* switchController;
 
 @end

@@ -39,9 +39,4 @@
 #import "MUPopupView.h"
 #import "MUPopupPicker.h"
 
-// base controllers
-#import "MUCheckableTableController.h"
-#import "MUBaseViewController.h"
-#import "MUBaseScrollerController.h"
-
 #endif

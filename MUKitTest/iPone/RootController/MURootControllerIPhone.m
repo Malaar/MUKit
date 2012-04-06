@@ -7,20 +7,20 @@
 //
 
 #import "MURootControllerIPhone.h"
+#import "MUKit.h"
 #import "MUKeyboardAvoidingScrollController.h"
 #import "MUKeyboardAvoidingTableController.h"
 #import "HalfCellTestController.h"
-#import "MUKitDefines.h"
 #import "TableViewWithMapedCells.h"
-
+#import "MUSwitchController.h"
 
 @implementation MURootControllerIPhone
 @synthesize ivTapable;
 
 //==============================================================================
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (id)init
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    self = [super initWithNibName:@"MURootControllerIPhone" bundle:nil];
     if (self) 
     {
         self.title = @"Root";
@@ -93,6 +93,17 @@
 {
     TableViewWithMapedCells *vc = [[TableViewWithMapedCells new] autorelease];
     [self.navigationController pushViewController:vc animated:YES];
+}
+
+//==============================================================================
+- (IBAction)switchController:(id)sender
+{
+    MUSwitchController* switchController = (MUSwitchController*)MUGetPrimeViewController();
+
+    TableViewWithMapedCells *vc = [[TableViewWithMapedCells new] autorelease];
+    UINavigationController* nc = [[[UINavigationController alloc] initWithRootViewController:vc] autorelease];
+    [switchController switchToController:nc];
+    NSLog(@"Switch Pressed");
 }
 
 //==============================================================================

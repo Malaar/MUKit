@@ -9,11 +9,12 @@
 #ifndef MUKitTest_MUKit_h
 #define MUKitTest_MUKit_h
 
-#import "MUCore.h"
 #import "MUExtentions.h"
+#import "MUCore.h"
 #import "MUGateway.h"
 #import "MULogger.h"
 #import "MUControls.h"
+#import "MUControllers.h"
 #import "MUTableDisposers.h"
 
 #endif

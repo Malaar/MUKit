@@ -11,14 +11,16 @@
 #import "MURootControllerIPhone.h"
 #import "MURootControllerIPad.h"
 
+
 @implementation MUAppDelegate
 
 @synthesize window = _window;
+//@synthesize switchController;
 
 - (void)dealloc
 {
     [_window release];
-    [navigationController release];
+    [switchController release];
     [super dealloc];
 }
 
@@ -36,10 +38,13 @@
 //    } else {
 //        viewController = [[[MURootControllerIPhone alloc] initWithNibName:@"MURootControllerIPhone" bundle:nil] autorelease];
 //    }
-    viewController = [[[MURootControllerIPhone alloc] initWithNibName:@"MURootControllerIPhone" bundle:nil] autorelease];
-    navigationController = [[UINavigationController alloc] initWithRootViewController:viewController];
+    viewController = [[[MURootControllerIPhone alloc] init] autorelease];
+    UINavigationController* navigationController = [[[UINavigationController alloc] initWithRootViewController:viewController] autorelease];
     
-    self.window.rootViewController = navigationController;
+    switchController = [[MUSwitchController alloc] init];
+    [switchController switchToController:navigationController];
+    
+    self.window.rootViewController = switchController;
     [self.window makeKeyAndVisible];
     return YES;
 }

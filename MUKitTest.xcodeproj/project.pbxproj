@@ -30,7 +30,6 @@
 		025A629C152F17FD00E49856 /* MUSwitchController.m in Sources */ = {isa = PBXBuildFile; fileRef = 025A623C152F17FC00E49856 /* MUSwitchController.m */; };
 		025A629D152F17FD00E49856 /* MUVeraetyCellsTableControllerReadonly.m in Sources */ = {isa = PBXBuildFile; fileRef = 025A623E152F17FC00E49856 /* MUVeraetyCellsTableControllerReadonly.m */; };
 		025A629E152F17FD00E49856 /* MUVeraetyCellsTableControllerWritable.m in Sources */ = {isa = PBXBuildFile; fileRef = 025A6240152F17FC00E49856 /* MUVeraetyCellsTableControllerWritable.m */; };
-		025A629F152F17FD00E49856 /* MUAlertWithTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 025A6243152F17FC00E49856 /* MUAlertWithTextField.m */; };
 		025A62A0152F17FD00E49856 /* MUAutoresizeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 025A6245152F17FC00E49856 /* MUAutoresizeButton.m */; };
 		025A62A1152F17FD00E49856 /* MUImageViewTapable.m in Sources */ = {isa = PBXBuildFile; fileRef = 025A6248152F17FC00E49856 /* MUImageViewTapable.m */; };
 		025A62A2152F17FD00E49856 /* MUTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 025A624C152F17FC00E49856 /* MUTextField.m */; };
@@ -178,8 +177,6 @@
 		025A623E152F17FC00E49856 /* MUVeraetyCellsTableControllerReadonly.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUVeraetyCellsTableControllerReadonly.m; sourceTree = "<group>"; };
 		025A623F152F17FC00E49856 /* MUVeraetyCellsTableControllerWritable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUVeraetyCellsTableControllerWritable.h; sourceTree = "<group>"; };
 		025A6240152F17FC00E49856 /* MUVeraetyCellsTableControllerWritable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUVeraetyCellsTableControllerWritable.m; sourceTree = "<group>"; };
-		025A6242152F17FC00E49856 /* MUAlertWithTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUAlertWithTextField.h; sourceTree = "<group>"; };
-		025A6243152F17FC00E49856 /* MUAlertWithTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUAlertWithTextField.m; sourceTree = "<group>"; };
 		025A6244152F17FC00E49856 /* MUAutoresizeButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUAutoresizeButton.h; sourceTree = "<group>"; };
 		025A6245152F17FC00E49856 /* MUAutoresizeButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUAutoresizeButton.m; sourceTree = "<group>"; };
 		025A6246152F17FC00E49856 /* MUControls.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUControls.h; sourceTree = "<group>"; };
@@ -229,7 +226,7 @@
 		025A6276152F17FC00E49856 /* MUSpinneredView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUSpinneredView.m; sourceTree = "<group>"; };
 		025A6277152F17FC00E49856 /* MUStackedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUStackedView.h; sourceTree = "<group>"; };
 		025A6278152F17FC00E49856 /* MUStackedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUStackedView.m; sourceTree = "<group>"; };
-		025A6279152F17FC00E49856 /* MUTabedToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; path = MUTabedToolbar.h; sourceTree = "<group>"; };
+		025A6279152F17FC00E49856 /* MUTabedToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUTabedToolbar.h; sourceTree = "<group>"; };
 		025A627A152F17FC00E49856 /* MUTabedToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUTabedToolbar.m; sourceTree = "<group>"; };
 		025A627C152F17FC00E49856 /* MUCellLb1Img1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUCellLb1Img1.h; sourceTree = "<group>"; };
 		025A627D152F17FC00E49856 /* MUCellLb1Img1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUCellLb1Img1.m; sourceTree = "<group>"; };
@@ -503,11 +500,9 @@
 		025A6241152F17FC00E49856 /* MUControls */ = {
 			isa = PBXGroup;
 			children = (
-				025A6242152F17FC00E49856 /* MUAlertWithTextField.h */,
-				025A6243152F17FC00E49856 /* MUAlertWithTextField.m */,
+				025A6246152F17FC00E49856 /* MUControls.h */,
 				025A6244152F17FC00E49856 /* MUAutoresizeButton.h */,
 				025A6245152F17FC00E49856 /* MUAutoresizeButton.m */,
-				025A6246152F17FC00E49856 /* MUControls.h */,
 				025A6247152F17FC00E49856 /* MUImageViewTapable.h */,
 				025A6248152F17FC00E49856 /* MUImageViewTapable.m */,
 				025A6249152F17FC00E49856 /* MUInputFields */,
@@ -1130,7 +1125,6 @@
 				025A629C152F17FD00E49856 /* MUSwitchController.m in Sources */,
 				025A629D152F17FD00E49856 /* MUVeraetyCellsTableControllerReadonly.m in Sources */,
 				025A629E152F17FD00E49856 /* MUVeraetyCellsTableControllerWritable.m in Sources */,
-				025A629F152F17FD00E49856 /* MUAlertWithTextField.m in Sources */,
 				025A62A0152F17FD00E49856 /* MUAutoresizeButton.m in Sources */,
 				025A62A1152F17FD00E49856 /* MUImageViewTapable.m in Sources */,
 				025A62A2152F17FD00E49856 /* MUTextField.m in Sources */,

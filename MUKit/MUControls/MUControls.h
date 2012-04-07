@@ -10,7 +10,6 @@
 #define MUKitTest_MUControls_h
 
 // common
-#import "MUAlertWithTextField.h"
 #import "MUImageViewTapable.h"
 #import "MUProgressView.h"
 #import "MUSearchBar.h"

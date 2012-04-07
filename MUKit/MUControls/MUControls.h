@@ -17,7 +17,7 @@
 #import "MUSegmentedControl.h"
 #import "MUSpinneredView.h"
 #import "MUStackedView.h"
-#import "MUTabBar.h"
+#import "MUTabedToolbar.h"
 #import "MUToolbar.h"
 
 // input fields

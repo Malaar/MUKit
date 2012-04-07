@@ -6,13 +6,13 @@
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "MUTabBar.h"
+#import "MUTabedToolbar.h"
 
 
 //==============================================================================
 //==============================================================================
 //==============================================================================
-@interface MUTabBar (Private)
+@interface MUTabedToolbar (Private)
 
 - (void) setup;
 - (void) itemPressed:(UIButton*)aSender;
@@ -22,9 +22,8 @@
 //==============================================================================
 //==============================================================================
 //==============================================================================
-@implementation MUTabBar
+@implementation MUTabedToolbar
 
-@synthesize backgroundImage = bgImage;
 @synthesize delegate;
 @synthesize buttons;
 @synthesize enabled;
@@ -66,7 +65,6 @@
 - (void) dealloc
 {
     [buttons release];
-	[bgImage release];
 	
 	[super dealloc];
 }
@@ -79,23 +77,23 @@
 }
 
 //==============================================================================
-- (void) drawRect:(CGRect)aRect
-{
-    if(bgImage)
-        [bgImage drawInRect:self.bounds blendMode:kCGBlendModeNormal alpha:1.0f];
-    else
-        [super drawRect:aRect];
-}
-
-//==============================================================================
 - (void) itemPressed:(UIButton*)aSender
 {
 	if(!enabled)
 		return;
+    
+    BOOL canSelect = YES;
+    if([delegate respondsToSelector:@selector(tabedToolbar:shouldSelectItemAtIndex:)])
+        canSelect = [delegate tabedToolbar:self shouldSelectItemAtIndex:aSender.tag];
 
-    int prevIndex = (currentItem) ? (currentItem.tag) : (-1);
-	[self switchToItemWithIndex:aSender.tag];
-	[delegate tabBar:self itemChangedTo:aSender.tag from:prevIndex];
+    if(canSelect)
+    {
+        NSUInteger prevIndex = (currentItem) ? (currentItem.tag) : (NSNotFound);
+        [self switchToItemWithIndex:aSender.tag];
+        
+        if([delegate respondsToSelector:@selector(tabedToolbar:itemChangedTo:from:)])
+            [delegate tabedToolbar:self itemChangedTo:aSender.tag from:prevIndex];
+    }
 }
 
 //==============================================================================
@@ -105,10 +103,10 @@
  * - (void) tabBar:(MUTabBar*)aTabBar itemChangedTo:(int)aToIndex from:(int)aFromIndex;
  * WON'T be called
  */
-- (void) switchToItemWithIndex:(NSInteger)aIndex
+- (void) switchToItemWithIndex:(NSUInteger)aIndex
 {
     UIButton* selItem = nil;
-    if(aIndex >= 0 && aIndex < [buttons count])
+    if(aIndex < [buttons count])
     {
         selItem = [buttons objectAtIndex:aIndex];
     }

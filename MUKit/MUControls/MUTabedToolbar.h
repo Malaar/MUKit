@@ -7,15 +7,18 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "MUToolbar.h"
 
 //==============================================================================
 //==============================================================================
 //==============================================================================
-@class MUTabBar;
+@class MUTabedToolbar;
 
-@protocol MUTabBarDelegate <NSObject>
+@protocol MUTabedToolbarDelegate <NSObject>
 
-- (void) tabBar:(MUTabBar*)aTabBar itemChangedTo:(int)aToIndex from:(int)aFromIndex;
+@optional
+- (BOOL) tabedToolbar:(MUTabedToolbar*)aTabBar shouldSelectItemAtIndex:(NSUInteger)anIndex;
+- (void) tabedToolbar:(MUTabedToolbar*)aTabBar itemChangedTo:(NSUInteger)aToIndex from:(NSUInteger)aFromIndex;
 
 @optional
 
@@ -28,23 +31,21 @@
 //==============================================================================
 //==============================================================================
 ///
-@interface MUTabBar : UIToolbar
+@interface MUTabedToolbar : MUToolbar
 {
-    UIImage* bgImage;
     UIButton* currentItem;
     
-	id<MUTabBarDelegate> delegate;
+	id<MUTabedToolbarDelegate> delegate;
     
-    NSMutableArray* buttons;
+    NSArray* buttons;
 	
 	BOOL enabled;
 }
 
-@property (nonatomic, retain) UIImage* backgroundImage;
-@property (nonatomic, assign) id<MUTabBarDelegate> delegate;
-@property (nonatomic, retain) NSMutableArray* buttons;
+@property (nonatomic, assign) id<MUTabedToolbarDelegate> delegate;
+@property (nonatomic, retain) NSArray* buttons;
 @property (nonatomic, assign) BOOL enabled;
 
-- (void) switchToItemWithIndex:(NSInteger)aIndex;                              ///< programmaticaly switch to title by index
+- (void) switchToItemWithIndex:(NSUInteger)aIndex;                              ///< programmaticaly switch to title by index
 
 @end

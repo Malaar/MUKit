@@ -54,7 +54,7 @@
 		025A62B4152F17FD00E49856 /* MUSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 025A6274152F17FC00E49856 /* MUSegmentedControl.m */; };
 		025A62B5152F17FD00E49856 /* MUSpinneredView.m in Sources */ = {isa = PBXBuildFile; fileRef = 025A6276152F17FC00E49856 /* MUSpinneredView.m */; };
 		025A62B6152F17FD00E49856 /* MUStackedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 025A6278152F17FC00E49856 /* MUStackedView.m */; };
-		025A62B7152F17FD00E49856 /* MUTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 025A627A152F17FC00E49856 /* MUTabBar.m */; };
+		025A62B7152F17FD00E49856 /* MUTabedToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 025A627A152F17FC00E49856 /* MUTabedToolbar.m */; };
 		025A62B8152F17FD00E49856 /* MUCellLb1Img1.m in Sources */ = {isa = PBXBuildFile; fileRef = 025A627D152F17FC00E49856 /* MUCellLb1Img1.m */; };
 		025A62B9152F17FD00E49856 /* MUCellLb1Lb1.m in Sources */ = {isa = PBXBuildFile; fileRef = 025A627F152F17FC00E49856 /* MUCellLb1Lb1.m */; };
 		025A62BA152F17FD00E49856 /* MUCellLb1RoundSw1.m in Sources */ = {isa = PBXBuildFile; fileRef = 025A6281152F17FD00E49856 /* MUCellLb1RoundSw1.m */; };
@@ -74,6 +74,7 @@
 		028693F1152C63250040FD86 /* MUCellTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 028693F0152C63250040FD86 /* MUCellTextView.m */; };
 		028F8D3915259B3600C7907F /* MUSectionReadonly.m in Sources */ = {isa = PBXBuildFile; fileRef = 028F8D3215259B3600C7907F /* MUSectionReadonly.m */; };
 		028F8D3A15259B3600C7907F /* MUSectionWritable.m in Sources */ = {isa = PBXBuildFile; fileRef = 028F8D3415259B3600C7907F /* MUSectionWritable.m */; };
+		02AF8F6315305506005B8AED /* MUTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02AF8F6215305506005B8AED /* MUTabBarController.m */; };
 		02BDB7E31525FA4F00764326 /* MUTableDisposer.m in Sources */ = {isa = PBXBuildFile; fileRef = 02BDB7E21525FA4F00764326 /* MUTableDisposer.m */; };
 		02BDB7ED1525FF3500764326 /* MUTableDisposerModeled.m in Sources */ = {isa = PBXBuildFile; fileRef = 02BDB7EC1525FF3500764326 /* MUTableDisposerModeled.m */; };
 		02BDB7F11526043300764326 /* MUTableDisposerMaped.m in Sources */ = {isa = PBXBuildFile; fileRef = 02BDB7F01526043300764326 /* MUTableDisposerMaped.m */; };
@@ -228,8 +229,8 @@
 		025A6276152F17FC00E49856 /* MUSpinneredView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUSpinneredView.m; sourceTree = "<group>"; };
 		025A6277152F17FC00E49856 /* MUStackedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUStackedView.h; sourceTree = "<group>"; };
 		025A6278152F17FC00E49856 /* MUStackedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUStackedView.m; sourceTree = "<group>"; };
-		025A6279152F17FC00E49856 /* MUTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUTabBar.h; sourceTree = "<group>"; };
-		025A627A152F17FC00E49856 /* MUTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUTabBar.m; sourceTree = "<group>"; };
+		025A6279152F17FC00E49856 /* MUTabedToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; path = MUTabedToolbar.h; sourceTree = "<group>"; };
+		025A627A152F17FC00E49856 /* MUTabedToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUTabedToolbar.m; sourceTree = "<group>"; };
 		025A627C152F17FC00E49856 /* MUCellLb1Img1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUCellLb1Img1.h; sourceTree = "<group>"; };
 		025A627D152F17FC00E49856 /* MUCellLb1Img1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUCellLb1Img1.m; sourceTree = "<group>"; };
 		025A627E152F17FC00E49856 /* MUCellLb1Lb1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUCellLb1Lb1.h; sourceTree = "<group>"; };
@@ -273,6 +274,8 @@
 		02A20950152CF24C0010733B /* MUExtentions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MUExtentions.h; sourceTree = "<group>"; };
 		02A20964152D05760010733B /* MUTableDisposers.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MUTableDisposers.h; sourceTree = "<group>"; };
 		02A20965152D07030010733B /* MUKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MUKit.h; sourceTree = "<group>"; };
+		02AF8F6115305506005B8AED /* MUTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUTabBarController.h; sourceTree = "<group>"; };
+		02AF8F6215305506005B8AED /* MUTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUTabBarController.m; sourceTree = "<group>"; };
 		02BDB7E11525FA4F00764326 /* MUTableDisposer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUTableDisposer.h; sourceTree = "<group>"; };
 		02BDB7E21525FA4F00764326 /* MUTableDisposer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUTableDisposer.m; sourceTree = "<group>"; };
 		02BDB7EB1525FF3500764326 /* MUTableDisposerModeled.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUTableDisposerModeled.h; sourceTree = "<group>"; };
@@ -491,6 +494,8 @@
 				025A623E152F17FC00E49856 /* MUVeraetyCellsTableControllerReadonly.m */,
 				025A623F152F17FC00E49856 /* MUVeraetyCellsTableControllerWritable.h */,
 				025A6240152F17FC00E49856 /* MUVeraetyCellsTableControllerWritable.m */,
+				02AF8F6115305506005B8AED /* MUTabBarController.h */,
+				02AF8F6215305506005B8AED /* MUTabBarController.m */,
 			);
 			path = MUControllers;
 			sourceTree = "<group>";
@@ -518,8 +523,8 @@
 				025A6276152F17FC00E49856 /* MUSpinneredView.m */,
 				025A6277152F17FC00E49856 /* MUStackedView.h */,
 				025A6278152F17FC00E49856 /* MUStackedView.m */,
-				025A6279152F17FC00E49856 /* MUTabBar.h */,
-				025A627A152F17FC00E49856 /* MUTabBar.m */,
+				025A6279152F17FC00E49856 /* MUTabedToolbar.h */,
+				025A627A152F17FC00E49856 /* MUTabedToolbar.m */,
 				025A627B152F17FC00E49856 /* MUTableViewCell2Half */,
 				025A6296152F17FD00E49856 /* MUToolbar.h */,
 				025A6297152F17FD00E49856 /* MUToolbar.m */,
@@ -1149,7 +1154,7 @@
 				025A62B4152F17FD00E49856 /* MUSegmentedControl.m in Sources */,
 				025A62B5152F17FD00E49856 /* MUSpinneredView.m in Sources */,
 				025A62B6152F17FD00E49856 /* MUStackedView.m in Sources */,
-				025A62B7152F17FD00E49856 /* MUTabBar.m in Sources */,
+				025A62B7152F17FD00E49856 /* MUTabedToolbar.m in Sources */,
 				025A62B8152F17FD00E49856 /* MUCellLb1Img1.m in Sources */,
 				025A62B9152F17FD00E49856 /* MUCellLb1Lb1.m in Sources */,
 				025A62BA152F17FD00E49856 /* MUCellLb1RoundSw1.m in Sources */,
@@ -1164,6 +1169,7 @@
 				025A62C3152F17FD00E49856 /* MUHalfCellView.m in Sources */,
 				025A62C4152F17FD00E49856 /* MUTableViewCell2Half.m in Sources */,
 				025A62C5152F17FD00E49856 /* MUToolbar.m in Sources */,
+				02AF8F6315305506005B8AED /* MUTabBarController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

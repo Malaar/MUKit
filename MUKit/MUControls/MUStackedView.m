@@ -80,7 +80,7 @@
 }
 
 //==============================================================================
-- (void) insertStackedSubview:(UIView *)aView atIndex:(NSInteger)aIndex
+- (void) insertStackedSubview:(UIView *)aView atIndex:(NSUInteger)aIndex
 {
     NSAssert(aView, @"aView is nil !!!");
     [stackedSubviews insertObject:aView atIndex:aIndex];
@@ -89,7 +89,7 @@
 }
 
 //==============================================================================
-- (void) removeStackedSubviewAtIndex:(NSInteger)aIndex
+- (void) removeStackedSubviewAtIndex:(NSUInteger)aIndex
 {
     UIView* view = [stackedSubviews objectAtIndex:aIndex];
     if(view == currentView)
@@ -150,8 +150,8 @@
 //==============================================================================
 - (void) switchToStackedSubview:(UIView*)aStackedSubview
 {
-    int fromIndex = (currentView) ? ([stackedSubviews indexOfObject:currentView]) : (-1);
-    int toIndex = [stackedSubviews indexOfObject:aStackedSubview];
+    NSUInteger fromIndex = (currentView) ? ([stackedSubviews indexOfObject:currentView]) : (NSNotFound);
+    NSUInteger toIndex = [stackedSubviews indexOfObject:aStackedSubview];
     
     if(delegate && [delegate respondsToSelector:@selector(stackedSubviewWillChangeFromIndex:toIndex:)])
         [delegate stackedSubviewWillChangeFromIndex:fromIndex toIndex:toIndex];

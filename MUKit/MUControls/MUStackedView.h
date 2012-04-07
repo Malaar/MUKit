@@ -14,8 +14,8 @@
 @protocol MUStackedViewDelegate <NSObject>
 
 @optional
-- (void) stackedSubviewWillChangeFromIndex:(NSInteger)aFromIndex toIndex:(NSInteger)aToIndex;
-- (void) stackedSubviewDidChangedFromIndex:(NSInteger)aFromIndex toIndex:(NSInteger)aToIndex;
+- (void) stackedSubviewWillChangeFromIndex:(NSUInteger)aFromIndex toIndex:(NSUInteger)aToIndex;
+- (void) stackedSubviewDidChangedFromIndex:(NSUInteger)aFromIndex toIndex:(NSUInteger)aToIndex;
 
 @end
 
@@ -36,8 +36,8 @@
 @property (nonatomic, readonly) NSUInteger countStackedSubviews;
 
 - (void) addStackedSubview:(UIView *)aView;
-- (void) insertStackedSubview:(UIView *)aView atIndex:(NSInteger)aIndex;
-- (void) removeStackedSubviewAtIndex:(NSInteger)aIndex;
+- (void) insertStackedSubview:(UIView *)aView atIndex:(NSUInteger)aIndex;
+- (void) removeStackedSubviewAtIndex:(NSUInteger)aIndex;
 - (void) removeStackedSubview:(UIView *)aView;
 - (void) removeAllStackedSubviews;
 

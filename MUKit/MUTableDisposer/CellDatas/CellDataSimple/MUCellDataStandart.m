@@ -14,6 +14,8 @@
 
 @synthesize subtitle;
 @synthesize image;
+@synthesize imageURL;
+@synthesize imagePlaceholder;
 @synthesize title;
 @synthesize titleFont;
 @synthesize subtitleFont;
@@ -44,6 +46,8 @@
 {
     [subtitle release];
     [image release];
+    [imageURL release];
+    [imagePlaceholder release];
     [title release];
     [titleColor release];
     [subtitleColor release];

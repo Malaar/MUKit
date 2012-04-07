@@ -8,6 +8,7 @@
 
 #import "MUCellStandart.h"
 #import "MUCellDataStandart.h"
+#import "UIImageView+AFNetworking.h"
 
 @implementation MUCellStandart
 
@@ -26,7 +27,10 @@
     self.detailTextLabel.font = cellDataStandart.subtitleFont;
     self.detailTextLabel.text = cellDataStandart.subtitle;
     
-    [self.imageView setImage:cellDataStandart.image];
+    if(cellDataStandart.imageURL)
+        [self.imageView setImageWithURL:cellDataStandart.imageURL placeholderImage:cellDataStandart.imagePlaceholder];
+    else
+        [self.imageView setImage:cellDataStandart.image];
 }
 
 @end

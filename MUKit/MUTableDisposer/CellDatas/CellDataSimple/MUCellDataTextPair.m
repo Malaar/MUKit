@@ -45,7 +45,7 @@
 - (void) mapFromObject
 {
     if (object && key)
-        text = [object valueForKey:key];
+        text = [[object valueForKey:key] retain];
 }
 
 //==============================================================================

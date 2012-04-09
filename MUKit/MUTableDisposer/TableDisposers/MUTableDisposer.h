@@ -55,4 +55,6 @@
 - (void) hideCellByIndexPath:(NSIndexPath*)anIndexPath needUpdateTable:(BOOL)aNeedUpdateTable;
 - (void) showCellByIndexPath:(NSIndexPath*)anIndexPath needUpdateTable:(BOOL)aNeedUpdateTable;
 
+- (void) reloadWithAnimation:(UITableViewRowAnimation)anAnimation;
+
 @end

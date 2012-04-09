@@ -228,6 +228,7 @@
 {
     CGSize tabBarItemFullSize = CGSizeMake(tabBar.bounds.size.width / [viewControllers count], tabBar.bounds.size.height);
     CGFloat tabBarItemX = 0;
+    NSUInteger tabBarButtonIndex = 0;
     
     NSMutableArray* tabs = [NSMutableArray arrayWithCapacity:[viewControllers count]];
     for(UIViewController* vc in viewControllers)
@@ -242,7 +243,7 @@
         MUTabBarItem* tabBarItem = [(id<MUTabBarItemProtocol>)vc mutabBarItem];
         NSAssert(tabBarItem, @"tabBarItem must be non nil!");
         
-        // create tabBar button
+        // create tabBar button and configure
         UIButton* button = [UIButton buttonWithType:UIButtonTypeCustom];
         button.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
         [button setTitle:tabBarItem.title forState:UIControlStateNormal];
@@ -268,11 +269,14 @@
             NSAssert(NO, @"Other style don't supported yet!");
         }
         
+        [self configureTabBarButton:button atIndex:tabBarButtonIndex];
+        
         UIBarButtonItem* bbi = [[UIBarButtonItem alloc] initWithCustomView:button];
         
         [tabs addObject:bbi];
         
         tabBarItemX += tabBarItemFullSize.width;
+        tabBarButtonIndex++;
     }
     
     tabBar.items = tabs;
@@ -282,6 +286,12 @@
 
 //==============================================================================
 - (void) configureTabBar
+{
+    // empty by default
+}
+
+//==============================================================================
+- (void) configureTabBarButton:(UIButton*)aTabBarButton atIndex:(NSUInteger)anIndex
 {
     // empty by default
 }

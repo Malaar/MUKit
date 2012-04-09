@@ -523,5 +523,14 @@
 }
 
 //==============================================================================
+- (void) reloadWithAnimation:(UITableViewRowAnimation)anAnimation
+{
+    for(MUSectionReadonly* section in sections)
+    {
+        [section reloadWithAnimation:anAnimation];
+    }
+}
+
+//==============================================================================
 
 @end

@@ -17,7 +17,8 @@
 //==============================================================================
 - (id) init
 {
-    NSAssert(nil, @"You mast used initWithObject:key: method!");
+    NSAssert(NO, @"You can't use this method! Instead use 'initWithObject:key:'");
+    [self release];
     return nil;
 }
 

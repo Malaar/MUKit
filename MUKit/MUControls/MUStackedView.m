@@ -153,8 +153,8 @@
     NSUInteger fromIndex = (currentView) ? ([stackedSubviews indexOfObject:currentView]) : (NSNotFound);
     NSUInteger toIndex = [stackedSubviews indexOfObject:aStackedSubview];
     
-    if(delegate && [delegate respondsToSelector:@selector(stackedSubviewWillChangeFromIndex:toIndex:)])
-        [delegate stackedSubviewWillChangeFromIndex:fromIndex toIndex:toIndex];
+    if(delegate && [delegate respondsToSelector:@selector(stackedView:willChangeFromIndex:toIndex:)])
+        [delegate stackedView:self willChangeFromIndex:fromIndex toIndex:toIndex];
 
     currentView.hidden = YES;
     currentView = aStackedSubview;
@@ -162,8 +162,8 @@
 
     currentIndex = toIndex;
 
-    if(delegate && [delegate respondsToSelector:@selector(stackedSubviewDidChangedFromIndex:toIndex:)])
-        [delegate stackedSubviewDidChangedFromIndex:fromIndex toIndex:toIndex];
+    if(delegate && [delegate respondsToSelector:@selector(stackedView:didChangedFromIndex:toIndex:)])
+        [delegate stackedView:self didChangedFromIndex:fromIndex toIndex:toIndex];
 }
 
 //==============================================================================

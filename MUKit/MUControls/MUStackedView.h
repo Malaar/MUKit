@@ -8,14 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+@class MUStackedView;
 //==============================================================================
 //==============================================================================
 //==============================================================================
 @protocol MUStackedViewDelegate <NSObject>
 
 @optional
-- (void) stackedSubviewWillChangeFromIndex:(NSUInteger)aFromIndex toIndex:(NSUInteger)aToIndex;
-- (void) stackedSubviewDidChangedFromIndex:(NSUInteger)aFromIndex toIndex:(NSUInteger)aToIndex;
+- (void) stackedView:(MUStackedView*)aStackedView willChangeFromIndex:(NSUInteger)aFromIndex toIndex:(NSUInteger)aToIndex;
+- (void) stackedView:(MUStackedView*)aStackedView didChangedFromIndex:(NSUInteger)aFromIndex toIndex:(NSUInteger)aToIndex;
 
 @end
 

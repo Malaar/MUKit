@@ -45,7 +45,7 @@
     self = [super init];
     if (self)
     {
-        tabBarHeight = 44;
+        tabBarHeight = 49;
         selectedIndex = 0;
     }
     return self;
@@ -64,11 +64,11 @@
 }
 
 #pragma mark - View Lifecycle
-//==============================================================================
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-}
+////==============================================================================
+//- (void)viewDidLoad
+//{
+//    [super viewDidLoad];
+//}
 
 //==============================================================================
 - (void)viewDidUnload
@@ -145,7 +145,11 @@
 //==============================================================================
 - (void) setSelectedViewController:(UIViewController *)aSelectedViewController
 {
-    // !!!!!!
+    NSUInteger index = [viewControllers indexOfObject:aSelectedViewController];
+    if(index != NSNotFound)
+    {
+        [self setSelectedIndex:index];
+    }
 }
 
 //==============================================================================
@@ -184,7 +188,7 @@
         vc.view.frame = stackedView.bounds;
         vc.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
 
-        [self.view addSubview:vc.view];
+        [stackedView addStackedSubview:vc.view];
     }
     [self setSelectedIndex:selectedIndex];
 }
@@ -197,12 +201,33 @@
 
 #pragma mark - MUTabedToolbarDelegate
 //==============================================================================
+- (BOOL) tabedToolbar:(MUTabedToolbar *)aTabBar shouldSelectItemAtIndex:(NSUInteger)anIndex
+{
+    BOOL result = YES;
+    if([delegate respondsToSelector:@selector(tabBarController:shouldSelectViewController:)])
+    {
+        [delegate tabBarController:self shouldSelectViewController: [viewControllers objectAtIndex:anIndex]];
+    }
+    return result;
+}
+
+//==============================================================================
 - (void) tabedToolbar:(MUTabedToolbar*)aTabBar itemChangedTo:(NSUInteger)aToIndex from:(NSUInteger)aFromIndex
 {
+    stackedView.currentIndex = aToIndex;
 }
 
 #pragma mark - MUStackedViewDelegate
-//==============================================================================
+////==============================================================================
+//- (void) stackedView:(MUStackedView *)aStackedView willChangeFromIndex:(NSUInteger)aFromIndex toIndex:(NSUInteger)aToIndex
+//{
+//}
 
+//==============================================================================
+- (void) stackedView:(MUStackedView *)aStackedView didChangedFromIndex:(NSUInteger)aFromIndex toIndex:(NSUInteger)aToIndex
+{
+    if([delegate respondsToSelector:@selector(tabBarController:didSelectViewController:)])
+        [delegate tabBarController:self didSelectViewController:[viewControllers objectAtIndex:aToIndex]];
+}
 
 @end

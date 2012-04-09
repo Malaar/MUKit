@@ -44,13 +44,15 @@
 //==============================================================================
 - (void) mapFromObject
 {
-    text = [object valueForKey:key];
+    if (object && key)
+        text = [[object valueForKey:key] retain];
 }
 
 //==============================================================================
 - (void) mapToObject
 {
-    [object setValue:text forKey:key];
+    if (object && key)
+        [object setValue:text forKey:key];
 }
 
 @end

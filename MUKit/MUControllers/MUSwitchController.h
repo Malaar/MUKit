@@ -23,6 +23,6 @@
 
 @property (nonatomic, assign) id<MUSwitchControllerDelegate> switchDelegate;
 
-- (void) switchToController:(UIViewController*)aController;
+- (void) switchToController:(UIViewController*)aController animated:(BOOL)anAnimate;
 
 @end

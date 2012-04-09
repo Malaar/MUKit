@@ -23,7 +23,7 @@
 }
 
 //==============================================================================
-- (void) switchToController:(UIViewController*)aController
+- (void) switchToController:(UIViewController*)aController animated:(BOOL)anAnimate
 {
     BOOL canSwitch = YES;
     if([switchDelegate respondsToSelector:@selector(switchController:shouldSwitchToController:)])
@@ -34,7 +34,7 @@
         if([switchDelegate respondsToSelector:@selector(switchController:willSwitchToController:)])
             [switchDelegate switchController:self willSwitchToController:aController];
 
-        [self setViewControllers:[NSArray arrayWithObject:aController] animated:NO];
+        [self setViewControllers:[NSArray arrayWithObject:aController] animated:anAnimate];
 
         if([switchDelegate respondsToSelector:@selector(switchController:didSwitchToController:)])
             [switchDelegate switchController:self didSwitchToController:aController];

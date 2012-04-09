@@ -10,6 +10,48 @@
 
 
 //==============================================================================
+@implementation MUTabBarItem
+
+@synthesize title;
+@synthesize titleColor;
+@synthesize titleFont;
+@synthesize titleShadowColor;
+@synthesize titleShadowOffset;
+@synthesize imageNormal;
+@synthesize imageSelected;
+@synthesize backgroundImageNormal;
+@synthesize backgroundImageSelected;
+
+//==============================================================================
+- (id) init
+{
+    if( (self = [super init]) )
+    {
+        self.titleColor = [UIColor whiteColor];
+        self.titleFont = [UIFont systemFontOfSize:14];
+        self.titleShadowColor = [UIColor clearColor];
+        self.titleShadowOffset = CGSizeZero;
+    }
+    return self;
+}
+
+//==============================================================================
+- (void) dealloc
+{
+    [title release];
+    [titleColor release];
+    [titleShadowColor release];
+    [imageNormal release];
+    [imageSelected release];
+    [backgroundImageNormal release];
+    [backgroundImageSelected release];
+    
+    [super dealloc];
+}
+
+@end
+
+//==============================================================================
 //==============================================================================
 //==============================================================================
 @interface MUTabBarController ()
@@ -26,6 +68,7 @@
 
 @synthesize delegate;
 
+@synthesize style;
 @synthesize tabBarOnTheTop;
 @synthesize tabBarHeight;
 @synthesize tabBarBackgroundImage;
@@ -183,13 +226,57 @@
 //==============================================================================
 - (void) setupControllers
 {
+    CGSize tabBarItemFullSize = CGSizeMake(tabBar.bounds.size.width / [viewControllers count], tabBar.bounds.size.height);
+    CGFloat tabBarItemX = 0;
+    
+    NSMutableArray* tabs = [NSMutableArray arrayWithCapacity:[viewControllers count]];
     for(UIViewController* vc in viewControllers)
     {
         vc.view.frame = stackedView.bounds;
         vc.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
 
         [stackedView addStackedSubview:vc.view];
+        
+        // get tabBarItem
+        NSAssert([vc conformsToProtocol:@protocol(MUTabBarItemProtocol)], @"View controller must implement protocol MUTabBarItemProtocol!");
+        MUTabBarItem* tabBarItem = [(id<MUTabBarItemProtocol>)vc mutabBarItem];
+        NSAssert(tabBarItem, @"tabBarItem must be non nil!");
+        
+        // create tabBar button
+        UIButton* button = [UIButton buttonWithType:UIButtonTypeCustom];
+        button.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+        [button setTitle:tabBarItem.title forState:UIControlStateNormal];
+        [button setTitleColor:tabBarItem.titleColor forState:UIControlStateNormal];
+        [button setTitleShadowColor:tabBarItem.titleShadowColor forState:UIControlStateNormal];
+        button.titleLabel.font = tabBarItem.titleFont;
+        button.titleLabel.shadowOffset = tabBarItem.titleShadowOffset;
+
+        [button setBackgroundImage:tabBarItem.backgroundImageNormal forState:UIControlStateNormal];
+        if(tabBarItem.backgroundImageSelected)
+            [button setBackgroundImage:tabBarItem.backgroundImageSelected forState:UIControlStateSelected];
+        
+        [button setImage:tabBarItem.imageNormal forState:UIControlStateNormal];
+        if(tabBarItem.imageSelected)
+            [button setImage:tabBarItem.imageSelected forState:UIControlStateSelected];
+        
+        if(style == MUTabBarControllerStyleTabsFullSize)
+        {
+            button.frame = CGRectMake(tabBarItemX, 0, tabBarItemFullSize.width, tabBarItemFullSize.height);
+        }
+        else
+        {
+            NSAssert(NO, @"Other style don't supported yet!");
+        }
+        
+        UIBarButtonItem* bbi = [[UIBarButtonItem alloc] initWithCustomView:button];
+        
+        [tabs addObject:bbi];
+        
+        tabBarItemX += tabBarItemFullSize.width;
     }
+    
+    tabBar.items = tabs;
+    
     [self setSelectedIndex:selectedIndex];
 }
 

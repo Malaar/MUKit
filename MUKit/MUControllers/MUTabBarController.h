@@ -10,6 +10,31 @@
 #import "MUTabedToolbar.h"
 #import "MUStackedView.h"
 
+//==============================================================================
+@interface MUTabBarItem : NSObject
+
+@property (nonatomic, retain) NSString* title;
+@property (nonatomic, retain) UIColor* titleColor;
+@property (nonatomic, assign) UIFont* titleFont;
+@property (nonatomic, retain) UIColor* titleShadowColor;
+@property (nonatomic, assign) CGSize titleShadowOffset;
+
+@property (nonatomic, retain) UIImage* imageNormal;
+@property (nonatomic, retain) UIImage* imageSelected;
+
+@property (nonatomic, retain) UIImage* backgroundImageNormal;
+@property (nonatomic, retain) UIImage* backgroundImageSelected;
+
+@end
+
+//==============================================================================
+@protocol MUTabBarItemProtocol <NSObject>
+
+@property (nonatomic, retain) MUTabBarItem* mutabBarItem;
+
+@end
+
+
 @class MUTabBarController;
 //==============================================================================
 @protocol MUTabBarControllerDelegate<NSObject>
@@ -20,6 +45,13 @@
 @end
 
 //==============================================================================
+typedef enum MUTabBarControllerStyle
+{
+  MUTabBarControllerStyleTabsFullSize  
+    
+} MUTabBarControllerStyle;
+
+//==============================================================================
 @interface MUTabBarController : UIViewController <MUTabedToolbarDelegate, MUStackedViewDelegate>
 {
     MUTabedToolbar* tabBar;
@@ -28,6 +60,8 @@
 }
 
 @property (nonatomic, assign) id<MUTabBarControllerDelegate> delegate;
+
+@property (nonatomic, assign) MUTabBarControllerStyle style;
 
 @property (nonatomic, assign) CGFloat tabBarHeight;
 @property (nonatomic, assign) BOOL tabBarOnTheTop;

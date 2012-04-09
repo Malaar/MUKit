@@ -102,7 +102,7 @@
 
     TableViewWithMapedCells *vc = [[TableViewWithMapedCells new] autorelease];
     UINavigationController* nc = [[[UINavigationController alloc] initWithRootViewController:vc] autorelease];
-    [switchController switchToController:nc];
+    [switchController switchToController:nc animated:YES];
     NSLog(@"Switch Pressed");
 }
 

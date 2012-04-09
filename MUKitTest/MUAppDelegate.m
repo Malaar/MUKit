@@ -42,7 +42,7 @@
     UINavigationController* navigationController = [[[UINavigationController alloc] initWithRootViewController:viewController] autorelease];
     
     switchController = [[MUSwitchController alloc] init];
-    [switchController switchToController:navigationController];
+    [switchController switchToController:navigationController animated:YES];
     
     self.window.rootViewController = switchController;
     [self.window makeKeyAndVisible];

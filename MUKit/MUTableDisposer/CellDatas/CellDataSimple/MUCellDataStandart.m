@@ -7,7 +7,7 @@
 //
 
 #import "MUCellDataStandart.h"
-#import "MUCell.h"
+#import "MUCellStandart.h"
 
 
 @implementation MUCellDataStandart
@@ -30,7 +30,7 @@
     self = [super initWithObject:aObject key:aKey];
     if (self)
     {
-        self.cellClass = [MUCell class];
+        self.cellClass = [MUCellStandart class];
         
         titleTextAlignment = UITextAlignmentLeft;
         titleFont = [UIFont systemFontOfSize:18];
@@ -59,13 +59,15 @@
 //==============================================================================
 - (void) mapFromObject
 {
-    subtitle = [object valueForKey:key];
+    if (object && key)
+        subtitle = [object valueForKey:key];
 }
 
 //==============================================================================
 - (void) mapToObject
 {
-    [object setValue:subtitle forKey:key];
+    if (object && key)
+        [object setValue:subtitle forKey:key];
 }
 
 @end

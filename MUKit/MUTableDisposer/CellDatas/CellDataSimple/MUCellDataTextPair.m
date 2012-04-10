@@ -45,14 +45,14 @@
 - (void) mapFromObject
 {
     if (object && key)
-        text = [[object valueForKey:key] retain];
+        text = [[object valueForKeyPath:key] retain];
 }
 
 //==============================================================================
 - (void) mapToObject
 {
     if (object && key)
-        [object setValue:text forKey:key];
+        [object setValue:text forKeyPath:key];
 }
 
 @end

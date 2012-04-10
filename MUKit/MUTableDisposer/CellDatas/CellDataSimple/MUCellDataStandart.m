@@ -60,14 +60,14 @@
 - (void) mapFromObject
 {
     if (object && key)
-        subtitle = [[object valueForKey:key] retain];
+        subtitle = [[object valueForKeyPath:key] retain];
 }
 
 //==============================================================================
 - (void) mapToObject
 {
     if (object && key)
-        [object setValue:subtitle forKey:key];
+        [object setValue:subtitle forKeyPath:key];
 }
 
 @end

@@ -48,14 +48,14 @@
 - (void) mapFromObject
 {
     if (object && key)
-        boolValue = [[object valueForKey:key] boolValue];
+        boolValue = [[object valueForKeyPath:key] boolValue];
 }
 
 //==============================================================================
 - (void) mapToObject
 {
     if (object && key)
-        [object setValue:[NSNumber numberWithBool:boolValue] forKey:key];
+        [object setValue:[NSNumber numberWithBool:boolValue] forKeyPath:key];
 }
 
 @end

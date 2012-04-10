@@ -74,7 +74,6 @@
 @synthesize tabBarBackgroundImage;
 @synthesize tabBarDrawColor;
 @synthesize tabBarBackgroundColor;
-//@synthesize tabBarButtons;
 @synthesize tabBarEnabled;
 
 @synthesize viewControllers;
@@ -100,7 +99,6 @@
 {
     [tabBarBackgroundImage release];
     [tabBarBackgroundColor release];
-//    [tabBarButtons release];
     
     [viewControllers release];
     
@@ -114,6 +112,7 @@
     [super viewDidLoad];
     
     self.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    firstAppear = YES;
 }
 
 //==============================================================================
@@ -157,8 +156,8 @@
         [self.view addSubview:tabBar];
         [tabBar release];
     }
-    
-    if([viewControllers count] > 0)
+
+    if([viewControllers count] > 0 && selectedIndex < [viewControllers count])
         [[viewControllers objectAtIndex:selectedIndex] viewWillAppear:animated];
 }
 
@@ -167,8 +166,10 @@
 {
     [super viewDidAppear:animated];
     
-    if([viewControllers count] > 0)
+    if([viewControllers count] > 0 && selectedIndex < [viewControllers count])
         [[viewControllers objectAtIndex:selectedIndex] viewDidAppear:animated];
+    
+    firstAppear = NO;
 }
 
 //==============================================================================
@@ -176,7 +177,7 @@
 {
     [super viewWillDisappear:animated];
     
-    if([viewControllers count] > 0)
+    if([viewControllers count] > 0 && selectedIndex < [viewControllers count])
         [[viewControllers objectAtIndex:selectedIndex] viewWillDisappear:animated];
 }
 
@@ -185,7 +186,7 @@
 {
     [super viewDidDisappear:animated];
 
-    if([viewControllers count] > 0)
+    if([viewControllers count] > 0 && selectedIndex < [viewControllers count])
         [[viewControllers objectAtIndex:selectedIndex] viewDidDisappear:animated];
 }
 
@@ -208,6 +209,7 @@
 {
     selectedIndex = aSelectedIndex;
     stackedView.currentIndex = selectedIndex;
+    [tabBar switchToItemWithIndex:selectedIndex];
 }
 
 //==============================================================================
@@ -239,6 +241,8 @@
 {
     if(viewControllers != aViewControllers)
     {
+        selectedIndex = 0;
+        
         // remove old controllers
         for(UIViewController* vc in viewControllers)
             [vc.view removeFromSuperview];
@@ -259,7 +263,6 @@
 - (void) setupControllers
 {
     CGSize tabBarItemFullSize = CGSizeMake(tabBar.bounds.size.width / [viewControllers count], tabBar.bounds.size.height);
-//    CGFloat tabBarItemX = 0;
     NSUInteger tabBarButtonIndex = 0;
     
     NSMutableArray* tabs = [NSMutableArray arrayWithCapacity:[viewControllers count]];
@@ -315,7 +318,6 @@
         noSpace.width = -10.0;
         [tabs addObject:noSpace];
         
-//        tabBarItemX += tabBarItemFullSize.width;
         tabBarButtonIndex++;
     }
     
@@ -358,15 +360,26 @@
 //==============================================================================
 - (void) stackedView:(MUStackedView *)aStackedView willChangeFromIndex:(NSUInteger)aFromIndex toIndex:(NSUInteger)aToIndex
 {
-    [[viewControllers objectAtIndex:aFromIndex] viewWillDisappear:NO];
-    [[viewControllers objectAtIndex:aToIndex] viewWillAppear:NO];
+    if(firstAppear)
+        return;
+    
+    if([viewControllers count] > 0 && aFromIndex < [viewControllers count])
+        [[viewControllers objectAtIndex:aFromIndex] viewWillDisappear:NO];
+
+    if([viewControllers count] > 0 && aToIndex < [viewControllers count])
+        [[viewControllers objectAtIndex:aToIndex] viewWillAppear:NO];
 }
 
 //==============================================================================
 - (void) stackedView:(MUStackedView *)aStackedView didChangedFromIndex:(NSUInteger)aFromIndex toIndex:(NSUInteger)aToIndex
 {
-    [[viewControllers objectAtIndex:aFromIndex] viewDidDisappear:NO];
-    [[viewControllers objectAtIndex:aToIndex] viewDidAppear:NO];
+    if(firstAppear)
+        return;
+
+    if([viewControllers count] > 0 && aFromIndex < [viewControllers count])
+        [[viewControllers objectAtIndex:aFromIndex] viewDidDisappear:NO];
+    if([viewControllers count] > 0 && aToIndex < [viewControllers count])
+        [[viewControllers objectAtIndex:aToIndex] viewDidAppear:NO];
 
     if([delegate respondsToSelector:@selector(tabBarController:didSelectViewController:)])
         [delegate tabBarController:self didSelectViewController:[viewControllers objectAtIndex:aToIndex]];

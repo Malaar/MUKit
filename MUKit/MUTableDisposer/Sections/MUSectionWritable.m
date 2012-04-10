@@ -48,21 +48,6 @@
     [super dealloc];
 }
 
-#pragma mark - CellDatas
-//==============================================================================
-- (void) addCellData:(MUCellData*)aCellData
-{
-    NSAssert([aCellData isKindOfClass:[MUCellDataMaped class]], @"Try to add cellData of wrong type!");
-    [super addCellData:aCellData];
-}
-
-//==============================================================================
-- (void) insertCellData:(MUCellData*)aCellData atIndex:(NSUInteger)anIndex
-{
-    NSAssert([aCellData isKindOfClass:[MUCellDataMaped class]], @"Try to insert cellData of wrong type!");
-    [super insertCellData:aCellData atIndex:anIndex];
-}
-
 #pragma mark - Cells
 //==============================================================================
 - (void) createCells

@@ -191,10 +191,16 @@
 }
 
 //==============================================================================
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+- (BOOL) shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation
 {
-    return YES;
+    BOOL result = YES;
+    
+    for(UIViewController* vc in viewControllers)
+        result &= [vc shouldAutorotateToInterfaceOrientation:toInterfaceOrientation];
+    
+    return result;
 }
+
 
 #pragma mark - 
 //==============================================================================
@@ -277,6 +283,17 @@
         vc.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
 
         [stackedView addStackedSubview:vc.view];
+        
+        if([vc isKindOfClass:[UINavigationController class]])
+        {
+            if([[(UINavigationController*)vc viewControllers] count] > 0)
+                vc = [[(UINavigationController*)vc viewControllers] objectAtIndex:0];
+            else
+            {
+                NSAssert(NO, @"NAvigation controller without root controller!");
+                continue;
+            }
+        }
         
         // get tabBarItem
         NSAssert([vc conformsToProtocol:@protocol(MUTabBarItemProtocol)], @"View controller must implement protocol MUTabBarItemProtocol!");

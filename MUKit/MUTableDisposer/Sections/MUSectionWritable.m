@@ -138,6 +138,7 @@
         if ([cellData isKindOfClass:[MUCellDataMaped class]])
             [(MUCellDataMaped*)cellData mapFromObject];
     }
+    [self createCells];
 }
 
 //==============================================================================
@@ -148,6 +149,13 @@
         if ([cellData isKindOfClass:[MUCellDataMaped class]])
             [(MUCellDataMaped*)cellData mapToObject];
     }
+}
+
+//==============================================================================
+- (void) reloadWithAnimation:(UITableViewRowAnimation)anAnimation
+{
+    [self mapFromObject];
+    [super reloadWithAnimation:anAnimation];
 }
 
 #pragma mark - Private

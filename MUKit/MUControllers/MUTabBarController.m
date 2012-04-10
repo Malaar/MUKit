@@ -142,7 +142,7 @@
         float y = (tabBarOnTheTop) ? (0) : (self.view.bounds.size.height - tabBarHeight);
         tabBar = [[MUTabedToolbar alloc] initWithFrame:CGRectMake(0, y, self.view.bounds.size.width, tabBarHeight)];
         tabBar.delegate = self;
-        tabBar.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+        tabBar.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin;
         tabBar.backgroundImage = tabBarBackgroundImage;
         tabBar.drawColor = tabBarDrawColor;
         tabBar.backgroundColor = tabBarBackgroundColor;

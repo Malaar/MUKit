@@ -197,7 +197,7 @@
     if (maxWidth < self.frame.size.width)
     {
         _maxWidth = maxWidth;
-        self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.x, _maxWidth, self.frame.size.height);
+        self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, _maxWidth, self.frame.size.height);
     }
 }
 
@@ -207,7 +207,7 @@
     if (minWidth > self.frame.size.width)
     {
         _minWidth = minWidth;
-        self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.x, _minWidth, self.frame.size.height);
+        self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, _minWidth, self.frame.size.height);
     }
 }
 

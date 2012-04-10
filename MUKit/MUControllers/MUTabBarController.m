@@ -108,11 +108,13 @@
 }
 
 #pragma mark - View Lifecycle
-////==============================================================================
-//- (void)viewDidLoad
-//{
-//    [super viewDidLoad];
-//}
+//==============================================================================
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    
+    self.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+}
 
 //==============================================================================
 - (void)viewDidUnload
@@ -250,7 +252,7 @@
         
         // create tabBar button and configure
         UIButton* button = [UIButton buttonWithType:UIButtonTypeCustom];
-        button.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+        button.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
         [button setTitle:tabBarItem.title forState:UIControlStateNormal];
         [button setTitleColor:tabBarItem.titleColor forState:UIControlStateNormal];
         [button setTitleShadowColor:tabBarItem.titleShadowColor forState:UIControlStateNormal];

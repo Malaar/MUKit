@@ -37,13 +37,13 @@
     
 	id<MUTabedToolbarDelegate> delegate;
     
-    NSArray* buttons;
+    NSMutableArray* buttons;
 	
 	BOOL enabled;
 }
 
 @property (nonatomic, assign) id<MUTabedToolbarDelegate> delegate;
-@property (nonatomic, retain) NSArray* buttons;
+@property (nonatomic, readonly) NSArray* buttons;
 @property (nonatomic, assign) BOOL enabled;
 
 - (void) switchToItemWithIndex:(NSUInteger)aIndex;                              ///< programmaticaly switch to title by index

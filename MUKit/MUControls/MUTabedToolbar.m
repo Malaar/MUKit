@@ -72,6 +72,7 @@
 //==============================================================================
 - (void) setup
 {
+    buttons = [NSMutableArray new];
     self.backgroundColor = [UIColor clearColor];
     [self setEnabled:YES];
 }
@@ -124,31 +125,26 @@
 }
 
 //==============================================================================
-- (void) setButtons:(NSMutableArray *)aButtons
+- (void) setItems:(NSArray *)anItems
 {
-    if(buttons == aButtons)
-        return;
+    [buttons removeAllObjects];
     
-    [buttons release];
-    buttons = [aButtons retain];
-    
-    NSMutableArray* items = [NSMutableArray new];
-    UIBarButtonItem* bbi;
+    UIButton* bt;
     
     int index = 0;
-    for(UIButton* bt in buttons)
+    for(UIBarButtonItem* bbi in anItems)
     {
-        bt.tag = index++;
-        [bt addTarget:self action:@selector(itemPressed:) forControlEvents:UIControlEventTouchUpInside];
-
-        bbi = [[UIBarButtonItem alloc] initWithCustomView:bt];
-        [items addObject:bbi];
-        [bbi release];
+        if([bbi.customView isKindOfClass:[UIButton class]])
+        {
+            bt = (UIButton*)bbi.customView;
+            [buttons addObject:bt];
+            
+            bt.tag = index++;
+            [bt addTarget:self action:@selector(itemPressed:) forControlEvents:UIControlEventTouchUpInside];
+        }
     }
     
-    self.items = items;
-
-    [items release];
+    super.items = anItems;
 }
 
 //==============================================================================

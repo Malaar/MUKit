@@ -17,6 +17,12 @@
             imageName:(NSString*) imageName 
          imageCapSize:(ImageCapSize) imageCapSize 
           titleOffset:(TitleOffset)titleOffset;
+
+- (void) setTitleName:(NSString*) titleName 
+                image:(UIImage*) image 
+         imageCapSize:(ImageCapSize) imageCapSize 
+          titleOffset:(TitleOffset)titleOffset;
+
 - (UIImage*)getAutoresizeImageByFont:(UIFont*)font;
 - (void)addImage:(UIImage*)image;
 
@@ -88,13 +94,34 @@
 }
 
 //==============================================================================
+- (id) initWithCoder:(NSCoder *)aDecoder
+{
+    if( (self = [super initWithCoder:aDecoder]) )
+    {
+        NSString* title = [self titleForState:UIControlStateNormal];
+        UIImage* bgImage = [self backgroundImageForState:UIControlStateNormal];
+        [self setTitleName:title image:bgImage imageCapSize:ImageCapSizeNone() titleOffset:TitleOffsetForNavBack()];
+    }
+    return self;
+}
+
+//==============================================================================
 - (void) setTitleName:(NSString *)titleName 
             imageName:(NSString *)imageName 
          imageCapSize:(ImageCapSize)imageCapSize 
           titleOffset:(TitleOffset)titleOffset
 {
+    [self setTitleName:titleName image:[UIImage imageNamed:imageName] imageCapSize:imageCapSize titleOffset:titleOffset];
+}
+
+//==============================================================================
+- (void) setTitleName:(NSString*) titleName 
+                image:(UIImage*) image 
+         imageCapSize:(ImageCapSize) imageCapSize 
+          titleOffset:(TitleOffset)titleOffset
+{
     _title = [titleName retain];
-    _imageName = [imageName retain];
+    originalBGImage = [image retain];
     _imageCapSize = imageCapSize;
     _titleOffset = titleOffset;
     _maxWidth = 0;
@@ -129,7 +156,7 @@
 //==============================================================================
 - (UIImage*)getAutoresizeImageByFont:(UIFont*)font
 {
-    UIImage *image = [UIImage imageNamed:_imageName];
+    UIImage *image = originalBGImage;   //[UIImage imageNamed:_imageName];
     if (!image)
         return nil;
     
@@ -197,7 +224,7 @@
 - (void) dealloc
 {
     [_title release];
-    [_imageName release];
+    [originalBGImage release];
     
     [super dealloc];
 }

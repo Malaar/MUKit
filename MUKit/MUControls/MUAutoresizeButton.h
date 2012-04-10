@@ -81,7 +81,8 @@ static inline TitleOffset TitleOffsetForNavBack()
 @interface MUAutoresizeButton : UIButton 
 {
     NSString *_title;
-    NSString *_imageName;
+//    NSString *_imageName;
+    UIImage* originalBGImage;
     ImageCapSize _imageCapSize;
     TitleOffset _titleOffset;
     int _maxWidth;

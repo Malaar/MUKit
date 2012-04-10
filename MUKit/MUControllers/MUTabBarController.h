@@ -68,7 +68,6 @@ typedef enum MUTabBarControllerStyle
 @property (nonatomic, retain) UIImage* tabBarBackgroundImage;
 @property (nonatomic, assign) BOOL tabBarDrawColor;
 @property (nonatomic, retain) UIColor* tabBarBackgroundColor;
-@property (nonatomic, copy) NSArray* tabBarButtons;
 @property (nonatomic, assign) BOOL tabBarEnabled;
 
 @property (nonatomic, copy) NSArray* viewControllers;

@@ -74,7 +74,7 @@
 @synthesize tabBarBackgroundImage;
 @synthesize tabBarDrawColor;
 @synthesize tabBarBackgroundColor;
-@synthesize tabBarButtons;
+//@synthesize tabBarButtons;
 @synthesize tabBarEnabled;
 
 @synthesize viewControllers;
@@ -90,6 +90,7 @@
     {
         tabBarHeight = 49;
         selectedIndex = 0;
+        tabBarEnabled = YES;
     }
     return self;
 }
@@ -99,7 +100,7 @@
 {
     [tabBarBackgroundImage release];
     [tabBarBackgroundColor release];
-    [tabBarButtons release];
+//    [tabBarButtons release];
     
     [viewControllers release];
     
@@ -148,7 +149,6 @@
         tabBar.backgroundColor = tabBarBackgroundColor;
         tabBar.enabled = tabBarEnabled;
 
-        tabBar.buttons = tabBarButtons;
         [self configureTabBar];
         [self setupControllers];
         
@@ -227,10 +227,15 @@
 - (void) setupControllers
 {
     CGSize tabBarItemFullSize = CGSizeMake(tabBar.bounds.size.width / [viewControllers count], tabBar.bounds.size.height);
-    CGFloat tabBarItemX = 0;
+//    CGFloat tabBarItemX = 0;
     NSUInteger tabBarButtonIndex = 0;
     
     NSMutableArray* tabs = [NSMutableArray arrayWithCapacity:[viewControllers count]];
+
+    UIBarButtonItem* noSpace = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil] autorelease];
+    noSpace.width = -12.0;
+    [tabs addObject:noSpace];
+
     for(UIViewController* vc in viewControllers)
     {
         vc.view.frame = stackedView.bounds;
@@ -262,7 +267,7 @@
         
         if(style == MUTabBarControllerStyleTabsFullSize)
         {
-            button.frame = CGRectMake(tabBarItemX, 0, tabBarItemFullSize.width, tabBarItemFullSize.height);
+            button.frame = CGRectMake(0, 0, tabBarItemFullSize.width, tabBarItemFullSize.height);
         }
         else
         {
@@ -271,11 +276,14 @@
         
         [self configureTabBarButton:button atIndex:tabBarButtonIndex];
         
-        UIBarButtonItem* bbi = [[UIBarButtonItem alloc] initWithCustomView:button];
-        
+        UIBarButtonItem* bbi = [[[UIBarButtonItem alloc] initWithCustomView:button] autorelease];
         [tabs addObject:bbi];
         
-        tabBarItemX += tabBarItemFullSize.width;
+        UIBarButtonItem* noSpace = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil] autorelease];
+        noSpace.width = -10.0;
+        [tabs addObject:noSpace];
+        
+//        tabBarItemX += tabBarItemFullSize.width;
         tabBarButtonIndex++;
     }
     

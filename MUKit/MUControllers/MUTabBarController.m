@@ -157,6 +157,36 @@
         [self.view addSubview:tabBar];
         [tabBar release];
     }
+    
+    if([viewControllers count] > 0)
+        [[viewControllers objectAtIndex:selectedIndex] viewWillAppear:animated];
+}
+
+//==============================================================================
+- (void) viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    if([viewControllers count] > 0)
+        [[viewControllers objectAtIndex:selectedIndex] viewDidAppear:animated];
+}
+
+//==============================================================================
+- (void) viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    
+    if([viewControllers count] > 0)
+        [[viewControllers objectAtIndex:selectedIndex] viewWillDisappear:animated];
+}
+
+//==============================================================================
+- (void) viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+
+    if([viewControllers count] > 0)
+        [[viewControllers objectAtIndex:selectedIndex] viewDidDisappear:animated];
 }
 
 //==============================================================================
@@ -325,14 +355,19 @@
 }
 
 #pragma mark - MUStackedViewDelegate
-////==============================================================================
-//- (void) stackedView:(MUStackedView *)aStackedView willChangeFromIndex:(NSUInteger)aFromIndex toIndex:(NSUInteger)aToIndex
-//{
-//}
+//==============================================================================
+- (void) stackedView:(MUStackedView *)aStackedView willChangeFromIndex:(NSUInteger)aFromIndex toIndex:(NSUInteger)aToIndex
+{
+    [[viewControllers objectAtIndex:aFromIndex] viewWillDisappear:NO];
+    [[viewControllers objectAtIndex:aToIndex] viewWillAppear:NO];
+}
 
 //==============================================================================
 - (void) stackedView:(MUStackedView *)aStackedView didChangedFromIndex:(NSUInteger)aFromIndex toIndex:(NSUInteger)aToIndex
 {
+    [[viewControllers objectAtIndex:aFromIndex] viewDidDisappear:NO];
+    [[viewControllers objectAtIndex:aToIndex] viewDidAppear:NO];
+
     if([delegate respondsToSelector:@selector(tabBarController:didSelectViewController:)])
         [delegate tabBarController:self didSelectViewController:[viewControllers objectAtIndex:aToIndex]];
 }

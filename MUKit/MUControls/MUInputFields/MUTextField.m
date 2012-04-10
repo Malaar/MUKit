@@ -125,18 +125,16 @@
 
 #pragma mark - UITextFieldDelegate
 //==========================================================================================
-- (void) setDelegate:(id<UITextFieldDelegate>)delegate
+- (void) setDelegate:(id<UITextFieldDelegate>)aDelegate
 {
-    NSAssert(NO, @"Must use mudelegate!");
+    mudelegate = aDelegate;
 }
 
 //==========================================================================================
 - (id<UITextFieldDelegate>) delegate
 {
-    NSAssert(NO, @"Must use mudelegate!");
-    return nil;
+    return mudelegate;
 }
-
 @end
 
 

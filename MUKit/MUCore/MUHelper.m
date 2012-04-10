@@ -21,3 +21,9 @@ UIViewController* MUGetPrimeViewController()
     }
     return result;
 }
+
+//==============================================================================
+void MUShowSimpleAlert(NSString* aTitle, NSString* aMessage)
+{
+    [[[[UIAlertView alloc] initWithTitle:NSLocalizedString(aTitle, nil) message:NSLocalizedString(aMessage, nil) delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] autorelease] show];
+}

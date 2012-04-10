@@ -10,3 +10,5 @@
 #import "MUCocoaExtentions.h"
 
 inline UIViewController* MUGetPrimeViewController();
+
+inline void MUShowSimpleAlert(NSString* aTitle, NSString* aMessage);

@@ -100,7 +100,10 @@
     {
         NSString* title = [self titleForState:UIControlStateNormal];
         UIImage* bgImage = [self backgroundImageForState:UIControlStateNormal];
+
+        UIFont* font = self.titleLabel.font;
         [self setTitleName:title image:bgImage imageCapSize:ImageCapSizeNone() titleOffset:TitleOffsetForNavBack()];
+        [self setupFont:font];
     }
     return self;
 }

@@ -157,8 +157,8 @@
         [tabBar release];
     }
 
-    if([viewControllers count] > 0 && selectedIndex < [viewControllers count])
-        [[viewControllers objectAtIndex:selectedIndex] viewWillAppear:animated];
+//    if([viewControllers count] > 0 && selectedIndex < [viewControllers count])
+//        [[viewControllers objectAtIndex:selectedIndex] viewWillAppear:animated];
 }
 
 //==============================================================================
@@ -166,8 +166,8 @@
 {
     [super viewDidAppear:animated];
     
-    if([viewControllers count] > 0 && selectedIndex < [viewControllers count])
-        [[viewControllers objectAtIndex:selectedIndex] viewDidAppear:animated];
+//    if([viewControllers count] > 0 && selectedIndex < [viewControllers count])
+//        [[viewControllers objectAtIndex:selectedIndex] viewDidAppear:animated];
     
     firstAppear = NO;
 }
@@ -177,8 +177,8 @@
 {
     [super viewWillDisappear:animated];
     
-    if([viewControllers count] > 0 && selectedIndex < [viewControllers count])
-        [[viewControllers objectAtIndex:selectedIndex] viewWillDisappear:animated];
+//    if([viewControllers count] > 0 && selectedIndex < [viewControllers count])
+//        [[viewControllers objectAtIndex:selectedIndex] viewWillDisappear:animated];
 }
 
 //==============================================================================
@@ -186,8 +186,8 @@
 {
     [super viewDidDisappear:animated];
 
-    if([viewControllers count] > 0 && selectedIndex < [viewControllers count])
-        [[viewControllers objectAtIndex:selectedIndex] viewDidDisappear:animated];
+//    if([viewControllers count] > 0 && selectedIndex < [viewControllers count])
+//        [[viewControllers objectAtIndex:selectedIndex] viewDidDisappear:animated];
 }
 
 //==============================================================================
@@ -251,7 +251,10 @@
         
         // remove old controllers
         for(UIViewController* vc in viewControllers)
+        {
             [vc.view removeFromSuperview];
+            [vc removeFromParentViewController];
+        }
         [viewControllers release];
         
         viewControllers = [aViewControllers copy];
@@ -281,6 +284,7 @@
     {
         vc.view.frame = stackedView.bounds;
         vc.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+        [self addChildViewController:vc];
 
         [stackedView addStackedSubview:vc.view];
         
@@ -390,6 +394,9 @@
 //==============================================================================
 - (void) stackedView:(MUStackedView *)aStackedView didChangedFromIndex:(NSUInteger)aFromIndex toIndex:(NSUInteger)aToIndex
 {
+    if([delegate respondsToSelector:@selector(tabBarController:didSelectViewController:)])
+        [delegate tabBarController:self didSelectViewController:[viewControllers objectAtIndex:aToIndex]];
+
     if(firstAppear)
         return;
 
@@ -398,8 +405,6 @@
     if([viewControllers count] > 0 && aToIndex < [viewControllers count])
         [[viewControllers objectAtIndex:aToIndex] viewDidAppear:NO];
 
-    if([delegate respondsToSelector:@selector(tabBarController:didSelectViewController:)])
-        [delegate tabBarController:self didSelectViewController:[viewControllers objectAtIndex:aToIndex]];
 }
 
 @end

@@ -75,8 +75,8 @@
 {
     NSAssert(aView, @"aView is nil !!!");
     [stackedSubviews addObject:aView];
-    [self addSubview:aView];
-    aView.hidden = YES;
+//    [self addSubview:aView];
+//    aView.hidden = YES;
 }
 
 //==============================================================================
@@ -84,8 +84,8 @@
 {
     NSAssert(aView, @"aView is nil !!!");
     [stackedSubviews insertObject:aView atIndex:aIndex];
-    [self addSubview:aView];
-    aView.hidden = YES;
+//    [self addSubview:aView];
+//    aView.hidden = YES;
 }
 
 //==============================================================================
@@ -93,8 +93,11 @@
 {
     UIView* view = [stackedSubviews objectAtIndex:aIndex];
     if(view == currentView)
+    {
+        [currentView removeFromSuperview];
         currentView = nil;
-    [view removeFromSuperview];
+    }
+//    [view removeFromSuperview];
     [stackedSubviews removeObjectAtIndex:aIndex];
 }
 
@@ -102,23 +105,19 @@
 - (void) removeStackedSubview:(UIView *)aView
 {
     NSAssert(aView, @"aView is nil !!!");
-    if(aView.superview == self)
-    {
-        if(aView == currentView)
-            currentView = nil;
-        [aView removeFromSuperview];
-        [stackedSubviews removeObject:aView];
-    }
+    NSUInteger index = [stackedSubviews indexOfObject:aView];
+    [self removeStackedSubviewAtIndex:index];
 }
 
 //==============================================================================
 - (void) removeAllStackedSubviews
 {
-    for(UIView* view in stackedSubviews)
-    {
-        [view removeFromSuperview];
-    }
+//    for(UIView* view in stackedSubviews)
+//    {
+//        [view removeFromSuperview];
+//    }
     [stackedSubviews removeAllObjects];
+    [currentView removeFromSuperview];
     currentView = nil;
 }
 
@@ -141,10 +140,13 @@
 //==============================================================================
 - (void) setCurrentStackedSubview:(UIView *)aCurrentStackedSubview
 {
-    if(aCurrentStackedSubview.superview == self)
-    {
-        [self switchToStackedSubview:aCurrentStackedSubview];
-    }
+    NSUInteger index = [stackedSubviews indexOfObject:aCurrentStackedSubview];
+    [self setCurrentIndex:index];
+    
+//    if(aCurrentStackedSubview.superview == self)
+//    {
+//        [self switchToStackedSubview:aCurrentStackedSubview];
+//    }
 }
 
 //==============================================================================
@@ -156,9 +158,11 @@
     if(delegate && [delegate respondsToSelector:@selector(stackedView:willChangeFromIndex:toIndex:)])
         [delegate stackedView:self willChangeFromIndex:fromIndex toIndex:toIndex];
 
-    currentView.hidden = YES;
+//    currentView.hidden = YES;
+    [currentView removeFromSuperview];
     currentView = aStackedSubview;
     currentView.hidden = NO;
+    [self addSubview:currentView];
 
     currentIndex = toIndex;
 

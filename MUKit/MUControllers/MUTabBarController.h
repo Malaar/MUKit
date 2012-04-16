@@ -56,7 +56,6 @@ typedef enum MUTabBarControllerStyle
 {
     MUTabedToolbar* tabBar;
     MUStackedView* stackedView;
-    BOOL firstAppear;
 }
 
 @property (nonatomic, assign) id<MUTabBarControllerDelegate> delegate;

@@ -110,9 +110,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
     self.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-    firstAppear = YES;
 }
 
 //==============================================================================
@@ -161,34 +159,32 @@
 //        [[viewControllers objectAtIndex:selectedIndex] viewWillAppear:animated];
 }
 
-//==============================================================================
-- (void) viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
-    
-//    if([viewControllers count] > 0 && selectedIndex < [viewControllers count])
-//        [[viewControllers objectAtIndex:selectedIndex] viewDidAppear:animated];
-    
-    firstAppear = NO;
-}
-
-//==============================================================================
-- (void) viewWillDisappear:(BOOL)animated
-{
-    [super viewWillDisappear:animated];
-    
-//    if([viewControllers count] > 0 && selectedIndex < [viewControllers count])
-//        [[viewControllers objectAtIndex:selectedIndex] viewWillDisappear:animated];
-}
-
-//==============================================================================
-- (void) viewDidDisappear:(BOOL)animated
-{
-    [super viewDidDisappear:animated];
-
-//    if([viewControllers count] > 0 && selectedIndex < [viewControllers count])
-//        [[viewControllers objectAtIndex:selectedIndex] viewDidDisappear:animated];
-}
+////==============================================================================
+//- (void) viewDidAppear:(BOOL)animated
+//{
+//    [super viewDidAppear:animated];
+//    
+////    if([viewControllers count] > 0 && selectedIndex < [viewControllers count])
+////        [[viewControllers objectAtIndex:selectedIndex] viewDidAppear:animated];
+//}
+//
+////==============================================================================
+//- (void) viewWillDisappear:(BOOL)animated
+//{
+//    [super viewWillDisappear:animated];
+//    
+////    if([viewControllers count] > 0 && selectedIndex < [viewControllers count])
+////        [[viewControllers objectAtIndex:selectedIndex] viewWillDisappear:animated];
+//}
+//
+////==============================================================================
+//- (void) viewDidDisappear:(BOOL)animated
+//{
+//    [super viewDidDisappear:animated];
+//
+////    if([viewControllers count] > 0 && selectedIndex < [viewControllers count])
+////        [[viewControllers objectAtIndex:selectedIndex] viewDidDisappear:animated];
+//}
 
 //==============================================================================
 - (BOOL) shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation
@@ -284,7 +280,6 @@
     {
         vc.view.frame = stackedView.bounds;
         vc.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-        [self addChildViewController:vc];
 
         [stackedView addStackedSubview:vc.view];
         
@@ -374,16 +369,22 @@
 //==============================================================================
 - (void) tabedToolbar:(MUTabedToolbar*)aTabBar itemChangedTo:(NSUInteger)aToIndex from:(NSUInteger)aFromIndex
 {
+    if (aFromIndex != NSNotFound )
+    {
+        UIViewController *currentController = [viewControllers objectAtIndex:aFromIndex];
+        [currentController removeFromParentViewController];
+    }
+    
+    UIViewController *newController = [viewControllers objectAtIndex:aToIndex];
+    [self addChildViewController:newController];
+    
     stackedView.currentIndex = aToIndex;
 }
 
 #pragma mark - MUStackedViewDelegate
 //==============================================================================
 - (void) stackedView:(MUStackedView *)aStackedView willChangeFromIndex:(NSUInteger)aFromIndex toIndex:(NSUInteger)aToIndex
-{
-    if(firstAppear)
-        return;
-    
+{    
     if([viewControllers count] > 0 && aFromIndex < [viewControllers count])
         [[viewControllers objectAtIndex:aFromIndex] viewWillDisappear:NO];
 
@@ -396,9 +397,6 @@
 {
     if([delegate respondsToSelector:@selector(tabBarController:didSelectViewController:)])
         [delegate tabBarController:self didSelectViewController:[viewControllers objectAtIndex:aToIndex]];
-
-    if(firstAppear)
-        return;
 
     if([viewControllers count] > 0 && aFromIndex < [viewControllers count])
         [[viewControllers objectAtIndex:aFromIndex] viewDidDisappear:NO];

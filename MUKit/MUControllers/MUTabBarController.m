@@ -58,7 +58,7 @@
 
 - (CGRect) getContentFrame;
 - (void) setupControllers;
-
+- (void) correctForNavigationController:(UIViewController**)vc;
 @end
 
 //==============================================================================
@@ -265,6 +265,20 @@
 }
 
 //==============================================================================
+- (void) correctForNavigationController:(UIViewController**)vc
+{
+    if([*vc isKindOfClass:[UINavigationController class]])
+    {
+        if([[(UINavigationController*)(*vc) viewControllers] count] > 0)
+            *vc = [[(UINavigationController*)(*vc) viewControllers] objectAtIndex:0];
+        else
+        {
+            NSAssert(NO, @"NAvigation controller without root controller!");
+        }
+    }
+}
+
+//==============================================================================
 - (void) setupControllers
 {
     CGSize tabBarItemFullSize = CGSizeMake(tabBar.bounds.size.width / [viewControllers count], tabBar.bounds.size.height);
@@ -283,16 +297,18 @@
 
         [stackedView addStackedSubview:vc.view];
         
-        if([vc isKindOfClass:[UINavigationController class]])
-        {
-            if([[(UINavigationController*)vc viewControllers] count] > 0)
-                vc = [[(UINavigationController*)vc viewControllers] objectAtIndex:0];
-            else
-            {
-                NSAssert(NO, @"NAvigation controller without root controller!");
-                continue;
-            }
-        }
+        [self correctForNavigationController:&vc];
+        
+//        if([vc isKindOfClass:[UINavigationController class]])
+//        {
+//            if([[(UINavigationController*)vc viewControllers] count] > 0)
+//                vc = [[(UINavigationController*)vc viewControllers] objectAtIndex:0];
+//            else
+//            {
+//                NSAssert(NO, @"NAvigation controller without root controller!");
+//                continue;
+//            }
+//        }
         
         // get tabBarItem
         NSAssert([vc conformsToProtocol:@protocol(MUTabBarItemProtocol)], @"View controller must implement protocol MUTabBarItemProtocol!");
@@ -339,6 +355,8 @@
     
     tabBar.items = tabs;
     
+    UIViewController* vc = [viewControllers objectAtIndex:selectedIndex];
+    [self addChildViewController:vc];
     [self setSelectedIndex:selectedIndex];
 }
 
@@ -385,11 +403,11 @@
 //==============================================================================
 - (void) stackedView:(MUStackedView *)aStackedView willChangeFromIndex:(NSUInteger)aFromIndex toIndex:(NSUInteger)aToIndex
 {    
-    if([viewControllers count] > 0 && aFromIndex < [viewControllers count])
-        [[viewControllers objectAtIndex:aFromIndex] viewWillDisappear:NO];
-
-    if([viewControllers count] > 0 && aToIndex < [viewControllers count])
-        [[viewControllers objectAtIndex:aToIndex] viewWillAppear:NO];
+//    if([viewControllers count] > 0 && aFromIndex < [viewControllers count])
+//        [[viewControllers objectAtIndex:aFromIndex] viewWillDisappear:NO];
+//
+//    if([viewControllers count] > 0 && aToIndex < [viewControllers count])
+//        [[viewControllers objectAtIndex:aToIndex] viewWillAppear:NO];
 }
 
 //==============================================================================
@@ -398,10 +416,10 @@
     if([delegate respondsToSelector:@selector(tabBarController:didSelectViewController:)])
         [delegate tabBarController:self didSelectViewController:[viewControllers objectAtIndex:aToIndex]];
 
-    if([viewControllers count] > 0 && aFromIndex < [viewControllers count])
-        [[viewControllers objectAtIndex:aFromIndex] viewDidDisappear:NO];
-    if([viewControllers count] > 0 && aToIndex < [viewControllers count])
-        [[viewControllers objectAtIndex:aToIndex] viewDidAppear:NO];
+//    if([viewControllers count] > 0 && aFromIndex < [viewControllers count])
+//        [[viewControllers objectAtIndex:aFromIndex] viewDidDisappear:NO];
+//    if([viewControllers count] > 0 && aToIndex < [viewControllers count])
+//        [[viewControllers objectAtIndex:aToIndex] viewDidAppear:NO];
 
 }
 

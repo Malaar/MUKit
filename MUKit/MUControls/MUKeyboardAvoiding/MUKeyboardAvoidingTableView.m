@@ -29,12 +29,19 @@
 - (CGFloat)idealOffsetForView:(UIView *)view withSpace:(CGFloat)space;
 - (CGRect)keyboardRect;
 
+- (void) createToolbar;
+- (void) deleteToolbar;
+- (void) setInputAccessoryView:(UIView*)accessoryView;
+
 @end
 
 //==============================================================================
 //==============================================================================
 //==============================================================================
 @implementation MUKeyboardAvoidingTableView
+
+@synthesize keyboardToolbar = keyboardToolbar;
+@synthesize keyboardToolbarShow;
 
 #pragma mark - Init/Dealloc
 //==============================================================================
@@ -75,9 +82,9 @@
 {
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidHide:) name:UIKeyboardDidHideNotification object:nil];
     
     _objectsInKeyboard = [NSMutableArray new];
+    [self createToolbar];
 }
 
 //==============================================================================
@@ -120,26 +127,26 @@
 //==============================================================================
 - (void)keyboardWillShow:(NSNotification*)notification 
 {
-    _keyboardRect = [[[notification userInfo] objectForKey:_UIKeyboardFrameEndUserInfoKey] CGRectValue];
-    _keyboardVisible = YES;
-    
-    UIView *firstResponder = [self findFirstResponderBeneathView:self];
-    if ( !firstResponder ) 
+    if (!_keyboardVisible)
     {
-        return;
-    }
-    
-    _priorInset = self.contentInset;
-    
-    self.contentInset = [self contentInsetForKeyboard];
+        _keyboardRect = [[[notification userInfo] objectForKey:_UIKeyboardFrameEndUserInfoKey] CGRectValue];
+        _keyboardVisible = YES;
         
-    [self adjustOffset];
-}
-
-//==============================================================================
-- (void)keyboardDidHide:(NSNotification*)notification 
-{
-    
+        UIView *firstResponder = [self findFirstResponderBeneathView:self];
+        if ( !firstResponder ) 
+        {
+            return;
+        }
+        
+        _selectIndexInputField = [_objectsInKeyboard indexOfObject:firstResponder];
+        _priorInset = self.contentInset;
+        
+        [keyboardToolbar selectedInputFieldIndex:_selectIndexInputField allCountInputFields:[_objectsInKeyboard count]];
+        
+        self.contentInset = [self contentInsetForKeyboard];
+        
+        [self adjustOffset];
+    }
 }
 
 //==============================================================================
@@ -147,6 +154,7 @@
 {
     _keyboardRect = CGRectZero;
     _keyboardVisible = NO;
+    _selectIndexInputField = 0; 
     
     _keyboardRect = [[[notification userInfo] objectForKey:_UIKeyboardFrameEndUserInfoKey] CGRectValue];
     CGFloat duration = [[[notification userInfo] objectForKey:UIKeyboardAnimationDurationUserInfoKey] floatValue];
@@ -180,7 +188,7 @@
 {
     UIEdgeInsets newInset = self.contentInset;
     CGRect keyboardRect = [self keyboardRect];
-    newInset.bottom = keyboardRect.size.height - ((keyboardRect.origin.y+keyboardRect.size.height) - (self.bounds.origin.y+self.bounds.size.height)) + 44;
+    newInset.bottom = keyboardRect.size.height - ((keyboardRect.origin.y+keyboardRect.size.height) - (self.bounds.origin.y+self.bounds.size.height));
     return newInset;
 }
 
@@ -270,6 +278,10 @@
     {
         if ([obj conformsToProtocol:@protocol(UITextInputTraits)]) 
         {
+            if ([obj respondsToSelector:@selector(inputAccessoryView)] && keyboardToolbar)
+            {
+                [obj setInputAccessoryView: keyboardToolbar];
+            }
             [self addObjectForKeyboard:obj];
         }
         else
@@ -285,12 +297,119 @@
     NSInteger index = [_objectsInKeyboard indexOfObject:aResponder];
     if (index >= 0 && index < [_objectsInKeyboard count] - 1) 
     {
-        [[_objectsInKeyboard objectAtIndex:index + 1] becomeFirstResponder];
+        _selectIndexInputField = index + 1;
+        [[_objectsInKeyboard objectAtIndex:_selectIndexInputField] becomeFirstResponder];
+        [keyboardToolbar selectedInputFieldIndex:_selectIndexInputField allCountInputFields:[_objectsInKeyboard count]];
     } 
     else
     {
+        _selectIndexInputField = 0;
         [aResponder resignFirstResponder];
     }
 }
 
+#pragma mark - MUKeyboardToolbarProtocol
+//==============================================================================
+- (void) didDoneButtonPressd
+{
+    [self hideKeyBoard];
+}
+
+//==============================================================================
+- (void) didNextButtonPressd
+{
+    if (_selectIndexInputField < [_objectsInKeyboard count] - 1) 
+    {
+        _selectIndexInputField ++;
+        [[_objectsInKeyboard objectAtIndex:_selectIndexInputField] becomeFirstResponder];
+        [keyboardToolbar selectedInputFieldIndex:_selectIndexInputField allCountInputFields:[_objectsInKeyboard count]];
+    }
+    else
+    {
+        [self hideKeyBoard];
+    }
+}
+
+//==============================================================================
+- (void) didPrevButtonPressd
+{
+    if (_selectIndexInputField >= 1) 
+    {
+        _selectIndexInputField --;
+        id inputField = [_objectsInKeyboard objectAtIndex:_selectIndexInputField];
+        if ([inputField isKindOfClass:[UIResponder class]])
+        {
+            if (![inputField becomeFirstResponder])
+            {
+                if (_keyboardVisible) 
+                {
+                    CGFloat visibleSpace = self.bounds.size.height - self.contentInset.top - self.contentInset.bottom;                    
+                    CGPoint idealOffset = CGPointMake(0, [self idealOffsetForView:inputField withSpace:visibleSpace]); 
+                    [self setContentOffset:idealOffset animated:YES];
+                }
+            }
+        }
+        [keyboardToolbar selectedInputFieldIndex:_selectIndexInputField allCountInputFields:[_objectsInKeyboard count]];
+    }
+    else
+    {
+        [self hideKeyBoard];
+    }
+}
+
+#pragma mark - Setting Toolbar
+//==============================================================================
+- (void) setKeyboardToolbarShow:(BOOL)aKeyboardToolbarShow
+{
+    keyboardToolbarShow = aKeyboardToolbarShow;
+    if (keyboardToolbarShow)
+    {
+        [self createToolbar];
+    }
+    else
+    {
+        [self deleteToolbar];
+    }
+}
+
+//==============================================================================
+- (void) createToolbar
+{
+    keyboardToolbar = [[MUKeyboardToolbar alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, 44.f)];
+    keyboardToolbar.delegate = self;
+    [self setInputAccessoryView:keyboardToolbar];
+}
+
+//==============================================================================
+- (void) deleteToolbar
+{
+    [keyboardToolbar release];
+    keyboardToolbar = nil;
+}
+
+//==============================================================================
+- (void) setInputAccessoryView:(UIView*)accessoryView
+{
+    for (id obj in _objectsInKeyboard)
+    {
+        if ([obj respondsToSelector:@selector(setInputAccessoryView:)])
+        {
+            [obj setInputAccessoryView: keyboardToolbar];
+        }
+    }
+}
+
 @end
+
+
+
+
+
+
+
+
+
+
+
+
+

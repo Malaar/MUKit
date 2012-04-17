@@ -86,6 +86,8 @@
     NSMutableArray *sectionThit = [NSMutableArray array];
     tableViewCells = [[NSMutableArray alloc] initWithObjects:sectionFirst, sectionSecond, sectionThit, nil];
     
+    ((MUKeyboardAvoidingTableView*)tableView).keyboardToolbarShow = YES;
+    
     // create cells and textfields
     UITableViewCell *cell = nil;
  
@@ -180,6 +182,7 @@
     validator.errorMessage = @"Letters!!!";
     tf_06.placeholder = @"Enter Letters";
     tf_06.validator = validator;
+    tf_06.inputView = [[[UIDatePicker alloc] init] autorelease];
     
     validator = [[[MUValidatorNumber alloc] init] autorelease];
     validator.errorMessage = @"Number!!!";
@@ -318,19 +321,6 @@
 }
 
 #pragma mark - UITextFieldDelegate
-//==============================================================================
-- (void)textFieldDidBeginEditing:(UITextField *)textField
-{
-    [((MUKeyboardAvoidingTableView*)tableView) adjustOffset];
-}
-
-//==============================================================================
-- (BOOL)textFieldShouldReturn:(UITextField *)textField
-{
-    [((MUKeyboardAvoidingTableView*)tableView) responderShouldReturn:textField];
-    return YES;
-}
-
 //==============================================================================
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {

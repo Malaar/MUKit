@@ -80,6 +80,7 @@
 		02BDB7F4152604EF00764326 /* MUTableDisposerRequested.m in Sources */ = {isa = PBXBuildFile; fileRef = 02BDB7F3152604EF00764326 /* MUTableDisposerRequested.m */; };
 		E62CDA57152AF88300DACE8F /* warning_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = E62CDA55152AF88300DACE8F /* warning_icon.png */; };
 		E62CDA58152AF88300DACE8F /* warning_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E62CDA56152AF88300DACE8F /* warning_icon@2x.png */; };
+		E6337FDC153C6BE500EFBD6F /* MUKeyboardToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = E6337FDB153C6BE500EFBD6F /* MUKeyboardToolbar.m */; };
 		E64AA45F152306F70087B49E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E64AA45E152306F70087B49E /* UIKit.framework */; };
 		E64AA461152306F70087B49E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E64AA460152306F70087B49E /* Foundation.framework */; };
 		E64AA463152306F70087B49E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E64AA462152306F70087B49E /* CoreGraphics.framework */; };
@@ -285,6 +286,8 @@
 		DB4464FCC8654B77A686DF9C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		E62CDA55152AF88300DACE8F /* warning_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = warning_icon.png; sourceTree = "<group>"; };
 		E62CDA56152AF88300DACE8F /* warning_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "warning_icon@2x.png"; sourceTree = "<group>"; };
+		E6337FDA153C6BE500EFBD6F /* MUKeyboardToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUKeyboardToolbar.h; sourceTree = "<group>"; };
+		E6337FDB153C6BE500EFBD6F /* MUKeyboardToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUKeyboardToolbar.m; sourceTree = "<group>"; };
 		E64AA45A152306F70087B49E /* MUKitTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MUKitTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E64AA45E152306F70087B49E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		E64AA460152306F70087B49E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -547,6 +550,8 @@
 			isa = PBXGroup;
 			children = (
 				025A6254152F17FC00E49856 /* MUKeyboardAvoidingProtocol.h */,
+				E6337FDA153C6BE500EFBD6F /* MUKeyboardToolbar.h */,
+				E6337FDB153C6BE500EFBD6F /* MUKeyboardToolbar.m */,
 				025A6255152F17FC00E49856 /* MUKeyboardAvoidingScrollView.h */,
 				025A6256152F17FC00E49856 /* MUKeyboardAvoidingScrollView.m */,
 				025A6257152F17FC00E49856 /* MUKeyboardAvoidingTableView.h */,
@@ -1164,6 +1169,7 @@
 				025A62C4152F17FD00E49856 /* MUTableViewCell2Half.m in Sources */,
 				025A62C5152F17FD00E49856 /* MUToolbar.m in Sources */,
 				02AF8F6315305506005B8AED /* MUTabBarController.m in Sources */,
+				E6337FDC153C6BE500EFBD6F /* MUKeyboardToolbar.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,14 +9,18 @@
 
 #import <UIKit/UIKit.h>
 #import "MUKeyboardAvoidingProtocol.h"
+#import "MUKeyboardToolbar.h"
 
-@interface MUKeyboardAvoidingScrollView : UIScrollView <MUKeyboardAvoidingProtocol>
+@interface MUKeyboardAvoidingScrollView : UIScrollView <MUKeyboardAvoidingProtocol, MUKeyboardToolbarProtocol>
 {
     UIEdgeInsets    _priorInset;
     BOOL            _keyboardVisible;
     CGRect          _keyboardRect;
     CGSize          _originalContentSize;
     NSMutableArray *_objectsInKeyboard;
+    
+    NSUInteger _selectIndexInputField;    
+    MUKeyboardToolbar *keyboardToolbar;
 }
 
 @end

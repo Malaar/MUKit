@@ -536,6 +536,12 @@
     {
         [((MUKeyboardAvoidingTableView*)tableView) removeAllObjectForKeyboard];
     }
+    
+    for(MUSectionReadonly* section in sections)
+    {
+        [section updateCellDataVisibility];
+    }
+    
     [tableView reloadData];
 }
 

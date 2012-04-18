@@ -196,7 +196,7 @@
         result = [textView.inputTextFilter filterText:textView shouldChangeCharactersInRange:range replacementString:text];
     }
     
-    if([holded.mudelegate respondsToSelector:@selector(textFieldShouldBeginEditing:)])
+    if([holded.mudelegate respondsToSelector:@selector(textView:shouldChangeTextInRange:replacementText:)])
         result = [holded.mudelegate textView:textView shouldChangeTextInRange:range replacementText:text];
     
     return result;

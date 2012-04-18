@@ -102,7 +102,7 @@
         UIImage* bgImage = [self backgroundImageForState:UIControlStateNormal];
 
         UIFont* font = self.titleLabel.font;
-        [self setTitleName:title image:bgImage imageCapSize:ImageCapSizeNone() titleOffset:TitleOffsetForNavBack()];
+        [self setTitleName:title image:bgImage imageCapSize:ImageCapSizeNone() titleOffset:TitleOffsetDefault()];
         [self setupFont:font];
     }
     return self;

@@ -191,7 +191,7 @@
 {
     BOOL result = YES;
     
-    if (textView) 
+    if (textView.inputTextFilter) 
     {
         result = [textView.inputTextFilter filterText:textView shouldChangeCharactersInRange:range replacementString:text];
     }

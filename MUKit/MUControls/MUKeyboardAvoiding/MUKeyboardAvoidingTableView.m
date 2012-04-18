@@ -385,6 +385,7 @@
 {
     [keyboardToolbar release];
     keyboardToolbar = nil;
+    [self setInputAccessoryView:keyboardToolbar];
 }
 
 //==============================================================================

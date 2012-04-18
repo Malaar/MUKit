@@ -151,7 +151,18 @@ BOOL canBeInputByPhonePad(char c)
 {
     if( (self = [super init]) )
     {
-        testedObject = [aTestedObject retain];
+        testedValidator = [[aTestedObject validator] retain];
+    }
+    
+    return self;
+}
+
+//==============================================================================
+- (id) initWithTestedFieldValidator:(MUValidator *)aTestedValidator
+{
+    if( (self = [super init]) )
+    {
+        testedValidator = [aTestedValidator retain];
     }
     
     return self;
@@ -160,7 +171,7 @@ BOOL canBeInputByPhonePad(char c)
 //==============================================================================
 - (void) dealloc
 {
-    [testedObject release];
+    [testedValidator release];
     
     [super dealloc];
 }
@@ -169,7 +180,7 @@ BOOL canBeInputByPhonePad(char c)
 - (BOOL) validate
 {
     validatableObject.validatableText = [validatableObject.validatableText stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-    return [validatableObject.validatableText isEqualToString:testedObject.validatableText];
+    return [validatableObject.validatableText isEqualToString:testedValidator.validatableObject.validatableText];
 }
 
 @end

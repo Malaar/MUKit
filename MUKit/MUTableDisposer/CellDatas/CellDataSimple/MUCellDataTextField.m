@@ -22,6 +22,7 @@
 @synthesize returnKeyType;
 
 @synthesize validator;
+@synthesize inputFilter;
 
 #pragma mark - Init/Dealloc
 //==============================================================================
@@ -48,6 +49,7 @@
     [placeholder release];
     [placeholderColor release];
     [validator release];
+    [inputFilter release];
     
     [super dealloc];
 }

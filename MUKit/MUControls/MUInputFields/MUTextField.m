@@ -35,6 +35,7 @@
 @synthesize validatableText;
 @synthesize mudelegate;
 @synthesize keyboardAvoiding;
+@synthesize inputTextFilter;
 
 #pragma mark - Init/Dealloc
 //==========================================================================================
@@ -74,6 +75,7 @@
 {
     [delegateHolder release];
     [validator release];
+    [inputTextFilter release];
     
     [super dealloc];
 }
@@ -184,9 +186,11 @@
 }
 
 //==========================================================================================
-- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+- (BOOL)textField:(MUTextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
     BOOL result = YES;
+    if (textField.inputTextFilter)
+        result = [textField.inputTextFilter filterText:textField shouldChangeCharactersInRange:range replacementString:string];
     
     if([holded.mudelegate respondsToSelector:@selector(textField:shouldChangeCharactersInRange:replacementString:)])
         result = [holded.mudelegate textField:textField shouldChangeCharactersInRange:range replacementString:string];

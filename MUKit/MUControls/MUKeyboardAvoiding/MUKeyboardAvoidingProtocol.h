@@ -7,10 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "MUKeyboardToolbar.h"
 
 @protocol MUKeyboardAvoiderProtocol;
 
 @protocol MUKeyboardAvoidingProtocol <NSObject>
+
+@property (nonatomic, readonly) MUKeyboardToolbar *keyboardToolbar;
+@property (nonatomic, assign) BOOL keyboardToolbarShow;
 
 - (void)adjustOffset;
 - (void)hideKeyBoard;

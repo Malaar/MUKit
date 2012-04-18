@@ -10,7 +10,6 @@
 #import "MUKit.h"
 #import "MUKeyboardAvoidingScrollController.h"
 #import "MUKeyboardAvoidingTableController.h"
-#import "HalfCellTestController.h"
 #import "TableViewWithMapedCells.h"
 #import "MUSwitchController.h"
 
@@ -78,13 +77,6 @@
 - (IBAction)showKeyboardAvoidingTableView:(id)sender 
 {
     MUKeyboardAvoidingTableController *vc = [[MUKeyboardAvoidingTableController new] autorelease];
-    [self.navigationController pushViewController:vc animated:YES];
-}
-
-//==============================================================================
-- (IBAction)showHalfCellTestController:(id)sender 
-{
-    HalfCellTestController *vc = [[HalfCellTestController new] autorelease];
     [self.navigationController pushViewController:vc animated:YES];
 }
 

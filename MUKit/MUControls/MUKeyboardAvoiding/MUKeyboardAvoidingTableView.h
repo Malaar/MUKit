@@ -9,13 +9,17 @@
 
 #import <UIKit/UIKit.h>
 #import "MUKeyboardAvoidingProtocol.h"
+#import "MUKeyboardToolbar.h"
 
-@interface MUKeyboardAvoidingTableView : UITableView <MUKeyboardAvoidingProtocol>
+@interface MUKeyboardAvoidingTableView : UITableView <MUKeyboardAvoidingProtocol, MUKeyboardToolbarProtocol>
 {
     UIEdgeInsets    _priorInset;
     BOOL            _keyboardVisible;
     CGRect          _keyboardRect;
     NSMutableArray *_objectsInKeyboard;
+    
+    NSUInteger _selectIndexInputField;    
+    MUKeyboardToolbar *keyboardToolbar;
 }
 
 @end

@@ -8,6 +8,7 @@
 
 #import "MUCellDataTextPair.h"
 #import "MUValidator.h"
+#import "MUInputTextFilter.h"
 
 
 @interface MUCellDataTextView : MUCellDataTextPair
@@ -21,5 +22,6 @@
 @property (nonatomic, assign) UIReturnKeyType returnKeyType;                         ///< default is UIReturnKeyDefault
 
 @property (nonatomic, retain) MUValidator *validator;
+@property (nonatomic, retain) MUInputFilter *inputFilter;
 
 @end

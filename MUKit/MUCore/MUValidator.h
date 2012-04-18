@@ -95,10 +95,11 @@ NSString* getOnlyNumbers(NSString *phoneNumber);
 /// return YES if current value equal with value of aTestedField
 @interface MUValidatorEqual : MUValidator
 {
-    id<MUValidationProtocol> testedObject;
+    MUValidator *testedValidator;
 }
 
 - (id) initWithTestedField:(id<MUValidationProtocol>)aTestedObject;
+- (id) initWithTestedFieldValidator:(MUValidator *)aTestedValidator;
 
 @end
 

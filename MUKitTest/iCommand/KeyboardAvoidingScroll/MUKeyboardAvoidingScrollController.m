@@ -48,7 +48,6 @@
     [tf_06 release];
     [tf_07 release];
     [tf_08 release];
-//    [scrollView release];
     [validationGroup release];
     [tf_09 release];
     [tf_10 release];
@@ -110,8 +109,8 @@
     tf_10.validator = validator;
     
     [((MUKeyboardAvoidingScrollView*)scrollView) addObjectsForKeyboard:[NSArray arrayWithObjects:tf_01, tf_02, tf_03, tf_04, tf_05, tf_06, tf_07, tf_08, tf_09, tf_10, nil]];
-//    validationGroup = [[MUValidationGroup alloc] initWithValidators:[NSArray arrayWithObjects:[tf_01 validator], [tf_02 validator], [tf_03 validator], tf_04.validator, tf_05.validator, tf_06.validator, tf_07.validator, tf_08.validator, tf_09.validator, tf_10.validator, nil]];
-//    validationGroup.invalidIndicatorImage = [UIImage imageNamed:@"warning_icon"];
+    validationGroup = [[MUValidationGroup alloc] initWithValidators:[NSArray arrayWithObjects:[tf_01 validator], [tf_02 validator], [tf_03 validator], tf_04.validator, tf_05.validator, tf_06.validator, tf_07.validator, tf_08.validator, tf_09.validator, tf_10.validator, nil]];
+    validationGroup.invalidIndicatorImage = [UIImage imageNamed:@"warning_icon"];
     [super viewDidLoad];
 }
 
@@ -170,20 +169,6 @@
     }
     
     [self showAlertViewWithTitle:alertTitle message:alertText delegate:nil cancelButtonTitle:@"OK" otherButtonTitle:nil];
-}
-
-#pragma mark - UITextFieldDelegate
-//==============================================================================
-- (void)textFieldDidBeginEditing:(UITextField *)textField
-{
-    [((MUKeyboardAvoidingScrollView*)scrollView) adjustOffset];
-}
-
-//==============================================================================
-- (BOOL)textFieldShouldReturn:(UITextField *)textField
-{
-    [((MUKeyboardAvoidingScrollView*)scrollView) responderShouldReturn:textField];
-    return YES;
 }
 
 @end

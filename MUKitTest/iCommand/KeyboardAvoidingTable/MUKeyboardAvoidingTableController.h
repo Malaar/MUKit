@@ -14,7 +14,7 @@
 @class MUCreditCardNumberFormatter;
 @class MUPhoneNumberFormatter;
 
-@interface MUKeyboardAvoidingTableController : MUBaseTableController <UITextFieldDelegate>
+@interface MUKeyboardAvoidingTableController : MUBaseTableController
 {
     MUValidationGroup *validationGroup;
     NSMutableArray *tableViewCells;

@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "MUValidator.h"
 #import "MUKeyboardAvoiderProtocol.h"
+#import "MUInputTextFilter.h"
 
 @class MUTextField_Holder;
 
@@ -16,8 +17,10 @@
 {
     MUValidator* validator;
     MUTextField_Holder* delegateHolder;
+    MUInputFilter *inputTextFilter;
 }
 
 @property (nonatomic, assign) id<UITextFieldDelegate> mudelegate;
+@property (nonatomic, retain) MUInputFilter *inputTextFilter;
 
 @end

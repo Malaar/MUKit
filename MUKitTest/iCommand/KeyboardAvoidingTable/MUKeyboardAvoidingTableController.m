@@ -177,17 +177,19 @@
     validator.errorMessage = @"Incorrect Code";
     tf_05.placeholder = @"Enter Code (10~15 symbol)";
     tf_05.validator = validator;
+    tf_05.inputTextFilter = [[[MUInputFilterNumbreValueWithMaxLengthText alloc] initWithMaxLengthText:15] autorelease];
     
     validator = [[[MUValidatorLetters alloc] init] autorelease];
     validator.errorMessage = @"Letters!!!";
     tf_06.placeholder = @"Enter Letters";
     tf_06.validator = validator;
-    tf_06.inputView = [[[UIDatePicker alloc] init] autorelease];
+    tf_06.inputTextFilter = [[MUInputFilterLetterValue new] autorelease];
     
     validator = [[[MUValidatorNumber alloc] init] autorelease];
     validator.errorMessage = @"Number!!!";
     tf_07.placeholder = @"Enter Number";
     tf_07.validator = validator;
+    tf_07.inputTextFilter = [[MUInputFilterNumbreValue new] autorelease];
     
     validator = [[[MUValidatorURL alloc] init] autorelease];
     validator.errorMessage = @"Incorrect URL";
@@ -196,13 +198,15 @@
     
     validator = [[[MUValidatorUSAZipCode alloc] init] autorelease];
     validator.errorMessage = @"Incorrect Zip Code";
-    tf_09.placeholder = @"Enter Zipc Code";
+    tf_09.placeholder = @"Enter US Zip Code";
     tf_09.validator = validator;
+    tf_09.inputTextFilter = [[[MUInputFilterNumbreValueWithMaxLengthText alloc] initWithMaxLengthText:5] autorelease];
     
     validator = [[[MUValidatorStringWithRange alloc] initWithRange:NSMakeRange(5,5)] autorelease];
     validator.errorMessage = @"Word len 5~10";
     tf_10.placeholder = @"Enter Word";
     tf_10.validator = validator;
+    tf_10.inputTextFilter = [[[MUInputFilterStringWithMaxLengthText alloc] initWithMaxLengthText:10] autorelease];
     
     validator = [[[MUValidatorIntWithRange alloc] initWithRange:NSMakeRange(16, 4)] autorelease];
     validator.errorMessage = @"Incorrect Card Number!!!";
@@ -264,7 +268,6 @@
     MUTextField *textField = [[[MUTextField alloc] initWithFrame:CGRectMake(10, 0, 300, 40)] autorelease];
     textField.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     textField.autoresizesSubviews = YES;
-    textField.mudelegate = self;
     return textField;
 }
 
@@ -318,22 +321,6 @@
 -(UITableViewCell*)tableView:(UITableView *)aTableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return [[tableViewCells objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
-}
-
-#pragma mark - UITextFieldDelegate
-//==============================================================================
-- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
-{
-    BOOL result = YES;
-    if (textField.tag == tag_card_number_text_field)
-    {
-        result = [creditCardNumberFormatter cardFormatForTextField:textField shouldChangeCharactersInRange:range replacementString:string separatorString:@" "];
-    }
-    else if (textField.tag == tag_phone_number_text_field)
-    {
-        result = [phoneNumberFormatter phoneFormatForTextField:textField shouldChangeCharactersInRange:range replacementString:string withLocale:@"us"];
-    }
-    return result;
 }
 
 @end

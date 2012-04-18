@@ -77,35 +77,13 @@
 						<string key="NSFrame">{{10, 47}, {300, 35}}</string>
 						<reference key="NSSuperview" ref="774585933"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="143509263"/>
+						<reference key="NSNextKeyView"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<int key="IBUIContentHorizontalAlignment">0</int>
 						<int key="IBUIContentVerticalAlignment">0</int>
 						<int key="IBUIButtonType">1</int>
 						<string key="IBUINormalTitle">MUKeyboardAvoidingTableView</string>
-						<reference key="IBUIHighlightedTitleColor" ref="79246973"/>
-						<object class="NSColor" key="IBUINormalTitleColor">
-							<int key="NSColorSpace">1</int>
-							<bytes key="NSRGB">MC4xOTYwNzg0MzQ2IDAuMzA5ODAzOTMyOSAwLjUyMTU2ODY1NgA</bytes>
-						</object>
-						<reference key="IBUINormalTitleShadowColor" ref="189390572"/>
-						<reference key="IBUIFontDescription" ref="25460880"/>
-						<reference key="IBUIFont" ref="625901813"/>
-					</object>
-					<object class="IBUIButton" id="143509263">
-						<reference key="NSNextResponder" ref="774585933"/>
-						<int key="NSvFlags">295</int>
-						<string key="NSFrame">{{10, 90}, {300, 35}}</string>
-						<reference key="NSSuperview" ref="774585933"/>
-						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="474465574"/>
-						<bool key="IBUIOpaque">NO</bool>
-						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-						<int key="IBUIContentHorizontalAlignment">0</int>
-						<int key="IBUIContentVerticalAlignment">0</int>
-						<int key="IBUIButtonType">1</int>
-						<string key="IBUINormalTitle">HalfCellTestController</string>
 						<reference key="IBUIHighlightedTitleColor" ref="79246973"/>
 						<object class="NSColor" key="IBUINormalTitleColor">
 							<int key="NSColorSpace">1</int>
@@ -128,7 +106,7 @@
 					<object class="IBUIButton" id="474465574">
 						<reference key="NSNextResponder" ref="774585933"/>
 						<int key="NSvFlags">295</int>
-						<string key="NSFrame">{{10, 133}, {300, 37}}</string>
+						<string key="NSFrame">{{10, 87}, {300, 37}}</string>
 						<reference key="NSSuperview" ref="774585933"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="683210156"/>
@@ -220,15 +198,6 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
-						<string key="label">showHalfCellTestController:</string>
-						<reference key="source" ref="143509263"/>
-						<reference key="destination" ref="372490531"/>
-						<int key="IBEventType">7</int>
-					</object>
-					<int key="connectionID">15</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchEventConnection" key="connection">
 						<string key="label">showTableDisposerController:</string>
 						<reference key="source" ref="474465574"/>
 						<reference key="destination" ref="372490531"/>
@@ -271,7 +240,6 @@
 						<array class="NSMutableArray" key="children">
 							<reference ref="630222008"/>
 							<reference ref="849742732"/>
-							<reference ref="143509263"/>
 							<reference ref="683210156"/>
 							<reference ref="474465574"/>
 							<reference ref="458275499"/>
@@ -286,11 +254,6 @@
 					<object class="IBObjectRecord">
 						<int key="objectID">10</int>
 						<reference key="object" ref="630222008"/>
-						<reference key="parent" ref="774585933"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">13</int>
-						<reference key="object" ref="143509263"/>
 						<reference key="parent" ref="774585933"/>
 					</object>
 					<object class="IBObjectRecord">
@@ -316,7 +279,6 @@
 				<string key="-2.CustomClassName">UIResponder</string>
 				<string key="-2.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="10.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-				<string key="13.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="16.CustomClassName">MUImageViewTapable</string>
 				<string key="16.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="18.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
@@ -344,17 +306,12 @@
 					<string key="className">MURootControllerIPhone</string>
 					<string key="superclassName">UIViewController</string>
 					<dictionary class="NSMutableDictionary" key="actions">
-						<string key="showHalfCellTestController:">id</string>
 						<string key="showKeyboardAvoidingScrollView:">id</string>
 						<string key="showKeyboardAvoidingTableView:">id</string>
 						<string key="showTableDisposerController:">id</string>
 						<string key="switchController:">id</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="actionInfosByName">
-						<object class="IBActionInfo" key="showHalfCellTestController:">
-							<string key="name">showHalfCellTestController:</string>
-							<string key="candidateClassName">id</string>
-						</object>
 						<object class="IBActionInfo" key="showKeyboardAvoidingScrollView:">
 							<string key="name">showKeyboardAvoidingScrollView:</string>
 							<string key="candidateClassName">id</string>

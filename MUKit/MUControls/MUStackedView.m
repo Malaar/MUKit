@@ -163,6 +163,7 @@
     currentView = aStackedSubview;
     currentView.hidden = NO;
     [self addSubview:currentView];
+    currentView.frame = self.bounds;
 
     currentIndex = toIndex;
 

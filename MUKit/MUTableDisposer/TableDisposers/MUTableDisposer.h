@@ -52,10 +52,12 @@
 - (NSIndexPath*) indexPathByCellData:(MUCellData*)aCellData;
 - (NSIndexPath*) indexPathByVisibleCellData:(MUCellData*)aCellData;
 - (MUCellData*) cellDataByIndexPath:(NSIndexPath*)anIndexPath;
+- (MUCellData*) visibleCellDataByIndexPath:(NSIndexPath*)anIndexPath;
 
 - (void) hideCellByIndexPath:(NSIndexPath*)anIndexPath needUpdateTable:(BOOL)aNeedUpdateTable;
 - (void) showCellByIndexPath:(NSIndexPath*)anIndexPath needUpdateTable:(BOOL)aNeedUpdateTable;
 
-- (void) reloadWithAnimation:(UITableViewRowAnimation)anAnimation;
+- (void) reloadData;
+- (void) reloadSectionsWithAnimation:(UITableViewRowAnimation)anAnimation;
 
 @end

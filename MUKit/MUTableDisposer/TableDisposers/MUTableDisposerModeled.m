@@ -64,7 +64,7 @@
         }
     }
 
-    [aSection reloadWithAnimation:UITableViewRowAnimationMiddle];
+//    [aSection reloadWithAnimation:UITableViewRowAnimationMiddle];
 }
 
 @end

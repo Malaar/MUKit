@@ -7,6 +7,7 @@
 //
 
 #import "MUTableDisposer.h"
+#import "MUKeyboardAvoidingTableView.h"
 
 
 //==============================================================================
@@ -167,6 +168,12 @@
 - (MUCellData*) cellDataByIndexPath:(NSIndexPath*)anIndexPath
 {
     return [[self sectionByIndex:anIndexPath.section] cellDataAtIndex:anIndexPath.row];
+}
+
+//==============================================================================
+- (MUCellData*) visibleCellDataByIndexPath:(NSIndexPath*)anIndexPath
+{
+    return [[self sectionByIndex:anIndexPath.section] visibleCellDataAtIndex:anIndexPath.row];
 }
 
 //==============================================================================
@@ -529,7 +536,23 @@
 }
 
 //==============================================================================
-- (void) reloadWithAnimation:(UITableViewRowAnimation)anAnimation
+- (void) reloadData
+{
+    if([tableView isKindOfClass:[MUKeyboardAvoidingTableView class]])
+    {
+        [((MUKeyboardAvoidingTableView*)tableView) removeAllObjectForKeyboard];
+    }
+    
+    for(MUSectionReadonly* section in sections)
+    {
+        [section updateCellDataVisibility];
+    }
+    
+    [tableView reloadData];
+}
+
+//==============================================================================
+- (void) reloadSectionsWithAnimation:(UITableViewRowAnimation)anAnimation
 {
     for(MUSectionReadonly* section in sections)
     {

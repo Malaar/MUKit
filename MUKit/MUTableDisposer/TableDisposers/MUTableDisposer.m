@@ -164,6 +164,12 @@
 }
 
 //==============================================================================
+- (MUCellData*) visibleCellDataByIndexPath:(NSIndexPath*)anIndexPath
+{
+    return [[self sectionByIndex:anIndexPath.section] visibleCellDataAtIndex:anIndexPath.row];
+}
+
+//==============================================================================
 - (void) hideCellByIndexPath:(NSIndexPath*)anIndexPath needUpdateTable:(BOOL)aNeedUpdateTable
 {
     MUSectionReadonly* section = [self sectionByIndex:anIndexPath.section];

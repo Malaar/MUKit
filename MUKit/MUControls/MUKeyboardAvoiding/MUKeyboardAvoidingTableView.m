@@ -84,7 +84,8 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
     
     _objectsInKeyboard = [NSMutableArray new];
-    [self createToolbar];
+    if (keyboardToolbarShow)
+        [self createToolbar];
 }
 
 //==============================================================================

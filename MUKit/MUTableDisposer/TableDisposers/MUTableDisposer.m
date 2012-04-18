@@ -118,6 +118,12 @@
 }
 
 //==============================================================================
+- (NSUInteger) sectionsCount
+{
+    return [sections count];
+}
+
+//==============================================================================
 - (NSIndexPath*) indexPathByCellData:(MUCellData*)aCellData
 {
     NSIndexPath* result = nil;

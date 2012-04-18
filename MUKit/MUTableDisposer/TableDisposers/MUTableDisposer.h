@@ -47,6 +47,7 @@
 - (void) removeAllSections;
 - (MUSectionReadonly*) sectionByIndex:(NSUInteger)anIndex;
 - (NSUInteger) indexBySection:(MUSectionReadonly*)aSection;
+- (NSUInteger) sectionsCount;
 
 - (NSIndexPath*) indexPathByCellData:(MUCellData*)aCellData;
 - (NSIndexPath*) indexPathByVisibleCellData:(MUCellData*)aCellData;

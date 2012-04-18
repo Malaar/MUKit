@@ -398,6 +398,12 @@
     }
 }
 
+//==============================================================================
+- (void) removeAllObjectForKeyboard
+{
+    [_objectsInKeyboard removeAllObjects];
+}
+
 @end
 
 

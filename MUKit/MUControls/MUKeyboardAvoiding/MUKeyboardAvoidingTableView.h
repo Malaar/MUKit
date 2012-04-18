@@ -22,4 +22,6 @@
     MUKeyboardToolbar *keyboardToolbar;
 }
 
+- (void) removeAllObjectForKeyboard;
+
 @end

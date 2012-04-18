@@ -7,6 +7,7 @@
 //
 
 #import "MUTableDisposer.h"
+#import "MUKeyboardAvoidingTableView.h"
 
 
 //==============================================================================
@@ -529,7 +530,17 @@
 }
 
 //==============================================================================
-- (void) reloadWithAnimation:(UITableViewRowAnimation)anAnimation
+- (void) reloadData
+{
+    if([tableView isKindOfClass:[MUKeyboardAvoidingTableView class]])
+    {
+        [((MUKeyboardAvoidingTableView*)tableView) removeAllObjectForKeyboard];
+    }
+    [tableView reloadData];
+}
+
+//==============================================================================
+- (void) reloadSectionsWithAnimation:(UITableViewRowAnimation)anAnimation
 {
     for(MUSectionReadonly* section in sections)
     {

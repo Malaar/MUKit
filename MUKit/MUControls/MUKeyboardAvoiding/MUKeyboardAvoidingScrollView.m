@@ -139,8 +139,6 @@
         _selectIndexInputField = [_objectsInKeyboard indexOfObject:firstResponder];
         _priorInset = self.contentInset;
         
-        [keyboardToolbar selectedInputFieldIndex:_selectIndexInputField allCountInputFields:[_objectsInKeyboard count]];
-        
         self.contentInset = [self contentInsetForKeyboard];
         
         [self adjustOffset];
@@ -199,6 +197,10 @@
 //==============================================================================
 -(CGFloat)idealOffsetForView:(UIView *)view withSpace:(CGFloat)space 
 {    
+    _selectIndexInputField = [_objectsInKeyboard indexOfObject:view];
+    if (_selectIndexInputField != NSNotFound)
+        [keyboardToolbar selectedInputFieldIndex:_selectIndexInputField allCountInputFields:[_objectsInKeyboard count]];    
+    
     // Convert the rect to get the view's distance from the top of the scrollView.
     CGRect rect = [view convertRect:view.bounds toView:self];
     
@@ -304,7 +306,6 @@
     {
         _selectIndexInputField = index + 1;
         [[_objectsInKeyboard objectAtIndex:_selectIndexInputField] becomeFirstResponder];
-        [keyboardToolbar selectedInputFieldIndex:_selectIndexInputField allCountInputFields:[_objectsInKeyboard count]];
     } 
     else
     {
@@ -327,7 +328,6 @@
     {
         _selectIndexInputField ++;
         [[_objectsInKeyboard objectAtIndex:_selectIndexInputField] becomeFirstResponder];
-        [keyboardToolbar selectedInputFieldIndex:_selectIndexInputField allCountInputFields:[_objectsInKeyboard count]];
     }
     else
     {
@@ -354,7 +354,6 @@
                 }
             }
         }
-        [keyboardToolbar selectedInputFieldIndex:_selectIndexInputField allCountInputFields:[_objectsInKeyboard count]];
     }
     else
     {

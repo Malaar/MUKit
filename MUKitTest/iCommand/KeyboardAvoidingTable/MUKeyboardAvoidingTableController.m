@@ -217,8 +217,8 @@
     tf_12.tag = tag_phone_number_text_field;
     
     [((MUKeyboardAvoidingTableView*)tableView) addObjectsForKeyboard:[NSArray arrayWithObjects:tf_01, tf_02, tf_03, tf_04, tf_05, tf_06, tf_07, tf_08, tf_09, tf_10, tf_11, tf_12, nil]];
-//    validationGroup = [[MUValidationGroup alloc] initWithTextFields:[NSArray arrayWithObjects:tf_01, tf_02, tf_03, tf_04, tf_05, tf_06, tf_07, tf_08, tf_09, tf_10, tf_11, tf_12, nil]];
-//    validationGroup.invalidIndicatorImage = [UIImage imageNamed:@"warning_icon"];
+    validationGroup = [[MUValidationGroup alloc] initWithValidators:[NSArray arrayWithObjects:[tf_01 validator], [tf_02 validator], [tf_03 validator], [tf_04 validator], [tf_05 validator], [tf_06 validator], [tf_07 validator], [tf_08 validator], [tf_09 validator], [tf_10 validator], [tf_11 validator], [tf_12 validator], nil]];
+    validationGroup.invalidIndicatorImage = [UIImage imageNamed:@"warning_icon"];
     
     [super viewDidLoad];
 }

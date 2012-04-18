@@ -34,6 +34,7 @@
 @synthesize mudelegate;
 @synthesize keyboardAvoiding;
 @synthesize observedText;
+@synthesize inputTextFilter;
 
 //==========================================================================================
 - (id) init
@@ -70,6 +71,7 @@
 {
     [delegateHolder release];
     [validator release];
+    [inputTextFilter release];
     
     [super dealloc];
 }
@@ -185,9 +187,14 @@
 }
 
 //==========================================================================================
-- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
+- (BOOL)textView:(MUTextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
 {
     BOOL result = YES;
+    
+    if (textView) 
+    {
+        result = [textView.inputTextFilter filterText:textView shouldChangeCharactersInRange:range replacementString:text];
+    }
     
     if([holded.mudelegate respondsToSelector:@selector(textFieldShouldBeginEditing:)])
         result = [holded.mudelegate textView:textView shouldChangeTextInRange:range replacementText:text];

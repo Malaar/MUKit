@@ -190,7 +190,7 @@
 {
     BOOL result = YES;
     if (textField.inputTextFilter)
-        result = [textField.inputTextFilter filterTextField:textField shouldChangeCharactersInRange:range replacementString:string];
+        result = [textField.inputTextFilter filterText:textField shouldChangeCharactersInRange:range replacementString:string];
     
     if([holded.mudelegate respondsToSelector:@selector(textField:shouldChangeCharactersInRange:replacementString:)])
         result = [holded.mudelegate textField:textField shouldChangeCharactersInRange:range replacementString:string];

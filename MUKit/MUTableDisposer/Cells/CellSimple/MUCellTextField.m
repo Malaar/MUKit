@@ -68,6 +68,7 @@
     textField.enabled = cellDataTextField.enableEdit;
     
     textField.validator = cellDataTextField.validator;
+    textField.inputTextFilter = cellDataTextField.inputFilter;
     
     if ([cellDataTextField.title length])
     {

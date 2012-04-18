@@ -14,7 +14,7 @@
 /// text filter : base class
 @implementation MUInputFilter
 
-- (BOOL) filterTextField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+- (BOOL) filterText:(id)inputTextField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
     return YES;
 }
@@ -28,7 +28,7 @@
 @implementation MUInputFilterNumbreValue
 
 //==============================================================================
-- (BOOL) filterTextField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+- (BOOL) filterText:(id)inputTextField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
     BOOL result = NO;
     
@@ -74,13 +74,13 @@
 }
 
 //==============================================================================
-- (BOOL) filterTextField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+- (BOOL) filterText:(id)inputTextField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
     BOOL result = NO;
     
     if ([string length] > 0)
     {
-        if ([string rangeOfCharacterFromSet:[NSCharacterSet decimalDigitCharacterSet]].location != NSNotFound && [textField.text length] < maxLengthText) 
+        if ([string rangeOfCharacterFromSet:[NSCharacterSet decimalDigitCharacterSet]].location != NSNotFound && [[inputTextField text] length] < maxLengthText) 
         {
             result = YES;
         }
@@ -106,7 +106,7 @@
 @implementation MUInputFilterLetterValue
 
 //==============================================================================
-- (BOOL) filterTextField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+- (BOOL) filterText:(id)inputTextField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
     BOOL result = NO;
     
@@ -153,13 +153,13 @@
 }
 
 //==============================================================================
-- (BOOL) filterTextField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+- (BOOL) filterText:(id)inputTextField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
     BOOL result = NO;
     
     if ([string length] > 0)
     {
-        if ([string rangeOfCharacterFromSet:[NSCharacterSet letterCharacterSet]].location != NSNotFound && [textField.text length] < maxLengthText) 
+        if ([string rangeOfCharacterFromSet:[NSCharacterSet letterCharacterSet]].location != NSNotFound && [[inputTextField text] length] < maxLengthText) 
         {
             result = YES;
         }
@@ -199,13 +199,13 @@
 }
 
 //==============================================================================
-- (BOOL) filterTextField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+- (BOOL) filterText:(id)inputTextField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
     BOOL result = NO;
     
     if ([string length] > 0)
     {
-        if ([textField.text length] < maxLengthText) 
+        if ([[inputTextField text] length] < maxLengthText) 
         {
             result = YES;
         }

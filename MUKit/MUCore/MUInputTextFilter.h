@@ -7,13 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+
 //==============================================================================
 //==============================================================================
 //==============================================================================
 /// text filter : base class
 @interface MUInputFilter : NSObject
 
-- (BOOL) filterTextField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string;
+- (BOOL) filterText:(id)inputTextField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string;
 
 @end
 

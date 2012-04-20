@@ -47,6 +47,9 @@
 - (void) setupModels:(NSArray*)aModels forSection:(MUSectionReadonly*)aSection
 {
     NSAssert(aSection, @"aSection is nil!!!");
+    
+    [aSection removeAllCellData];
+    
     for(id model in aModels)
     {
         Class cellDataClass = [registeredClasses objectForKey:[model class]];

@@ -48,8 +48,6 @@
 {
     NSAssert(aSection, @"aSection is nil!!!");
     
-    [aSection removeAllCellData];
-    
     for(id model in aModels)
     {
         Class cellDataClass = [registeredClasses objectForKey:[model class]];
@@ -67,7 +65,6 @@
         }
     }
 
-//    [aSection reloadWithAnimation:UITableViewRowAnimationMiddle];
 }
 
 @end

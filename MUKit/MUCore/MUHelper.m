@@ -27,3 +27,37 @@ void MUShowSimpleAlert(NSString* aTitle, NSString* aMessage)
 {
     [[[[UIAlertView alloc] initWithTitle:NSLocalizedString(aTitle, nil) message:NSLocalizedString(aMessage, nil) delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] autorelease] show];
 }
+
+//==============================================================================
+inline NSMutableArray* divideArray(NSArray* aDividedArray, NSString* aFieldName, BOOL anAscending, MUDividedComparator aComparator)
+{
+	NSMutableArray* result = [NSMutableArray array];
+	// sort
+	NSSortDescriptor* sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:aFieldName ascending:anAscending];
+	NSArray* sortedBOs = [aDividedArray sortedArrayUsingDescriptors:[NSArray arrayWithObject:sortDescriptor]];
+	
+	// divide by year,month,date
+	NSMutableArray* sectionElements = nil;
+	id obj1;
+	id obj2;
+	for(NSObject* bo in sortedBOs)
+	{
+		obj1 = [[sectionElements lastObject] valueForKeyPath:aFieldName];
+		obj2 = [bo valueForKeyPath:aFieldName];
+		if(obj2)
+		{
+			if(aComparator(obj1, obj2))
+				[sectionElements addObject:bo];
+			else
+			{
+				if(sectionElements)
+					[result addObject:sectionElements];
+				sectionElements = [NSMutableArray arrayWithObject:bo];
+			}
+		}
+	}
+	if(sectionElements)
+		[result addObject:sectionElements];
+	
+	return result;
+}

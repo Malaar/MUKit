@@ -29,7 +29,8 @@ void MUShowSimpleAlert(NSString* aTitle, NSString* aMessage)
 }
 
 //==============================================================================
-inline NSMutableArray* MUDivideArray(NSArray* aDividedArray, NSString* aFieldName, BOOL anAscending, MUDividedComparator aComparator)
+
+NSMutableArray* MUDivideArray(NSArray* aDividedArray, NSString* aFieldName, BOOL anAscending, MUDividedComparator aComparator)
 {
 	NSMutableArray* result = [NSMutableArray array];
 	// sort

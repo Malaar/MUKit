@@ -47,7 +47,8 @@
 //==============================================================================
 typedef enum MUTabBarControllerStyle
 {
-  MUTabBarControllerStyleTabsFullSize  
+    MUTabBarControllerStyleTabsFullSize,
+    MUTabBarControllerStyleTabsSizeByBGImage
     
 } MUTabBarControllerStyle;
 
@@ -75,6 +76,7 @@ typedef enum MUTabBarControllerStyle
 
 - (void) configureTabBar;                                                               ///< Override to customize tabBar
 - (void) configureTabBarButton:(UIButton*)aTabBarButton atIndex:(NSUInteger)anIndex;    ///< Override to customize tabBarItem
+- (CGFloat) spaceBeforeTabBarButtonAtIndex:(NSUInteger)anIndex;                         ///< Override to configure additional space
 
 @end
 

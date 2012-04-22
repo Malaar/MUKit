@@ -59,6 +59,8 @@
 - (CGRect) getContentFrame;
 - (void) setupControllers;
 - (void) correctForNavigationController:(UIViewController**)vc;
+- (UIBarButtonItem*) spacerBeforeTabBarButtonAtIndex:(NSUInteger)anIndex;
+
 @end
 
 //==============================================================================
@@ -285,30 +287,17 @@
     NSUInteger tabBarButtonIndex = 0;
     
     NSMutableArray* tabs = [NSMutableArray arrayWithCapacity:[viewControllers count]];
-
-    UIBarButtonItem* noSpace = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil] autorelease];
-    noSpace.width = -12.0;
-    [tabs addObject:noSpace];
-
+    
     for(UIViewController* vc in viewControllers)
     {
+        [tabs addObject:[self spacerBeforeTabBarButtonAtIndex:tabBarButtonIndex]];
+
         vc.view.frame = stackedView.bounds;
         vc.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
 
         [stackedView addStackedSubview:vc.view];
         
         [self correctForNavigationController:&vc];
-        
-//        if([vc isKindOfClass:[UINavigationController class]])
-//        {
-//            if([[(UINavigationController*)vc viewControllers] count] > 0)
-//                vc = [[(UINavigationController*)vc viewControllers] objectAtIndex:0];
-//            else
-//            {
-//                NSAssert(NO, @"NAvigation controller without root controller!");
-//                continue;
-//            }
-//        }
         
         // get tabBarItem
         NSAssert([vc conformsToProtocol:@protocol(MUTabBarItemProtocol)], @"View controller must implement protocol MUTabBarItemProtocol!");
@@ -326,15 +315,19 @@
 
         [button setBackgroundImage:tabBarItem.backgroundImageNormal forState:UIControlStateNormal];
         if(tabBarItem.backgroundImageSelected)
-            [button setBackgroundImage:tabBarItem.backgroundImageSelected forState:UIControlStateSelected];
+            [button setBackgroundImage:tabBarItem.backgroundImageSelected forState:UIControlStateDisabled];
         
         [button setImage:tabBarItem.imageNormal forState:UIControlStateNormal];
         if(tabBarItem.imageSelected)
-            [button setImage:tabBarItem.imageSelected forState:UIControlStateSelected];
+            [button setImage:tabBarItem.imageSelected forState:UIControlStateDisabled];
         
         if(style == MUTabBarControllerStyleTabsFullSize)
         {
             button.frame = CGRectMake(0, 0, tabBarItemFullSize.width, tabBarItemFullSize.height);
+        }
+        else if(style == MUTabBarControllerStyleTabsSizeByBGImage)
+        {
+            button.frame = CGRectMake(0, 0, tabBarItem.backgroundImageNormal.size.width, tabBarItem.backgroundImageNormal.size.height);
         }
         else
         {
@@ -345,11 +338,7 @@
         
         UIBarButtonItem* bbi = [[[UIBarButtonItem alloc] initWithCustomView:button] autorelease];
         [tabs addObject:bbi];
-        
-        UIBarButtonItem* noSpace = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil] autorelease];
-        noSpace.width = -10.0;
-        [tabs addObject:noSpace];
-        
+                
         tabBarButtonIndex++;
     }
     
@@ -371,6 +360,29 @@
 {
     // empty by default
 }
+
+//==============================================================================
+- (UIBarButtonItem*) spacerBeforeTabBarButtonAtIndex:(NSUInteger)anIndex
+{
+    UIBarButtonItem* result = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil] autorelease];
+    result.width = [self spaceBeforeTabBarButtonAtIndex:anIndex];
+    return result;
+}
+
+//==============================================================================
+- (CGFloat) spaceBeforeTabBarButtonAtIndex:(NSUInteger)anIndex
+{
+    CGFloat result = 0.0f;
+    if(style == MUTabBarControllerStyleTabsFullSize)
+    {
+        if(anIndex == 0)
+            result = -12;
+        else
+            result = -10;
+    }
+    return result;
+}
+
 
 #pragma mark - MUTabedToolbarDelegate
 //==============================================================================

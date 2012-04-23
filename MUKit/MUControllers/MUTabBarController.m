@@ -60,6 +60,7 @@
 - (void) setupControllers;
 - (void) correctForNavigationController:(UIViewController**)vc;
 - (UIBarButtonItem*) spacerBeforeTabBarButtonAtIndex:(NSUInteger)anIndex;
+- (void) disabledButtonPressed;
 
 @end
 
@@ -120,6 +121,7 @@
 {
     tabBar = nil;
     stackedView = nil;
+    disabledButton = nil;
     
     [super viewDidUnload];
 }
@@ -214,6 +216,7 @@
     selectedIndex = aSelectedIndex;
     stackedView.currentIndex = selectedIndex;
     [tabBar switchToItemWithIndex:selectedIndex];
+    disabledButton.frame = [[tabBar.buttons objectAtIndex:aSelectedIndex] frame];
 }
 
 //==============================================================================
@@ -344,6 +347,10 @@
     
     tabBar.items = tabs;
     
+    disabledButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [tabBar addSubview:disabledButton];
+    [disabledButton addTarget:self action:@selector(disabledButtonPressed) forControlEvents:UIControlEventTouchUpInside];
+    
     UIViewController* vc = [viewControllers objectAtIndex:selectedIndex];
     [self addChildViewController:vc];
     [self setSelectedIndex:selectedIndex];
@@ -383,6 +390,14 @@
     return result;
 }
 
+//==============================================================================
+- (void) disabledButtonPressed
+{
+    if([self.selectedViewController isKindOfClass:[UINavigationController class]])
+    {
+        [((UINavigationController*)self.selectedViewController) popToRootViewControllerAnimated:YES];
+    }
+}
 
 #pragma mark - MUTabedToolbarDelegate
 //==============================================================================
@@ -409,6 +424,8 @@
     [self addChildViewController:newController];
     
     stackedView.currentIndex = aToIndex;
+    
+    disabledButton.frame = [[tabBar.buttons objectAtIndex:aToIndex] frame];
 }
 
 #pragma mark - MUStackedViewDelegate

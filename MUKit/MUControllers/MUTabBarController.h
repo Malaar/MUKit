@@ -57,6 +57,7 @@ typedef enum MUTabBarControllerStyle
 {
     MUTabedToolbar* tabBar;
     MUStackedView* stackedView;
+    UIButton* disabledButton;
 }
 
 @property (nonatomic, assign) id<MUTabBarControllerDelegate> delegate;

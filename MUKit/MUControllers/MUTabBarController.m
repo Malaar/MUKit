@@ -302,6 +302,8 @@
         
         [self correctForNavigationController:&vc];
         
+        vc.mutabBarController = self;
+        
         // get tabBarItem
         NSAssert([vc conformsToProtocol:@protocol(MUTabBarItemProtocol)], @"View controller must implement protocol MUTabBarItemProtocol!");
         MUTabBarItem* tabBarItem = [(id<MUTabBarItemProtocol>)vc mutabBarItem];

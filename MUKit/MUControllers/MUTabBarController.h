@@ -27,15 +27,14 @@
 
 @end
 
+@class MUTabBarController;
 //==============================================================================
 @protocol MUTabBarItemProtocol <NSObject>
 
 @property (nonatomic, retain) MUTabBarItem* mutabBarItem;
-
+@property (nonatomic, assign) MUTabBarController* mutabBarController;
 @end
 
-
-@class MUTabBarController;
 //==============================================================================
 @protocol MUTabBarControllerDelegate<NSObject>
 

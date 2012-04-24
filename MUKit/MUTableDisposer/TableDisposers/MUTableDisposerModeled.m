@@ -58,10 +58,13 @@
         MUCellDataModeled* cellData = [[[cellDataClass alloc] initWithModel:model] autorelease];
         if(cellData)
         {
-            if(modeledDelegate && [modeledDelegate respondsToSelector:@selector(tableDisposer:didCreateCellData:)])
-                [modeledDelegate tableDisposer:self didCreateCellData:cellData];
-
             [aSection addCellData:cellData];
+
+            if(modeledDelegate && [modeledDelegate respondsToSelector:@selector(tableDisposer:didCreateCellData:)])
+            {
+                [modeledDelegate tableDisposer:self didCreateCellData:cellData];
+            }
+
         }
     }
 

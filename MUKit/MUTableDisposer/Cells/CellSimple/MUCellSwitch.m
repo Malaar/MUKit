@@ -30,12 +30,11 @@
     [super setupCellData:aCellData];
     
     UISwitch *switcher = [[[UISwitch alloc] init] autorelease];
-    
+
+    [switcher addTarget:self action:@selector(didChangeBoolValueInSwitch:) forControlEvents:UIControlEventValueChanged];
     [switcher addTarget:aCellData.targetAction.target action:aCellData.targetAction.action forControlEvents:UIControlEventValueChanged];
     switcher.on = aCellData.boolValue;
     switcher.enabled = aCellData.enableEdit;
-    
-    [switcher addTarget:self action:@selector(didChangeBoolValueInSwitch:) forControlEvents:UIControlEventValueChanged];
     
     self.accessoryView = switcher;
     [switcher sizeToFit];

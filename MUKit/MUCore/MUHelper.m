@@ -7,6 +7,7 @@
 //
 
 #import "MUHelper.h"
+#import "MUKitDefines.h"
 
 
 //==============================================================================
@@ -29,7 +30,6 @@ void MUShowSimpleAlert(NSString* aTitle, NSString* aMessage)
 }
 
 //==============================================================================
-
 NSMutableArray* MUDivideArray(NSArray* aDividedArray, NSString* aFieldName, BOOL anAscending, MUDividedComparator aComparator)
 {
 	NSMutableArray* result = [NSMutableArray array];
@@ -61,4 +61,11 @@ NSMutableArray* MUDivideArray(NSArray* aDividedArray, NSString* aFieldName, BOOL
 		[result addObject:sectionElements];
 	
 	return result;
+}
+
+//==============================================================================
+NSDate* MUDateFromTimeStampInDictionary(NSDictionary* aDictionary, NSString* aKey)
+{
+    NSTimeInterval timestamp = [MU_NULL_PROTECT( [aDictionary objectForKey:aKey] ) doubleValue];
+    return [NSDate dateWithTimeIntervalSince1970:timestamp];
 }

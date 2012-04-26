@@ -217,6 +217,9 @@
     stackedView.currentIndex = selectedIndex;
     [tabBar switchToItemWithIndex:selectedIndex];
     disabledButton.frame = [[tabBar.buttons objectAtIndex:aSelectedIndex] frame];
+
+    UIViewController *newController = [viewControllers objectAtIndex:aSelectedIndex];
+    [self addChildViewController:newController];
 }
 
 //==============================================================================
@@ -353,8 +356,8 @@
     [tabBar addSubview:disabledButton];
     [disabledButton addTarget:self action:@selector(disabledButtonPressed) forControlEvents:UIControlEventTouchUpInside];
     
-    UIViewController* vc = [viewControllers objectAtIndex:selectedIndex];
-    [self addChildViewController:vc];
+//    UIViewController* vc = [viewControllers objectAtIndex:selectedIndex];
+//    [self addChildViewController:vc];
     [self setSelectedIndex:selectedIndex];
 }
 
@@ -422,12 +425,13 @@
         [currentController removeFromParentViewController];
     }
     
-    UIViewController *newController = [viewControllers objectAtIndex:aToIndex];
-    [self addChildViewController:newController];
+    [self setSelectedIndex:aToIndex];
+//    UIViewController *newController = [viewControllers objectAtIndex:aToIndex];
+//    [self addChildViewController:newController];
     
-    stackedView.currentIndex = aToIndex;
-    
-    disabledButton.frame = [[tabBar.buttons objectAtIndex:aToIndex] frame];
+//    stackedView.currentIndex = aToIndex;
+//    
+//    disabledButton.frame = [[tabBar.buttons objectAtIndex:aToIndex] frame];
 }
 
 #pragma mark - MUStackedViewDelegate

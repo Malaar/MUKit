@@ -55,7 +55,8 @@ typedef enum MUTabBarControllerStyle
 @interface MUTabBarController : UIViewController <MUTabedToolbarDelegate, MUStackedViewDelegate>
 {
     MUTabedToolbar* tabBar;
-    MUStackedView* stackedView;
+//    MUStackedView* stackedView;
+    UIView* currentView;
     UIButton* disabledButton;
 }
 

@@ -120,7 +120,7 @@
 - (void)viewDidUnload
 {
     tabBar = nil;
-    stackedView = nil;
+//    stackedView = nil;
     disabledButton = nil;
     
     [super viewDidUnload];
@@ -131,14 +131,14 @@
 {
     [super viewWillAppear:animated];
     
-    if(!stackedView)
-    {
-        stackedView = [[MUStackedView alloc] initWithFrame:[self getContentFrame]];
-        stackedView.delegate = self;
-        stackedView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-        [self.view addSubview:stackedView];
-        [stackedView release];
-    }
+//    if(!stackedView)
+//    {
+//        stackedView = [[MUStackedView alloc] initWithFrame:[self getContentFrame]];
+//        stackedView.delegate = self;
+//        stackedView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+//        [self.view addSubview:stackedView];
+//        [stackedView release];
+//    }
     
     if(!tabBar)
     {
@@ -213,13 +213,26 @@
 //==============================================================================
 - (void) setSelectedIndex:(NSUInteger)aSelectedIndex
 {
+    [[self selectedViewController] removeFromParentViewController];
+    
     selectedIndex = aSelectedIndex;
-    stackedView.currentIndex = selectedIndex;
+    
+    if(currentView)
+    {
+        [currentView removeFromSuperview];
+    }
+    
+    UIViewController* vc = [self selectedViewController];
+    [self addChildViewController:vc];
+    currentView = vc.view;
+    currentView.frame = [self getContentFrame];
+    [self.view addSubview:currentView];
+    
     [tabBar switchToItemWithIndex:selectedIndex];
     disabledButton.frame = [[tabBar.buttons objectAtIndex:aSelectedIndex] frame];
 
-    UIViewController *newController = [viewControllers objectAtIndex:aSelectedIndex];
-    [self addChildViewController:newController];
+    if([delegate respondsToSelector:@selector(tabBarController:didSelectViewController:)])
+        [delegate tabBarController:self didSelectViewController:[viewControllers objectAtIndex:aSelectedIndex]];
 }
 
 //==============================================================================
@@ -298,10 +311,10 @@
     {
         [tabs addObject:[self spacerBeforeTabBarButtonAtIndex:tabBarButtonIndex]];
 
-        vc.view.frame = stackedView.bounds;
-        vc.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-
-        [stackedView addStackedSubview:vc.view];
+//        vc.view.frame = stackedView.bounds;
+//        vc.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+//
+//        [stackedView addStackedSubview:vc.view];
         
         [self correctForNavigationController:&vc];
         
@@ -352,12 +365,11 @@
     
     tabBar.items = tabs;
     
+    //
     disabledButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [tabBar addSubview:disabledButton];
     [disabledButton addTarget:self action:@selector(disabledButtonPressed) forControlEvents:UIControlEventTouchUpInside];
     
-//    UIViewController* vc = [viewControllers objectAtIndex:selectedIndex];
-//    [self addChildViewController:vc];
     [self setSelectedIndex:selectedIndex];
 }
 
@@ -419,43 +431,43 @@
 //==============================================================================
 - (void) tabedToolbar:(MUTabedToolbar*)aTabBar itemChangedTo:(NSUInteger)aToIndex from:(NSUInteger)aFromIndex
 {
-    if (aFromIndex != NSNotFound )
-    {
-        UIViewController *currentController = [viewControllers objectAtIndex:aFromIndex];
-        [currentController removeFromParentViewController];
-    }
-    
-    [self setSelectedIndex:aToIndex];
+//    if (aFromIndex != NSNotFound )
+//    {
+//        UIViewController *currentController = [viewControllers objectAtIndex:aFromIndex];
+//        [currentController removeFromParentViewController];
+//    }
+//    
 //    UIViewController *newController = [viewControllers objectAtIndex:aToIndex];
 //    [self addChildViewController:newController];
     
+    [self setSelectedIndex:aToIndex];
 //    stackedView.currentIndex = aToIndex;
-//    
+    
 //    disabledButton.frame = [[tabBar.buttons objectAtIndex:aToIndex] frame];
 }
 
 #pragma mark - MUStackedViewDelegate
-//==============================================================================
-- (void) stackedView:(MUStackedView *)aStackedView willChangeFromIndex:(NSUInteger)aFromIndex toIndex:(NSUInteger)aToIndex
-{    
-//    if([viewControllers count] > 0 && aFromIndex < [viewControllers count])
-//        [[viewControllers objectAtIndex:aFromIndex] viewWillDisappear:NO];
+////==============================================================================
+//- (void) stackedView:(MUStackedView *)aStackedView willChangeFromIndex:(NSUInteger)aFromIndex toIndex:(NSUInteger)aToIndex
+//{    
+////    if([viewControllers count] > 0 && aFromIndex < [viewControllers count])
+////        [[viewControllers objectAtIndex:aFromIndex] viewWillDisappear:NO];
+////
+////    if([viewControllers count] > 0 && aToIndex < [viewControllers count])
+////        [[viewControllers objectAtIndex:aToIndex] viewWillAppear:NO];
+//}
+
+////==============================================================================
+//- (void) stackedView:(MUStackedView *)aStackedView didChangedFromIndex:(NSUInteger)aFromIndex toIndex:(NSUInteger)aToIndex
+//{
+//    if([delegate respondsToSelector:@selector(tabBarController:didSelectViewController:)])
+//        [delegate tabBarController:self didSelectViewController:[viewControllers objectAtIndex:aToIndex]];
 //
-//    if([viewControllers count] > 0 && aToIndex < [viewControllers count])
-//        [[viewControllers objectAtIndex:aToIndex] viewWillAppear:NO];
-}
-
-//==============================================================================
-- (void) stackedView:(MUStackedView *)aStackedView didChangedFromIndex:(NSUInteger)aFromIndex toIndex:(NSUInteger)aToIndex
-{
-    if([delegate respondsToSelector:@selector(tabBarController:didSelectViewController:)])
-        [delegate tabBarController:self didSelectViewController:[viewControllers objectAtIndex:aToIndex]];
-
-//    if([viewControllers count] > 0 && aFromIndex < [viewControllers count])
-//        [[viewControllers objectAtIndex:aFromIndex] viewDidDisappear:NO];
-//    if([viewControllers count] > 0 && aToIndex < [viewControllers count])
-//        [[viewControllers objectAtIndex:aToIndex] viewDidAppear:NO];
-
-}
+////    if([viewControllers count] > 0 && aFromIndex < [viewControllers count])
+////        [[viewControllers objectAtIndex:aFromIndex] viewDidDisappear:NO];
+////    if([viewControllers count] > 0 && aToIndex < [viewControllers count])
+////        [[viewControllers objectAtIndex:aToIndex] viewDidAppear:NO];
+//
+//}
 
 @end

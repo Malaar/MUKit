@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "MUTabedToolbar.h"
-#import "MUStackedView.h"
+
 
 //==============================================================================
 @interface MUTabBarItem : NSObject
@@ -52,12 +52,13 @@ typedef enum MUTabBarControllerStyle
 } MUTabBarControllerStyle;
 
 //==============================================================================
-@interface MUTabBarController : UIViewController <MUTabedToolbarDelegate, MUStackedViewDelegate>
+@interface MUTabBarController : UIViewController <MUTabedToolbarDelegate>
 {
     MUTabedToolbar* tabBar;
-//    MUStackedView* stackedView;
     UIView* currentView;
     UIButton* disabledButton;
+    
+    BOOL isFirstSetIndex;
 }
 
 @property (nonatomic, assign) id<MUTabBarControllerDelegate> delegate;

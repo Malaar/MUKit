@@ -123,6 +123,7 @@
 {
     tabBar = nil;
     disabledButton = nil;
+    contentView = nil;
     currentView = nil;
     
     [super viewDidUnload];
@@ -133,13 +134,27 @@
 {
     [super viewWillAppear:animated];
     
+    if(!contentView)
+    {
+        contentView = [[UIView alloc] initWithFrame:[self getContentFrame]];
+        contentView.backgroundColor = [UIColor clearColor];
+        contentView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+        if(tabBarOnTheTop)
+            contentView.autoresizingMask |= UIViewAutoresizingFlexibleTopMargin;
+        else
+            contentView.autoresizingMask |= UIViewAutoresizingFlexibleBottomMargin;
+        [self.view addSubview:contentView];
+        [contentView release];
+    }
+    
     if(!tabBar)
     {
         // create tabBar
         float y = (tabBarOnTheTop) ? (0) : (self.view.bounds.size.height - tabBarHeight);
         tabBar = [[MUTabedToolbar alloc] initWithFrame:CGRectMake(0, y, self.view.bounds.size.width, tabBarHeight)];
         tabBar.delegate = self;
-        tabBar.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin;
+        tabBar.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+        tabBar.autoresizingMask |= (tabBarOnTheTop) ? (UIViewAutoresizingFlexibleBottomMargin) : (UIViewAutoresizingFlexibleTopMargin);
         tabBar.backgroundImage = tabBarBackgroundImage;
         tabBar.drawColor = tabBarDrawColor;
         tabBar.backgroundColor = tabBarBackgroundColor;
@@ -151,6 +166,7 @@
         [self.view addSubview:tabBar];
         [tabBar release];
     }
+    
 
     if(!MU_IS_OS_VER_5x)
         [[self selectedViewController] viewWillAppear:animated];
@@ -229,7 +245,8 @@
 
     // will show new
     currentView = newController.view;
-    currentView.frame = [self getContentFrame];
+    currentView.frame = contentView.bounds;
+    currentView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     if(!MU_IS_OS_VER_5x)
         [newController viewWillAppear:NO];
 
@@ -242,7 +259,7 @@
     }
     
     // did show new
-    [self.view addSubview:currentView];
+    [contentView addSubview:currentView];
     if(MU_IS_OS_VER_5x)
         [self addChildViewController:newController];
     else
@@ -331,11 +348,6 @@
     {
         [tabs addObject:[self spacerBeforeTabBarButtonAtIndex:tabBarButtonIndex]];
 
-//        vc.view.frame = stackedView.bounds;
-//        vc.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-//
-//        [stackedView addStackedSubview:vc.view];
-        
         [self correctForNavigationController:&vc];
         
         vc.mutabBarController = self;

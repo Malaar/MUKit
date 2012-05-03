@@ -137,12 +137,12 @@
     if(!contentView)
     {
         contentView = [[UIView alloc] initWithFrame:[self getContentFrame]];
-        contentView.backgroundColor = [UIColor clearColor];
+        contentView.backgroundColor = [UIColor yellowColor];
         contentView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-        if(tabBarOnTheTop)
-            contentView.autoresizingMask |= UIViewAutoresizingFlexibleTopMargin;
-        else
-            contentView.autoresizingMask |= UIViewAutoresizingFlexibleBottomMargin;
+//        if(tabBarOnTheTop)
+//            contentView.autoresizingMask |= UIViewAutoresizingFlexibleTopMargin;
+//        else
+//            contentView.autoresizingMask |= UIViewAutoresizingFlexibleBottomMargin;
         [self.view addSubview:contentView];
         [contentView release];
     }

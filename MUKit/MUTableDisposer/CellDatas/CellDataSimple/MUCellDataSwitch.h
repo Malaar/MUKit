@@ -15,6 +15,9 @@
 @property (nonatomic, assign) BOOL boolValue;
 @property (nonatomic, readonly) MUTargetAction* targetAction;
 
+@property (nonatomic, retain) NSString* onText;
+@property (nonatomic, retain) NSString* offText;
+
 - (void) setTarget:(id)aTarget action:(SEL)anAction;
 
 @end

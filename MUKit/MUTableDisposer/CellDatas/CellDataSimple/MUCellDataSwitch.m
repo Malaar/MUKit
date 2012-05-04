@@ -13,6 +13,8 @@
 
 @synthesize boolValue;
 @synthesize targetAction;
+@synthesize onText;
+@synthesize offText;
 
 #pragma mark - Init/Dealloc
 //==============================================================================
@@ -32,6 +34,8 @@
 - (void) dealloc
 {
     [targetAction release];
+    [onText release];
+    [offText release];
     
     [super dealloc];
 }

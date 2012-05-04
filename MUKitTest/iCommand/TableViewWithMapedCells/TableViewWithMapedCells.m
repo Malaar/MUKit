@@ -114,6 +114,8 @@
     cellDataSwitch.subtitle = @"Switch";
     cellDataSwitch.boolValue = NO;
     cellDataSwitch.title = @"Switch";
+    cellDataSwitch.onText = @"Y!!!";
+    cellDataSwitch.offText = @"N!!!";
     cellDataSwitch.titleColor = [UIColor blueColor];
     cellDataSwitch.titleTextAlignment = UITextAlignmentCenter;
     cellDataSwitch.titleFont = [UIFont systemFontOfSize:15];

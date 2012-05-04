@@ -137,7 +137,7 @@
     if(!contentView)
     {
         contentView = [[UIView alloc] initWithFrame:[self getContentFrame]];
-        contentView.backgroundColor = [UIColor yellowColor];
+        contentView.backgroundColor = [UIColor clearColor];
         contentView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
 //        if(tabBarOnTheTop)
 //            contentView.autoresizingMask |= UIViewAutoresizingFlexibleTopMargin;
@@ -358,7 +358,7 @@
         NSAssert(tabBarItem, @"tabBarItem must be non nil!");
         
         // create tabBar button and configure
-        UIButton* button = [UIButton buttonWithType:UIButtonTypeCustom];
+        UIButton* button = [self createTabBarButtonAtIndex:tabBarButtonIndex];
         button.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
         [button setTitle:tabBarItem.title forState:UIControlStateNormal];
         [button setTitleColor:tabBarItem.titleColor forState:UIControlStateNormal];
@@ -409,6 +409,12 @@
 - (void) configureTabBar
 {
     // empty by default
+}
+
+//==============================================================================
+- (UIButton*) createTabBarButtonAtIndex:(NSUInteger)anIndex
+{
+    return [UIButton buttonWithType:UIButtonTypeCustom];
 }
 
 //==============================================================================

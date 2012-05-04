@@ -78,6 +78,7 @@ typedef enum MUTabBarControllerStyle
 @property (nonatomic, assign) NSUInteger selectedIndex;
 
 - (void) configureTabBar;                                                               ///< Override to customize tabBar
+- (UIButton*) createTabBarButtonAtIndex:(NSUInteger)anIndex;                            ///< Override to customize tabBar
 - (void) configureTabBarButton:(UIButton*)aTabBarButton atIndex:(NSUInteger)anIndex;    ///< Override to customize tabBarItem
 - (CGFloat) spaceBeforeTabBarButtonAtIndex:(NSUInteger)anIndex;                         ///< Override to configure additional space
 

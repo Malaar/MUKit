@@ -17,3 +17,6 @@ typedef BOOL (^MUDividedComparator)(id anObj1, id anObj2);
 inline NSMutableArray* MUDivideArray(NSArray* aDividedArray, NSString* aFieldName, BOOL anAscending, MUDividedComparator aComparator);
 
 NSDate* MUDateFromTimeStampInDictionary(NSDictionary* aDictionary, NSString* aKey);
+
+inline NSString* MUGenerateUUID();
+inline NSString* MUDocumentDirecoryPath();

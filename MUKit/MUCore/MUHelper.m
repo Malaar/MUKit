@@ -69,3 +69,18 @@ NSDate* MUDateFromTimeStampInDictionary(NSDictionary* aDictionary, NSString* aKe
     NSTimeInterval timestamp = [MU_NULL_PROTECT( [aDictionary objectForKey:aKey] ) doubleValue];
     return [NSDate dateWithTimeIntervalSince1970:timestamp];
 }
+
+//==============================================================================
+NSString* MUGenerateUUID()
+{
+    CFUUIDRef uuidRef = CFUUIDCreate(kCFAllocatorDefault);
+    NSString* uuid = (NSString*)CFUUIDCreateString(kCFAllocatorDefault, uuidRef);
+    CFRelease(uuidRef);
+    return uuid;
+}
+
+//==============================================================================
+NSString* MUDocumentDirecoryPath()
+{
+    return [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+}

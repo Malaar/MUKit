@@ -8,6 +8,7 @@
 
 #import "MUCellSwitch.h"
 #import "MUCellDataSwitch.h"
+#import "DCRoundSwitch.h"
 
 
 //==============================================================================
@@ -29,15 +30,28 @@
 {
     [super setupCellData:aCellData];
     
-    UISwitch *switcher = [[[UISwitch alloc] init] autorelease];
-
+    id switcher = nil;
+    
+    if (aCellData.onText && aCellData.offText) 
+    {
+        switcher = [[DCRoundSwitch alloc] init];
+        ((DCRoundSwitch*)switcher).onText = aCellData.onText;
+        ((DCRoundSwitch*)switcher).offText = aCellData.offText;
+        ((DCRoundSwitch*)switcher).on = aCellData.boolValue;
+        ((DCRoundSwitch*)switcher).enabled = aCellData.enableEdit;
+    }
+    else
+    {
+        switcher = [[[UISwitch alloc] init] autorelease];        
+        ((UISwitch*)switcher).on = aCellData.boolValue;
+        ((UISwitch*)switcher).enabled = aCellData.enableEdit;
+        [switcher sizeToFit];
+    }
+    
     [switcher addTarget:self action:@selector(didChangeBoolValueInSwitch:) forControlEvents:UIControlEventValueChanged];
     [switcher addTarget:aCellData.targetAction.target action:aCellData.targetAction.action forControlEvents:UIControlEventValueChanged];
-    switcher.on = aCellData.boolValue;
-    switcher.enabled = aCellData.enableEdit;
     
     self.accessoryView = switcher;
-    [switcher sizeToFit];
 }
 
 #pragma mark - Change Bool Value

@@ -62,6 +62,11 @@
 		02BDB7ED1525FF3500764326 /* MUTableDisposerModeled.m in Sources */ = {isa = PBXBuildFile; fileRef = 02BDB7EC1525FF3500764326 /* MUTableDisposerModeled.m */; };
 		02BDB7F11526043300764326 /* MUTableDisposerMaped.m in Sources */ = {isa = PBXBuildFile; fileRef = 02BDB7F01526043300764326 /* MUTableDisposerMaped.m */; };
 		02BDB7F4152604EF00764326 /* MUTableDisposerRequested.m in Sources */ = {isa = PBXBuildFile; fileRef = 02BDB7F3152604EF00764326 /* MUTableDisposerRequested.m */; };
+		02EFC340155C1D7C00E2639C /* MUKeyboardAvoidingScrollController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02EFC337155C1D7C00E2639C /* MUKeyboardAvoidingScrollController.m */; };
+		02EFC341155C1D7C00E2639C /* MUKeyboardAvoidingScrollController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02EFC338155C1D7C00E2639C /* MUKeyboardAvoidingScrollController.xib */; };
+		02EFC342155C1D7C00E2639C /* MUKeyboardAvoidingTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02EFC33B155C1D7C00E2639C /* MUKeyboardAvoidingTableController.m */; };
+		02EFC343155C1D7C00E2639C /* MUKeyboardAvoidingTableController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02EFC33C155C1D7C00E2639C /* MUKeyboardAvoidingTableController.xib */; };
+		02EFC344155C1D7C00E2639C /* TableViewWithMapedCells.m in Sources */ = {isa = PBXBuildFile; fileRef = 02EFC33F155C1D7C00E2639C /* TableViewWithMapedCells.m */; };
 		E62CDA57152AF88300DACE8F /* warning_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = E62CDA55152AF88300DACE8F /* warning_icon.png */; };
 		E62CDA58152AF88300DACE8F /* warning_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E62CDA56152AF88300DACE8F /* warning_icon@2x.png */; };
 		E6337FDC153C6BE500EFBD6F /* MUKeyboardToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = E6337FDB153C6BE500EFBD6F /* MUKeyboardToolbar.m */; };
@@ -73,10 +78,6 @@
 		E64AA46F152306F70087B49E /* MUAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E64AA46E152306F70087B49E /* MUAppDelegate.m */; };
 		E64D69C6153E76F900FF5C58 /* MUBaseTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = E64D69C5153E76F800FF5C58 /* MUBaseTableController.m */; };
 		E64D69C9153E82B200FF5C58 /* MUInputTextFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = E64D69C8153E82B200FF5C58 /* MUInputTextFilter.m */; };
-		E6562932152308CF00CEC66C /* MUKeyboardAvoidingScrollController.m in Sources */ = {isa = PBXBuildFile; fileRef = E6562920152308CF00CEC66C /* MUKeyboardAvoidingScrollController.m */; };
-		E6562933152308CF00CEC66C /* MUKeyboardAvoidingScrollController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E6562921152308CF00CEC66C /* MUKeyboardAvoidingScrollController.xib */; };
-		E6562934152308CF00CEC66C /* MUKeyboardAvoidingTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = E6562924152308CF00CEC66C /* MUKeyboardAvoidingTableController.m */; };
-		E6562935152308CF00CEC66C /* MUKeyboardAvoidingTableController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E6562925152308CF00CEC66C /* MUKeyboardAvoidingTableController.xib */; };
 		E6562936152308CF00CEC66C /* MURootControllerIPad.m in Sources */ = {isa = PBXBuildFile; fileRef = E6562929152308CF00CEC66C /* MURootControllerIPad.m */; };
 		E6562937152308CF00CEC66C /* MURootControllerIPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = E656292A152308CF00CEC66C /* MURootControllerIPad.xib */; };
 		E6562938152308CF00CEC66C /* MURootControllerIPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = E656292E152308CF00CEC66C /* MURootControllerIPhone.m */; };
@@ -110,7 +111,6 @@
 		E6562A27152308DD00CEC66C /* license.txt in Resources */ = {isa = PBXBuildFile; fileRef = E65629DE152308DC00CEC66C /* license.txt */; };
 		E6562A28152308DD00CEC66C /* readme.md in Resources */ = {isa = PBXBuildFile; fileRef = E65629DF152308DC00CEC66C /* readme.md */; };
 		E6562A2A1523092B00CEC66C /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6562A291523092B00CEC66C /* QuartzCore.framework */; };
-		E68FF8941529CF7E001B450B /* TableViewWithMapedCells.m in Sources */ = {isa = PBXBuildFile; fileRef = E68FF8931529CF7E001B450B /* TableViewWithMapedCells.m */; };
 		E9E49188B2194DC3A24C7D69 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DB4464FCC8654B77A686DF9C /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -234,6 +234,14 @@
 		02BDB7F01526043300764326 /* MUTableDisposerMaped.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUTableDisposerMaped.m; sourceTree = "<group>"; };
 		02BDB7F2152604EF00764326 /* MUTableDisposerRequested.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUTableDisposerRequested.h; sourceTree = "<group>"; };
 		02BDB7F3152604EF00764326 /* MUTableDisposerRequested.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUTableDisposerRequested.m; sourceTree = "<group>"; };
+		02EFC336155C1D7C00E2639C /* MUKeyboardAvoidingScrollController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUKeyboardAvoidingScrollController.h; sourceTree = "<group>"; };
+		02EFC337155C1D7C00E2639C /* MUKeyboardAvoidingScrollController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUKeyboardAvoidingScrollController.m; sourceTree = "<group>"; };
+		02EFC338155C1D7C00E2639C /* MUKeyboardAvoidingScrollController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MUKeyboardAvoidingScrollController.xib; sourceTree = "<group>"; };
+		02EFC33A155C1D7C00E2639C /* MUKeyboardAvoidingTableController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUKeyboardAvoidingTableController.h; sourceTree = "<group>"; };
+		02EFC33B155C1D7C00E2639C /* MUKeyboardAvoidingTableController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUKeyboardAvoidingTableController.m; sourceTree = "<group>"; };
+		02EFC33C155C1D7C00E2639C /* MUKeyboardAvoidingTableController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MUKeyboardAvoidingTableController.xib; sourceTree = "<group>"; };
+		02EFC33E155C1D7C00E2639C /* TableViewWithMapedCells.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewWithMapedCells.h; sourceTree = "<group>"; };
+		02EFC33F155C1D7C00E2639C /* TableViewWithMapedCells.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewWithMapedCells.m; sourceTree = "<group>"; };
 		99521E5F94A64C81B0626F2D /* Pods.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 		DB4464FCC8654B77A686DF9C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		E62CDA55152AF88300DACE8F /* warning_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = warning_icon.png; sourceTree = "<group>"; };
@@ -254,12 +262,6 @@
 		E64D69C5153E76F800FF5C58 /* MUBaseTableController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUBaseTableController.m; sourceTree = "<group>"; };
 		E64D69C7153E82B200FF5C58 /* MUInputTextFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUInputTextFilter.h; sourceTree = "<group>"; };
 		E64D69C8153E82B200FF5C58 /* MUInputTextFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUInputTextFilter.m; sourceTree = "<group>"; };
-		E656291F152308CF00CEC66C /* MUKeyboardAvoidingScrollController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUKeyboardAvoidingScrollController.h; sourceTree = "<group>"; };
-		E6562920152308CF00CEC66C /* MUKeyboardAvoidingScrollController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUKeyboardAvoidingScrollController.m; sourceTree = "<group>"; };
-		E6562921152308CF00CEC66C /* MUKeyboardAvoidingScrollController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MUKeyboardAvoidingScrollController.xib; sourceTree = "<group>"; };
-		E6562923152308CF00CEC66C /* MUKeyboardAvoidingTableController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUKeyboardAvoidingTableController.h; sourceTree = "<group>"; };
-		E6562924152308CF00CEC66C /* MUKeyboardAvoidingTableController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUKeyboardAvoidingTableController.m; sourceTree = "<group>"; };
-		E6562925152308CF00CEC66C /* MUKeyboardAvoidingTableController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MUKeyboardAvoidingTableController.xib; sourceTree = "<group>"; };
 		E6562928152308CF00CEC66C /* MURootControllerIPad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MURootControllerIPad.h; sourceTree = "<group>"; };
 		E6562929152308CF00CEC66C /* MURootControllerIPad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MURootControllerIPad.m; sourceTree = "<group>"; };
 		E656292A152308CF00CEC66C /* MURootControllerIPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MURootControllerIPad.xib; sourceTree = "<group>"; };
@@ -324,8 +326,6 @@
 		E65629DE152308DC00CEC66C /* license.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = license.txt; sourceTree = "<group>"; };
 		E65629DF152308DC00CEC66C /* readme.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = readme.md; sourceTree = "<group>"; };
 		E6562A291523092B00CEC66C /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		E68FF8921529CF7E001B450B /* TableViewWithMapedCells.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewWithMapedCells.h; sourceTree = "<group>"; };
-		E68FF8931529CF7E001B450B /* TableViewWithMapedCells.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewWithMapedCells.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -581,6 +581,45 @@
 			path = TableDisposers;
 			sourceTree = "<group>";
 		};
+		02EFC334155C1D7C00E2639C /* iCommon */ = {
+			isa = PBXGroup;
+			children = (
+				02EFC335155C1D7C00E2639C /* KeyboardAvoidingScroll */,
+				02EFC339155C1D7C00E2639C /* KeyboardAvoidingTable */,
+				02EFC33D155C1D7C00E2639C /* TableViewWithMapedCells */,
+			);
+			path = iCommon;
+			sourceTree = "<group>";
+		};
+		02EFC335155C1D7C00E2639C /* KeyboardAvoidingScroll */ = {
+			isa = PBXGroup;
+			children = (
+				02EFC336155C1D7C00E2639C /* MUKeyboardAvoidingScrollController.h */,
+				02EFC337155C1D7C00E2639C /* MUKeyboardAvoidingScrollController.m */,
+				02EFC338155C1D7C00E2639C /* MUKeyboardAvoidingScrollController.xib */,
+			);
+			path = KeyboardAvoidingScroll;
+			sourceTree = "<group>";
+		};
+		02EFC339155C1D7C00E2639C /* KeyboardAvoidingTable */ = {
+			isa = PBXGroup;
+			children = (
+				02EFC33A155C1D7C00E2639C /* MUKeyboardAvoidingTableController.h */,
+				02EFC33B155C1D7C00E2639C /* MUKeyboardAvoidingTableController.m */,
+				02EFC33C155C1D7C00E2639C /* MUKeyboardAvoidingTableController.xib */,
+			);
+			path = KeyboardAvoidingTable;
+			sourceTree = "<group>";
+		};
+		02EFC33D155C1D7C00E2639C /* TableViewWithMapedCells */ = {
+			isa = PBXGroup;
+			children = (
+				02EFC33E155C1D7C00E2639C /* TableViewWithMapedCells.h */,
+				02EFC33F155C1D7C00E2639C /* TableViewWithMapedCells.m */,
+			);
+			path = TableViewWithMapedCells;
+			sourceTree = "<group>";
+		};
 		E62CDA53152AF88300DACE8F /* Resourse */ = {
 			isa = PBXGroup;
 			children = (
@@ -634,7 +673,7 @@
 		E64AA464152306F70087B49E /* MUKitTest */ = {
 			isa = PBXGroup;
 			children = (
-				E6562919152308CF00CEC66C /* iCommand */,
+				02EFC334155C1D7C00E2639C /* iCommon */,
 				E6562926152308CF00CEC66C /* iPad */,
 				E656292B152308CF00CEC66C /* iPone */,
 				E64AA46D152306F70087B49E /* MUAppDelegate.h */,
@@ -653,36 +692,6 @@
 				E64AA46C152306F70087B49E /* MUKitTest-Prefix.pch */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		E6562919152308CF00CEC66C /* iCommand */ = {
-			isa = PBXGroup;
-			children = (
-				E656291E152308CF00CEC66C /* KeyboardAvoidingScroll */,
-				E6562922152308CF00CEC66C /* KeyboardAvoidingTable */,
-				E68FF8901529CF6E001B450B /* TableViewWithMapedCells */,
-			);
-			path = iCommand;
-			sourceTree = "<group>";
-		};
-		E656291E152308CF00CEC66C /* KeyboardAvoidingScroll */ = {
-			isa = PBXGroup;
-			children = (
-				E656291F152308CF00CEC66C /* MUKeyboardAvoidingScrollController.h */,
-				E6562920152308CF00CEC66C /* MUKeyboardAvoidingScrollController.m */,
-				E6562921152308CF00CEC66C /* MUKeyboardAvoidingScrollController.xib */,
-			);
-			path = KeyboardAvoidingScroll;
-			sourceTree = "<group>";
-		};
-		E6562922152308CF00CEC66C /* KeyboardAvoidingTable */ = {
-			isa = PBXGroup;
-			children = (
-				E6562923152308CF00CEC66C /* MUKeyboardAvoidingTableController.h */,
-				E6562924152308CF00CEC66C /* MUKeyboardAvoidingTableController.m */,
-				E6562925152308CF00CEC66C /* MUKeyboardAvoidingTableController.xib */,
-			);
-			path = KeyboardAvoidingTable;
 			sourceTree = "<group>";
 		};
 		E6562926152308CF00CEC66C /* iPad */ = {
@@ -873,15 +882,6 @@
 			path = DCRoundSwitch;
 			sourceTree = "<group>";
 		};
-		E68FF8901529CF6E001B450B /* TableViewWithMapedCells */ = {
-			isa = PBXGroup;
-			children = (
-				E68FF8921529CF7E001B450B /* TableViewWithMapedCells.h */,
-				E68FF8931529CF7E001B450B /* TableViewWithMapedCells.m */,
-			);
-			path = TableViewWithMapedCells;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -934,14 +934,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				E64AA469152306F70087B49E /* InfoPlist.strings in Resources */,
-				E6562933152308CF00CEC66C /* MUKeyboardAvoidingScrollController.xib in Resources */,
-				E6562935152308CF00CEC66C /* MUKeyboardAvoidingTableController.xib in Resources */,
 				E6562937152308CF00CEC66C /* MURootControllerIPad.xib in Resources */,
 				E6562939152308CF00CEC66C /* MURootControllerIPhone.xib in Resources */,
 				E6562A27152308DD00CEC66C /* license.txt in Resources */,
 				E6562A28152308DD00CEC66C /* readme.md in Resources */,
 				E62CDA57152AF88300DACE8F /* warning_icon.png in Resources */,
 				E62CDA58152AF88300DACE8F /* warning_icon@2x.png in Resources */,
+				02EFC341155C1D7C00E2639C /* MUKeyboardAvoidingScrollController.xib in Resources */,
+				02EFC343155C1D7C00E2639C /* MUKeyboardAvoidingTableController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -971,8 +971,6 @@
 			files = (
 				E64AA46B152306F70087B49E /* main.m in Sources */,
 				E64AA46F152306F70087B49E /* MUAppDelegate.m in Sources */,
-				E6562932152308CF00CEC66C /* MUKeyboardAvoidingScrollController.m in Sources */,
-				E6562934152308CF00CEC66C /* MUKeyboardAvoidingTableController.m in Sources */,
 				E6562936152308CF00CEC66C /* MURootControllerIPad.m in Sources */,
 				E6562938152308CF00CEC66C /* MURootControllerIPhone.m in Sources */,
 				E6562A0D152308DD00CEC66C /* MUCreditCardNumberFormatter.m in Sources */,
@@ -1023,7 +1021,6 @@
 				0208F28B1529CBF5003382F9 /* MUCellSwitch.m in Sources */,
 				0208F28C1529CBF5003382F9 /* MUCellTextField.m in Sources */,
 				0208F28D1529CBF5003382F9 /* MUCell.m in Sources */,
-				E68FF8941529CF7E001B450B /* TableViewWithMapedCells.m in Sources */,
 				028693EA152C55C70040FD86 /* MUCellDataTextView.m in Sources */,
 				028693EE152C568B0040FD86 /* MUCellDataTextPair.m in Sources */,
 				028693F1152C63250040FD86 /* MUCellTextView.m in Sources */,
@@ -1060,6 +1057,9 @@
 				E6337FDC153C6BE500EFBD6F /* MUKeyboardToolbar.m in Sources */,
 				E64D69C6153E76F900FF5C58 /* MUBaseTableController.m in Sources */,
 				E64D69C9153E82B200FF5C58 /* MUInputTextFilter.m in Sources */,
+				02EFC340155C1D7C00E2639C /* MUKeyboardAvoidingScrollController.m in Sources */,
+				02EFC342155C1D7C00E2639C /* MUKeyboardAvoidingTableController.m in Sources */,
+				02EFC344155C1D7C00E2639C /* TableViewWithMapedCells.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

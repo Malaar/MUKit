@@ -109,6 +109,7 @@
 //==============================================================================
 - (void) imageTapped:(UIImage*)anImage
 {
+    NSLog(@"UUID %@", UUID());
     MUShowSimpleAlert(@"Image Tapable", @"image taped!");
 }
 

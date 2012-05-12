@@ -18,4 +18,5 @@ inline NSMutableArray* MUDivideArray(NSArray* aDividedArray, NSString* aFieldNam
 
 NSDate* MUDateFromTimeStampInDictionary(NSDictionary* aDictionary, NSString* aKey);
 
-NSString* UUID(void);
+inline NSString* MUGenerateUUID();
+inline NSString* MUDocumentDirecoryPath();

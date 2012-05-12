@@ -71,16 +71,16 @@ NSDate* MUDateFromTimeStampInDictionary(NSDictionary* aDictionary, NSString* aKe
 }
 
 //==============================================================================
-NSString* UUID(void)
+NSString* MUGenerateUUID()
 {
-    NSString *uuidString = nil;
-    CFUUIDRef uuid = CFUUIDCreate(NULL);
-    if (uuid) 
-    {
-        uuidString = (NSString *)CFUUIDCreateString(NULL, uuid);
-        CFRelease(uuid);
-    }
-    return [uuidString autorelease];
+    CFUUIDRef uuidRef = CFUUIDCreate(kCFAllocatorDefault);
+    NSString* uuid = (NSString*)CFUUIDCreateString(kCFAllocatorDefault, uuidRef);
+    CFRelease(uuidRef);
+    return uuid;
 }
 
-
+//==============================================================================
+NSString* MUDocumentDirecoryPath()
+{
+    return [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+}

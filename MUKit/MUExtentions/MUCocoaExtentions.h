@@ -16,6 +16,7 @@
 @interface UIColor (Extention)
 
 + (UIColor *)colorWithRedI:(NSInteger)red greenI:(NSInteger)green blueI:(NSInteger)blue alphaI:(NSInteger)alpha;
+- (NSString*) htmlHexString;
 - (CGFloat) red;
 - (CGFloat) green;
 - (CGFloat) blue;

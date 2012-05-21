@@ -38,9 +38,11 @@
     {
         CGRect frame = self.view.bounds;
         UIImageView *backgroundView = [[[UIImageView alloc] initWithFrame:frame] autorelease];
+        backgroundView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
         [backgroundView setContentMode:UIViewContentModeTop];
         [backgroundView setImage:bgImage];
         [self.view addSubview:backgroundView];
+        [self.view sendSubviewToBack:backgroundView];
     }
 
     // left nav button

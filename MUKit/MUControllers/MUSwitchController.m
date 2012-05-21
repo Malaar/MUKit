@@ -23,6 +23,14 @@
 }
 
 //==============================================================================
+- (void) viewDidLoad
+{
+    [super viewDidLoad];
+    
+    self.navigationBarHidden = YES;
+}
+
+//==============================================================================
 - (void) switchToController:(UIViewController*)aController animated:(BOOL)anAnimate
 {
     BOOL canSwitch = YES;

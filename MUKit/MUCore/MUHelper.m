@@ -84,3 +84,21 @@ NSString* MUDocumentDirecoryPath()
 {
     return [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
 }
+
+//==============================================================================
+void MUHideWebViewShadows(UIWebView* webView)
+{
+    for (UIView* subView in [webView subviews])
+    {
+        if ([subView isKindOfClass:[UIScrollView class]])
+        {
+            for (UIView* shadowView in [subView subviews])
+            {
+                if ([shadowView isKindOfClass:[UIImageView class]])
+                {
+                    [shadowView setHidden:YES];
+                }
+            }
+        }
+    }
+}

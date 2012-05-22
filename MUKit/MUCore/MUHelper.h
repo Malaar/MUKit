@@ -20,3 +20,5 @@ NSDate* MUDateFromTimeStampInDictionary(NSDictionary* aDictionary, NSString* aKe
 
 inline NSString* MUGenerateUUID();
 inline NSString* MUDocumentDirecoryPath();
+
+inline void MUHideWebViewShadows(UIWebView* webView);

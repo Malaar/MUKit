@@ -1,0 +1,4 @@
+Documentation set was installed to Xcode!
+
+Path: /Users/zhenya/Library/Developer/Shared/Documentation/DocSets/com.111min.MUKitTest.docset
+Time: 2012-05-21 14:23:11 +0000

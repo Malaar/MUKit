@@ -9,6 +9,7 @@
 #ifndef MUKitTest_MUCore_h
 #define MUKitTest_MUCore_h
 
+// Base
 #import "MUKitDefines.h"
 #import "MUHelper.h"
 #import "MUWeakRef.h"
@@ -17,9 +18,11 @@
 #import "MUPair.h"
 #import "MUHelper.h"
 #import "MUFetchable.h"
+
 // Validators
 #import "MUValidator.h"
 #import "MUValidationGroup.h"
+
 // Formatters
 #import "MUCreditCardNumberFormatter.h"
 #import "MUPhoneNumberFormatter.h"

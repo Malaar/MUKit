@@ -94,9 +94,11 @@
         if([cellData isKindOfClass:[MUCellDataMaped class]])
         {
             [(MUCellDataMaped*)cellData mapFromObject];
-            cell = [self cellForIndex:[index integerValue]];
-            [cell setupCellData:cellData];
         }
+        
+        cell = [self cellForIndex:[index integerValue]];
+        [cell setupCellData:cellData];
+
         indexPath = [NSIndexPath indexPathForRow:[index integerValue] inSection:sectionIndex];
         [indexPaths addObject:indexPath];
     }

@@ -59,6 +59,5 @@
 
 - (void) reloadData;
 - (void) reloadSectionsWithAnimation:(UITableViewRowAnimation)anAnimation;
-- (void) reloadRowsAtIndexPaths:(NSArray*)anIndexPaths withRowAnimation:(UITableViewRowAnimation) aRowAnimation;
 
 @end

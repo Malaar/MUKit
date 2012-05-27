@@ -560,12 +560,6 @@
     }
 }
 
-//==============================================================================
-- (void) reloadRowsAtIndexPaths:(NSArray *)anIndexPaths withRowAnimation:(UITableViewRowAnimation)aRowAnimation
-{
-    [self.tableView reloadRowsAtIndexPaths:anIndexPaths withRowAnimation:aRowAnimation];
-}
-
 
 #pragma mark - UIScrollViewDelegate
 //==============================================================================

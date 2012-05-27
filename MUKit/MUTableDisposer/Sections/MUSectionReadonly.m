@@ -165,5 +165,20 @@
 }
 
 //==============================================================================
+- (void) reloadRowsAtIndexes:(NSArray *)anIndexes withAnimation:(UITableViewRowAnimation)aRowAnimation
+{
+    NSMutableArray* indexPaths = [NSMutableArray array];
+    NSIndexPath* indexPath;
+    NSInteger sectionIndex = [disposer indexBySection:self];
+    for(NSNumber* index in anIndexes)
+    {
+        indexPath = [NSIndexPath indexPathForRow:[index integerValue] inSection:sectionIndex];
+        [indexPaths addObject:indexPath];
+    }
+    
+    [disposer.tableView reloadRowsAtIndexPaths:indexPaths withRowAnimation:aRowAnimation];
+}
+
+//==============================================================================
 
 @end

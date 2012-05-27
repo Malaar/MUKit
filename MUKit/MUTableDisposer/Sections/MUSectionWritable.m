@@ -72,6 +72,39 @@
     return cell;
 }
 
+//==============================================================================
+- (void) reloadWithAnimation:(UITableViewRowAnimation)anAnimation
+{
+    [self mapFromObject];
+    [super reloadWithAnimation:anAnimation];
+}
+
+//==============================================================================
+- (void) reloadRowsAtIndexes:(NSArray *)anIndexes withAnimation:(UITableViewRowAnimation)aRowAnimation
+{
+    NSMutableArray* indexPaths = [NSMutableArray array];
+    NSIndexPath* indexPath;
+    NSInteger sectionIndex = [disposer indexBySection:self];
+    
+    MUCellData* cellData;
+    MUCell* cell;
+    for(NSNumber* index in anIndexes)
+    {
+        cellData = [self cellDataAtIndex:[index integerValue]];
+        if([cellData isKindOfClass:[MUCellDataMaped class]])
+        {
+            [(MUCellDataMaped*)cellData mapFromObject];
+            cell = [self cellForIndex:[index integerValue]];
+            [cell setupCellData:cellData];
+        }
+        indexPath = [NSIndexPath indexPathForRow:[index integerValue] inSection:sectionIndex];
+        [indexPaths addObject:indexPath];
+    }
+    
+    [disposer.tableView reloadRowsAtIndexPaths:indexPaths withRowAnimation:aRowAnimation];
+}
+
+
 #pragma mark - Show/Hide cels
 //==============================================================================
 - (void) hideCellByIndex:(NSUInteger)anIndex needUpdateTable:(BOOL)aNeedUpdateTable
@@ -136,12 +169,6 @@
     }
 }
 
-//==============================================================================
-- (void) reloadWithAnimation:(UITableViewRowAnimation)anAnimation
-{
-    [self mapFromObject];
-    [super reloadWithAnimation:anAnimation];
-}
 
 #pragma mark - Private
 //==============================================================================

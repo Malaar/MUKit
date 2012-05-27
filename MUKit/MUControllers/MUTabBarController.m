@@ -461,7 +461,7 @@
     BOOL result = YES;
     if([delegate respondsToSelector:@selector(tabBarController:shouldSelectViewController:)])
     {
-        [delegate tabBarController:self shouldSelectViewController: [viewControllers objectAtIndex:anIndex]];
+        result = [delegate tabBarController:self shouldSelectViewController: [viewControllers objectAtIndex:anIndex]];
     }
     return result;
 }

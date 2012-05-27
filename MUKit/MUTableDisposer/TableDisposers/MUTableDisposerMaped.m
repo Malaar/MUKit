@@ -7,6 +7,8 @@
 //
 
 #import "MUTableDisposerMaped.h"
+#import "MUCellDataMaped.h"
+#import "MUCell.h"
 
 @implementation MUTableDisposerMaped
 
@@ -33,5 +35,29 @@
         }
     }
 }
+
+//==============================================================================
+- (void) reloadData
+{
+    [self mapFromObject];
+    [super reloadData];
+}
+
+//==============================================================================
+- (void) reloadRowsAtIndexPaths:(NSArray *)anIndexPaths withRowAnimation:(UITableViewRowAnimation)aRowAnimation
+{
+    MUCellDataMaped* cellData;
+    MUCell* cell;
+    for(NSIndexPath* indexPath in anIndexPaths)
+    {
+        cellData = (MUCellDataMaped*)[self visibleCellDataByIndexPath:indexPath];
+        [cellData mapFromObject];
+        cell = (MUCell*)[self.tableView cellForRowAtIndexPath:indexPath];
+        [cell setupCellData:cellData];
+    }
+    
+    [self.tableView reloadRowsAtIndexPaths:anIndexPaths withRowAnimation:aRowAnimation];
+}
+
 
 @end

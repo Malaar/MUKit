@@ -36,7 +36,7 @@
         cellStyle = UITableViewCellStyleDefault;
         cellAccessoryType = UITableViewCellAccessoryNone;
         
-        cellSelectedHandler = [NSMutableArray new];
+        cellSelectedHandlers = [NSMutableArray new];
         cellDeselectedHandler = [NSMutableArray new];
     }
     return self;
@@ -46,7 +46,7 @@
 - (void) dealloc
 {
     [cellNibName release];
-    [cellSelectedHandler release];
+    [cellSelectedHandlers release];
     [cellDeselectedHandler release];
     
     [super dealloc];
@@ -67,7 +67,7 @@
 //==============================================================================
 - (void) addCellSelectedTarget:(id)aTarget action:(SEL)anAction
 {
-    [cellSelectedHandler addObject:[MUTargetAction targetActionWithTarget:aTarget action:anAction]];
+    [cellSelectedHandlers addObject:[MUTargetAction targetActionWithTarget:aTarget action:anAction]];
 }
 
 //==============================================================================
@@ -79,7 +79,7 @@
 //==============================================================================
 - (void) performSelectedHandlers
 {
-    for(MUTargetAction* handler in cellSelectedHandler)
+    for(MUTargetAction* handler in cellSelectedHandlers)
     {
         [handler sendActionFrom:self];
     }

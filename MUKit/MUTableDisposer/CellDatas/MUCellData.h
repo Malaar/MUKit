@@ -15,18 +15,18 @@
 @interface MUCellData : NSObject
 {
     @private
-    NSMutableArray *cellSelectedHandler;
+    NSMutableArray *cellSelectedHandlers;
     NSMutableArray *cellDeselectedHandler;
 }
 
-@property (nonatomic, assign) Class controllerClass;
+@property (nonatomic, assign) Class controllerClass;// deprecated
 
 @property (nonatomic, retain) NSString* cellNibName;
 
 @property (nonatomic, assign) Class cellClass;
 @property (nonatomic, readonly) NSString *cellIdentifier;
-@property (nonatomic, assign) UITableViewCellStyle cellStyle;
 
+@property (nonatomic, assign) UITableViewCellStyle cellStyle;
 @property (nonatomic, assign) UITableViewCellSelectionStyle cellSelectionStyle;
 @property (nonatomic, assign) UITableViewCellAccessoryType cellAccessoryType;
 @property (nonatomic, assign) BOOL autoDeselect;

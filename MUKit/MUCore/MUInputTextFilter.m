@@ -8,10 +8,8 @@
 
 #import "MUInputTextFilter.h"
 
-//==============================================================================
-//==============================================================================
-//==============================================================================
-/// text filter : base class
+#pragma mark - MUInputFilter
+
 @implementation MUInputFilter
 
 - (BOOL) filterText:(id)inputTextField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
@@ -21,10 +19,8 @@
 
 @end
 
-//==============================================================================
-//==============================================================================
-//==============================================================================
-/// text with only number
+#pragma mark - MUInputFilterNumbreValue
+
 @implementation MUInputFilterNumbreValue
 
 //==============================================================================
@@ -53,16 +49,12 @@
 
 @end
 
-//==============================================================================
-//==============================================================================
-//==============================================================================
-/// text with only numbers, numbers value has max and min
+#pragma mark - MUInputFilterNumbreValueWithMaxLengthText
+
 @implementation MUInputFilterNumbreValueWithMaxLengthText
 
-//==============================================================================
 @synthesize maxLengthText;
 
-//==============================================================================
 - (id) initWithMaxLengthText:(NSUInteger)aMaxLengthText
 {
     self = [super init];
@@ -73,7 +65,6 @@
     return self;
 }
 
-//==============================================================================
 - (BOOL) filterText:(id)inputTextField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
     BOOL result = NO;
@@ -99,13 +90,10 @@
 
 @end
 
-//==============================================================================
-//==============================================================================
-//==============================================================================
-/// text with only letters
+#pragma mark - MUInputFilterLetterValue
+
 @implementation MUInputFilterLetterValue
 
-//==============================================================================
 - (BOOL) filterText:(id)inputTextField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
     BOOL result = NO;
@@ -132,16 +120,12 @@
 
 @end
 
-//==============================================================================
-//==============================================================================
-//==============================================================================
-/// text with only letters, text has limited the length
+#pragma mark - MUInputFilterLetterValueWithMaxLengthText
+
 @implementation MUInputFilterLetterValueWithMaxLengthText
 
-//==============================================================================
 @synthesize maxLengthText;
 
-//==============================================================================
 - (id) initWithMaxLengthText:(NSUInteger)aMaxLengthText
 {
     self = [super init];
@@ -152,7 +136,6 @@
     return self;
 }
 
-//==============================================================================
 - (BOOL) filterText:(id)inputTextField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
     BOOL result = NO;
@@ -178,16 +161,12 @@
 
 @end
 
-//==============================================================================
-//==============================================================================
-//==============================================================================
-/// text has limited the length
+#pragma mark - MUInputFilterStringWithMaxLengthText
+
 @implementation MUInputFilterStringWithMaxLengthText
 
-//==============================================================================
 @synthesize maxLengthText;
 
-//==============================================================================
 - (id) initWithMaxLengthText:(NSUInteger)aMaxLengthText
 {
     self = [super init];
@@ -198,7 +177,6 @@
     return self;
 }
 
-//==============================================================================
 - (BOOL) filterText:(id)inputTextField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
     BOOL result = NO;

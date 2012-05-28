@@ -62,6 +62,7 @@
 - (void) correctForNavigationController:(UIViewController**)vc;
 - (UIBarButtonItem*) spacerBeforeTabBarButtonAtIndex:(NSUInteger)anIndex;
 - (void) disabledButtonPressed;
+- (void) updateTabArrow;
 
 @end
 
@@ -79,6 +80,7 @@
 @synthesize tabBarDrawColor;
 @synthesize tabBarBackgroundColor;
 @synthesize tabBarEnabled;
+@synthesize tabArrowImage;
 
 @synthesize viewControllers;
 @dynamic selectedViewController;
@@ -104,7 +106,7 @@
 {
     [tabBarBackgroundImage release];
     [tabBarBackgroundColor release];
-    
+    [tabArrowImage release];
     [viewControllers release];
     
     [super dealloc];
@@ -125,6 +127,7 @@
     disabledButton = nil;
     contentView = nil;
     currentView = nil;
+    ivTabArrow = nil;
     
     [super viewDidUnload];
 }
@@ -167,7 +170,8 @@
         [tabBar release];
     }
     
-
+    [self updateTabArrow];
+    
     if(!MU_IS_OS_VER_5x)
         [[self selectedViewController] viewWillAppear:animated];
 }
@@ -264,6 +268,8 @@
         [self addChildViewController:newController];
     else
         [newController viewDidAppear:NO];
+
+    [self updateTabArrow];
     
     // delegate
     if([delegate respondsToSelector:@selector(tabBarController:didSelectViewController:)])
@@ -453,6 +459,35 @@
         [((UINavigationController*)self.selectedViewController) popToRootViewControllerAnimated:YES];
     }
 }
+
+//==============================================================================
+- (void) updateTabArrow
+{
+    if(!tabArrowImage)
+        return;
+    
+    // configure position of the arrow
+
+    if(!ivTabArrow)
+    {
+        ivTabArrow = [[[UIImageView alloc] initWithImage:tabArrowImage] autorelease];
+        ivTabArrow.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
+        [tabBar addSubview:ivTabArrow];
+    }
+    
+    CGPoint arrowCenter;
+    arrowCenter.x = disabledButton.center.x;
+    if(tabBarOnTheTop)
+    {
+        arrowCenter.y = tabBarHeight + tabArrowImage.size.height / 2;
+    }
+    else
+    {
+        arrowCenter.y = -tabArrowImage.size.height / 2;
+    }
+    ivTabArrow.center = arrowCenter;    
+}
+
 
 #pragma mark - MUTabedToolbarDelegate
 //==============================================================================

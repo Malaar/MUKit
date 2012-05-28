@@ -38,6 +38,7 @@
 //==============================================================================
 @protocol MUTabBarControllerDelegate<NSObject>
 
+@optional
 - (BOOL) tabBarController:(MUTabBarController*)aTabBarController shouldSelectViewController:(UIViewController *)aViewController;
 - (void) tabBarController:(MUTabBarController *)aTabBarController didSelectViewController:(UIViewController *)aViewController;
 
@@ -55,6 +56,7 @@ typedef enum MUTabBarControllerStyle
 @interface MUTabBarController : UIViewController <MUTabedToolbarDelegate>
 {
     MUTabedToolbar* tabBar;
+    UIImageView* ivTabArrow;
     UIView* contentView;
     UIView* currentView;
     UIButton* disabledButton;
@@ -72,6 +74,8 @@ typedef enum MUTabBarControllerStyle
 @property (nonatomic, assign) BOOL tabBarDrawColor;
 @property (nonatomic, retain) UIColor* tabBarBackgroundColor;
 @property (nonatomic, assign) BOOL tabBarEnabled;
+
+@property (nonatomic, retain) UIImage* tabArrowImage;
 
 @property (nonatomic, copy) NSArray* viewControllers;
 @property (nonatomic, assign) UIViewController* selectedViewController;

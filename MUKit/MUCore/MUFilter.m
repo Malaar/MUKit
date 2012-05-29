@@ -102,8 +102,9 @@
     if([string length] > 0)
     {
         NSRegularExpression* regExp = [[NSRegularExpression alloc]initWithPattern:@"^[0-9a-zA-Z]+$" options:NSRegularExpressionCaseInsensitive error:nil];
-        NSUInteger count = [regExp numberOfMatchesInString:[inputTextField text] options:0 range:NSMakeRange(0, [inputTextField text].length)];
+        NSUInteger count = [regExp numberOfMatchesInString:string options:0 range:NSMakeRange(0, string.length)];
         result = count == 1;
+        result &= [[inputTextField text] length] < maxLengthText;
         [regExp release];
     }
     

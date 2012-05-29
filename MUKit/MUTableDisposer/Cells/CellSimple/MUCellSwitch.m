@@ -34,7 +34,7 @@
     
     if (aCellData.onText && aCellData.offText) 
     {
-        switcher = [[DCRoundSwitch alloc] init];
+        switcher = [[[DCRoundSwitch alloc] init] autorelease];
         ((DCRoundSwitch*)switcher).onText = aCellData.onText;
         ((DCRoundSwitch*)switcher).offText = aCellData.offText;
         ((DCRoundSwitch*)switcher).on = aCellData.boolValue;

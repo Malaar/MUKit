@@ -17,7 +17,6 @@
 {
     MUValidator* validator;
     MUTextField_Holder* delegateHolder;
-    MUFilter *inputTextFilter;
 }
 
 @property (nonatomic, assign) id<UITextFieldDelegate> mudelegate;

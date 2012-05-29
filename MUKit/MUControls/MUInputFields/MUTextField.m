@@ -75,7 +75,7 @@
 {
     [delegateHolder release];
     [validator release];
-    [inputTextFilter release];
+    [filter release];
     
     [super dealloc];
 }

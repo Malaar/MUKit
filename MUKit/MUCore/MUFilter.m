@@ -19,9 +19,8 @@
 //==============================================================================
 - (id) init
 {
-    if( (self = [super init]) )
+    if( (self = [self initWithMaxLengthText:NSNotFound]) )
     {
-        maxLengthText = NSNotFound;
     }
     return self;
 }

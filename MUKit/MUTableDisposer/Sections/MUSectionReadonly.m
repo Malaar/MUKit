@@ -41,7 +41,7 @@
     [headerView release];
     [footerView release];
     [headerTitle release];
-    [footerView release];
+    [footerTitle release];
     [cellDataSource release];
     [visibleCellDataSource release];
     

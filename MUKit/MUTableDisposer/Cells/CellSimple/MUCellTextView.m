@@ -82,7 +82,7 @@
     textView.editable = self.cellData.enableEdit;
     
     textView.validator = cellDataTextView.validator;
-    textView.inputTextFilter = cellDataTextView.inputFilter;
+    textView.filter = cellDataTextView.filter;
 
     // title
     titleLabel.frame = CGRectMake(10, 0, self.bounds.size.width - 20, titleHeight);

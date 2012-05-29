@@ -177,19 +177,19 @@
     validator.errorMessage = @"Incorrect Code";
     tf_05.placeholder = @"Enter Code (10~15 symbol)";
     tf_05.validator = validator;
-    tf_05.inputTextFilter = [[[MUInputFilterNumbreValueWithMaxLengthText alloc] initWithMaxLengthText:15] autorelease];
+    tf_05.filter = [[[MUFilterNumbers alloc] initWithMaxLengthText:15] autorelease];
     
     validator = [[[MUValidatorLetters alloc] init] autorelease];
     validator.errorMessage = @"Letters!!!";
     tf_06.placeholder = @"Enter Letters";
     tf_06.validator = validator;
-    tf_06.inputTextFilter = [[MUInputFilterLetterValue new] autorelease];
+    tf_06.filter = [[MUFilterLetters new] autorelease];
     
     validator = [[[MUValidatorNumber alloc] init] autorelease];
     validator.errorMessage = @"Number!!!";
     tf_07.placeholder = @"Enter Number";
     tf_07.validator = validator;
-    tf_07.inputTextFilter = [[MUInputFilterNumbreValue new] autorelease];
+    tf_07.filter = [[MUFilterNumbers new] autorelease];
     
     validator = [[[MUValidatorURL alloc] init] autorelease];
     validator.errorMessage = @"Incorrect URL";
@@ -200,13 +200,13 @@
     validator.errorMessage = @"Incorrect Zip Code";
     tf_09.placeholder = @"Enter US Zip Code";
     tf_09.validator = validator;
-    tf_09.inputTextFilter = [[[MUInputFilterNumbreValueWithMaxLengthText alloc] initWithMaxLengthText:5] autorelease];
+    tf_09.filter = [[[MUFilterNumbers alloc] initWithMaxLengthText:5] autorelease];
     
     validator = [[[MUValidatorStringWithRange alloc] initWithRange:NSMakeRange(5,5)] autorelease];
     validator.errorMessage = @"Word len 5~10";
     tf_10.placeholder = @"Enter Word";
     tf_10.validator = validator;
-    tf_10.inputTextFilter = [[[MUInputFilterStringWithMaxLengthText alloc] initWithMaxLengthText:10] autorelease];
+    tf_10.filter = [[[MUFilter alloc] initWithMaxLengthText:10] autorelease];
     
     validator = [[[MUValidatorIntWithRange alloc] initWithRange:NSMakeRange(16, 4)] autorelease];
     validator.errorMessage = @"Incorrect Card Number!!!";

@@ -20,7 +20,7 @@
 @synthesize returnKeyType;
 
 @synthesize validator;
-@synthesize inputFilter;
+@synthesize filter;
 
 #pragma mark - Init/Dealloc
 //==============================================================================
@@ -46,7 +46,7 @@
 - (void) dealloc
 {
     [validator release];
-    [inputFilter release];
+    [filter release];
     
     [super dealloc];
 }

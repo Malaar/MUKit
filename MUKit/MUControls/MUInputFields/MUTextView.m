@@ -34,7 +34,7 @@
 @synthesize mudelegate;
 @synthesize keyboardAvoiding;
 @synthesize observedText;
-@synthesize inputTextFilter;
+@synthesize filter;
 
 //==========================================================================================
 - (id) init
@@ -71,7 +71,7 @@
 {
     [delegateHolder release];
     [validator release];
-    [inputTextFilter release];
+    [filter release];
     
     [super dealloc];
 }
@@ -191,9 +191,9 @@
 {
     BOOL result = YES;
     
-    if (textView.inputTextFilter) 
+    if (textView.filter) 
     {
-        result = [textView.inputTextFilter filterText:textView shouldChangeCharactersInRange:range replacementString:text];
+        result = [textView.filter filterText:textView shouldChangeCharactersInRange:range replacementString:text];
     }
     
     if([holded.mudelegate respondsToSelector:@selector(textView:shouldChangeTextInRange:replacementText:)])

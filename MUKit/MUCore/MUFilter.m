@@ -38,8 +38,12 @@
 //==============================================================================
 - (BOOL) filterText:(id)inputTextField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
-//    result &= [[inputTextField text] length] < maxLengthText;
-    return YES;
+    BOOL result = YES;
+    if ([string length] > 0 &&  maxLengthText > 0)
+    {
+        result = [[inputTextField text] length] < maxLengthText;
+    }
+    return result;
 }
 
 @end

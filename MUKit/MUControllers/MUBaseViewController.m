@@ -124,6 +124,7 @@
 // show spinnered view above
 - (void) showSpinneredView
 {
+    spinneredViewShowCount++;
     [spinneredView show];
 }
 
@@ -131,7 +132,8 @@
 // hide spinnered view
 - (void) hideSpinneredView;
 {
-    [spinneredView hide];
+    if(--spinneredViewShowCount == 0)
+        [spinneredView hide];
 }
 
 #pragma mark - Show Alert View

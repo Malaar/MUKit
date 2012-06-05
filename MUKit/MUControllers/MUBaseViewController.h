@@ -15,6 +15,7 @@
 @interface MUBaseViewController : UIViewController
 {
     MUSpinneredView* spinneredView;             ///< spinnered view
+    NSInteger spinneredViewShowCount;
     BOOL isVisible;
 }
 

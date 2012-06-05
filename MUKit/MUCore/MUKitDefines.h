@@ -15,3 +15,10 @@
 #define MU_CHECK_INDEX(index, min, max) {NSAssert( index >= min && index < max, @"Wrong index!");}
 
 #define MU_IS_RETINA [UIScreen mainScreen].scale > 1.5f
+
+#ifdef DEBUG
+#   define MULog(format, ...) NSLog(format, __VA_ARGS__)
+#else
+#   define MULog(format, ...)
+#endif
+

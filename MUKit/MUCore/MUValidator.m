@@ -387,3 +387,47 @@ BOOL canBeInputByPhonePad(char c)
 //==============================================================================
 //==============================================================================
 //==============================================================================
+@implementation MUValidatorRegExp
+
+@synthesize regularExpression;
+
+//==============================================================================
+- (id) initWithRegExp:(NSRegularExpression *)aRegExp
+{
+    if( (self = [super init]) )
+    {
+        self.regularExpression = aRegExp;
+    }
+    return self;
+}
+
+//==============================================================================
+- (void) dealloc
+{
+    [regularExpression release];
+    
+    [super dealloc];
+}
+
+//==============================================================================
+- (BOOL) validate
+{
+    BOOL result = NO;
+
+    validatableObject.validatableText = [validatableObject.validatableText stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    if(validatableObject.validatableText)
+    {
+        NSUInteger count = 0;
+        count = [regularExpression numberOfMatchesInString:validatableObject.validatableText options:0 range:NSMakeRange(0, [validatableObject.validatableText length])];
+        
+        result = count == 1;
+    }
+    
+    return result;
+}
+
+@end
+
+//==============================================================================
+//==============================================================================
+//==============================================================================

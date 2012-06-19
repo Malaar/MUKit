@@ -47,7 +47,7 @@
 //==============================================================================
 -(id)initWithFrame:(CGRect)frame 
 {
-    if ( !(self = [super initWithFrame:frame]) ) 
+    if ( (self = [super initWithFrame:frame]) ) 
     {
         [self setup];
     }

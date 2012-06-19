@@ -39,8 +39,7 @@
     
     if (!scrollView)
     {
-        scrollView = [[[scrollClass alloc] init] autorelease];    
-        scrollView.frame = self.view.bounds;
+        scrollView = [[[scrollClass alloc] initWithFrame:self.view.bounds] autorelease];    
         scrollView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
         scrollView.backgroundColor = [UIColor clearColor];
         [self.view addSubview:scrollView];

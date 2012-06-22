@@ -73,6 +73,7 @@
 //==========================================================================================
 - (void) dealloc
 {
+    super.delegate = nil;
     [delegateHolder release];
     [validator release];
     [filter release];

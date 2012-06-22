@@ -16,5 +16,7 @@
 - (IBAction)showKeyboardAvoidingTableView:(id)sender;
 - (IBAction)showTableDisposerController:(id)sender;
 - (IBAction)switchController:(id)sender;
+@property (retain, nonatomic) IBOutlet UIButton *popupPressed;
+- (IBAction)popupPressed:(id)sender;
 
 @end

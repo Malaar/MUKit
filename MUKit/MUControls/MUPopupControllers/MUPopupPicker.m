@@ -15,6 +15,7 @@
 
 - (void) toolbarButtonPressed:(UIButton*)aSender;
 - (void) toolbarItemPressed:(UIBarButtonItem*)aSender;
+- (void) configureFrames;
 
 @end
 
@@ -45,8 +46,26 @@
     picker = [self createPicker];
     [self addSubview:picker];
     
-//    self.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin;
-//    picker.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    [self configureFrames];
+}
+
+//==============================================================================
+- (void) configureFrames
+{
+    //
+    self.autoresizingMask ^= !(UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin);
+    picker.autoresizingMask ^= !(UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight);
+    
+    CGRect frame = picker.frame;
+    frame.origin.y = toolbar.bounds.size.height;
+    picker.frame = frame;
+    
+    frame.origin.y = 0;
+    frame.size.height += toolbar.bounds.size.height;
+    self.frame = frame;
+    
+    self.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin;
+    picker.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     
 }
 
@@ -59,28 +78,12 @@
     if(aToolbar)
     {
         toolbar = [aToolbar retain];
-
         [self addSubview:toolbar];
-        
         [toolbar sizeToFit];
         toolbar.autoresizingMask = UIViewAutoresizingFlexibleWidth;
         
-        //
-        self.autoresizingMask ^= !(UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin);
-        picker.autoresizingMask ^= !(UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight);
+        [self configureFrames];
 
-        CGRect frame = picker.frame;
-        frame.origin.y = toolbar.bounds.size.height;
-        picker.frame = frame;
-        
-        frame.origin.y = 0;
-        frame.size.height += toolbar.bounds.size.height;
-        self.frame = frame;
-
-        self.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin;
-        picker.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-        
-        //
         int index = 0;
         for(UIBarButtonItem* bbi in toolbar.items)
         {
@@ -118,12 +121,6 @@
 {
     return nil; // override it in subclasses
 }
-
-////==============================================================================
-//- (void) setSelectedItem:(NSObject *)aSelectedItem
-//{
-//    // override it in subclasses
-//}
 
 #pragma mark - Toolbar
 //==============================================================================

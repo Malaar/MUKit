@@ -14,6 +14,7 @@
 #import "MUSwitchController.h"
 
 @implementation MURootControllerIPhone
+@synthesize popupPressed;
 @synthesize ivTapable;
 
 //==============================================================================
@@ -56,6 +57,7 @@
 - (void)viewDidUnload
 {
     [self setIvTapable:nil];
+    [self setPopupPressed:nil];
     [super viewDidUnload];
 }
 
@@ -103,6 +105,7 @@
 {
     [ivTapable release];
 
+    [popupPressed release];
     [super dealloc];
 }
 
@@ -110,6 +113,16 @@
 - (void) imageTapped:(UIImage*)anImage
 {
     MUShowSimpleAlert(@"Image Tapable", @"image taped!");
+}
+
+//==============================================================================
+- (IBAction)popupPressed:(id)sender
+{
+    MUPopupDatePicker* datePicker = [[MUPopupDatePicker alloc] init];
+    datePicker.showOverlayView = YES;
+//    datePicker.toolbar = [MUToolbar new];
+    [datePicker prepareToShow];
+    [datePicker showWithAnimation:YES inView:self.view];
 }
 
 @end

@@ -36,13 +36,9 @@
 
 @synthesize popupedView;
 
-//@synthesize hideByTapOutside;
 @synthesize isShow;
-//@synthesize showOverlayView;
 @synthesize overlayView;
 @synthesize overlayViewAlpha;
-
-//@synthesize navigationController;
 
 #pragma mark - init/dealloc
 //==============================================================================
@@ -50,12 +46,9 @@
 {
     if( (self = [super init]) )
     {
-//		weakRef = [[MUWeakRef alloc] initWithObject:self];
-		
         overlayView = nil;
         overlayViewAlpha = 0.3f;
-        
-//        hideByTapOutside = YES;
+
         animatingNow = NO;
         isShow = NO;
     }
@@ -66,38 +59,9 @@
 - (void) dealloc
 {
     [popupedView release];
-//    NSLog(@"retainCount: %i", popupedView.retainCount);
-    
-//	[weakRef invalidate];
-//	[weakRef release];
-	
+
 	[super dealloc];
 }
-
-#pragma mark - properties
-////==============================================================================
-//- (void) setHideByTapOutside:(BOOL)aShowHidedButton
-//{
-//    hideByTapOutside = aShowHidedButton;
-//    btHided.hidden = !hideByTapOutside;
-//}
-
-////==============================================================================
-//- (void) setShowOverlayView:(BOOL)aShowOverlayView
-//{
-//    showOverlayView = aShowOverlayView;
-//    
-//    if(!overlayView && showOverlayView)
-//    {
-//        overlayView = [[[UIView alloc] initWithFrame:self.view.bounds] autorelease];
-//        [self.view addSubview:overlayView];
-//        overlayView.backgroundColor = [UIColor grayColor];
-//        overlayView.alpha = 0.0f;
-//        overlayView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-//        [self.view sendSubviewToBack:overlayView];
-//    }
-//    overlayView.hidden = !showOverlayView;
-//}
 
 #pragma mark - view life cicle
 //==============================================================================
@@ -118,7 +82,6 @@
     btHided.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     [btHided addTarget:self action:@selector(hidedButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
     btHided.hidden = !popupedView.hideByTapOutside;
-//    self.hideByTapOutside = hideByTapOutside;
 
     if(popupedView.showOverlayView)
     {
@@ -128,24 +91,15 @@
         overlayView.alpha = 0.0f;
         overlayView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
         [self.view sendSubviewToBack:overlayView];
-//        overlayView.hidden = !showOverlayView;
     }
 
     // popuped view
-//    popupedView = [self createPopupedView];
     if(popupedView)
     {
-//        NSLog(@"retainCount: %i", popupedView.retainCount);
-
-//        popupedView.owner = self;
         [popupedViewOwner addSubview:popupedView];
         frame = popupedView.frame;
         frame.origin.y = self.view.bounds.size.height - frame.size.height;
         popupedView.frame = frame;
-        
-//        NSLog(@"popupedView size:: %@", NSStringFromCGSize(popupedView.bounds.size));
-//        NSLog(@"retainCount: %i", popupedView.retainCount);
-
     }
 }
 
@@ -174,6 +128,9 @@
         UINavigationController* nc = parentVC.navigationController;
         if(nc && !nc.navigationBarHidden)
             navBarHeight = nc.navigationBar.bounds.size.height;
+        
+        if(parentVC.view.frame.size.height == 480)
+            frame.origin.y = 20;
     }
 
     CGSize screenSize = [UIScreen mainScreen].bounds.size;
@@ -200,24 +157,20 @@
 //==============================================================================
 - (void) popupDidAppear:(BOOL)animated
 {
-//    NSLog(@"retainCount: %i", popupedView.retainCount);
     [popupedView popupDidAppear:animated];
 }
 
 //==============================================================================
 - (void) popupWillDisappear:(BOOL)animated
 {
-//    NSLog(@"retainCount: %i", popupedView.retainCount);
     [popupedView popupWillDisappear:animated];
 }
 
 //==============================================================================
 - (void) popupDidDisappear:(BOOL)animated
 {
-//    NSLog(@"retainCount: %i", popupedView.retainCount);
     [self.view removeFromSuperview];
     [popupedView popupDidDisappear:animated];
-//    NSLog(@"retainCount: %i", popupedView.retainCount);
 
     //kill self
     [self autorelease];
@@ -319,21 +272,4 @@
     [self hideWithAnimation:YES];
 }
 
-//#pragma mark - override to configure
-////==============================================================================
-//- (UIView*) createPopupedView
-//{
-//    return nil;
-//}
-
-//#pragma mark - weakReference
-////==============================================================================
-//- (MUWeakRef*) weakReference
-//{
-//	return weakRef;
-//}
-
-//==============================================================================
-//==============================================================================
-//==============================================================================
 @end

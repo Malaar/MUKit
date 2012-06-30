@@ -7,7 +7,6 @@
 //
 
 #import "MUPopoverViewController.h"
-//#import "MUPopoverController.h"
 
 @implementation MUPopoverViewController
 
@@ -20,9 +19,6 @@
     {
         popupedView = [aPopupedView retain];
         self.modalInPopover = !popupedView.hideByTapOutside;
-        
-        //
-//        [popupedView addObserver:self forKeyPath:@"frame" options:(NSKeyValueObservingOptionNew) context:0];
     }
     return self;
 }
@@ -30,7 +26,6 @@
 //==============================================================================
 - (void) dealloc
 {
-//    [popupedView removeObserver:self forKeyPath:@"frame"];
     [popupedView release];
     
     [super dealloc];
@@ -47,7 +42,6 @@
 
     popupedView.autoresizingMask = UIViewAutoresizingNone;
     [self.view addSubview:popupedView];
-//    popupedView.owner = self;
 
     [self setContentSizeForViewInPopover:popupedView.bounds.size];
 }
@@ -77,20 +71,5 @@
     
     [popoverOwner autorelease];
 }
-
-////==============================================================================
-//- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-//{
-//    return (interfaceOrientation == UIInterfaceOrientationPortrait);
-//}
-
-////==============================================================================
-//- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
-//{
-//    if([object isEqual:popupedView])
-//    {
-//        NSNumber* changeType = [change objectForKey:NSKeyValueChangeKindKey];
-//    }
-//}
 
 @end

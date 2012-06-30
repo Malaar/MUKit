@@ -42,7 +42,6 @@
 		025A62AC152F17FD00E49856 /* MUPopupSimplePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 025A6263152F17FC00E49856 /* MUPopupSimplePicker.m */; };
 		025A62AD152F17FD00E49856 /* MUPopupTimePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 025A6265152F17FC00E49856 /* MUPopupTimePicker.m */; };
 		025A62AE152F17FD00E49856 /* MUPopupView.m in Sources */ = {isa = PBXBuildFile; fileRef = 025A6267152F17FC00E49856 /* MUPopupView.m */; };
-		025A62AF152F17FD00E49856 /* MUPopoverController.m in Sources */ = {isa = PBXBuildFile; fileRef = 025A626A152F17FC00E49856 /* MUPopoverController.m */; };
 		025A62B0152F17FD00E49856 /* MUPopoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 025A626C152F17FC00E49856 /* MUPopoverViewController.m */; };
 		025A62B1152F17FD00E49856 /* MUPopupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 025A626E152F17FC00E49856 /* MUPopupViewController.m */; };
 		025A62B2152F17FD00E49856 /* MUProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 025A6270152F17FC00E49856 /* MUProgressView.m */; };
@@ -189,8 +188,6 @@
 		025A6265152F17FC00E49856 /* MUPopupTimePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUPopupTimePicker.m; sourceTree = "<group>"; };
 		025A6266152F17FC00E49856 /* MUPopupView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUPopupView.h; sourceTree = "<group>"; };
 		025A6267152F17FC00E49856 /* MUPopupView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUPopupView.m; sourceTree = "<group>"; };
-		025A6269152F17FC00E49856 /* MUPopoverController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUPopoverController.h; sourceTree = "<group>"; };
-		025A626A152F17FC00E49856 /* MUPopoverController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUPopoverController.m; sourceTree = "<group>"; };
 		025A626B152F17FC00E49856 /* MUPopoverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUPopoverViewController.h; sourceTree = "<group>"; };
 		025A626C152F17FC00E49856 /* MUPopoverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUPopoverViewController.m; sourceTree = "<group>"; };
 		025A626D152F17FC00E49856 /* MUPopupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUPopupViewController.h; sourceTree = "<group>"; };
@@ -260,7 +257,7 @@
 		E64AA46E152306F70087B49E /* MUAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MUAppDelegate.m; sourceTree = "<group>"; };
 		E64D69C4153E76F800FF5C58 /* MUBaseTableController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUBaseTableController.h; sourceTree = "<group>"; };
 		E64D69C5153E76F800FF5C58 /* MUBaseTableController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUBaseTableController.m; sourceTree = "<group>"; };
-		E64D69C7153E82B200FF5C58 /* MUFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; path = MUFilter.h; sourceTree = "<group>"; };
+		E64D69C7153E82B200FF5C58 /* MUFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUFilter.h; sourceTree = "<group>"; };
 		E64D69C8153E82B200FF5C58 /* MUFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUFilter.m; sourceTree = "<group>"; };
 		E6562928152308CF00CEC66C /* MURootControllerIPad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MURootControllerIPad.h; sourceTree = "<group>"; };
 		E6562929152308CF00CEC66C /* MURootControllerIPad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MURootControllerIPad.m; sourceTree = "<group>"; };
@@ -533,8 +530,6 @@
 		025A6268152F17FC00E49856 /* ShowStrategy */ = {
 			isa = PBXGroup;
 			children = (
-				025A6269152F17FC00E49856 /* MUPopoverController.h */,
-				025A626A152F17FC00E49856 /* MUPopoverController.m */,
 				025A626B152F17FC00E49856 /* MUPopoverViewController.h */,
 				025A626C152F17FC00E49856 /* MUPopoverViewController.m */,
 				025A626D152F17FC00E49856 /* MUPopupViewController.h */,
@@ -1043,7 +1038,6 @@
 				025A62AC152F17FD00E49856 /* MUPopupSimplePicker.m in Sources */,
 				025A62AD152F17FD00E49856 /* MUPopupTimePicker.m in Sources */,
 				025A62AE152F17FD00E49856 /* MUPopupView.m in Sources */,
-				025A62AF152F17FD00E49856 /* MUPopoverController.m in Sources */,
 				025A62B0152F17FD00E49856 /* MUPopoverViewController.m in Sources */,
 				025A62B1152F17FD00E49856 /* MUPopupViewController.m in Sources */,
 				025A62B2152F17FD00E49856 /* MUProgressView.m in Sources */,

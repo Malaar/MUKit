@@ -9,14 +9,11 @@
 #import <UIKit/UIKit.h>
 #import "MUPopupView.h"
 
-//@class MUPopoverController;
-
 @interface MUPopoverViewController : UIViewController
 {
     MUPopupView* popupedView;
 }
 
-//@property (nonatomic, retain) MUPopupView* popupedView;
 @property (nonatomic, assign) UIPopoverController* popoverOwner;
 
 - (id) initWithPopupView:(MUPopupView*)aPopupedView;

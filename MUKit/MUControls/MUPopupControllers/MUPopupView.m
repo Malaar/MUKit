@@ -56,6 +56,15 @@
 }
 
 //==============================================================================
+- (void) prepareToRelease
+{
+    if([showStrategy isKindOfClass:[MUPopupViewController class]])
+    {
+        [(MUPopupViewController*)showStrategy release];
+    }
+}
+
+//==============================================================================
 - (void) prepareToShow
 {
 //    NSLog(@"retainCount: %i", self.retainCount);

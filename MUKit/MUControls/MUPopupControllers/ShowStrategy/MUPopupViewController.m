@@ -169,11 +169,12 @@
 //==============================================================================
 - (void) popupDidDisappear:(BOOL)animated
 {
+    isShow = NO;
     [self.view removeFromSuperview];
     [popupedView popupDidDisappear:animated];
 
-    //kill self
-    [self autorelease];
+//    //kill self
+//    [self autorelease];
 }
 
 #pragma mark - rotations
@@ -187,7 +188,7 @@
 //==============================================================================
 - (void) showWithAnimation:(BOOL)animation inView:(UIView*)aView
 {
-    if(isShow) return;
+    if(isShow || animatingNow) return;
 
     [aView addSubview:self.view];
 	[self popupWillAppear:animation];
@@ -234,7 +235,7 @@
 //==============================================================================
 - (void) hideWithAnimation:(BOOL)animation
 {
-    if(!isShow) return;
+    if(!isShow || animatingNow) return;
     
     [self popupWillDisappear:animation];
 

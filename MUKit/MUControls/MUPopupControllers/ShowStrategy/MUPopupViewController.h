@@ -11,7 +11,7 @@
 @class MUPopupView;
 
 ///
-@interface MUPopupViewController : UIViewController
+@interface MUPopupViewController : UIViewController //<MUWeakRefProtocol>
 {
 @protected
     UIButton* btHided;

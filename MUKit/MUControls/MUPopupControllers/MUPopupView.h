@@ -10,6 +10,7 @@
 #import "MUKitDefines.h"
 #import "MUWeakRef.h"
 #import "MUPopupViewController.h"
+#import "MUPopoverController.h"
 
 #define POPUPVIEW_WILL_SHOW     @"PopupViewWillShow"
 #define POPUPVIEW_DID_SHOW      @"PopupViewDidShow"
@@ -24,6 +25,8 @@
 @property (nonatomic, readonly) NSObject* showStrategy;
 @property (nonatomic, assign) BOOL hideByTapOutside;
 @property (nonatomic, assign) BOOL showOverlayView;                             ///< determine show or not overlay view (by default it is gray transparent view above any free space)
+
+- (void) prepareToRelease;
 
 - (void) hideWithAnimation:(BOOL)animation;                                     ///< hide with popup strategy (works only on iPad)
 

@@ -36,7 +36,6 @@
 // for iPad
 - (void)showFromRect:(CGRect)rect inView:(UIView *)view permittedArrowDirections:(UIPopoverArrowDirection)arrowDirections animated:(BOOL)animated;
 
-// -----
 - (void) setup;
 - (void) prepareToShow;
 

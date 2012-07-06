@@ -56,7 +56,7 @@
 		028693F1152C63250040FD86 /* MUCellTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 028693F0152C63250040FD86 /* MUCellTextView.m */; };
 		028F8D3915259B3600C7907F /* MUSectionReadonly.m in Sources */ = {isa = PBXBuildFile; fileRef = 028F8D3215259B3600C7907F /* MUSectionReadonly.m */; };
 		028F8D3A15259B3600C7907F /* MUSectionWritable.m in Sources */ = {isa = PBXBuildFile; fileRef = 028F8D3415259B3600C7907F /* MUSectionWritable.m */; };
-		02A01D5C15A71ABE007AEE1B /* MUDraw.c in Sources */ = {isa = PBXBuildFile; fileRef = 02A01D5A15A71ABE007AEE1B /* MUDraw.c */; };
+		02A01D5C15A71ABE007AEE1B /* MUDraw.m in Sources */ = {isa = PBXBuildFile; fileRef = 02A01D5A15A71ABE007AEE1B /* MUDraw.m */; };
 		02AF8F6315305506005B8AED /* MUTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02AF8F6215305506005B8AED /* MUTabBarController.m */; };
 		02BDB7E31525FA4F00764326 /* MUTableDisposer.m in Sources */ = {isa = PBXBuildFile; fileRef = 02BDB7E21525FA4F00764326 /* MUTableDisposer.m */; };
 		02BDB7ED1525FF3500764326 /* MUTableDisposerModeled.m in Sources */ = {isa = PBXBuildFile; fileRef = 02BDB7EC1525FF3500764326 /* MUTableDisposerModeled.m */; };
@@ -218,7 +218,7 @@
 		028F8D3215259B3600C7907F /* MUSectionReadonly.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUSectionReadonly.m; sourceTree = "<group>"; };
 		028F8D3315259B3600C7907F /* MUSectionWritable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUSectionWritable.h; sourceTree = "<group>"; };
 		028F8D3415259B3600C7907F /* MUSectionWritable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUSectionWritable.m; sourceTree = "<group>"; };
-		02A01D5A15A71ABE007AEE1B /* MUDraw.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = MUDraw.c; sourceTree = "<group>"; };
+		02A01D5A15A71ABE007AEE1B /* MUDraw.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUDraw.m; sourceTree = "<group>"; };
 		02A01D5B15A71ABE007AEE1B /* MUDraw.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUDraw.h; sourceTree = "<group>"; };
 		02A2094E152CEA220010733B /* MUCore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MUCore.h; sourceTree = "<group>"; };
 		02A20950152CF24C0010733B /* MUExtentions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MUExtentions.h; sourceTree = "<group>"; };
@@ -567,7 +567,7 @@
 		02A01D5915A71ABE007AEE1B /* MUDraw */ = {
 			isa = PBXGroup;
 			children = (
-				02A01D5A15A71ABE007AEE1B /* MUDraw.c */,
+				02A01D5A15A71ABE007AEE1B /* MUDraw.m */,
 				02A01D5B15A71ABE007AEE1B /* MUDraw.h */,
 			);
 			path = MUDraw;
@@ -1067,7 +1067,7 @@
 				02EFC340155C1D7C00E2639C /* MUKeyboardAvoidingScrollController.m in Sources */,
 				02EFC342155C1D7C00E2639C /* MUKeyboardAvoidingTableController.m in Sources */,
 				02EFC344155C1D7C00E2639C /* TableViewWithMapedCells.m in Sources */,
-				02A01D5C15A71ABE007AEE1B /* MUDraw.c in Sources */,
+				02A01D5C15A71ABE007AEE1B /* MUDraw.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

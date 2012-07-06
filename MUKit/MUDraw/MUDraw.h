@@ -11,11 +11,13 @@
 
 #import <QuartzCore/QuartzCore.h>
 
-inline void MUDrawLinearGradient(CGContextRef context, CGRect rect, CGColorRef startColor, CGColorRef endColor, bool isHorizontal);
-inline void MUDrawLinearGradientVertical(CGContextRef context, CGRect rect, CGColorRef startColor, CGColorRef endColor);
-inline void MUDrawLinearGradientHorizontal(CGContextRef context, CGRect rect, CGColorRef startColor, CGColorRef endColor);
+extern void MUDrawLinearGradient(CGContextRef context, CGRect rect, CGColorRef startColor, CGColorRef endColor, bool isHorizontal);
+extern void MUDrawLinearGradientVertical(CGContextRef context, CGRect rect, CGColorRef startColor, CGColorRef endColor);
+extern void MUDrawLinearGradientHorizontal(CGContextRef context, CGRect rect, CGColorRef startColor, CGColorRef endColor);
 
-inline CGContextRef MUCreateThreadSafeContext(CGSize contextSize);
-inline CGImageRef MUCreateCGImageFromThreadSafeContext(CGContextRef context);
+extern CGContextRef MUCreateThreadSafeContext(CGSize contextSize);
+extern CGImageRef MUCreateCGImageFromThreadSafeContext(CGContextRef context);
+
+extern UIImage* MUImageWithColor(UIColor* color, CGSize size);
 
 #endif

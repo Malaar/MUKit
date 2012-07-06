@@ -75,3 +75,21 @@ CGImageRef MUCreateCGImageFromThreadSafeContext(CGContextRef context)
 {
     return CGBitmapContextCreateImage(context);
 }
+
+//==============================================================================
+UIImage* MUImageWithColor(UIColor* color, CGSize size)
+{
+    UIImage* result = nil;
+    
+    UIGraphicsBeginImageContext(size);
+    
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    CGContextSetFillColorWithColor(context, color.CGColor);
+    CGContextFillRect(context, CGRectMake(0, 0, size.width, size.height));
+    
+    result = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return result;
+}
+

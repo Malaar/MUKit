@@ -16,5 +16,6 @@
 #import "MUControls.h"
 #import "MUControllers.h"
 #import "MUTableDisposers.h"
+#import "MUDraw.h"
 
 #endif

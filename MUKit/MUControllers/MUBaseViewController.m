@@ -125,14 +125,18 @@
 - (void) showSpinneredView
 {
     spinneredViewShowCount++;
-    [spinneredView show];
+    if(spinneredViewShowCount == 1)
+        [spinneredView show];
 }
 
 //==============================================================================
 // hide spinnered view
 - (void) hideSpinneredView;
 {
-    if(--spinneredViewShowCount == 0)
+    if(spinneredViewShowCount > 0)
+        spinneredViewShowCount--;
+    
+    if(spinneredViewShowCount == 0)
         [spinneredView hide];
 }
 

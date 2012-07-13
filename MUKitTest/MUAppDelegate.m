@@ -26,7 +26,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    MUImageWithColor([UIColor whiteColor].CGColor, CGSizeMake(9, 9));
+    MUImageWithColor([UIColor whiteColor], CGSizeMake(9, 9));
     UIViewController *viewController = nil;
     
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];

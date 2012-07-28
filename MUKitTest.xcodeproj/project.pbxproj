@@ -917,7 +917,7 @@
 		E64AA451152306F70087B49E /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0420;
+				LastUpgradeCheck = 0430;
 			};
 			buildConfigurationList = E64AA454152306F70087B49E /* Build configuration list for PBXProject "MUKitTest" */;
 			compatibilityVersion = "Xcode 3.2";

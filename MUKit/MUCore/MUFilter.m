@@ -39,9 +39,12 @@
 - (BOOL) filterText:(id)inputTextField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
     BOOL result = YES;
-    if ([string length] > 0 &&  maxLengthText > 0)
+    
+    int len = [string length];
+    
+    if (len > 0 &&  maxLengthText > 0)
     {
-        result = [[inputTextField text] length] < maxLengthText;
+        result = ([[inputTextField text] length] + len) <= maxLengthText;
     }
     return result;
 }
@@ -59,10 +62,12 @@
 {
     BOOL result = YES;
     
-    if ([string length] > 0)
+    int len = [string length];
+    
+    if (len > 0)
     {
         result = [string rangeOfCharacterFromSet:[NSCharacterSet decimalDigitCharacterSet]].location != NSNotFound;
-        result &= [[inputTextField text] length] < maxLengthText;
+        result &= ([[inputTextField text] length] + len) <= maxLengthText;
     }
     
     return result;
@@ -81,10 +86,12 @@
 {
     BOOL result = YES;
     
-    if ([string length] > 0)
+    int len = [string length];
+    
+    if (len > 0)
     {
         result = [string rangeOfCharacterFromSet:[NSCharacterSet letterCharacterSet]].location != NSNotFound;
-        result &= [[inputTextField text] length] < maxLengthText;
+        result &= ([[inputTextField text] length] + len) <= maxLengthText;
     }
     
     return result;
@@ -102,12 +109,14 @@
 {
     BOOL result = YES;
     
-    if([string length] > 0)
+    int len = [string length];
+    
+    if(len > 0)
     {
         NSRegularExpression* regExp = [[NSRegularExpression alloc]initWithPattern:@"^[0-9a-zA-Z]+$" options:NSRegularExpressionCaseInsensitive error:nil];
         NSUInteger count = [regExp numberOfMatchesInString:string options:0 range:NSMakeRange(0, string.length)];
         result = count == 1;
-        result &= [[inputTextField text] length] < maxLengthText;
+        result &= ([[inputTextField text] length] + len) <= maxLengthText;
         [regExp release];
     }
     

@@ -38,3 +38,15 @@
 @interface MUFilterLettersAndDigits : MUFilter
 
 @end
+
+//==============================================================================
+@interface MUFilterNumbersWithEditableRange : MUFilter
+{
+    NSRange editableRange;
+}
+
+@property (nonatomic, assign) NSRange editableRange;
+
+- (id)initWithEditableRange:(NSRange)anEditableRange;
+
+@end

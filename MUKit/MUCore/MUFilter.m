@@ -115,3 +115,57 @@
 }
 
 @end
+
+//==============================================================================
+//==============================================================================
+//==============================================================================
+@implementation MUFilterNumbersWithEditableRange
+
+@synthesize editableRange;
+
+//==============================================================================
+- (id) init
+{
+    if( (self = [self initWithEditableRange:NSMakeRange(0, 0)]) )
+    {
+    }
+    return self;
+}
+
+//==============================================================================
+- (id)initWithEditableRange:(NSRange)anEditableRange
+{
+    self = [super init];
+    if (self)
+    {
+        editableRange = anEditableRange;
+    }
+    return self;
+}
+
+//==============================================================================
+- (BOOL)filterText:(id)inputTextField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
+    BOOL result = YES;
+    
+    if (editableRange.length > 0)
+    {
+        if ([string length] > 0) 
+        {
+            result = [string rangeOfCharacterFromSet:[NSCharacterSet decimalDigitCharacterSet]].location != NSNotFound;            
+            result &= range.location >= editableRange.location;
+            if (result) {
+                NSString *newText = [[inputTextField text] stringByReplacingCharactersInRange:range withString:string];
+                result &= [newText length] <= NSMaxRange(editableRange);
+            }
+        }
+        else
+        {
+            result = range.location >= editableRange.location && range.length <= editableRange.length;
+        }
+    }
+    
+    return result;
+}
+
+@end

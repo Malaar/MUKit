@@ -42,9 +42,9 @@
     
     int len = [string length];
     
-    if (len > 0 &&  maxLengthText > 0)
+    if (len > 0)
     {
-        result = ([[inputTextField text] length] + len) <= maxLengthText;
+        result = ([[[inputTextField text] stringByReplacingCharactersInRange:range withString:string] length]) <= maxLengthText;
     }
     return result;
 }
@@ -67,7 +67,7 @@
     if (len > 0)
     {
         result = [string rangeOfCharacterFromSet:[NSCharacterSet decimalDigitCharacterSet]].location != NSNotFound;
-        result &= ([[inputTextField text] length] + len) <= maxLengthText;
+        result &= ([[[inputTextField text] stringByReplacingCharactersInRange:range withString:string] length]) <= maxLengthText;
     }
     
     return result;
@@ -91,7 +91,7 @@
     if (len > 0)
     {
         result = [string rangeOfCharacterFromSet:[NSCharacterSet letterCharacterSet]].location != NSNotFound;
-        result &= ([[inputTextField text] length] + len) <= maxLengthText;
+        result &= ([[[inputTextField text] stringByReplacingCharactersInRange:range withString:string] length]) <= maxLengthText;
     }
     
     return result;
@@ -113,11 +113,8 @@
     
     if(len > 0)
     {
-        NSRegularExpression* regExp = [[NSRegularExpression alloc]initWithPattern:@"^[0-9a-zA-Z]+$" options:NSRegularExpressionCaseInsensitive error:nil];
-        NSUInteger count = [regExp numberOfMatchesInString:string options:0 range:NSMakeRange(0, string.length)];
-        result = count == 1;
-        result &= ([[inputTextField text] length] + len) <= maxLengthText;
-        [regExp release];
+        result = [string rangeOfCharacterFromSet:[NSCharacterSet alphanumericCharacterSet]].location != NSNotFound;
+        result &= ([[[inputTextField text] stringByReplacingCharactersInRange:range withString:string] length]) <= maxLengthText;
     }
     
     return result;
@@ -174,6 +171,59 @@
         }
     }
     
+    return result;
+}
+
+@end
+
+//==============================================================================
+//==============================================================================
+//==============================================================================
+@implementation MUFilterRegExp
+
+@synthesize regExp;
+
+//==============================================================================
+- (id) init
+{
+    if( (self = [self initWithMaxLengthText:NSNotFound andRegExp:nil]) )
+    {
+    }
+    return self;
+}
+
+//==============================================================================
+- (void)dealloc {
+    
+    [regExp release];
+    regExp = nil;
+    [super dealloc];
+}
+
+//==============================================================================
+- (id)initWithMaxLengthText:(NSUInteger)aMaxLengthText
+                  andRegExp:(NSRegularExpression *)aRegExp
+{
+    self = [super init];
+    if (self)
+    {
+        maxLengthText = aMaxLengthText;
+        regExp = aRegExp;
+    }
+    return self;
+}
+
+//==============================================================================
+- (BOOL) filterText:(id)inputTextField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
+    BOOL result = YES;
+    
+    if ([[regExp pattern] length] > 0 && [string length] > 0)
+    {
+        NSUInteger count = [regExp numberOfMatchesInString:string options:0 range:NSMakeRange(0, string.length)];
+        result = count == 1;
+        result &= ([[[inputTextField text] stringByReplacingCharactersInRange:range withString:string] length]) <= maxLengthText;
+    }
     return result;
 }
 

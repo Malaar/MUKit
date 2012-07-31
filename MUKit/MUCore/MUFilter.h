@@ -50,3 +50,16 @@
 - (id)initWithEditableRange:(NSRange)anEditableRange;
 
 @end
+
+//==============================================================================
+@interface MUFilterRegExp : MUFilter
+{
+    NSRegularExpression *regExp;
+}
+
+@property (nonatomic, readonly) NSRegularExpression *regExp;
+
+- (id)initWithMaxLengthText:(NSUInteger)aMaxLengthText
+                  andRegExp:(NSRegularExpression *)aRegExp;
+
+@end

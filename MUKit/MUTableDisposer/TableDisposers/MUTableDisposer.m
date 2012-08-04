@@ -196,6 +196,16 @@
     }
 }
 
+//==============================================================================
+- (void) deleteRowsAtIndexPaths:(NSArray*)anIndexPaths withRowAnimation:(UITableViewRowAnimation)aTableViewRowAnimation
+{
+    for(NSIndexPath* indexPath in anIndexPaths)
+    {
+        [[self sectionByIndex:indexPath.section] deleteRowsAtIndexes:[NSArray arrayWithObject:[NSNumber numberWithInt:indexPath.row]] withAnimation:aTableViewRowAnimation];
+    }
+}
+
+
 #pragma mark - UITableViewDataSource
 //==============================================================================
 - (NSInteger)tableView:(UITableView *)aTableView numberOfRowsInSection:(NSInteger)section

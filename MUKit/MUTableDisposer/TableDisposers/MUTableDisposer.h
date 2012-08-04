@@ -60,4 +60,6 @@
 - (void) reloadData;
 - (void) reloadSectionsWithAnimation:(UITableViewRowAnimation)anAnimation;
 
+- (void) deleteRowsAtIndexPaths:(NSArray*)anIndexPaths withRowAnimation:(UITableViewRowAnimation)aTableViewRowAnimation;
+
 @end

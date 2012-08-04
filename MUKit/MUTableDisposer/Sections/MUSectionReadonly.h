@@ -47,5 +47,6 @@
 
 - (void) reloadWithAnimation:(UITableViewRowAnimation)anAnimation;
 - (void) reloadRowsAtIndexes:(NSArray*)anIndexes withAnimation:(UITableViewRowAnimation)aRowAnimation;
+- (void) deleteRowsAtIndexes:(NSArray*)anIndexes withAnimation:(UITableViewRowAnimation)aRowAnimation;
 
 @end

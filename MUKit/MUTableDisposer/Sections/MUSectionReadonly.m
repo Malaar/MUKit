@@ -180,5 +180,23 @@
 }
 
 //==============================================================================
+- (void) deleteRowsAtIndexes:(NSArray*)anIndexes withAnimation:(UITableViewRowAnimation)aRowAnimation
+{
+    for(NSNumber* index in anIndexes)
+    {
+        [self removeCellDataAtIndex:[index intValue]];
+        [self updateCellDataVisibility];
+    }
+
+    NSMutableArray* indexPaths = [NSMutableArray array];
+    NSIndexPath* indexPath;
+    NSInteger sectionIndex = [disposer indexBySection:self];
+    for(NSNumber* index in anIndexes)
+    {
+        indexPath = [NSIndexPath indexPathForRow:[index integerValue] inSection:sectionIndex];
+        [indexPaths addObject:indexPath];
+    }
+    [disposer.tableView deleteRowsAtIndexPaths:indexPaths withRowAnimation:aRowAnimation];
+}
 
 @end

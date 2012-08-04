@@ -171,6 +171,13 @@
     }
 }
 
+//==============================================================================
+- (void) deleteRowsAtIndexes:(NSArray*)anIndexes withAnimation:(UITableViewRowAnimation)aRowAnimation
+{
+    [super deleteRowsAtIndexes:anIndexes withAnimation:aRowAnimation];
+    
+    [cells removeObjectsAtIndexes:[NSSet setWithArray:anIndexes]];
+}
 
 #pragma mark - Private
 //==============================================================================

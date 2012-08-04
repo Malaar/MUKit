@@ -208,7 +208,7 @@
     if (self)
     {
         maxLengthText = aMaxLengthText;
-        regExp = aRegExp;
+        regExp = [aRegExp retain];
     }
     return self;
 }

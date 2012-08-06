@@ -408,6 +408,9 @@
     [tabBar addSubview:disabledButton];
     [disabledButton addTarget:self action:@selector(disabledButtonPressed) forControlEvents:UIControlEventTouchUpInside];
     
+    // fixed by Igor:
+    disabledButton.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
+    
     [self setSelectedIndex:selectedIndex];
 }
 

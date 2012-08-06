@@ -444,7 +444,7 @@
 //==============================================================================
 - (UITableViewCellEditingStyle)tableView:(UITableView *)aTableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCellEditingStyle result = UITableViewCellEditingStyleNone;
+    UITableViewCellEditingStyle result = UITableViewCellEditingStyleDelete;
     if(delegate && [delegate respondsToSelector:@selector(tableView:editingStyleForRowAtIndexPath:)])
     {
         result = [delegate tableView:aTableView editingStyleForRowAtIndexPath:indexPath];

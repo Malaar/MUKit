@@ -13,6 +13,7 @@
 #import "MUCheckableTableController.h"
 #import "MUBaseViewController.h"
 #import "MUBaseScrollerController.h"
+#import "MUTabBarController.h"
 #import "MUSwitchController.h"
 
 #endif

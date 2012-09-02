@@ -7,8 +7,7 @@
 //
 
 #import "MUTabBarController.h"
-
-#define MU_IS_OS_VER_5x ([[[UIDevice currentDevice] systemVersion] floatValue] >= 5.0)
+#import "MUKitDefines.h"
 
 //==============================================================================
 @implementation MUTabBarItem
@@ -172,7 +171,7 @@
     
     [self updateTabArrow];
     
-    if(!MU_IS_OS_VER_5x)
+    if(!MU_IS_OS_VERSION_ABOVE_5x)
         [[self selectedViewController] viewWillAppear:animated];
 }
 
@@ -181,7 +180,7 @@
 {
     [super viewDidAppear:animated];
     
-    if(!MU_IS_OS_VER_5x)
+    if(!MU_IS_OS_VERSION_ABOVE_5x)
         [[self selectedViewController] viewDidAppear:animated];
 }
 
@@ -190,7 +189,7 @@
 {
     [super viewWillDisappear:animated];
     
-    if(!MU_IS_OS_VER_5x)
+    if(!MU_IS_OS_VERSION_ABOVE_5x)
         [[self selectedViewController] viewWillDisappear:animated];
 }
 
@@ -199,7 +198,7 @@
 {
     [super viewDidDisappear:animated];
 
-    if(!MU_IS_OS_VER_5x)
+    if(!MU_IS_OS_VERSION_ABOVE_5x)
         [[self selectedViewController] viewDidDisappear:animated];
 }
 
@@ -241,7 +240,7 @@
     // will hide prev
     if(prevView)
     {
-        if(MU_IS_OS_VER_5x)
+        if(MU_IS_OS_VERSION_ABOVE_5x)
             [prevController removeFromParentViewController];
         else
             [prevController viewWillDisappear:NO];
@@ -251,20 +250,20 @@
     currentView = newController.view;
     currentView.frame = contentView.bounds;
     currentView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-    if(!MU_IS_OS_VER_5x)
+    if(!MU_IS_OS_VERSION_ABOVE_5x)
         [newController viewWillAppear:NO];
 
     // did hide prev
     if(prevView)
     {
         [prevView removeFromSuperview];
-        if(!MU_IS_OS_VER_5x)
+        if(!MU_IS_OS_VERSION_ABOVE_5x)
             [prevController viewDidDisappear:YES];
     }
     
     // did show new
     [contentView addSubview:currentView];
-    if(MU_IS_OS_VER_5x)
+    if(MU_IS_OS_VERSION_ABOVE_5x)
         [self addChildViewController:newController];
     else
         [newController viewDidAppear:NO];
@@ -309,7 +308,7 @@
         // remove old controllers
         [currentView removeFromSuperview];
         currentView = nil;
-        if(MU_IS_OS_VER_5x)
+        if(MU_IS_OS_VERSION_ABOVE_5x)
         {
             for(UIViewController* vc in viewControllers)
                 [vc removeFromParentViewController];

@@ -16,6 +16,9 @@
 
 #define MU_IS_RETINA [UIScreen mainScreen].scale > 1.5f
 
+#define MU_IS_OS_VERSION_ABOVE_5x ([[[UIDevice currentDevice] systemVersion] floatValue] >= 5.0)
+
+
 #ifdef DEBUG
 #   define MULog(format, ...) NSLog(format, __VA_ARGS__)
 #else

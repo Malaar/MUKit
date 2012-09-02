@@ -104,4 +104,55 @@
     return nil;
 }
 
+//==============================================================================
+- (void)resetStore
+{
+    NSAssert(NO, @"Override this!!!");
+}
+
+//==============================================================================
+- (void)removeAllEntitiesWithName:(NSString *)entityName
+{
+    NSFetchRequest *allEntities = [[NSFetchRequest new] autorelease];
+    allEntities.entity = [NSEntityDescription entityForName:entityName
+                                     inManagedObjectContext:self.managedObjectContext];
+    [allEntities setIncludesPropertyValues:NO];
+    
+    NSError *error = nil;
+    NSArray *entities = [self.managedObjectContext executeFetchRequest:allEntities error:&error];
+    for (NSManagedObject *object in entities)
+    {
+        [self.managedObjectContext deleteObject:object];
+    }
+    
+}
+
+//==============================================================================
+/**
+ * Remove all data from storage asynchronously. Call this method from main thread.
+ */
+- (void)resetStoreAsycWithCallback:(void(^)(void))aCallback
+{
+    NSAssert(NO, @"Override this!!!");
+}
+
+//==============================================================================
+/**
+ * Remove all entities with names `entityName` from context `moc`
+ */
+- (void)removeAllEntitiesWithName:(NSString *)entityName inMOC:(NSManagedObjectContext*)moc
+{
+    NSFetchRequest *allEntities = [[NSFetchRequest new] autorelease];
+    allEntities.entity = [NSEntityDescription entityForName:entityName
+                                     inManagedObjectContext:moc];
+    [allEntities setIncludesPropertyValues:NO];
+    
+    NSError *error = nil;
+    NSArray *entities = [moc executeFetchRequest:allEntities error:&error];
+    for (NSManagedObject *object in entities)
+    {
+        [moc deleteObject:object];
+    }
+}
+
 @end

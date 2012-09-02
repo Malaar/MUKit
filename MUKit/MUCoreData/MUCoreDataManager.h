@@ -19,4 +19,16 @@
 
 - (void) saveContext;
 
+- (void)resetStore;
+- (void)removeAllEntitiesWithName:(NSString *)entityName;
+
+/**
+ * Remove all data from storage asynchronously. Call this method from main thread.
+ */
+- (void)resetStoreAsycWithCallback:(void(^)(void))aCallback;
+/**
+ * Remove all entities with names `entityName` from context `moc`
+ */
+- (void)removeAllEntitiesWithName:(NSString *)entityName inMOC:(NSManagedObjectContext*)moc;
+
 @end

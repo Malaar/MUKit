@@ -51,6 +51,8 @@
 		025A62B6152F17FD00E49856 /* MUStackedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 025A6278152F17FC00E49856 /* MUStackedView.m */; };
 		025A62B7152F17FD00E49856 /* MUTabedToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 025A627A152F17FC00E49856 /* MUTabedToolbar.m */; };
 		025A62C5152F17FD00E49856 /* MUToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 025A6297152F17FD00E49856 /* MUToolbar.m */; };
+		0263608815F3BFCE00B655A1 /* MUCoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0263608715F3BFCE00B655A1 /* MUCoreDataManager.m */; };
+		0263608B15F3BFF600B655A1 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0263608A15F3BFF600B655A1 /* CoreData.framework */; };
 		028693EA152C55C70040FD86 /* MUCellDataTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 028693E9152C55C70040FD86 /* MUCellDataTextView.m */; };
 		028693EE152C568B0040FD86 /* MUCellDataTextPair.m in Sources */ = {isa = PBXBuildFile; fileRef = 028693ED152C568B0040FD86 /* MUCellDataTextPair.m */; };
 		028693F1152C63250040FD86 /* MUCellTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 028693F0152C63250040FD86 /* MUCellTextView.m */; };
@@ -208,6 +210,9 @@
 		025A6296152F17FD00E49856 /* MUToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUToolbar.h; sourceTree = "<group>"; };
 		025A6297152F17FD00E49856 /* MUToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUToolbar.m; sourceTree = "<group>"; };
 		025A62C6152F188400E49856 /* MUControllers.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MUControllers.h; sourceTree = "<group>"; };
+		0263608615F3BFCE00B655A1 /* MUCoreDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUCoreDataManager.h; sourceTree = "<group>"; };
+		0263608715F3BFCE00B655A1 /* MUCoreDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUCoreDataManager.m; sourceTree = "<group>"; };
+		0263608A15F3BFF600B655A1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		028693E8152C55C70040FD86 /* MUCellDataTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUCellDataTextView.h; sourceTree = "<group>"; };
 		028693E9152C55C70040FD86 /* MUCellDataTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUCellDataTextView.m; sourceTree = "<group>"; };
 		028693EC152C568B0040FD86 /* MUCellDataTextPair.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUCellDataTextPair.h; sourceTree = "<group>"; };
@@ -333,6 +338,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0263608B15F3BFF600B655A1 /* CoreData.framework in Frameworks */,
 				E6562A2A1523092B00CEC66C /* QuartzCore.framework in Frameworks */,
 				E64AA45F152306F70087B49E /* UIKit.framework in Frameworks */,
 				E64AA461152306F70087B49E /* Foundation.framework in Frameworks */,
@@ -541,6 +547,15 @@
 			path = ShowStrategy;
 			sourceTree = "<group>";
 		};
+		0263608515F3BFCE00B655A1 /* MUCoreData */ = {
+			isa = PBXGroup;
+			children = (
+				0263608615F3BFCE00B655A1 /* MUCoreDataManager.h */,
+				0263608715F3BFCE00B655A1 /* MUCoreDataManager.m */,
+			);
+			path = MUCoreData;
+			sourceTree = "<group>";
+		};
 		028F8D2515259B3600C7907F /* MUTableDisposer */ = {
 			isa = PBXGroup;
 			children = (
@@ -668,6 +683,7 @@
 		E64AA45D152306F70087B49E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0263608A15F3BFF600B655A1 /* CoreData.framework */,
 				E6562A291523092B00CEC66C /* QuartzCore.framework */,
 				E64AA45E152306F70087B49E /* UIKit.framework */,
 				E64AA460152306F70087B49E /* Foundation.framework */,
@@ -741,6 +757,7 @@
 			isa = PBXGroup;
 			children = (
 				02A20965152D07030010733B /* MUKit.h */,
+				0263608515F3BFCE00B655A1 /* MUCoreData */,
 				02A01D5915A71ABE007AEE1B /* MUDraw */,
 				025A6232152F17FC00E49856 /* MUControllers */,
 				025A6241152F17FC00E49856 /* MUControls */,
@@ -1068,6 +1085,7 @@
 				02EFC342155C1D7C00E2639C /* MUKeyboardAvoidingTableController.m in Sources */,
 				02EFC344155C1D7C00E2639C /* TableViewWithMapedCells.m in Sources */,
 				02A01D5C15A71ABE007AEE1B /* MUDraw.m in Sources */,
+				0263608815F3BFCE00B655A1 /* MUCoreDataManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -97,10 +97,10 @@
     cellDataTextField.placeholder = @"please enter text";
     [section addCellData: cellDataTextField];
     
-    MUTestObject* testObject = [MUTestObject new];
+    MUTestObject* testObject = [[MUTestObject new] autorelease];
     testObject.strValue = @"string value";
 
-    MUCellDataTextView* cdTextView = [[MUCellDataTextView alloc] initWithObject:testObject key:@"strValue"];
+    MUCellDataTextView* cdTextView = [[[MUCellDataTextView alloc] initWithObject:testObject key:@"strValue"] autorelease];
     cdTextView.title = @"Title";
 //    cdTextView.enableEdit = NO;
     [section addCellData:cdTextView];

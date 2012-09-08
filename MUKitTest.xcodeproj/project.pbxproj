@@ -53,6 +53,7 @@
 		025A62C5152F17FD00E49856 /* MUToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 025A6297152F17FD00E49856 /* MUToolbar.m */; };
 		0263608815F3BFCE00B655A1 /* MUCoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0263608715F3BFCE00B655A1 /* MUCoreDataManager.m */; };
 		0263608B15F3BFF600B655A1 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0263608A15F3BFF600B655A1 /* CoreData.framework */; };
+		027F8E6515FB888F00201DD4 /* MUPopovedStrategy.m in Sources */ = {isa = PBXBuildFile; fileRef = 027F8E6215FB888F00201DD4 /* MUPopovedStrategy.m */; };
 		028693EA152C55C70040FD86 /* MUCellDataTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 028693E9152C55C70040FD86 /* MUCellDataTextView.m */; };
 		028693EE152C568B0040FD86 /* MUCellDataTextPair.m in Sources */ = {isa = PBXBuildFile; fileRef = 028693ED152C568B0040FD86 /* MUCellDataTextPair.m */; };
 		028693F1152C63250040FD86 /* MUCellTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 028693F0152C63250040FD86 /* MUCellTextView.m */; };
@@ -213,6 +214,10 @@
 		0263608615F3BFCE00B655A1 /* MUCoreDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUCoreDataManager.h; sourceTree = "<group>"; };
 		0263608715F3BFCE00B655A1 /* MUCoreDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUCoreDataManager.m; sourceTree = "<group>"; };
 		0263608A15F3BFF600B655A1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		027F8E6115FB888F00201DD4 /* MUPopovedStrategy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUPopovedStrategy.h; sourceTree = "<group>"; };
+		027F8E6215FB888F00201DD4 /* MUPopovedStrategy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUPopovedStrategy.m; sourceTree = "<group>"; };
+		027F8E6315FB888F00201DD4 /* MUPopoverable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUPopoverable.h; sourceTree = "<group>"; };
+		027F8E6415FB888F00201DD4 /* MUStrategy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUStrategy.h; sourceTree = "<group>"; };
 		028693E8152C55C70040FD86 /* MUCellDataTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUCellDataTextView.h; sourceTree = "<group>"; };
 		028693E9152C55C70040FD86 /* MUCellDataTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUCellDataTextView.m; sourceTree = "<group>"; };
 		028693EC152C568B0040FD86 /* MUCellDataTextPair.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUCellDataTextPair.h; sourceTree = "<group>"; };
@@ -556,6 +561,25 @@
 			path = MUCoreData;
 			sourceTree = "<group>";
 		};
+		027F8E5F15FB888F00201DD4 /* MUStrategy */ = {
+			isa = PBXGroup;
+			children = (
+				027F8E6415FB888F00201DD4 /* MUStrategy.h */,
+				027F8E6015FB888F00201DD4 /* MUPopoved */,
+			);
+			path = MUStrategy;
+			sourceTree = "<group>";
+		};
+		027F8E6015FB888F00201DD4 /* MUPopoved */ = {
+			isa = PBXGroup;
+			children = (
+				027F8E6115FB888F00201DD4 /* MUPopovedStrategy.h */,
+				027F8E6215FB888F00201DD4 /* MUPopovedStrategy.m */,
+				027F8E6315FB888F00201DD4 /* MUPopoverable.h */,
+			);
+			path = MUPopoved;
+			sourceTree = "<group>";
+		};
 		028F8D2515259B3600C7907F /* MUTableDisposer */ = {
 			isa = PBXGroup;
 			children = (
@@ -757,6 +781,7 @@
 			isa = PBXGroup;
 			children = (
 				02A20965152D07030010733B /* MUKit.h */,
+				027F8E5F15FB888F00201DD4 /* MUStrategy */,
 				0263608515F3BFCE00B655A1 /* MUCoreData */,
 				02A01D5915A71ABE007AEE1B /* MUDraw */,
 				025A6232152F17FC00E49856 /* MUControllers */,
@@ -1086,6 +1111,7 @@
 				02EFC344155C1D7C00E2639C /* TableViewWithMapedCells.m in Sources */,
 				02A01D5C15A71ABE007AEE1B /* MUDraw.m in Sources */,
 				0263608815F3BFCE00B655A1 /* MUCoreDataManager.m in Sources */,
+				027F8E6515FB888F00201DD4 /* MUPopovedStrategy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

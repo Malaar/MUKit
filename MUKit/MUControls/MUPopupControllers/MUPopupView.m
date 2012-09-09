@@ -16,6 +16,7 @@
 @synthesize showStrategy;
 @synthesize hideByTapOutside;
 @synthesize showOverlayView;
+@synthesize isVisible;
 
 #pragma mark - Init/Dealloc
 //==============================================================================
@@ -89,6 +90,7 @@
 //==============================================================================
 - (void) popupWillAppear:(BOOL)animated
 {
+    isVisible = YES;
     [[NSNotificationCenter defaultCenter] postNotificationName:POPUPVIEW_WILL_SHOW object:self];
 }
 
@@ -107,6 +109,7 @@
 //==============================================================================
 - (void) popupDidDisappear:(BOOL)animated
 {
+    isVisible = NO;
 	[[NSNotificationCenter defaultCenter] postNotificationName:POPUPVIEW_DID_HIDE object:self];
 }
 

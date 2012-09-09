@@ -25,6 +25,7 @@
 @property (nonatomic, readonly) NSObject* showStrategy;
 @property (nonatomic, assign) BOOL hideByTapOutside;
 @property (nonatomic, assign) BOOL showOverlayView;                             ///< determine show or not overlay view (by default it is gray transparent view above any free space)
+@property (nonatomic, readonly) BOOL isVisible;
 
 - (void) prepareToRelease;
 

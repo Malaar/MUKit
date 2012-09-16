@@ -32,7 +32,9 @@
 - (void) rightNavButtonPressed:(id)aSender;     ///< action to process pressed-on-right-button event
 - (UIImage*) backgraundImage;
 
-- (void) showAlertViewWithTitle:(NSString *)aTitle 
+- (void) showAlertViewWithTitle:(NSString*)aTitle message:(NSString*)aMessage;
+
+- (void) showAlertViewWithTitle:(NSString *)aTitle
                         message:(NSString *)aMessage 
                        delegate:(id)aDelegate 
               cancelButtonTitle:(NSString *)aCancelButtonTitle 

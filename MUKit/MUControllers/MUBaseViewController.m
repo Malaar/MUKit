@@ -142,6 +142,15 @@
 
 #pragma mark - Show Alert View
 //==============================================================================
+- (void) showAlertViewWithTitle:(NSString*)aTitle message:(NSString*)aMessage
+{
+    if(isVisible)
+    {
+        [[[[UIAlertView alloc] initWithTitle:aTitle message:aMessage delegate:nil cancelButtonTitle:NSLocalizedString(@"OK", nil) otherButtonTitles:nil] autorelease] show];
+    }
+}
+
+//==============================================================================
 - (void)showAlertViewWithTitle:(NSString *)aTitle message:(NSString *)aMessage delegate:(id)aDelegate cancelButtonTitle:(NSString *)aCancelButtonTitle otherButtonTitle:(NSString *)aOtherButtonTitle
 {
     if (isVisible)

@@ -229,7 +229,7 @@ BOOL canBeInputByPhonePad(char c)
 - (BOOL) validate
 {
     validatableObject.validatableText = [validatableObject.validatableText stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-    NSRegularExpression* regExp = [[NSRegularExpression alloc]initWithPattern:@"^([A-Za-z])+ ([A-Za-z])+$" options:NSRegularExpressionCaseInsensitive error:nil];
+    NSRegularExpression* regExp = [[NSRegularExpression alloc]initWithPattern:@"^([A-Za-zА-Яа-я])+ ([A-Za-zА-Яа-я])+$" options:NSRegularExpressionCaseInsensitive error:nil];
     NSUInteger count = 0;
     if(validatableObject && validatableObject.validatableText)
         count = [regExp numberOfMatchesInString:validatableObject.validatableText options:0 range:NSMakeRange(0, [validatableObject.validatableText length])];

@@ -83,6 +83,11 @@
     
     textView.validator = cellDataTextView.validator;
     textView.filter = cellDataTextView.filter;
+    
+    if (cellDataTextView.placeholder)
+        textView.placeholder = cellDataTextView.placeholder;
+    if (cellDataTextView.placeholderColor)
+        textView.placeholderColor = cellDataTextView.placeholderColor;
 
     // title
     titleLabel.frame = CGRectMake(10, 0, self.bounds.size.width - 20, titleHeight);

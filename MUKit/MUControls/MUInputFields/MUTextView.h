@@ -18,10 +18,16 @@
     MUValidator* validator;
     MUTextView_Holder* delegateHolder;
     MUFilter *filter;
+    
+    NSString* placeholder;
+    UIColor* placeholderColor;
 }
 
 @property (nonatomic, assign) id<UITextViewDelegate> mudelegate;
 @property (nonatomic, copy) NSString* observedText;
 @property (nonatomic, retain) MUFilter *filter;
+
+@property (nonatomic, retain) NSString* placeholder;
+@property (nonatomic, retain) UIColor* placeholderColor;
 
 @end

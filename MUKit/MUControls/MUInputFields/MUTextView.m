@@ -24,7 +24,10 @@
 //==========================================================================================
 @interface MUTextView ()
 
+@property (nonatomic, retain) UITextView* lbPlaceholder;
+
 - (void) setup;
+- (void) setHiddenPlaceHolder:(BOOL)hidden;
 
 @end
 
@@ -35,6 +38,11 @@
 @synthesize keyboardAvoiding;
 @synthesize observedText;
 @synthesize filter;
+
+@synthesize placeholder;
+@synthesize placeholderColor;
+
+@synthesize lbPlaceholder = _lbPlaceholder;
 
 //==========================================================================================
 - (id) init
@@ -74,6 +82,9 @@
     [validator release];
     [filter release];
     
+    [placeholder release];
+    [placeholderColor release];
+    
     [super dealloc];
 }
 
@@ -82,6 +93,9 @@
 {
     delegateHolder = [MUTextView_Holder new];
     delegateHolder.holded = self;
+    
+    placeholderColor = [[UIColor grayColor] retain];
+    
     super.delegate = delegateHolder;
 }
 
@@ -119,6 +133,63 @@
 - (BOOL) validate
 {
     return (validator) ? ([validator validate]) : (YES);
+}
+
+#pragma mark - Placeholder
+//==========================================================================================
+- (UITextView*)lbPlaceholder
+{
+    if (!_lbPlaceholder)
+    {
+        _lbPlaceholder = [[[UITextView alloc] initWithFrame:self.bounds] autorelease];
+        _lbPlaceholder.backgroundColor = [UIColor clearColor];
+        _lbPlaceholder.text = placeholder;
+        _lbPlaceholder.textColor = placeholderColor;
+        _lbPlaceholder.font = self.font;
+        _lbPlaceholder.userInteractionEnabled = NO;
+        _lbPlaceholder.hidden = [self.text length] > 0;
+        _lbPlaceholder.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+        [self addSubview:_lbPlaceholder];
+    }
+    return _lbPlaceholder;
+}
+
+//==========================================================================================
+- (void)setPlaceholder:(NSString *)aPlaceholder
+{
+    [placeholder release];
+    placeholder = [aPlaceholder retain];
+    self.lbPlaceholder.text = placeholder;
+}
+
+//==========================================================================================
+- (void)setPlaceholderColor:(UIColor *)aPlaceholderColor
+{
+    [placeholderColor release];
+    placeholderColor = [aPlaceholderColor retain];
+    self.lbPlaceholder.textColor =  placeholderColor;
+}
+
+//==========================================================================================
+- (void)setText:(NSString *)text
+{
+    [super setText:text];
+    if (placeholder)
+        self.lbPlaceholder.hidden = [self.text length] > 0;
+}
+
+//==========================================================================================
+- (void)setFont:(UIFont *)font
+{
+    [super setFont:font];
+    if (placeholder)
+        self.lbPlaceholder.font = font;
+}
+
+//==========================================================================================
+- (void)setHiddenPlaceHolder:(BOOL)hidden
+{
+    self.lbPlaceholder.hidden = hidden;
 }
 
 #pragma mark - UITextViewDelegate
@@ -199,6 +270,16 @@
     
     if([holded.mudelegate respondsToSelector:@selector(textView:shouldChangeTextInRange:replacementText:)])
         result = [holded.mudelegate textView:textView shouldChangeTextInRange:range replacementText:text];
+    
+    if (([textView.text length] == 1 && [text length] == 0) ||
+        ([textView.text length] == range.length && range.length != 0))
+    {
+        [textView setHiddenPlaceHolder:NO];
+    }
+    else
+    {
+        [textView setHiddenPlaceHolder:[textView.text length] > 0 || [text length] > 0];
+    }
     
     return result;
 }

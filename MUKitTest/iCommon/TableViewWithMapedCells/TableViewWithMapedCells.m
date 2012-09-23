@@ -102,7 +102,7 @@
 
     MUCellDataTextView* cdTextView = [[[MUCellDataTextView alloc] initWithObject:testObject key:@"strValue"] autorelease];
     cdTextView.title = @"Title";
-//    cdTextView.enableEdit = NO;
+    cdTextView.placeholder = @"Test place holder";
     [section addCellData:cdTextView];
     
     MUCellDataSwitch *cellDataSwitch = [[[MUCellDataSwitch alloc] initWithObject:nil key:nil] autorelease];

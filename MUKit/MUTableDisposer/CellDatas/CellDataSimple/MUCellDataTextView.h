@@ -24,4 +24,7 @@
 @property (nonatomic, retain) MUValidator *validator;
 @property (nonatomic, retain) MUFilter *filter;
 
+@property (nonatomic, retain) NSString* placeholder;
+@property (nonatomic, retain) UIColor* placeholderColor;
+
 @end

@@ -22,6 +22,9 @@
 @synthesize validator;
 @synthesize filter;
 
+@synthesize placeholder;
+@synthesize placeholderColor;
+
 #pragma mark - Init/Dealloc
 //==============================================================================
 - (id) initWithObject:(NSObject *)aObject key:(NSString *)aKey

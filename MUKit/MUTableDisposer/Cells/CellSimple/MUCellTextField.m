@@ -92,7 +92,10 @@
 //==============================================================================
 - (NSArray *) inputTraits
 {
-    return [NSArray arrayWithObject:textField];
+    if (self.cellData.enableEdit)
+        return [NSArray arrayWithObject:textField];
+    
+    return nil;
 }
 
 //==============================================================================

@@ -66,7 +66,7 @@
     
     // text
     CGFloat cellHeight = [cellDataTextView cellHeightForWidth:self.bounds.size.width];
-    CGFloat titleHeight = (aCellData.title) ? cellDataTextView.titleFont.lineHeight : 0;
+    CGFloat titleHeight = (cellDataTextView.title) ? cellDataTextView.titleFont.lineHeight : 0;
     textView.frame = CGRectMake(0, titleHeight, self.bounds.size.width, cellHeight - titleHeight);
 
     textView.autocapitalizationType = cellDataTextView.autocapitalizationType;

@@ -33,6 +33,8 @@
 @property (nonatomic, assign) BOOL visible;
 @property (nonatomic, assign) BOOL enableEdit;
 
+@property (nonatomic, assign) CGFloat cellHeight;
+
 - (id) init;
 - (CGFloat) cellHeightForWidth:(CGFloat) aWidth; 
 

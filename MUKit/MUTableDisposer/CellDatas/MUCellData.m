@@ -22,6 +22,7 @@
 @synthesize autoDeselect;
 @synthesize visible;
 @synthesize enableEdit;
+@synthesize cellHeight;
 
 //==============================================================================
 -(id) init
@@ -38,6 +39,8 @@
         
         cellSelectedHandlers = [NSMutableArray new];
         cellDeselectedHandler = [NSMutableArray new];
+        
+        cellHeight = 44.f;
     }
     return self;
 }
@@ -55,7 +58,7 @@
 //==============================================================================
 - (CGFloat) cellHeightForWidth:(CGFloat) aWidth
 {
-    return 44.f;
+    return cellHeight;
 }
 
 //==============================================================================

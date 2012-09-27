@@ -41,6 +41,8 @@
         keyboardType = UIKeyboardTypeDefault;
         keyboardAppearance = UIKeyboardAppearanceDefault;
         returnKeyType = UIReturnKeyDefault;
+        
+        self.cellHeight = 90;
     }
     return self;
 }
@@ -52,12 +54,6 @@
     [filter release];
     
     [super dealloc];
-}
-
-//==============================================================================
-- (CGFloat) cellHeightForWidth:(CGFloat)aWidth
-{
-    return 90;
 }
 
 @end

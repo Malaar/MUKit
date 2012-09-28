@@ -49,7 +49,7 @@
     }
     
     [switcher addTarget:self action:@selector(didChangeBoolValueInSwitch:) forControlEvents:UIControlEventValueChanged];
-    [switcher addTarget:aCellData.targetAction.target action:aCellData.targetAction.action forControlEvents:UIControlEventValueChanged];
+//    [switcher addTarget:aCellData.targetAction.target action:aCellData.targetAction.action forControlEvents:UIControlEventValueChanged];
     
     self.accessoryView = switcher;
 }
@@ -59,6 +59,9 @@
 - (void) didChangeBoolValueInSwitch:(UISwitch *) aSwitch
 {
     ((MUCellDataSwitch*)self.cellData).boolValue = aSwitch.on;
+
+    MUCellDataSwitch* cellData = (MUCellDataSwitch*)self.cellData;
+    [cellData.targetAction sendActionFrom:cellData];
 }
 
 @end

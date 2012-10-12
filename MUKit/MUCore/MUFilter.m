@@ -217,12 +217,12 @@
 - (BOOL) filterText:(id)inputTextField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
     BOOL result = YES;
-    
-    if ([[regExp pattern] length] > 0 && [string length] > 0)
+    NSString* newString = [[inputTextField text] stringByReplacingCharactersInRange:range withString:string];
+    if ([regExp pattern].length > 0 && newString.length > 0)
     {
-        NSUInteger count = [regExp numberOfMatchesInString:string options:0 range:NSMakeRange(0, string.length)];
+        NSUInteger count = [regExp numberOfMatchesInString:newString options:0 range:NSMakeRange(0, newString.length)];
         result = count == 1;
-        result &= ([[[inputTextField text] stringByReplacingCharactersInRange:range withString:string] length]) <= maxLengthText;
+        result &= newString.length <= maxLengthText;
     }
     return result;
 }

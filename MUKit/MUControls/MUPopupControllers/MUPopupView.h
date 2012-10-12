@@ -37,10 +37,10 @@
 // for iPad
 - (void)showFromRect:(CGRect)rect inView:(UIView *)view permittedArrowDirections:(UIPopoverArrowDirection)arrowDirections animated:(BOOL)animated;
 
-- (void) setup;
 - (void) prepareToShow;
 
 // use it only in subclasses of this class, dont cull it manyally in your code (outside of subclasses of this classe)
+- (void) setup;
 - (void) popupWillAppear:(BOOL)animated;
 - (void) popupDidAppear:(BOOL)animated;
 - (void) popupWillDisappear:(BOOL)animated;

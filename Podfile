@@ -1,3 +1,3 @@
 platform :ios
 
-dependency 'AFNetworking'
+dependency 'AFNetworking', '0.10.1'

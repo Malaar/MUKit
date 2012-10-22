@@ -42,6 +42,8 @@
 {
     [super setup];
     
+    self.frame = CGRectMake(0, 0, 320, 216);
+    
     self.backgroundColor = [UIColor clearColor];
     picker = [self createPicker];
     [self addSubview:picker];

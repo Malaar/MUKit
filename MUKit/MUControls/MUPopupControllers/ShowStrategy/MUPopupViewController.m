@@ -99,6 +99,7 @@
         [popupedViewOwner addSubview:popupedView];
         frame = popupedView.frame;
         frame.origin.y = self.view.bounds.size.height - frame.size.height;
+        frame.size.width = popupedViewOwner.bounds.size.width;
         popupedView.frame = frame;
     }
 }

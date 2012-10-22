@@ -68,6 +68,9 @@
 //==============================================================================
 - (void) prepareToShow
 {
+    [showStrategy release];
+    showStrategy = nil;
+    
 //    NSLog(@"retainCount: %i", self.retainCount);
     if(!MU_IS_IPAD)
     {
@@ -109,6 +112,8 @@
 //==============================================================================
 - (void) popupDidDisappear:(BOOL)animated
 {
+    showStrategy = nil;
+
     isVisible = NO;
 	[[NSNotificationCenter defaultCenter] postNotificationName:POPUPVIEW_DID_HIDE object:self];
 }
@@ -131,6 +136,7 @@
     {
         [(UIPopoverController*)showStrategy dismissPopoverAnimated:animation];
     }
+    
 }
 
 //==============================================================================

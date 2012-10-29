@@ -23,6 +23,7 @@
 @synthesize visible;
 @synthesize enableEdit;
 @synthesize cellHeight;
+@synthesize tag;
 
 //==============================================================================
 -(id) init

@@ -85,12 +85,40 @@
 }
 
 //==============================================================================
+- (void) insertSection:(MUSectionReadonly*)aSection atIndex:(NSUInteger)anIndex needUpdateTable:(BOOL)aNeedUpdateTable
+{
+    [sections insertObject:aSection atIndex:anIndex];
+    [aSection setTableDisposer:self];
+    
+    if([aSection isKindOfClass:[MUSectionWritable class]])
+    {
+        [(MUSectionWritable*)aSection createCells];
+    }
+    else
+    {
+        [aSection updateCellDataVisibility];
+    }
+        
+    if(aNeedUpdateTable)
+    {
+        [tableView beginUpdates];
+        [tableView insertSections:[NSIndexSet indexSetWithIndex:anIndex] withRowAnimation:UITableViewRowAnimationTop];
+        [tableView endUpdates];
+    }
+}
+
+//==============================================================================
 - (void) removeSectionAtIndex:(NSUInteger)anIndex needUpdateTable:(BOOL)aNeedUpdateTable
 {
-    if(aNeedUpdateTable)
-        [tableView deleteSections:[NSIndexSet indexSetWithIndex:anIndex] withRowAnimation:UITableViewRowAnimationMiddle];
 
     [sections removeObjectAtIndex:anIndex];
+
+    if(aNeedUpdateTable)
+    {
+        [tableView beginUpdates];
+        [tableView deleteSections:[NSIndexSet indexSetWithIndex:anIndex] withRowAnimation:UITableViewRowAnimationTop];
+        [tableView endUpdates];
+    }
 }
 
 //==============================================================================

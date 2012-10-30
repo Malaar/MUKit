@@ -123,8 +123,10 @@
     
     if(aNeedUpdateTable)
     {
+//        [disposer.tableView beginUpdates];
         NSIndexPath* indexPath = [NSIndexPath indexPathForRow:index inSection:[disposer indexBySection:self]];
         [disposer.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationMiddle];
+//        [disposer.tableView endUpdates];
     }
 }
 
@@ -144,8 +146,10 @@
 
     if(aNeedUpdateTable)
     {
+//        [disposer.tableView beginUpdates];
         NSIndexPath* indexPath = [NSIndexPath indexPathForRow:index inSection:[disposer indexBySection:self]];
         [disposer.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationMiddle];
+//        [disposer.tableView endUpdates];
     }
 }
 

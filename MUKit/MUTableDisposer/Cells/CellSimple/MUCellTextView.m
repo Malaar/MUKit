@@ -67,7 +67,7 @@
     // text
     CGFloat cellHeight = [cellDataTextView cellHeightForWidth:self.bounds.size.width];
     CGFloat titleHeight = (cellDataTextView.title) ? cellDataTextView.titleFont.lineHeight : 0;
-    textView.frame = CGRectMake(0, titleHeight, self.bounds.size.width, cellHeight - titleHeight);
+    textView.frame = CGRectMake(0, titleHeight, self.contentView.bounds.size.width, cellHeight - titleHeight);
 
     textView.autocapitalizationType = cellDataTextView.autocapitalizationType;
     textView.autocorrectionType = cellDataTextView.autocorrectionType;
@@ -90,7 +90,7 @@
         textView.placeholderColor = cellDataTextView.placeholderColor;
 
     // title
-    titleLabel.frame = CGRectMake(10, 0, self.bounds.size.width - 20, titleHeight);
+    titleLabel.frame = CGRectMake(10, 0, self.contentView.bounds.size.width - 20, titleHeight);
     titleLabel.text = cellDataTextView.title;
     titleLabel.textColor = cellDataTextView.titleColor;
     titleLabel.font = cellDataTextView.titleFont;

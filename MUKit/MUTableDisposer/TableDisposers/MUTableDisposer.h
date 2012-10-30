@@ -42,6 +42,7 @@
 - (void) releaseView;
 
 - (void) addSection:(MUSectionReadonly*)aSection;
+- (void) insertSection:(MUSectionReadonly*)aSection atIndex:(NSUInteger)anIndex needUpdateTable:(BOOL)aNeedUpdateTable;
 - (void) removeSectionAtIndex:(NSUInteger)anIndex needUpdateTable:(BOOL)aNeedUpdateTable;
 - (void) removeSection:(MUSectionReadonly*)aSection needUpdateTable:(BOOL)aNeedUpdateTable;
 - (void) removeAllSections;

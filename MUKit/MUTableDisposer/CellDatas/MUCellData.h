@@ -19,7 +19,7 @@
     NSMutableArray *cellDeselectedHandler;
 }
 
-@property (nonatomic, assign) Class controllerClass NS_DEPRECATED_IOS(2_0, 2_0);
+@property (nonatomic, assign) Class controllerClass;// deprecated
 
 @property (nonatomic, retain) NSString* cellNibName;
 
@@ -32,7 +32,6 @@
 @property (nonatomic, assign) BOOL autoDeselect;
 @property (nonatomic, assign) BOOL visible;
 @property (nonatomic, assign) BOOL enableEdit;
-@property (nonatomic, assign) NSUInteger tag;
 
 @property (nonatomic, assign) CGFloat cellHeight;
 

@@ -32,6 +32,7 @@
 @property (nonatomic, assign) BOOL autoDeselect;
 @property (nonatomic, assign) BOOL visible;
 @property (nonatomic, assign) BOOL enableEdit;
+@property (nonatomic, assign) BOOL disableInputTraits;
 
 @property (nonatomic, assign) CGFloat cellHeight;
 

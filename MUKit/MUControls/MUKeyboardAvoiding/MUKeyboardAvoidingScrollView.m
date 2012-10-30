@@ -301,8 +301,10 @@
 //==============================================================================
 - (void)responderShouldReturn:(UIResponder*)aResponder
 {    
-    NSInteger index = [_objectsInKeyboard indexOfObject:aResponder];
-    if (index >= 0 && index < [_objectsInKeyboard count] - 1) 
+    NSUInteger index = [_objectsInKeyboard indexOfObject:aResponder];
+    NSAssert(index != NSNotFound, @"MUKit: _objectsInKeyboard is empty in MUKeyboardAvoidingTableView");
+
+    if (index < [_objectsInKeyboard count] - 1)
     {
         _selectIndexInputField = index + 1;
         [[_objectsInKeyboard objectAtIndex:_selectIndexInputField] becomeFirstResponder];

@@ -270,15 +270,17 @@
     
     if([holded.mudelegate respondsToSelector:@selector(textView:shouldChangeTextInRange:replacementText:)])
         result = [holded.mudelegate textView:textView shouldChangeTextInRange:range replacementText:text];
-    
-    if (([textView.text length] == 1 && [text length] == 0) ||
-        ([textView.text length] == range.length && range.length != 0))
+    if(result)
     {
-        [textView setHiddenPlaceHolder:NO];
-    }
-    else
-    {
-        [textView setHiddenPlaceHolder:[textView.text length] > 0 || [text length] > 0];
+        if (([textView.text length] == 1 && [text length] == 0) ||
+            ([textView.text length] == range.length && range.length != 0))
+        {
+            [textView setHiddenPlaceHolder:NO];
+        }
+        else
+        {
+            [textView setHiddenPlaceHolder:[textView.text length] > 0 || [text length] > 0];
+        }
     }
     
     return result;

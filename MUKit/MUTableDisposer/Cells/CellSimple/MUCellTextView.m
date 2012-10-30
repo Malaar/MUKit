@@ -100,8 +100,10 @@
 //==============================================================================
 - (NSArray *) inputTraits
 {
-    if (self.cellData.enableEdit)
+    if(!self.cellData.disableInputTraits && self.cellData.enableEdit)
+    {
         return [NSArray arrayWithObject:textView];
+    }
     
     return nil;
 }

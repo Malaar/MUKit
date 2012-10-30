@@ -52,9 +52,11 @@
 //==============================================================================
 - (void) createCells
 {
-    [self updateCellDataVisibility];
+    // remove old cells
     [cells removeAllObjects];
     
+    [self updateCellDataVisibility];
+
     NSUInteger index = 0;
     MUCell* cell;
     for(MUCellData* cellData in visibleCellDataSource)

@@ -22,6 +22,7 @@
 @synthesize autoDeselect;
 @synthesize visible;
 @synthesize enableEdit;
+@synthesize disableInputTraits;
 @synthesize cellHeight;
 
 //==============================================================================

@@ -233,6 +233,30 @@
     }
 }
 
+//==============================================================================
+- (void) reloadData
+{
+    if([tableView isKindOfClass:[MUKeyboardAvoidingTableView class]])
+    {
+        [((MUKeyboardAvoidingTableView*)tableView) removeAllObjectForKeyboard];
+    }
+    
+    for(MUSectionReadonly* section in sections)
+    {
+        [section updateCellDataVisibility];
+    }
+    
+    [tableView reloadData];
+}
+
+//==============================================================================
+- (void) reloadSectionsWithAnimation:(UITableViewRowAnimation)anAnimation
+{
+    for(MUSectionReadonly* section in sections)
+    {
+        [section reloadWithAnimation:anAnimation];
+    }
+}
 
 #pragma mark - UITableViewDataSource
 //==============================================================================
@@ -570,31 +594,6 @@
     if(delegate && [delegate respondsToSelector:@selector(tableView:performAction:forRowAtIndexPath:withSender:)])
     {
         [delegate tableView:aTableView performAction:action forRowAtIndexPath:indexPath withSender:sender];
-    }
-}
-
-//==============================================================================
-- (void) reloadData
-{
-    if([tableView isKindOfClass:[MUKeyboardAvoidingTableView class]])
-    {
-        [((MUKeyboardAvoidingTableView*)tableView) removeAllObjectForKeyboard];
-    }
-    
-    for(MUSectionReadonly* section in sections)
-    {
-        [section updateCellDataVisibility];
-    }
-    
-    [tableView reloadData];
-}
-
-//==============================================================================
-- (void) reloadSectionsWithAnimation:(UITableViewRowAnimation)anAnimation
-{
-    for(MUSectionReadonly* section in sections)
-    {
-        [section reloadWithAnimation:anAnimation];
     }
 }
 

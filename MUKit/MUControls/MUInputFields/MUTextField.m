@@ -215,10 +215,11 @@
 {
     BOOL result = YES;
     
-    [holded.keyboardAvoiding responderShouldReturn:textField];
-    
     if([holded.mudelegate respondsToSelector:@selector(textFieldShouldReturn:)])
         result = [holded.mudelegate textFieldShouldReturn:textField];
+    
+    if(result)
+        [holded.keyboardAvoiding responderShouldReturn:textField];
     
     return result;
 }

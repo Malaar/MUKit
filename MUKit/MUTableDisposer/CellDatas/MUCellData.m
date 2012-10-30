@@ -24,6 +24,7 @@
 @synthesize enableEdit;
 @synthesize disableInputTraits;
 @synthesize cellHeight;
+@synthesize tag;
 
 //==============================================================================
 -(id) init

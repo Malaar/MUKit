@@ -205,6 +205,21 @@
 }
 
 //==============================================================================
+- (MUCellData*) cellDataByTag:(NSUInteger)aTag
+{
+    MUCellData* result = nil;
+    
+    for(MUSectionReadonly* section in sections)
+    {
+        result = [section cellDataByTag:aTag];
+        if(result)
+            break;
+    }
+    
+    return result;
+}
+
+//==============================================================================
 - (void) hideCellByIndexPath:(NSIndexPath*)anIndexPath needUpdateTable:(BOOL)aNeedUpdateTable
 {
     MUSectionReadonly* section = [self sectionByIndex:anIndexPath.section];

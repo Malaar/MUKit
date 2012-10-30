@@ -64,6 +64,12 @@
 }
 
 //==============================================================================
+- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:POPUPPICKER_VALUE_DID_CHANGE object:self userInfo:nil];
+}
+
+//==============================================================================
 - (NSObject*) selectedItem
 {
     int index = [self.popupedPicker selectedRowInComponent:0];

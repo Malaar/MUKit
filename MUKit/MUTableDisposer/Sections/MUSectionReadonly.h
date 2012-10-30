@@ -40,6 +40,7 @@
 - (MUCellData*) visibleCellDataAtIndex:(NSUInteger)anIndex;
 - (NSUInteger) indexByCellData:(MUCellData*)aCellData;
 - (NSUInteger) indexByVisibleCellData:(MUCellData*)aCellData;
+- (MUCellData*) cellDataByTag:(NSUInteger)aTag;
 
 - (void) updateCellDataVisibility;
 

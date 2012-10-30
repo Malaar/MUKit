@@ -110,6 +110,21 @@
 }
 
 //==============================================================================
+- (MUCellData*) cellDataByTag:(NSUInteger)aTag
+{
+    MUCellData* result = nil;
+    for(MUCellData* cd in cellDataSource)
+    {
+        if(cd.tag == aTag)
+        {
+            result = cd;
+            break;
+        }
+    }
+    return result;
+}
+
+//==============================================================================
 - (NSUInteger) cellDataCount
 {
     return [cellDataSource count];

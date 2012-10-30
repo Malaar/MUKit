@@ -54,6 +54,7 @@
 - (NSIndexPath*) indexPathByVisibleCellData:(MUCellData*)aCellData;
 - (MUCellData*) cellDataByIndexPath:(NSIndexPath*)anIndexPath;
 - (MUCellData*) visibleCellDataByIndexPath:(NSIndexPath*)anIndexPath;
+- (MUCellData*) cellDataByTag:(NSUInteger)aTag;
 
 - (void) hideCellByIndexPath:(NSIndexPath*)anIndexPath needUpdateTable:(BOOL)aNeedUpdateTable;
 - (void) showCellByIndexPath:(NSIndexPath*)anIndexPath needUpdateTable:(BOOL)aNeedUpdateTable;

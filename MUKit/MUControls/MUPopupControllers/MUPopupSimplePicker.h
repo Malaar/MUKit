@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "MUPopupPicker.h"
 
+#define POPUPPICKER_VALUE_DID_CHANGE    @"POPUPPICKER_VALUE_DID_CHANGE"
+
 /**
  * This class can work with dataSource elements of classes MUTitledID or NSString, else generate assert.
  * This picker has only one component in pickerView.

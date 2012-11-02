@@ -92,7 +92,7 @@
     MUCell* cell;
     for(NSNumber* index in anIndexes)
     {
-        cellData = [self cellDataAtIndex:[index integerValue]];
+        cellData = [self visibleCellDataAtIndex:[index integerValue]];
         if([cellData isKindOfClass:[MUCellDataMaped class]])
         {
             [(MUCellDataMaped*)cellData mapFromObject];

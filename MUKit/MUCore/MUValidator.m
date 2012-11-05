@@ -441,7 +441,7 @@ BOOL canBeInputByPhonePad(char c)
     NSUInteger count = 0;
     if(validatableObject && validatableObject.validatableText)
     {
-        NSRegularExpression* regExp = [[NSRegularExpression alloc]initWithPattern:@"^(http://|https://|[a-zA-Z0-9])(([a-zA-Z0-9\\-]{0,61}[a-zA-Z0-9])?\\.)+[a-zA-Z]{2,6}$"
+        NSRegularExpression* regExp = [[NSRegularExpression alloc]initWithPattern:@"^(http://|https://|[a-zA-Z0-9])(([a-zA-Z0-9\\-]{0,90}[a-zA-Z0-9])?\\.)+[a-zA-Z]{2,6}$"
                                                                           options:NSRegularExpressionCaseInsensitive error:nil];
         count = [regExp numberOfMatchesInString:validatableObject.validatableText
                                         options:0

@@ -365,6 +365,7 @@
         // create tabBar button and configure
         UIButton* button = [self createTabBarButtonAtIndex:tabBarButtonIndex];
         button.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
+        
         [button setTitle:tabBarItem.title forState:UIControlStateNormal];
         [button setTitleColor:tabBarItem.titleColor forState:UIControlStateNormal];
         [button setTitleShadowColor:tabBarItem.titleShadowColor forState:UIControlStateNormal];
@@ -490,6 +491,13 @@
     ivTabArrow.center = arrowCenter;    
 }
 
+
+//==============================================================================
+- (void)updateTabBarButtonTitle:(NSString*)aTabBarButtonTitle forTabBarAtIndex:(NSUInteger)aTabBarButtonIndex
+{
+    UIButton* button = [tabBar.buttons objectAtIndex:aTabBarButtonIndex];
+    [button setTitle:aTabBarButtonTitle forState:UIControlStateNormal];
+}
 
 #pragma mark - MUTabedToolbarDelegate
 //==============================================================================

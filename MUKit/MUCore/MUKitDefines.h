@@ -25,3 +25,4 @@
 #   define MULog(format, ...)
 #endif
 
+#define MU_IS_IPHONE_FOUR_INCH ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone && [UIScreen mainScreen].bounds.size.height == 568.0)

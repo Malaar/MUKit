@@ -106,6 +106,24 @@
     [tabBarBackgroundImage release];
     [tabBarBackgroundColor release];
     [tabArrowImage release];
+    
+    for (id viewController in viewControllers )
+    {
+        if ([viewController conformsToProtocol:@protocol(MUTabBarItemProtocol)])
+        {
+            ((id<MUTabBarItemProtocol>)viewController).mutabBarController = nil;
+        }
+        else if ([viewController isKindOfClass:[UINavigationController class]])
+        {
+            UINavigationController* nc = (UINavigationController*)viewController;
+            
+            if ([nc.viewControllers count] > 0 &&
+                [[nc.viewControllers objectAtIndex:0]conformsToProtocol:@protocol(MUTabBarItemProtocol)])
+            {
+                ((id<MUTabBarItemProtocol>)[nc.viewControllers objectAtIndex:0]).mutabBarController = nil;
+            }
+        }
+    }
     [viewControllers release];
     
     [super dealloc];

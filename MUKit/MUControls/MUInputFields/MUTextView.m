@@ -272,15 +272,8 @@
         result = [holded.mudelegate textView:textView shouldChangeTextInRange:range replacementText:text];
     if(result)
     {
-        if (([textView.text length] == 1 && [text length] == 0) ||
-            ([textView.text length] == range.length && range.length != 0))
-        {
-            [textView setHiddenPlaceHolder:NO];
-        }
-        else
-        {
-            [textView setHiddenPlaceHolder:[textView.text length] > 0 || [text length] > 0];
-        }
+        NSString* newString = [textView.text stringByReplacingCharactersInRange:range withString:text];
+        [textView setHiddenPlaceHolder:newString.length];
     }
     
     return result;

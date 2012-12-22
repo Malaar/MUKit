@@ -197,11 +197,16 @@
 //==============================================================================
 - (void) deleteRowsAtIndexes:(NSArray*)anIndexes withAnimation:(UITableViewRowAnimation)aRowAnimation
 {
+    NSMutableArray* toDelete = [NSMutableArray array];
+    MUCellData* cellData;
     for(NSNumber* index in anIndexes)
     {
-        [self removeCellDataAtIndex:[index intValue]];
-        [self updateCellDataVisibility];
+        cellData = [self cellDataAtIndex:[index intValue]];
+        [toDelete addObject:cellData];
     }
+    
+    [cellDataSource removeObjectsInArray:toDelete];
+    [self updateCellDataVisibility];
 
     NSMutableArray* indexPaths = [NSMutableArray array];
     NSIndexPath* indexPath;

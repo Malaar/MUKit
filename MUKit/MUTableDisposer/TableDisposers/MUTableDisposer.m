@@ -8,7 +8,7 @@
 
 #import "MUTableDisposer.h"
 #import "MUKeyboardAvoidingTableView.h"
-
+#import "MUHelper.h"
 
 //==============================================================================
 //==============================================================================
@@ -242,9 +242,19 @@
 //==============================================================================
 - (void) deleteRowsAtIndexPaths:(NSArray*)anIndexPaths withRowAnimation:(UITableViewRowAnimation)aTableViewRowAnimation
 {
-    for(NSIndexPath* indexPath in anIndexPaths)
+    NSArray* sectionsArray = MUDivideArray(anIndexPaths, @"section", YES, ^BOOL(NSNumber* anObj1, NSNumber* anObj2)
     {
-        [[self sectionByIndex:indexPath.section] deleteRowsAtIndexes:[NSArray arrayWithObject:[NSNumber numberWithInt:indexPath.row]] withAnimation:aTableViewRowAnimation];
+        return [anObj1 isEqualToNumber:anObj2];
+    });
+    
+    NSIndexPath* indexPath;
+    for(NSArray* array in sectionsArray)
+    {
+        indexPath = [array objectAtIndex:0];
+        
+        [[self sectionByIndex:indexPath.section] deleteRowsAtIndexes:[array valueForKey:@"row"]
+                                                       withAnimation:aTableViewRowAnimation];
+        
     }
 }
 

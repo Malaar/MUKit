@@ -18,6 +18,7 @@
 @optional
 
 - (void) tableDisposer:(MUTableDisposerModeled*)aTableDisposer didCreateCellData:(MUCellData*)aCellData;
+- (Class) tableDisposer:(MUTableDisposerModeled*)aTableDisposer cellDataClassForUnregisteredModel:(id)aModel;
 
 @end
 

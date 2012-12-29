@@ -52,6 +52,11 @@
     {
         Class cellDataClass = [registeredClasses objectForKey:[model class]];
         
+        if(!cellDataClass && modeledDelegate && [modeledDelegate respondsToSelector:@selector(tableDisposer:cellDataClassForUnregisteredModel:)])
+        {
+            cellDataClass = [modeledDelegate tableDisposer:self cellDataClassForUnregisteredModel:model];
+        }
+        
         NSAssert(cellDataClass, (NSString*)([NSString stringWithFormat:@"Model doesn't have registered cellData class %@", NSStringFromClass([model class])]));
         NSAssert([cellDataClass isSubclassOfClass:[MUCellDataModeled class]], @"CellData must be subclass of MUCellDataModeled!");
 

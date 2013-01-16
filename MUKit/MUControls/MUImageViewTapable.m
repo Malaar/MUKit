@@ -59,6 +59,28 @@
 }
 
 //==============================================================================
+- (id)initWithImage:(UIImage *)image
+{
+    self = [super initWithImage:image];
+    if(self)
+    {
+        [self initialize];
+    }
+    return self;
+}
+
+//==============================================================================
+- (id)initWithImage:(UIImage *)image highlightedImage:(UIImage *)highlightedImage
+{
+    self = [super initWithImage:image highlightedImage:highlightedImage];
+    if(self)
+    {
+        [self initialize];
+    }
+    return self;
+}
+
+//==============================================================================
 - (void) initialize
 {
     enable = YES;

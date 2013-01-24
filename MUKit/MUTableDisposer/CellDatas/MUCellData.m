@@ -66,7 +66,7 @@
 //==============================================================================
 - (NSString *) cellIdentifier
 {
-    return NSStringFromClass(self.cellClass);
+    return NSStringFromClass([self class]);
 }
 
 //==============================================================================

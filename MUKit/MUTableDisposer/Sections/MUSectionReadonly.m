@@ -219,4 +219,58 @@
     [disposer.tableView deleteRowsAtIndexPaths:indexPaths withRowAnimation:aRowAnimation];
 }
 
+#pragma mark - Show/Hide cels
+//==============================================================================
+- (void) hideCellByIndex:(NSUInteger)anIndex needUpdateTable:(BOOL)aNeedUpdateTable
+{
+    [self hideCellByIndex:anIndex needUpdateTable:aNeedUpdateTable withAnimation:UITableViewRowAnimationMiddle];
+}
+
+//==============================================================================
+- (void) showCellByIndex:(NSUInteger)anIndex needUpdateTable:(BOOL)aNeedUpdateTable
+{
+    [self showCellByIndex:anIndex needUpdateTable:aNeedUpdateTable withAnimation:UITableViewRowAnimationMiddle];
+}
+
+//==============================================================================
+- (void) hideCellByIndex:(NSUInteger)anIndex needUpdateTable:(BOOL)aNeedUpdateTable withAnimation:(UITableViewRowAnimation)aRowAnimation
+{
+    MUCellData* cellData = [self cellDataAtIndex:anIndex];
+    if(!cellData.visible)
+        return;
+    
+    NSUInteger index = [self indexByVisibleCellData:cellData];
+    
+    [visibleCellDataSource removeObjectAtIndex:index];
+//    [cells removeObjectAtIndex:index];
+    cellData.visible = NO;
+    
+    if(aNeedUpdateTable)
+    {
+        NSIndexPath* indexPath = [NSIndexPath indexPathForRow:index inSection:[disposer indexBySection:self]];
+        [disposer.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:aRowAnimation];
+    }
+}
+
+//==============================================================================
+- (void) showCellByIndex:(NSUInteger)anIndex needUpdateTable:(BOOL)aNeedUpdateTable withAnimation:(UITableViewRowAnimation)aRowAnimation
+{
+    MUCellData* cellData = [self cellDataAtIndex:anIndex];
+    if(cellData.visible)
+        return;
+    
+    cellData.visible = YES;
+    [self updateCellDataVisibility];
+    
+    NSUInteger index = [self indexByVisibleCellData:cellData];
+//    MUCell* cell = [self createCellAtIndex:index];
+//    [cells insertObject:cell atIndex:index];
+    
+    if(aNeedUpdateTable)
+    {
+        NSIndexPath* indexPath = [NSIndexPath indexPathForRow:index inSection:[disposer indexBySection:self]];
+        [disposer.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:aRowAnimation];
+    }
+}
+
 @end

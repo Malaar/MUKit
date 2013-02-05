@@ -15,9 +15,6 @@
 
 - (void) createCells;
 
-- (void) hideCellByIndex:(NSUInteger)anIndex needUpdateTable:(BOOL)aNeedUpdateTable;
-- (void) showCellByIndex:(NSUInteger)anIndex needUpdateTable:(BOOL)aNeedUpdateTable;
-
 - (void) mapFromObject;
 - (void) mapToObject;
 

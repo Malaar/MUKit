@@ -111,7 +111,7 @@
 
 #pragma mark - Show/Hide cels
 //==============================================================================
-- (void) hideCellByIndex:(NSUInteger)anIndex needUpdateTable:(BOOL)aNeedUpdateTable
+- (void) hideCellByIndex:(NSUInteger)anIndex needUpdateTable:(BOOL)aNeedUpdateTable withAnimation:(UITableViewRowAnimation)aRowAnimation
 {
     MUCellData* cellData = [self cellDataAtIndex:anIndex];
     if(!cellData.visible)
@@ -127,13 +127,13 @@
     {
 //        [disposer.tableView beginUpdates];
         NSIndexPath* indexPath = [NSIndexPath indexPathForRow:index inSection:[disposer indexBySection:self]];
-        [disposer.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationMiddle];
+        [disposer.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:aRowAnimation];
 //        [disposer.tableView endUpdates];
     }
 }
 
 //==============================================================================
-- (void) showCellByIndex:(NSUInteger)anIndex needUpdateTable:(BOOL)aNeedUpdateTable
+- (void) showCellByIndex:(NSUInteger)anIndex needUpdateTable:(BOOL)aNeedUpdateTable withAnimation:(UITableViewRowAnimation)aRowAnimation
 {
     MUCellData* cellData = [self cellDataAtIndex:anIndex];
     if(cellData.visible)
@@ -150,7 +150,7 @@
     {
 //        [disposer.tableView beginUpdates];
         NSIndexPath* indexPath = [NSIndexPath indexPathForRow:index inSection:[disposer indexBySection:self]];
-        [disposer.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationMiddle];
+        [disposer.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:aRowAnimation];
 //        [disposer.tableView endUpdates];
     }
 }

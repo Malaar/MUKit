@@ -223,20 +223,28 @@
 - (void) hideCellByIndexPath:(NSIndexPath*)anIndexPath needUpdateTable:(BOOL)aNeedUpdateTable
 {
     MUSectionReadonly* section = [self sectionByIndex:anIndexPath.section];
-    if([section isKindOfClass:[MUSectionWritable class]])
-    {
-        [(MUSectionWritable*)section hideCellByIndex:anIndexPath.row needUpdateTable:aNeedUpdateTable];
-    }
+    [section hideCellByIndex:anIndexPath.row needUpdateTable:aNeedUpdateTable];
+}
+
+//==============================================================================
+- (void) hideCellByIndexPath:(NSIndexPath*)anIndexPath needUpdateTable:(BOOL)aNeedUpdateTable withRowAnimation:(UITableViewRowAnimation)aTableViewRowAnimation
+{
+    MUSectionReadonly* section = [self sectionByIndex:anIndexPath.section];
+    [section hideCellByIndex:anIndexPath.row needUpdateTable:aNeedUpdateTable withAnimation:aTableViewRowAnimation];
 }
 
 //==============================================================================
 - (void) showCellByIndexPath:(NSIndexPath*)anIndexPath needUpdateTable:(BOOL)aNeedUpdateTable
 {
     MUSectionReadonly* section = [self sectionByIndex:anIndexPath.section];
-    if([section isKindOfClass:[MUSectionWritable class]])
-    {
-        [(MUSectionWritable*)section showCellByIndex:anIndexPath.row needUpdateTable:aNeedUpdateTable];
-    }
+    [section showCellByIndex:anIndexPath.row needUpdateTable:aNeedUpdateTable];
+}
+
+//==============================================================================
+- (void) showCellByIndexPath:(NSIndexPath*)anIndexPath needUpdateTable:(BOOL)aNeedUpdateTable withRowAnimation:(UITableViewRowAnimation)aTableViewRowAnimation
+{
+    MUSectionReadonly* section = [self sectionByIndex:anIndexPath.section];
+    [section showCellByIndex:anIndexPath.row needUpdateTable:aNeedUpdateTable withAnimation:aTableViewRowAnimation];
 }
 
 //==============================================================================

@@ -56,8 +56,11 @@
 - (MUCellData*) visibleCellDataByIndexPath:(NSIndexPath*)anIndexPath;
 - (MUCellData*) cellDataByTag:(NSUInteger)aTag;
 
-- (void) hideCellByIndexPath:(NSIndexPath*)anIndexPath needUpdateTable:(BOOL)aNeedUpdateTable;
 - (void) showCellByIndexPath:(NSIndexPath*)anIndexPath needUpdateTable:(BOOL)aNeedUpdateTable;
+- (void) showCellByIndexPath:(NSIndexPath*)anIndexPath needUpdateTable:(BOOL)aNeedUpdateTable withRowAnimation:(UITableViewRowAnimation)aTableViewRowAnimation;
+- (void) hideCellByIndexPath:(NSIndexPath*)anIndexPath needUpdateTable:(BOOL)aNeedUpdateTable;
+- (void) hideCellByIndexPath:(NSIndexPath*)anIndexPath needUpdateTable:(BOOL)aNeedUpdateTable withRowAnimation:(UITableViewRowAnimation)aTableViewRowAnimation;
+
 
 - (void) deleteRowsAtIndexPaths:(NSArray*)anIndexPaths withRowAnimation:(UITableViewRowAnimation)aTableViewRowAnimation;
 

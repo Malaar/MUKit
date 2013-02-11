@@ -35,4 +35,6 @@
 - (void) setupModels:(NSArray*)aModels forSectionAtIndex:(NSUInteger)aSectionIndex;
 - (void) setupModels:(NSArray*)aModels forSection:(MUSectionReadonly*)aSection;
 
+- (MUCellDataModeled*)cellDataFromModel:(id)aModel;
+
 @end

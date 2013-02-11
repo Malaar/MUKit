@@ -40,4 +40,10 @@
     return nil;
 }
 
+//==============================================================================
+- (NSString*)reuseIdentifier
+{
+    return self.cellData.cellIdentifier;
+}
+
 @end

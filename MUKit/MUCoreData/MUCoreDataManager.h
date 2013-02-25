@@ -12,6 +12,8 @@
 @interface MUCoreDataManager : NSObject
 
 @property (nonatomic, strong, readonly) NSString* persistentStoreName;
+@property (nonatomic, assign, readonly) NSManagedObjectContextConcurrencyType contextConcurrencyType;
+@property (nonatomic, readonly) NSDictionary* migrationPolicy;
 
 @property (nonatomic, strong, readonly) NSManagedObjectModel* managedObjectModel;
 @property (nonatomic, strong, readonly) NSManagedObjectContext* managedObjectContext;

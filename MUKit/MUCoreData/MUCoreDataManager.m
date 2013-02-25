@@ -11,6 +11,8 @@
 
 @implementation MUCoreDataManager
 
+@dynamic contextConcurrencyType;
+@dynamic migrationPolicy;
 @synthesize persistentStoreName;
 @synthesize managedObjectModel = _managedObjectModel;
 @synthesize managedObjectContext = _managedObjectContext;
@@ -28,7 +30,7 @@
     NSPersistentStoreCoordinator *coordinator = [self persistentStoreCoordinator];
     if (coordinator != nil)
     {
-        _managedObjectContext = [[NSManagedObjectContext alloc] init];
+        _managedObjectContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:self.contextConcurrencyType];
         [_managedObjectContext setPersistentStoreCoordinator: coordinator];
         _managedObjectContext.mergePolicy = NSOverwriteMergePolicy;
     }
@@ -68,7 +70,7 @@
     NSPersistentStore *store = [_persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType 
                                                                          configuration:nil 
                                                                                    URL:storeUrl 
-                                                                               options:nil 
+                                                                               options:self.migrationPolicy
                                                                                  error:&error];
     
     if (!store)
@@ -102,6 +104,21 @@
 {
     NSAssert(NO, @"Override this!!!");
     return nil;
+}
+
+//==============================================================================
+- (NSManagedObjectContextConcurrencyType)contextConcurrencyType
+{
+    return NSConfinementConcurrencyType;
+}
+
+//==============================================================================
+- (NSDictionary*)migrationPolicy
+{
+    return @{
+    NSMigratePersistentStoresAutomaticallyOption : [NSNumber numberWithBool:YES],
+    NSInferMappingModelAutomaticallyOption : [NSNumber numberWithBool:YES]
+    };
 }
 
 //==============================================================================

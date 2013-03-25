@@ -23,6 +23,9 @@
 		0208F28B1529CBF5003382F9 /* MUCellSwitch.m in Sources */ = {isa = PBXBuildFile; fileRef = 0208F2791529CBF5003382F9 /* MUCellSwitch.m */; };
 		0208F28C1529CBF5003382F9 /* MUCellTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 0208F27B1529CBF5003382F9 /* MUCellTextField.m */; };
 		0208F28D1529CBF5003382F9 /* MUCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0208F27D1529CBF5003382F9 /* MUCell.m */; };
+		023B94A51700A5BC00C57B17 /* MUBOCompoundModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 023B94A11700A5BC00C57B17 /* MUBOCompoundModel.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		023B94A61700A5BC00C57B17 /* MUCompoundCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 023B94A41700A5BC00C57B17 /* MUCompoundCell.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		023B94A91700A88B00C57B17 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 023B94A81700A88B00C57B17 /* Podfile */; };
 		025A6298152F17FD00E49856 /* MUBaseScrollerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 025A6234152F17FC00E49856 /* MUBaseScrollerController.m */; };
 		025A629A152F17FD00E49856 /* MUBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 025A6238152F17FC00E49856 /* MUBaseViewController.m */; };
 		025A629B152F17FD00E49856 /* MUCheckableTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = 025A623A152F17FC00E49856 /* MUCheckableTableController.m */; };
@@ -151,6 +154,11 @@
 		0208F27B1529CBF5003382F9 /* MUCellTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUCellTextField.m; sourceTree = "<group>"; };
 		0208F27C1529CBF5003382F9 /* MUCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUCell.h; sourceTree = "<group>"; };
 		0208F27D1529CBF5003382F9 /* MUCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUCell.m; sourceTree = "<group>"; };
+		023B94A01700A5BC00C57B17 /* MUBOCompoundModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUBOCompoundModel.h; sourceTree = "<group>"; };
+		023B94A11700A5BC00C57B17 /* MUBOCompoundModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUBOCompoundModel.m; sourceTree = "<group>"; };
+		023B94A31700A5BC00C57B17 /* MUCompoundCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUCompoundCell.h; sourceTree = "<group>"; };
+		023B94A41700A5BC00C57B17 /* MUCompoundCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUCompoundCell.m; sourceTree = "<group>"; };
+		023B94A81700A88B00C57B17 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
 		025A6233152F17FC00E49856 /* MUBaseScrollerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUBaseScrollerController.h; sourceTree = "<group>"; };
 		025A6234152F17FC00E49856 /* MUBaseScrollerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUBaseScrollerController.m; sourceTree = "<group>"; };
 		025A6237152F17FC00E49856 /* MUBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUBaseViewController.h; sourceTree = "<group>"; };
@@ -440,6 +448,33 @@
 			path = CellSimple;
 			sourceTree = "<group>";
 		};
+		023B949E1700A5BC00C57B17 /* MUCompoundCell */ = {
+			isa = PBXGroup;
+			children = (
+				023B949F1700A5BC00C57B17 /* BO */,
+				023B94A21700A5BC00C57B17 /* Cell */,
+			);
+			path = MUCompoundCell;
+			sourceTree = "<group>";
+		};
+		023B949F1700A5BC00C57B17 /* BO */ = {
+			isa = PBXGroup;
+			children = (
+				023B94A01700A5BC00C57B17 /* MUBOCompoundModel.h */,
+				023B94A11700A5BC00C57B17 /* MUBOCompoundModel.m */,
+			);
+			path = BO;
+			sourceTree = "<group>";
+		};
+		023B94A21700A5BC00C57B17 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				023B94A31700A5BC00C57B17 /* MUCompoundCell.h */,
+				023B94A41700A5BC00C57B17 /* MUCompoundCell.m */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		025A6232152F17FC00E49856 /* MUControllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -584,6 +619,7 @@
 			isa = PBXGroup;
 			children = (
 				02A20964152D05760010733B /* MUTableDisposers.h */,
+				023B949E1700A5BC00C57B17 /* MUCompoundCell */,
 				0208F2571529CBF4003382F9 /* CellDatas */,
 				0208F26D1529CBF5003382F9 /* Cells */,
 				028F8D3015259B3600C7907F /* Sections */,
@@ -693,6 +729,7 @@
 				E64AA45D152306F70087B49E /* Frameworks */,
 				E64AA45B152306F70087B49E /* Products */,
 				99521E5F94A64C81B0626F2D /* Pods.xcconfig */,
+				023B94A81700A88B00C57B17 /* Podfile */,
 			);
 			sourceTree = "<group>";
 		};
@@ -992,6 +1029,7 @@
 				E62CDA58152AF88300DACE8F /* warning_icon@2x.png in Resources */,
 				02EFC341155C1D7C00E2639C /* MUKeyboardAvoidingScrollController.xib in Resources */,
 				02EFC343155C1D7C00E2639C /* MUKeyboardAvoidingTableController.xib in Resources */,
+				023B94A91700A88B00C57B17 /* Podfile in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1112,6 +1150,8 @@
 				02A01D5C15A71ABE007AEE1B /* MUDraw.m in Sources */,
 				0263608815F3BFCE00B655A1 /* MUCoreDataManager.m in Sources */,
 				027F8E6515FB888F00201DD4 /* MUPopovedStrategy.m in Sources */,
+				023B94A51700A5BC00C57B17 /* MUBOCompoundModel.m in Sources */,
+				023B94A61700A5BC00C57B17 /* MUCompoundCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1183,7 +1223,7 @@
 				GCC_PREFIX_HEADER = "MUKitTest/MUKitTest-Prefix.pch";
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "MUKitTest/MUKitTest-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				WRAPPER_EXTENSION = app;
@@ -1199,7 +1239,7 @@
 				GCC_PREFIX_HEADER = "MUKitTest/MUKitTest-Prefix.pch";
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "MUKitTest/MUKitTest-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				WRAPPER_EXTENSION = app;

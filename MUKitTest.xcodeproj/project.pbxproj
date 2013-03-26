@@ -26,6 +26,7 @@
 		023B94A51700A5BC00C57B17 /* MUBOCompoundModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 023B94A11700A5BC00C57B17 /* MUBOCompoundModel.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		023B94A61700A5BC00C57B17 /* MUCompoundCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 023B94A41700A5BC00C57B17 /* MUCompoundCell.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		023B94A91700A88B00C57B17 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 023B94A81700A88B00C57B17 /* Podfile */; };
+		023B94D71701BD3700C57B17 /* MUModalView.m in Sources */ = {isa = PBXBuildFile; fileRef = 023B94D61701BD3700C57B17 /* MUModalView.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		025A6298152F17FD00E49856 /* MUBaseScrollerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 025A6234152F17FC00E49856 /* MUBaseScrollerController.m */; };
 		025A629A152F17FD00E49856 /* MUBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 025A6238152F17FC00E49856 /* MUBaseViewController.m */; };
 		025A629B152F17FD00E49856 /* MUCheckableTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = 025A623A152F17FC00E49856 /* MUCheckableTableController.m */; };
@@ -159,6 +160,8 @@
 		023B94A31700A5BC00C57B17 /* MUCompoundCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUCompoundCell.h; sourceTree = "<group>"; };
 		023B94A41700A5BC00C57B17 /* MUCompoundCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUCompoundCell.m; sourceTree = "<group>"; };
 		023B94A81700A88B00C57B17 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		023B94D51701BD3700C57B17 /* MUModalView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUModalView.h; sourceTree = "<group>"; };
+		023B94D61701BD3700C57B17 /* MUModalView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUModalView.m; sourceTree = "<group>"; };
 		025A6233152F17FC00E49856 /* MUBaseScrollerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUBaseScrollerController.h; sourceTree = "<group>"; };
 		025A6234152F17FC00E49856 /* MUBaseScrollerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUBaseScrollerController.m; sourceTree = "<group>"; };
 		025A6237152F17FC00E49856 /* MUBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUBaseViewController.h; sourceTree = "<group>"; };
@@ -475,6 +478,15 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		023B94D41701BD3700C57B17 /* MUModalView */ = {
+			isa = PBXGroup;
+			children = (
+				023B94D51701BD3700C57B17 /* MUModalView.h */,
+				023B94D61701BD3700C57B17 /* MUModalView.m */,
+			);
+			path = MUModalView;
+			sourceTree = "<group>";
+		};
 		025A6232152F17FC00E49856 /* MUControllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -498,6 +510,7 @@
 		025A6241152F17FC00E49856 /* MUControls */ = {
 			isa = PBXGroup;
 			children = (
+				023B94D41701BD3700C57B17 /* MUModalView */,
 				025A6246152F17FC00E49856 /* MUControls.h */,
 				025A6244152F17FC00E49856 /* MUAutoresizeButton.h */,
 				025A6245152F17FC00E49856 /* MUAutoresizeButton.m */,
@@ -1152,6 +1165,7 @@
 				027F8E6515FB888F00201DD4 /* MUPopovedStrategy.m in Sources */,
 				023B94A51700A5BC00C57B17 /* MUBOCompoundModel.m in Sources */,
 				023B94A61700A5BC00C57B17 /* MUCompoundCell.m in Sources */,
+				023B94D71701BD3700C57B17 /* MUModalView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

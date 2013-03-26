@@ -16,6 +16,9 @@
 {
     NSMutableArray* subCells;
     NSMutableArray* verticalSeparatorLines;
+    
+    // for dequeue cells
+    NSMutableDictionary *reusableCells;
 }
 
 - (UIView*)verticalSeparatorLineAtIndex:(NSUInteger)index;

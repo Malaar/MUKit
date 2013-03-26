@@ -10,7 +10,18 @@
 #import "MUTableDisposerModeled.h"
 #import "BlocksKit.h"
 
+static NSMutableDictionary *globalReusableCells;
+
 @implementation MUCompoundCell
+
++ (void)initialize
+{
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^
+    {
+      globalReusableCells = [NSMutableDictionary dictionary];
+    });
+}
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -26,6 +37,8 @@
 - (void)setupCellData:(MUCompoundCellData*)aCellData
 {
     [super setupCellData:aCellData];
+
+    reusableCells = globalReusableCells;
     
     subCells = [NSMutableArray array];
     
@@ -35,24 +48,24 @@
     CGRect verticalSeparatorFrame = CGRectMake(x, 0, 1, self.bounds.size.height);
     MUCell* cell;
     NSUInteger index = 0;
+    
     for(MUCellDataModeled* cellData in aCellData.cellDatas)
     {
         // subcells
-        cell = [cellData createCell];
-        [cell setupCellData:cellData];
+        
+        BOOL isNewCell = NO;
+        cell = [self createSubCellWithCellData:cellData isNewCell:&isNewCell];
         [subCells addObject:cell];
         
         cell.frame = CGRectMake(x, aCellData.itemSpacing, width, cellData.cellHeight);
         [self.contentView addSubview:cell];
         x += width;
-        
-        if(aCellData.tableDisposer.delegate &&
-           [aCellData.tableDisposer.delegate respondsToSelector:@selector(tableDisposer:didCreateCell:)]
-           )
+
+        if(isNewCell && aCellData.tableDisposer.delegate && [aCellData.tableDisposer.delegate respondsToSelector:@selector(tableDisposer:didCreateCell:)])
         {
             [aCellData.tableDisposer.delegate tableDisposer:aCellData.tableDisposer didCreateCell:cell];
         }
-        
+
         // separators
         UIView* verticalSeparatorLine = [self verticalSeparatorLineAtIndex:index];
         if(verticalSeparatorLine)
@@ -61,12 +74,30 @@
             [self.contentView addSubview:verticalSeparatorLine];
         }
         
-        ++index;
-
+        index++;
     }
 
     for(UIView* separatorLine in verticalSeparatorLines)
         [self.contentView bringSubviewToFront:separatorLine];
+}
+
+- (MUCell *)createSubCellWithCellData:(MUCellDataModeled *)cellData isNewCell:(BOOL *)isNewCell
+{
+    MUCell* cell = nil;
+    *isNewCell = NO;
+    
+    MUTableDisposerModeled *tableDisposer = [(MUCompoundCellData *)self.cellData tableDisposer];
+    NSString *identifier = cellData.cellIdentifier;
+    cell = [self dequeueReusableCellWithIdentifier:identifier];
+    
+    if (!cell)
+    {
+        *isNewCell = YES;
+        cell = [cellData createCell];
+    }
+    
+    [cell setupCellData:cellData];
+    return cell;
 }
 
 - (void)layoutSubviews
@@ -83,13 +114,49 @@
     }
 }
 
+#pragma mark - Reusing subcells
+
+- (MUCell *)dequeueReusableCellWithIdentifier:(NSString *)identifier
+{
+    if (!identifier) return nil;
+    
+    NSMutableSet *reusableCellsForIdentifier = [reusableCells objectForKey:identifier];
+    
+    if ([reusableCellsForIdentifier count] == 0)
+        return nil;
+    
+    MUCell *reusableCell = [reusableCellsForIdentifier anyObject];
+    [reusableCellsForIdentifier removeObject:reusableCell];
+    [reusableCell prepareForReuse];
+    
+    return reusableCell;
+}
+
+- (void)enqueueCell:(MUCell *)cell withIdentifier:(NSString *)identifier
+{
+    [[self reusableCellSetForIdentifier:identifier] addObject:cell];
+}
+
+- (NSMutableSet *)reusableCellSetForIdentifier:(NSString *)identifier
+{
+    NSMutableSet *set = [reusableCells objectForKey:identifier];
+    if (!set)
+    {
+        set = [NSMutableSet set];
+        [reusableCells setObject:set forKey:identifier];
+    }
+    return set;
+}
+
+#pragma mark - 
+
 - (void)prepareForReuse
 {
     [super prepareForReuse];
-    
-    for(MUCell* cell in subCells)
+    for (MUCell* cell in subCells)
     {
         [cell removeFromSuperview];
+        [self enqueueCell:cell withIdentifier:cell.cellData.cellIdentifier];
     }
 }
 
@@ -97,9 +164,11 @@
 
 - (UIView*)hitTest:(CGPoint)point withEvent:(UIEvent *)event
 {
-    UIView* hitTestedView = [super hitTest:point withEvent:event];
-    
-    for(UITableViewCell* subCell in subCells)
+    UIView *hitTestedView = [super hitTest:point withEvent:event];
+    if (!hitTestedView || [hitTestedView isKindOfClass:[UIControl class]])
+        return hitTestedView;
+        
+    for (UITableViewCell* subCell in subCells)
     {
         if(subCell == hitTestedView || subCell.contentView == hitTestedView)
         {

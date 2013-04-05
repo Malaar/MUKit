@@ -74,6 +74,8 @@
 		02EFC342155C1D7C00E2639C /* MUKeyboardAvoidingTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02EFC33B155C1D7C00E2639C /* MUKeyboardAvoidingTableController.m */; };
 		02EFC343155C1D7C00E2639C /* MUKeyboardAvoidingTableController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02EFC33C155C1D7C00E2639C /* MUKeyboardAvoidingTableController.xib */; };
 		02EFC344155C1D7C00E2639C /* TableViewWithMapedCells.m in Sources */ = {isa = PBXBuildFile; fileRef = 02EFC33F155C1D7C00E2639C /* TableViewWithMapedCells.m */; };
+		02F24EA3170EE14D00B0F1E4 /* MUPaging.m in Sources */ = {isa = PBXBuildFile; fileRef = 02F24EA0170EE14D00B0F1E4 /* MUPaging.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		02F24EA4170EE14D00B0F1E4 /* MUPagingConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 02F24EA2170EE14D00B0F1E4 /* MUPagingConfig.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		E62CDA57152AF88300DACE8F /* warning_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = E62CDA55152AF88300DACE8F /* warning_icon.png */; };
 		E62CDA58152AF88300DACE8F /* warning_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E62CDA56152AF88300DACE8F /* warning_icon@2x.png */; };
 		E6337FDC153C6BE500EFBD6F /* MUKeyboardToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = E6337FDB153C6BE500EFBD6F /* MUKeyboardToolbar.m */; };
@@ -263,6 +265,10 @@
 		02EFC33C155C1D7C00E2639C /* MUKeyboardAvoidingTableController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MUKeyboardAvoidingTableController.xib; sourceTree = "<group>"; };
 		02EFC33E155C1D7C00E2639C /* TableViewWithMapedCells.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewWithMapedCells.h; sourceTree = "<group>"; };
 		02EFC33F155C1D7C00E2639C /* TableViewWithMapedCells.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewWithMapedCells.m; sourceTree = "<group>"; };
+		02F24E9F170EE14D00B0F1E4 /* MUPaging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUPaging.h; sourceTree = "<group>"; };
+		02F24EA0170EE14D00B0F1E4 /* MUPaging.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUPaging.m; sourceTree = "<group>"; };
+		02F24EA1170EE14D00B0F1E4 /* MUPagingConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUPagingConfig.h; sourceTree = "<group>"; };
+		02F24EA2170EE14D00B0F1E4 /* MUPagingConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUPagingConfig.m; sourceTree = "<group>"; };
 		99521E5F94A64C81B0626F2D /* Pods.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 		DB4464FCC8654B77A686DF9C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		E62CDA55152AF88300DACE8F /* warning_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = warning_icon.png; sourceTree = "<group>"; };
@@ -715,6 +721,17 @@
 			path = TableViewWithMapedCells;
 			sourceTree = "<group>";
 		};
+		02F24E9E170EE14D00B0F1E4 /* MUPaging */ = {
+			isa = PBXGroup;
+			children = (
+				02F24E9F170EE14D00B0F1E4 /* MUPaging.h */,
+				02F24EA0170EE14D00B0F1E4 /* MUPaging.m */,
+				02F24EA1170EE14D00B0F1E4 /* MUPagingConfig.h */,
+				02F24EA2170EE14D00B0F1E4 /* MUPagingConfig.m */,
+			);
+			path = MUPaging;
+			sourceTree = "<group>";
+		};
 		E62CDA53152AF88300DACE8F /* Resourse */ = {
 			isa = PBXGroup;
 			children = (
@@ -830,6 +847,7 @@
 		E656293B152308DC00CEC66C /* MUKit */ = {
 			isa = PBXGroup;
 			children = (
+				02F24E9E170EE14D00B0F1E4 /* MUPaging */,
 				02A20965152D07030010733B /* MUKit.h */,
 				027F8E5F15FB888F00201DD4 /* MUStrategy */,
 				0263608515F3BFCE00B655A1 /* MUCoreData */,
@@ -1166,6 +1184,8 @@
 				023B94A51700A5BC00C57B17 /* MUBOCompoundModel.m in Sources */,
 				023B94A61700A5BC00C57B17 /* MUCompoundCell.m in Sources */,
 				023B94D71701BD3700C57B17 /* MUModalView.m in Sources */,
+				02F24EA3170EE14D00B0F1E4 /* MUPaging.m in Sources */,
+				02F24EA4170EE14D00B0F1E4 /* MUPagingConfig.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

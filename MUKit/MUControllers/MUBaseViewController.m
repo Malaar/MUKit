@@ -198,7 +198,7 @@
 
 #pragma mark - Backgraung Image
 //==============================================================================
-- (UIImage*) backgraundImage
+- (UIImage*) backgroundImage
 {
     // default nil
     return nil;

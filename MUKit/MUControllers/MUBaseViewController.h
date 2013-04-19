@@ -30,7 +30,7 @@
 
 - (void) leftNavButtonPressed:(id)aSender;      ///< action to process pressed-on-left-button event
 - (void) rightNavButtonPressed:(id)aSender;     ///< action to process pressed-on-right-button event
-- (UIImage*) backgraundImage;
+- (UIImage*) backgroundImage;
 
 - (void) showAlertViewWithTitle:(NSString*)aTitle message:(NSString*)aMessage;
 

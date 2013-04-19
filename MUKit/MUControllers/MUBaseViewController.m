@@ -33,7 +33,7 @@
     spinneredView = [[MUSpinneredView alloc] initWithParentView:self.view color:[UIColor colorWithRed:28.0f/255.0f green:28.0f/255.0f blue:28.0f/255.0f alpha:128.0f/255.0f]];
 
     // bg image
-    UIImage* bgImage = [self backgraundImage];
+    UIImage* bgImage = [self backgroundImage];
     if (bgImage)
     {
         CGRect frame = self.view.bounds;

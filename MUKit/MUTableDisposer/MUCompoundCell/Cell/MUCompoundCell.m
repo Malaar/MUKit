@@ -86,7 +86,6 @@ static NSMutableDictionary *globalReusableCells;
     MUCell* cell = nil;
     *isNewCell = NO;
     
-    MUTableDisposerModeled *tableDisposer = [(MUCompoundCellData *)self.cellData tableDisposer];
     NSString *identifier = cellData.cellIdentifier;
     cell = [self dequeueReusableCellWithIdentifier:identifier];
     

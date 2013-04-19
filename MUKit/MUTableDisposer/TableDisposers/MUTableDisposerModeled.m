@@ -33,7 +33,7 @@
 //==============================================================================
 - (void) registerCellData:(Class)aCellDataClass forModel:(Class)aModelClass
 {
-    [registeredClasses setObject:aCellDataClass forKey:aModelClass];
+    [registeredClasses setObject:NSStringFromClass(aCellDataClass) forKey:NSStringFromClass(aModelClass)];
 }
 
 //==============================================================================
@@ -67,7 +67,9 @@
 
 - (MUCellDataModeled*)cellDataFromModel:(id)aModel
 {
-    Class cellDataClass = [registeredClasses objectForKey:[aModel class]];
+    NSString* modelClassName = NSStringFromClass([aModel class]);
+    NSString* cellDataClassName = [registeredClasses objectForKey:modelClassName];
+    Class cellDataClass = NSClassFromString(cellDataClassName);
     
     if(!cellDataClass && modeledDelegate && [modeledDelegate respondsToSelector:@selector(tableDisposer:cellDataClassForUnregisteredModel:)])
     {

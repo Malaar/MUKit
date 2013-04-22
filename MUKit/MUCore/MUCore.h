@@ -22,7 +22,7 @@
 #import "MUValidationGroup.h"
 // Formatters
 #import "MUCreditCardNumberFormatter.h"
-#import "MUPhoneNumberFormatter.h"
+#import "MUFormatterPhoneNumber.h"
 
 
 #endif

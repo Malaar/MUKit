@@ -12,7 +12,7 @@
 #import "MUValidationGroup.h"
 #import "MUKeyboardAvoidingTableView.h"
 #import "MUCreditCardNumberFormatter.h"
-#import "MUPhoneNumberFormatter.h"
+#import "MUFormatterPhoneNumber.h"
 
 #define tag_card_number_text_field  100
 #define tag_phone_number_text_field 101
@@ -47,7 +47,7 @@
     {
         self.title = @"TableView";
         creditCardNumberFormatter = [MUCreditCardNumberFormatter new];
-        phoneNumberFormatter = [MUPhoneNumberFormatter new];
+        phoneNumberFormatter = [MUFormatterPhoneNumber new];
     }
     return self;
 }

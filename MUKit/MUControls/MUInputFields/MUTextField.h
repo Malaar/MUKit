@@ -9,13 +9,15 @@
 #import <Foundation/Foundation.h>
 #import "MUValidator.h"
 #import "MUFilter.h"
+#import "MUFormatter.h"
 #import "MUKeyboardAvoiderProtocol.h"
 
 @class MUTextField_Holder;
 
-@interface MUTextField : UITextField <MUValidationProtocol, UITextFieldDelegate, MUKeyboardAvoiderProtocol>
+@interface MUTextField : UITextField <MUValidationProtocol, MUFormatterProtocol, UITextFieldDelegate, MUKeyboardAvoiderProtocol>
 {
     MUValidator* validator;
+    MUFormatter* formatter;
     MUTextField_Holder* delegateHolder;
 }
 

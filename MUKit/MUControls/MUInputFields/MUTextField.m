@@ -126,6 +126,20 @@
     return (validator) ? ([validator validate]) : (YES);
 }
 
+#pragma mark - MUFormatterProtocol
+//==========================================================================================
+- (void)setFormatter:(MUFormatter *)aFormatter
+{
+    formatter = aFormatter;
+    formatter.formattableObject = self;
+}
+
+//==========================================================================================
+- (MUFormatter*)formatter
+{
+    return formatter;
+}
+
 #pragma mark - UITextFieldDelegate
 //==========================================================================================
 - (void) setDelegate:(id<UITextFieldDelegate>)aDelegate
@@ -192,6 +206,9 @@
     BOOL result = YES;
     if (textField.filter)
         result = [textField.filter filterText:textField shouldChangeCharactersInRange:range replacementString:string];
+    
+    if(result && textField.formatter)
+        result = [textField.formatter formatWithNewCharactersInRange:range replacementString:string];
     
     if([holded.mudelegate respondsToSelector:@selector(textField:shouldChangeCharactersInRange:replacementString:)])
         result = [holded.mudelegate textField:textField shouldChangeCharactersInRange:range replacementString:string];

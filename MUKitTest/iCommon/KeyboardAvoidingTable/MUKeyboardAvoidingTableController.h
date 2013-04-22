@@ -12,14 +12,14 @@
 @class MUValidationGroup;
 @class MUKeyboardAvoidingTableView;
 @class MUCreditCardNumberFormatter;
-@class MUPhoneNumberFormatter;
+@class MUFormatterPhoneNumber;
 
 @interface MUKeyboardAvoidingTableController : MUBaseTableController
 {
     MUValidationGroup *validationGroup;
     NSMutableArray *tableViewCells;
     
-    MUPhoneNumberFormatter *phoneNumberFormatter;
+    MUFormatterPhoneNumber *phoneNumberFormatter;
     MUCreditCardNumberFormatter *creditCardNumberFormatter;
 }
 

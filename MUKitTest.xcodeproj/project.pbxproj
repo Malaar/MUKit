@@ -23,6 +23,7 @@
 		0208F28B1529CBF5003382F9 /* MUCellSwitch.m in Sources */ = {isa = PBXBuildFile; fileRef = 0208F2791529CBF5003382F9 /* MUCellSwitch.m */; };
 		0208F28C1529CBF5003382F9 /* MUCellTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 0208F27B1529CBF5003382F9 /* MUCellTextField.m */; };
 		0208F28D1529CBF5003382F9 /* MUCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0208F27D1529CBF5003382F9 /* MUCell.m */; };
+		0210372E172592F700153FF5 /* MUFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0210372D172592F700153FF5 /* MUFormatter.m */; };
 		023B94A51700A5BC00C57B17 /* MUBOCompoundModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 023B94A11700A5BC00C57B17 /* MUBOCompoundModel.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		023B94A61700A5BC00C57B17 /* MUCompoundCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 023B94A41700A5BC00C57B17 /* MUCompoundCell.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		023B94A91700A88B00C57B17 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 023B94A81700A88B00C57B17 /* Podfile */; };
@@ -94,7 +95,7 @@
 		E6562A0D152308DD00CEC66C /* MUCreditCardNumberFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = E656299F152308DC00CEC66C /* MUCreditCardNumberFormatter.m */; };
 		E6562A0E152308DD00CEC66C /* MUHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = E65629A2152308DC00CEC66C /* MUHelper.m */; };
 		E6562A0F152308DD00CEC66C /* MUPair.m in Sources */ = {isa = PBXBuildFile; fileRef = E65629A5152308DC00CEC66C /* MUPair.m */; };
-		E6562A10152308DD00CEC66C /* MUPhoneNumberFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = E65629A7152308DC00CEC66C /* MUPhoneNumberFormatter.m */; };
+		E6562A10152308DD00CEC66C /* MUFormatterPhoneNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = E65629A7152308DC00CEC66C /* MUFormatterPhoneNumber.m */; };
 		E6562A11152308DD00CEC66C /* MUTargetAction.m in Sources */ = {isa = PBXBuildFile; fileRef = E65629A9152308DC00CEC66C /* MUTargetAction.m */; };
 		E6562A12152308DD00CEC66C /* MUTitledID.m in Sources */ = {isa = PBXBuildFile; fileRef = E65629AB152308DC00CEC66C /* MUTitledID.m */; };
 		E6562A13152308DD00CEC66C /* MUValidationGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = E65629AD152308DC00CEC66C /* MUValidationGroup.m */; };
@@ -157,6 +158,8 @@
 		0208F27B1529CBF5003382F9 /* MUCellTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUCellTextField.m; sourceTree = "<group>"; };
 		0208F27C1529CBF5003382F9 /* MUCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUCell.h; sourceTree = "<group>"; };
 		0208F27D1529CBF5003382F9 /* MUCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUCell.m; sourceTree = "<group>"; };
+		0210372C172592F700153FF5 /* MUFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUFormatter.h; sourceTree = "<group>"; };
+		0210372D172592F700153FF5 /* MUFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUFormatter.m; sourceTree = "<group>"; };
 		023B94A01700A5BC00C57B17 /* MUBOCompoundModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUBOCompoundModel.h; sourceTree = "<group>"; };
 		023B94A11700A5BC00C57B17 /* MUBOCompoundModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUBOCompoundModel.m; sourceTree = "<group>"; };
 		023B94A31700A5BC00C57B17 /* MUCompoundCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUCompoundCell.h; sourceTree = "<group>"; };
@@ -303,8 +306,8 @@
 		E65629A3152308DC00CEC66C /* MUKitDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUKitDefines.h; sourceTree = "<group>"; };
 		E65629A4152308DC00CEC66C /* MUPair.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUPair.h; sourceTree = "<group>"; };
 		E65629A5152308DC00CEC66C /* MUPair.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUPair.m; sourceTree = "<group>"; };
-		E65629A6152308DC00CEC66C /* MUPhoneNumberFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUPhoneNumberFormatter.h; sourceTree = "<group>"; };
-		E65629A7152308DC00CEC66C /* MUPhoneNumberFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUPhoneNumberFormatter.m; sourceTree = "<group>"; };
+		E65629A6152308DC00CEC66C /* MUFormatterPhoneNumber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUFormatterPhoneNumber.h; sourceTree = "<group>"; };
+		E65629A7152308DC00CEC66C /* MUFormatterPhoneNumber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUFormatterPhoneNumber.m; sourceTree = "<group>"; };
 		E65629A8152308DC00CEC66C /* MUTargetAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUTargetAction.h; sourceTree = "<group>"; };
 		E65629A9152308DC00CEC66C /* MUTargetAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUTargetAction.m; sourceTree = "<group>"; };
 		E65629AA152308DC00CEC66C /* MUTitledID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUTitledID.h; sourceTree = "<group>"; };
@@ -876,8 +879,8 @@
 				E65629A3152308DC00CEC66C /* MUKitDefines.h */,
 				E65629A4152308DC00CEC66C /* MUPair.h */,
 				E65629A5152308DC00CEC66C /* MUPair.m */,
-				E65629A6152308DC00CEC66C /* MUPhoneNumberFormatter.h */,
-				E65629A7152308DC00CEC66C /* MUPhoneNumberFormatter.m */,
+				E65629A6152308DC00CEC66C /* MUFormatterPhoneNumber.h */,
+				E65629A7152308DC00CEC66C /* MUFormatterPhoneNumber.m */,
 				E65629A8152308DC00CEC66C /* MUTargetAction.h */,
 				E65629A9152308DC00CEC66C /* MUTargetAction.m */,
 				E65629AA152308DC00CEC66C /* MUTitledID.h */,
@@ -890,6 +893,8 @@
 				E65629B1152308DC00CEC66C /* MUWeakRef.m */,
 				E64D69C7153E82B200FF5C58 /* MUFilter.h */,
 				E64D69C8153E82B200FF5C58 /* MUFilter.m */,
+				0210372C172592F700153FF5 /* MUFormatter.h */,
+				0210372D172592F700153FF5 /* MUFormatter.m */,
 			);
 			path = MUCore;
 			sourceTree = "<group>";
@@ -1095,7 +1100,7 @@
 				E6562A0D152308DD00CEC66C /* MUCreditCardNumberFormatter.m in Sources */,
 				E6562A0E152308DD00CEC66C /* MUHelper.m in Sources */,
 				E6562A0F152308DD00CEC66C /* MUPair.m in Sources */,
-				E6562A10152308DD00CEC66C /* MUPhoneNumberFormatter.m in Sources */,
+				E6562A10152308DD00CEC66C /* MUFormatterPhoneNumber.m in Sources */,
 				E6562A11152308DD00CEC66C /* MUTargetAction.m in Sources */,
 				E6562A12152308DD00CEC66C /* MUTitledID.m in Sources */,
 				E6562A13152308DD00CEC66C /* MUValidationGroup.m in Sources */,
@@ -1186,6 +1191,7 @@
 				023B94D71701BD3700C57B17 /* MUModalView.m in Sources */,
 				02F24EA3170EE14D00B0F1E4 /* MUPaging.m in Sources */,
 				02F24EA4170EE14D00B0F1E4 /* MUPagingConfig.m in Sources */,
+				0210372E172592F700153FF5 /* MUFormatter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

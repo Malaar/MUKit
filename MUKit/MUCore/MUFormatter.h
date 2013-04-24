@@ -24,4 +24,6 @@
 
 - (BOOL)formatWithNewCharactersInRange:(NSRange)aRange replacementString:(NSString*)aString;
 
+- (NSString*)rawText;
+
 @end

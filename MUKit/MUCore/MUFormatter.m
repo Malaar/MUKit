@@ -15,4 +15,9 @@
     return YES;
 }
 
+- (NSString*)rawText
+{
+    return nil;
+}
+
 @end

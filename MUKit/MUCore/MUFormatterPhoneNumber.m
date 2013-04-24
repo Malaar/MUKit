@@ -7,6 +7,7 @@
 //
 
 #import "MUFormatterPhoneNumber.h"
+#import "MUTextField.h"
 
 @interface MUFormatterPhoneNumber ()
 
@@ -177,6 +178,13 @@
     if(c >= '0' && c <= '9') 
         return YES;    
     return NO;    
+}
+
+//==============================================================================
+- (NSString*)rawText
+{
+    MUTextField* textField = (MUTextField*)self.formattableObject;
+    return [self strip:textField.text];
 }
 
 @end

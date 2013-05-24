@@ -130,8 +130,12 @@
 //==========================================================================================
 - (void)setFormatter:(MUFormatter *)aFormatter
 {
-    formatter = aFormatter;
-    formatter.formattableObject = self;
+    if(formatter != aFormatter)
+    {
+        [formatter release];
+        formatter = [aFormatter retain];
+        formatter.formattableObject = self;
+    }
 }
 
 //==========================================================================================
@@ -207,8 +211,8 @@
     if (textField.filter)
         result = [textField.filter filterText:textField shouldChangeCharactersInRange:range replacementString:string];
     
-    if(result && textField.formatter)
-        result = [textField.formatter formatWithNewCharactersInRange:range replacementString:string];
+    if(result && [textField formatter])
+        result = [[textField formatter] formatWithNewCharactersInRange:range replacementString:string];
     
     if([holded.mudelegate respondsToSelector:@selector(textField:shouldChangeCharactersInRange:replacementString:)])
         result = [holded.mudelegate textField:textField shouldChangeCharactersInRange:range replacementString:string];

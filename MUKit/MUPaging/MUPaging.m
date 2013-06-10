@@ -14,7 +14,7 @@
 @property (nonatomic) MUGatewayTask* gatewayTask;
 @property (nonatomic, strong) MUCell<MUPagingMoreCellProtocol>* moreCell;
 
-- (void)loadMoreDataPressed:(id*)aSender;
+- (void)loadMoreDataPressed:(id)aSender;
 
 @end
 
@@ -228,11 +228,6 @@
 {
     if(aTableDisposer != tableDisposer)
         return;
-    
-    if([aCell.cellData conformsToProtocol:@protocol(MUPagingMoreCellDataProtocol)])
-    {
-        moreCell = (MUCell<MUPagingMoreCellProtocol>*)aCell;
-    }
 }
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath;
@@ -240,18 +235,17 @@
     if(tableDisposer.tableView != tableView)
         return;
     
-    if(pagingConfig.loadMoreDataType == MULoadMoreDataTypeAuto)
+    if([cell conformsToProtocol:@protocol(MUPagingMoreCellProtocol)])
     {
-        if(cell == moreCell)
-        {
+        moreCell = (MUCell<MUPagingMoreCellProtocol>*)cell;
+        if(pagingConfig.loadMoreDataType == MULoadMoreDataTypeAuto)
             [self loadMoreData];
-        }
     }
 }
 
 #pragma mark - Actions
 
-- (void)loadMoreDataPressed:(id*)aSender
+- (void)loadMoreDataPressed:(id)aSender
 {
     [self loadMoreData];
 }

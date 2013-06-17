@@ -37,40 +37,48 @@
 @implementation MUFormatterPhoneNumber
 
 //==============================================================================
-- (id)init 
+- (id)init
 {
     self = [super init];
     if (self)
     {
-        NSArray *usPhoneFormats = [NSArray arrayWithObjects:                               
-                                   @"+1 (###) ###-####",                               
-                                   @"1 (###) ###-####",                               
-                                   @"011 $",                               
-                                   @"###-####",                               
-                                   @"(###) ###-####", nil];    
+        NSArray *usPhoneFormats = [NSArray arrayWithObjects:
+                                   @"+1 (###) ###-####",
+                                   @"1 (###) ###-####",
+                                   @"011 $",
+                                   @"###-####",
+                                   @"(###) ###-####", nil];
         
-        NSArray *ukPhoneFormats = [NSArray arrayWithObjects:                               
-                                   @"+44 ##########",                               
-                                   @"00 $",                               
-                                   @"0### - ### ####",                               
-                                   @"0## - #### ####",                               
-                                   @"0#### - ######", nil];    
-        
-        
-        NSArray *jpPhoneFormats = [NSArray arrayWithObjects:                               
-                                   @"+81 ############",                               
-                                   @"001 $",                               
-                                   @"(0#) #######",                               
-                                   @"(0#) #### ####", nil];    
+        NSArray *ukPhoneFormats = [NSArray arrayWithObjects:
+                                   @"+44 ##########",
+                                   @"00 $",
+                                   @"0### - ### ####",
+                                   @"0## - #### ####",
+                                   @"0#### - ######", nil];
         
         
-        predefinedFormats = [[NSDictionary alloc] initWithObjectsAndKeys:                         
-                             usPhoneFormats, @"us",                         
-                             ukPhoneFormats, @"uk",                         
-                             jpPhoneFormats, @"jp",                         
+        NSArray *jpPhoneFormats = [NSArray arrayWithObjects:
+                                   @"+81 ############",
+                                   @"001 $",
+                                   @"(0#) #######",
+                                   @"(0#) #### ####", nil];
+        
+        NSArray *ruPhoneFormats = [NSArray arrayWithObjects:
+                                   @"+7 (###) ###-####",
+                                   @"7 (###) ###-####",
+                                   @"(###) ###-####",
+                                   @"(#####) ##-###",
+                                   @"8-###-###-####",
+                                   @"8 (###) ###-####", nil];
+        
+        predefinedFormats = [[NSDictionary alloc] initWithObjectsAndKeys:
+                             usPhoneFormats, @"us",
+                             ukPhoneFormats, @"uk",
+                             jpPhoneFormats, @"jp",
+                             ruPhoneFormats, @"ru",
                              nil];
     }
-    return self;    
+    return self;
 }
 
 //==============================================================================
@@ -82,8 +90,8 @@
 
 //==============================================================================
 - (BOOL)phoneFormatForTextField:(UITextField *)textField
-  shouldChangeCharactersInRange:(NSRange)range 
-              replacementString:(NSString *)string 
+  shouldChangeCharactersInRange:(NSRange)range
+              replacementString:(NSString *)string
                      withLocale:(NSString *)locale
 {
     BOOL result = YES;
@@ -104,12 +112,12 @@
 }
 
 //==============================================================================
-- (NSString *)format:(NSString *)phoneNumber withLocale:(NSString *)locale 
-{    
-    NSArray *localeFormats = [predefinedFormats objectForKey:locale];    
+- (NSString *)format:(NSString *)phoneNumber withLocale:(NSString *)locale
+{
+    NSArray *localeFormats = [predefinedFormats objectForKey:locale];
     if(localeFormats == nil)
-        return phoneNumber;    
-    NSString *input = [self strip:phoneNumber];    
+        return phoneNumber;
+    NSString *input = [self strip:phoneNumber];
     for(NSString *phoneFormat in localeFormats) {
         
         int i = 0;
@@ -118,66 +126,66 @@
         
         for(int p = 0; temp != nil && i < [input length] && p < [phoneFormat length]; p++) {
             
-            char c = [phoneFormat characterAtIndex:p];            
-            BOOL required = [self canBeInputByPhonePad:c];            
+            char c = [phoneFormat characterAtIndex:p];
+            BOOL required = [self canBeInputByPhonePad:c];
             char next = [input characterAtIndex:i];
             
-            switch(c) {                    
-                case '$':                    
-                    p--;                    
-                    [temp appendFormat:@"%c", next]; i++;                    
-                    break;                    
-                case '#':                    
-                    if(next < '0' || next > '9') {                        
-                        temp = nil;                        
-                        break;                        
-                    }                    
-                    [temp appendFormat:@"%c", next]; i++;                    
-                    break;                    
-                default:                    
-                    if(required) {                        
-                        if(next != c) {                            
-                            temp = nil;                            
-                            break;                            
-                        }                        
+            switch(c) {
+                case '$':
+                    p--;
+                    [temp appendFormat:@"%c", next]; i++;
+                    break;
+                case '#':
+                    if(next < '0' || next > '9') {
+                        temp = nil;
+                        break;
+                    }
+                    [temp appendFormat:@"%c", next]; i++;
+                    break;
+                default:
+                    if(required) {
+                        if(next != c) {
+                            temp = nil;
+                            break;
+                        }
                         [temp appendFormat:@"%c", next]; i++;
                         
-                    } else {                        
-                        [temp appendFormat:@"%c", c];                        
-                        if(next == c) i++;                        
-                    }                    
-                    break;                    
-            }            
-        }        
-        if(i == [input length]) {            
-            return temp;            
-        }        
-    }    
-    return input;    
+                    } else {
+                        [temp appendFormat:@"%c", c];
+                        if(next == c) i++;
+                    }
+                    break;
+            }
+        }
+        if(i == [input length]) {
+            return temp;
+        }
+    }
+    return input;
 }
 
 //==============================================================================
-- (NSString *)strip:(NSString *)phoneNumber 
+- (NSString *)strip:(NSString *)phoneNumber
 {
     
     NSMutableString *res = [[[NSMutableString alloc] init] autorelease];
     
-    for(int i = 0; i < [phoneNumber length]; i++) {        
-        char next = [phoneNumber characterAtIndex:i];        
-        if([self canBeInputByPhonePad:next])            
-            [res appendFormat:@"%c", next];        
-    }    
-    return res;    
+    for(int i = 0; i < [phoneNumber length]; i++) {
+        char next = [phoneNumber characterAtIndex:i];
+        if([self canBeInputByPhonePad:next])
+            [res appendFormat:@"%c", next];
+    }
+    return res;
 }
 
 //==============================================================================
-- (BOOL)canBeInputByPhonePad:(char)c 
-{    
-    if(c == '+' || c == '*' || c == '#') 
-        return YES;    
-    if(c >= '0' && c <= '9') 
-        return YES;    
-    return NO;    
+- (BOOL)canBeInputByPhonePad:(char)c
+{
+    if(c == '+' || c == '*' || c == '#')
+        return YES;
+    if(c >= '0' && c <= '9')
+        return YES;
+    return NO;
 }
 
 //==============================================================================

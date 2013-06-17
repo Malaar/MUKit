@@ -8,10 +8,9 @@
 
 #import "MUFormatter.h"
 
-
 @interface MUFormatterPhoneNumber : MUFormatter
 {
-    NSDictionary *predefinedFormats;    
+    NSDictionary *predefinedFormats; // available formats @"us", @"uk", @"jp, @"ru"
 }
 
 @property (nonatomic, retain) NSString* locale;

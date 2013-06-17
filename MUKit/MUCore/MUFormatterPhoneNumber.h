@@ -10,8 +10,11 @@
 
 @interface MUFormatterPhoneNumber : MUFormatter
 {
-    NSDictionary *predefinedFormats; // available formats @"us", @"uk", @"jp, @"ru"
-    
+    /**
+     * available formats @"us", @"uk", @"jp, @"ru"
+     **/
+    NSDictionary *predefinedFormats;
+
     NSCharacterSet *acceptableInputCharacters;
 }
 

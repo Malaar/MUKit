@@ -8,12 +8,20 @@
 
 #import "MUFormatter.h"
 
-
 @interface MUFormatterPhoneNumber : MUFormatter
 {
-    NSDictionary *predefinedFormats;    
+    NSDictionary *predefinedFormats; // available formats @"us", @"uk", @"jp, @"ru"
+    
+    NSCharacterSet *acceptableInputCharacters;
 }
 
 @property (nonatomic, retain) NSString* locale;
+
+/*
+ * if result string after formatting is not suitable for any format of current local then return just input string
+ * if value is NO then return prev formatted string before last input
+ * by default is NO
+ */
+@property (nonatomic, assign) BOOL acceptsNotPredefinedFormattedPhoneNumber;
 
 @end
